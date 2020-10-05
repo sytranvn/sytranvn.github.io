@@ -27,8 +27,11 @@ url: "https://sytranvn.github.io" # the base hostname & protocol for your site, 
 twitter_username: sytranvn
 github_username:  sytranvn
 
+heading: Hi. I'm SyTran
+subheading: I write code
+
 # Build settings
-theme: minima
+theme: jekyll-theme-yat
 plugins:
   - jekyll-feed
 
