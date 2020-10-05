@@ -22,7 +22,7 @@ title: V8 adventure
 email: sytranvn@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Learn from v8 source code
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/v8-adventure" # the subpath of your site, e.g. /blog
 url: "https://sytranvn.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: sytranvn
 github_username:  sytranvn
