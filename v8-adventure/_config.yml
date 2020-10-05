@@ -18,24 +18,20 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: SyTran.github.io
+title: V8 adventure
 email: sytranvn@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  I write code.
-baseurl: "/" # the subpath of your site, e.g. /blog
+  Learn from v8 source code
+baseurl: "/v8-adventure/" # the subpath of your site, e.g. /blog
 url: "https://sytranvn.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: sytranvn
 github_username:  sytranvn
 
 # Build settings
-theme: minima
+#theme: jekyll-theme-primer
 plugins:
   - jekyll-feed
 
-collections:
-  v8-adventure:
-    label: Study v8 source code
-    output: true
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
