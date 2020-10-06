@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+site=${1%/}
+post=$2
+if [[ -z $site || -z $post ]]; then
+  echo 'mkpost <site|.> <post>' 
+  exit 1
+fi
+
+test ! -d "$site/_posts" && mkdir -p "$site/_posts"
+
+cat <<EOF> "$site/_posts/$(date +'%Y-%m-%d-')$post.md"
+---
+layout: home
+---
+EOF
+
+echo "$site/_posts/$(date +'%Y-%m-%d-')$post.md post created."

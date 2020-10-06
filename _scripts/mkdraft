@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+site=${1%/}
+draft=$2
+if [[ -z $site || -z $draft ]]; then
+  echo 'mkdraft <site|.> <draft>'
+  exit 1
+fi
+
+test ! -d "$site/_drafts" && mkdir -p "$site/_drafts"
+
+cat <<EOF> "$site/_drafts/$(date +'%Y-%m-%d-')$draft.md"
+---
+layout: home
+---
+EOF
+
+echo "$site/_drafts/$(date +'%Y-%m-%d-')$draft.md draft created."
