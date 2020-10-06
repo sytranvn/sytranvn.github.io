@@ -31,7 +31,7 @@ heading: Hi. I'm SyTran
 subheading: I write code
 
 # Build settings
-theme: jekyll-theme-yat
+theme: jekyll-theme-architect
 plugins:
   - jekyll-feed
 
