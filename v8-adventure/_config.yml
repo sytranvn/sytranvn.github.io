@@ -28,7 +28,6 @@ twitter_username: sytranvn
 github_username:  sytranvn
 
 # Build settings
-theme: jekyll-theme-yat
 plugins:
   - jekyll-feed
 
