@@ -1,0 +1,1 @@
+.highlight[title]{position:relative}.highlight:after{content:attr(title);position:absolute;right:0;top:0;padding:0 5px;z-index:100;background:gray;line-height:1.25em;font-size:.7em}body.colorscheme-dark figure img{filter:invert(.862745)hue-rotate(180deg)}
