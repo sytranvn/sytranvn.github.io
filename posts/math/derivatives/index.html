@@ -1,28 +1,25 @@
 <!doctype html><html lang=en>
 <head>
 <title>
-V8 adventure · Sy Tran's blog
+Proof of some derivatives · Sy Tran's blog
 </title>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta name=color-scheme content="light dark">
 <meta name=author content="Sy Tran">
-<meta name=description content="Study the v8 source code from the beginning and more.
-Why V8 and why from the beginning?  Link to heading    I&rsquo;m working mostly as Javascript developer, but I&rsquo;m also interested in C++ source code. V8 is perfect land for me to explorer interesting C++ concepts and to understand Javascript better. Current code base of V8 is huge, I cannot jump right into it and learn everything. So I decide to go back in time to see V8 in its initial shape.">
+<meta name=description content="$$ \begin{aligned} f(x) &= tan x\\ \rArr f'(x) &= \lim_{h \to 0}\frac{f(x+h) - f(x)}{h}\\ &=\lim_{h \to 0}\frac{tan (x+h) - tan x}{h}\\ &=\lim_{h \to 0} \frac { \frac{sin (x+h)}{cos(x+h)} - \frac{sin x}{cos x}} {h}\\ &=\lim_{h \to 0} \frac { \frac{sin (x+h)cos x - sin x cos(x + h)}{cos(x+h) cos x}} {h}\\ &=\lim_{h \to 0} \frac { \frac{\overbrace{sin (x+h -x)}^{sin (a) cos (b) - sin (b) cos (a) = sin(a - b)}}{cos(x+h) cos x}} {h}\\ &=\lim_{h \to 0}{ \frac{sin h}{h.">
 <meta name=keywords content="blog,developer,personal">
 <meta name=twitter:card content="summary">
-<meta name=twitter:title content="V8 adventure">
-<meta name=twitter:description content="Study the v8 source code from the beginning and more.
-Why V8 and why from the beginning?  Link to heading    I&rsquo;m working mostly as Javascript developer, but I&rsquo;m also interested in C++ source code. V8 is perfect land for me to explorer interesting C++ concepts and to understand Javascript better. Current code base of V8 is huge, I cannot jump right into it and learn everything. So I decide to go back in time to see V8 in its initial shape.">
-<meta property="og:title" content="V8 adventure">
-<meta property="og:description" content="Study the v8 source code from the beginning and more.
-Why V8 and why from the beginning?  Link to heading    I&rsquo;m working mostly as Javascript developer, but I&rsquo;m also interested in C++ source code. V8 is perfect land for me to explorer interesting C++ concepts and to understand Javascript better. Current code base of V8 is huge, I cannot jump right into it and learn everything. So I decide to go back in time to see V8 in its initial shape.">
+<meta name=twitter:title content="Proof of some derivatives">
+<meta name=twitter:description content="$$ \begin{aligned} f(x) &= tan x\\ \rArr f'(x) &= \lim_{h \to 0}\frac{f(x+h) - f(x)}{h}\\ &=\lim_{h \to 0}\frac{tan (x+h) - tan x}{h}\\ &=\lim_{h \to 0} \frac { \frac{sin (x+h)}{cos(x+h)} - \frac{sin x}{cos x}} {h}\\ &=\lim_{h \to 0} \frac { \frac{sin (x+h)cos x - sin x cos(x + h)}{cos(x+h) cos x}} {h}\\ &=\lim_{h \to 0} \frac { \frac{\overbrace{sin (x+h -x)}^{sin (a) cos (b) - sin (b) cos (a) = sin(a - b)}}{cos(x+h) cos x}} {h}\\ &=\lim_{h \to 0}{ \frac{sin h}{h.">
+<meta property="og:title" content="Proof of some derivatives">
+<meta property="og:description" content="$$ \begin{aligned} f(x) &= tan x\\ \rArr f'(x) &= \lim_{h \to 0}\frac{f(x+h) - f(x)}{h}\\ &=\lim_{h \to 0}\frac{tan (x+h) - tan x}{h}\\ &=\lim_{h \to 0} \frac { \frac{sin (x+h)}{cos(x+h)} - \frac{sin x}{cos x}} {h}\\ &=\lim_{h \to 0} \frac { \frac{sin (x+h)cos x - sin x cos(x + h)}{cos(x+h) cos x}} {h}\\ &=\lim_{h \to 0} \frac { \frac{\overbrace{sin (x+h -x)}^{sin (a) cos (b) - sin (b) cos (a) = sin(a - b)}}{cos(x+h) cos x}} {h}\\ &=\lim_{h \to 0}{ \frac{sin h}{h.">
 <meta property="og:type" content="article">
-<meta property="og:url" content="http://sytranvn.dev/posts/v8-adventure/"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2020-10-01T00:00:00+00:00">
-<meta property="article:modified_time" content="2020-10-01T00:00:00+00:00">
-<meta property="og:see_also" content="http://sytranvn.dev/posts/debug-v8-part-2/"><meta property="og:see_also" content="http://sytranvn.dev/posts/debug-v8-part-1/"><meta property="og:see_also" content="http://sytranvn.dev/posts/token/"><meta property="og:see_also" content="http://sytranvn.dev/posts/build-v8-from-source-on-apple-m1/"><meta property="og:see_also" content="http://sytranvn.dev/posts/build-v8-from-source/">
-<link rel=canonical href=http://sytranvn.dev/posts/v8-adventure/>
+<meta property="og:url" content="http://sytranvn.dev/posts/math/derivatives/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2023-03-03T00:00:00+00:00">
+<meta property="article:modified_time" content="2023-03-03T00:00:00+00:00">
+<meta property="og:see_also" content="http://sytranvn.dev/posts/math/limits/">
+<link rel=canonical href=http://sytranvn.dev/posts/math/derivatives/>
 <link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin>
 <link rel=stylesheet href=/css/coder.min.c4d7e93a158eda5a65b3df343745d2092a0a1e2170feeec909b8a89443903c6a.css integrity="sha256-xNfpOhWO2lpls980N0XSCSoKHiFw/u7JCbiolEOQPGo=" crossorigin=anonymous media=screen>
 <link rel=stylesheet href=/css/coder-dark.min.78b5fe3864945faf5207fb8fe3ab2320d49c3365def0e88ac1df0ddadc54a03c.css integrity="sha256-eLX+OGSUX69SB/uP46sjINScM2Xe8OiKwd8N2txUoDw=" crossorigin=anonymous media=screen>
@@ -82,8 +79,8 @@ Sy Tran's blog
 <header>
 <div class=post-title>
 <h1 class=title>
-<a class=title-link href=http://sytranvn.dev/posts/v8-adventure/>
-V8 adventure
+<a class=title-link href=http://sytranvn.dev/posts/math/derivatives/>
+Proof of some derivatives
 </a>
 </h1>
 </div>
@@ -91,8 +88,8 @@ V8 adventure
 <div class=date>
 <span class=posted-on>
 <i class="fa fa-calendar" aria-hidden=true></i>
-<time datetime=2020-10-01T00:00:00Z>
-October 1, 2020
+<time datetime=2023-03-03T00:00:00Z>
+March 3, 2023
 </time>
 </span>
 <span class=reading-time>
@@ -100,55 +97,35 @@ October 1, 2020
 One-minute read
 </span>
 </div>
-<div class=categories>
-<i class="fa fa-folder" aria-hidden=true></i>
-<a href=/categories/v8/>v8</a></div>
+<div class=tags>
+<i class="fa fa-tag" aria-hidden=true></i>
+<span class=tag>
+<a href=/tags/derivatives/>derivatives</a>
+</span></div>
 </div>
 </header>
 <div>
-<p>Study the v8 source code from the beginning and more.</p>
-<h2 id=why-v8-and-why-from-the-beginning>
-Why V8 and why from the beginning?
-<a class=heading-link href=#why-v8-and-why-from-the-beginning>
-<i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span>
-</a>
-</h2>
-<ul>
-<li>I&rsquo;m working mostly as Javascript developer, but I&rsquo;m also interested in C++ source code.
-V8 is perfect land for me to explorer interesting C++ concepts and to understand Javascript better.</li>
-<li>Current code base of V8 is huge, I cannot jump right into it and learn everything.
-So I decide to go back in time to see V8 in its initial shape. Less toolings, hacks, optimizations&mldr; that I
-can not digest right now.</li>
-</ul>
-<h2 id=what-do-ive-known-before-start-studying-v8-and-you-should-too>
-What do I&rsquo;ve known before start studying V8 and you should too
-<a class=heading-link href=#what-do-ive-known-before-start-studying-v8-and-you-should-too>
-<i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span>
-</a>
-</h2>
-<ul>
-<li>C++, of course (my level is about basic to low intermediate)</li>
-<li>Algorithms and Data structure (important)</li>
-<li>I read a book about <a href=https://craftinginterpreters.com/>implementing scripting language</a></li>
-<li>Love reading people&rsquo;s code 💯</li>
-</ul>
-<h2 id=if-you-are-still-reading>
-If you are still reading
-<a class=heading-link href=#if-you-are-still-reading>
-<i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span>
-</a>
-</h2>
-<p>Good luck to us. I don&rsquo;t know where this will lead us to. I hope we can take some thing out of the ancient V8 that still valid in most recent versions.</p>
-<hr>
+<p>$$
+\begin{aligned}
+f(x) &= tan x\\
+\rArr f'(x) &= \lim_{h \to 0}\frac{f(x+h) - f(x)}{h}\\
+&=\lim_{h \to 0}\frac{tan (x+h) - tan x}{h}\\
+&=\lim_{h \to 0} \frac { \frac{sin (x+h)}{cos(x+h)} - \frac{sin x}{cos x}} {h}\\
+&=\lim_{h \to 0} \frac { \frac{sin (x+h)cos x - sin x cos(x + h)}{cos(x+h) cos x}} {h}\\
+&=\lim_{h \to 0} \frac { \frac{\overbrace{sin (x+h -x)}^{sin (a) cos (b) - sin (b) cos (a) = sin(a - b)}}{cos(x+h) cos x}} {h}\\
+&=\lim_{h \to 0}{ \frac{sin h}{h.cos(x+h) cos x}}\\
+&=\lim_{h \to 0}{ \frac{sin h}{h .cos(x+h) cos x}}\\
+&={\lim_{h \to 0}{ \frac{sin h}{h}}} . \lim_{h \to 0}{\frac{1}{cos(x+h) cos x}}\\
+&=1.\frac{1}{cos(x+0) . cos x}\\
+&= \frac{1}{cos^2{x}}
+\end{aligned}
+$$</p>
 </div>
 <footer>
 <section class=see-also>
-<h3 id=see-also-in-v8-adventure>
-See also in V8 adventure
-<a class=heading-link href=#see-also-in-v8-adventure>
+<h3 id=see-also-in-calculus>
+See also in calculus
+<a class=heading-link href=#see-also-in-calculus>
 <i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
 <span class=sr-only>Link to heading</span>
 </a>
@@ -156,19 +133,7 @@ See also in V8 adventure
 <nav>
 <ul>
 <li>
-<a href=/posts/debug-v8-part-2/>Debug V8 part 2</a>
-</li>
-<li>
-<a href=/posts/debug-v8-part-1/>Debug V8 part 1</a>
-</li>
-<li>
-<a href=/posts/token/>Token</a>
-</li>
-<li>
-<a href=/posts/build-v8-from-source-on-apple-m1/>Build v8 from source on Apple M1</a>
-</li>
-<li>
-<a href=/posts/build-v8-from-source/>Build v8 from source on Ubuntu 20.04</a>
+<a href=/posts/math/limits/>Limits</a>
 </li>
 </ul>
 </nav>
@@ -178,6 +143,9 @@ See also in V8 adventure
 </div>
 </footer>
 </article>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css integrity=sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:!0},{left:'$',right:'$',display:!1},{left:'\\(',right:'\\)',display:!1},{left:'\\[',right:'\\]',display:!0}]})"></script>
 </section>
 </div>
 <footer class=footer>
