@@ -2,4 +2,4 @@
 This is how it looks like. Predict Clear First, we build a simple model.</description></item><item><title>Hugo PDF</title><link>http://sytranvn.dev/projects/hugo-pdf/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://sytranvn.dev/projects/hugo-pdf/</guid><description>hugo-pdf Link to heading This shortcode allows you to add PDF file to your pages using browser native PDF renderer. Therefore, no additional Javascripts needed.
 Installation Link to heading Copy the pdf.html to your layouts/shortcodes/ website directory. Or run follow commands from you website directory. Make a directory if not exist.
 mkdir -p layouts/shortcodes Download pdf.html file.
-# using curl curl -o layouts/shortcodes/pdf.html https://raw.githubusercontent.com/sytranvn/hugo-pdf/master/pdf.html # or wget wget https://raw.</description></item></channel></rss>
+# using curl curl -o layouts/shortcodes/pdf.html https://raw.githubusercontent.com/sytranvn/hugo-pdf/master/pdf.html # or wget wget https://raw.githubusercontent.com/sytranvn/hugo-pdf/master/pdf.html -O layouts/shortcodes/pdf.</description></item></channel></rss>
