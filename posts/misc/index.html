@@ -23,9 +23,9 @@ Macros, macros every where  Link to heading    Having problem understanding v8 m
 <meta property="article:modified_time" content="2021-01-28T00:00:00+00:00">
 <link rel=canonical href=http://sytranvn.dev/posts/misc/>
 <link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin>
-<link rel=stylesheet href=/css/coder.min.65236a6d834b26194eed04a2a3b45e44d9194ef9e620253705d4bef03bd7ef81.css integrity="sha256-ZSNqbYNLJhlO7QSio7ReRNkZTvnmICU3BdS+8DvX74E=" crossorigin=anonymous media=screen>
-<link rel=stylesheet href=/css/coder-dark.min.f6534b0b446b75d9b6ad77a97d43ede2ddaeff1b6e2361fb7198d6f8fcb7f83f.css integrity="sha256-9lNLC0Rrddm2rXepfUPt4t2u/xtuI2H7cZjW+Py3+D8=" crossorigin=anonymous media=screen>
-<link rel=stylesheet href=/css/custom.min.81824f82c38de2d755f75442a96da905c7ffe371979cb46dc3774c7c5fac3153.css integrity="sha256-gYJPgsON4tdV91RCqW2pBcf/43GXnLRtw3dMfF+sMVM=" crossorigin=anonymous media=screen>
+<link rel=stylesheet href=/css/coder.min.85656f585fe601450b123ec7c9a997f8488faf7f9e2c81913580c9e2f8c72f82.css integrity="sha256-hWVvWF/mAUULEj7HyamX+EiPr3+eLIGRNYDJ4vjHL4I=" crossorigin=anonymous media=screen>
+<link rel=stylesheet href=/css/coder-dark.min.75de71d89fefe379cc001b6f6435f9b06dad86408428254718b48a73ea6d9e5e.css integrity="sha256-dd5x2J/v43nMABtvZDX5sG2thkCEKCVHGLSKc+ptnl4=" crossorigin=anonymous media=screen>
+<link rel=stylesheet href=/css/custom.min.042cc08ef551b3faf71db869dd24a3617f48536a67e8598dec4b1726fd3ea501.css integrity="sha256-BCzAjvVRs/r3Hbhp3SSjYX9IU2pn6FmN7EsXJv0+pQE=" crossorigin=anonymous media=screen>
 <link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32>
 <link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16>
 <link rel=apple-touch-icon href=/images/apple-touch-icon.png>
@@ -114,10 +114,10 @@ Macros, macros every where
 <li>Having problem understanding v8 macros?
 <ul>
 <li>Add this where ever you want
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#66d9ef>static</span> <span style=color:#66d9ef>const</span> <span style=color:#66d9ef>int</span> IAmHere <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>;
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#fff;font-weight:700>static</span> <span style=color:#fff;font-weight:700>const</span> <span style=color:#fff;font-weight:700>int</span> IAmHere = <span style=color:#ff0;font-weight:700>1</span>;
 </code></pre></div></li>
 <li>And run
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>g++ -g -Wall -I.  -Iinclude -I... header.h   -E -D DEBUG &gt; header.h.o
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh>g++ -g -Wall -I.  -Iinclude -I... header.h   -E -D DEBUG &gt; header.h.o
 </code></pre></div></li>
 <li>Search for <code>IAmHere</code> in <code>header.h.o file</code> generated</li>
 <li>Have fun</li>
@@ -132,51 +132,51 @@ The <code>do while (false)</code> macro
 <span class=sr-only>Link to heading</span>
 </a>
 </h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#75715e>#define ASSEMBLE_BINOP(asm_instr)                                \
-</span><span style=color:#75715e>  do {                                                           \
-</span><span style=color:#75715e>    if (HasAddressingMode(instr)) {                              \
-</span><span style=color:#75715e>      size_t index = 1;                                          \
-</span><span style=color:#75715e>      Operand right = i.MemoryOperand(&amp;index);                   \
-</span><span style=color:#75715e>      __ asm_instr(i.InputRegister(0), right);                   \
-</span><span style=color:#75715e>    } else {                                                     \
-</span><span style=color:#75715e>      if (HasImmediateInput(instr, 1)) {                         \
-</span><span style=color:#75715e>        if (HasRegisterInput(instr, 0)) {                        \
-</span><span style=color:#75715e>          __ asm_instr(i.InputRegister(0), i.InputImmediate(1)); \
-</span><span style=color:#75715e>        } else {                                                 \
-</span><span style=color:#75715e>          __ asm_instr(i.InputOperand(0), i.InputImmediate(1));  \
-</span><span style=color:#75715e>        }                                                        \
-</span><span style=color:#75715e>      } else {                                                   \
-</span><span style=color:#75715e>        if (HasRegisterInput(instr, 1)) {                        \
-</span><span style=color:#75715e>          __ asm_instr(i.InputRegister(0), i.InputRegister(1));  \
-</span><span style=color:#75715e>        } else {                                                 \
-</span><span style=color:#75715e>          __ asm_instr(i.InputRegister(0), i.InputOperand(1));   \
-</span><span style=color:#75715e>        }                                                        \
-</span><span style=color:#75715e>      }                                                          \
-</span><span style=color:#75715e>    }                                                            \
-</span><span style=color:#75715e>  } while (false)
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#0f0;font-weight:700>#define ASSEMBLE_BINOP(asm_instr)                                \
+</span><span style=color:#0f0;font-weight:700>  do {                                                           \
+</span><span style=color:#0f0;font-weight:700>    if (HasAddressingMode(instr)) {                              \
+</span><span style=color:#0f0;font-weight:700>      size_t index = 1;                                          \
+</span><span style=color:#0f0;font-weight:700>      Operand right = i.MemoryOperand(&amp;index);                   \
+</span><span style=color:#0f0;font-weight:700>      __ asm_instr(i.InputRegister(0), right);                   \
+</span><span style=color:#0f0;font-weight:700>    } else {                                                     \
+</span><span style=color:#0f0;font-weight:700>      if (HasImmediateInput(instr, 1)) {                         \
+</span><span style=color:#0f0;font-weight:700>        if (HasRegisterInput(instr, 0)) {                        \
+</span><span style=color:#0f0;font-weight:700>          __ asm_instr(i.InputRegister(0), i.InputImmediate(1)); \
+</span><span style=color:#0f0;font-weight:700>        } else {                                                 \
+</span><span style=color:#0f0;font-weight:700>          __ asm_instr(i.InputOperand(0), i.InputImmediate(1));  \
+</span><span style=color:#0f0;font-weight:700>        }                                                        \
+</span><span style=color:#0f0;font-weight:700>      } else {                                                   \
+</span><span style=color:#0f0;font-weight:700>        if (HasRegisterInput(instr, 1)) {                        \
+</span><span style=color:#0f0;font-weight:700>          __ asm_instr(i.InputRegister(0), i.InputRegister(1));  \
+</span><span style=color:#0f0;font-weight:700>        } else {                                                 \
+</span><span style=color:#0f0;font-weight:700>          __ asm_instr(i.InputRegister(0), i.InputOperand(1));   \
+</span><span style=color:#0f0;font-weight:700>        }                                                        \
+</span><span style=color:#0f0;font-weight:700>      }                                                          \
+</span><span style=color:#0f0;font-weight:700>    }                                                            \
+</span><span style=color:#0f0;font-weight:700>  } while (false)
 </span></code></pre></div><p>Why <code>do why (false)</code> ?
 Because if we define:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#75715e>#define WAKE_UP() makeCoffee(); drinkCoffee();
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#0f0;font-weight:700>#define WAKE_UP() makeCoffee(); drinkCoffee();
 </span></code></pre></div><p>and use:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#66d9ef>if</span> (morning) WAKE_UP();
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#fff;font-weight:700>if</span> (morning) WAKE_UP();
 </code></pre></div><p>The intent is to execute both statements if <code>morning</code> is true. But it expands to:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#66d9ef>if</span> (morning) makeCoffee(); drinkCoffee();;
-<span style=color:#75715e>//                         ^             ^
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#fff;font-weight:700>if</span> (morning) makeCoffee(); drinkCoffee();;
+<span style=color:#007f7f>//                         ^             ^
 </span></code></pre></div><p>Oops! We god a syntax error at the end. And if we remove that <code>;</code> we still end
 up with the second statments still be executed.<br>
 If we wrap the 2 statements in side a block:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#75715e>#define WAKE_UP() { makeCoffee(); drinkCoffee(); }
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#0f0;font-weight:700>#define WAKE_UP() { makeCoffee(); drinkCoffee(); }
 </span></code></pre></div><p>This is better, but still risk:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#66d9ef>if</span> (morning)
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#fff;font-weight:700>if</span> (morning)
   WAKE_UP();
-<span style=color:#66d9ef>else</span>
-  <span style=color:#a6e22e>sleepIn</span>();
+<span style=color:#fff;font-weight:700>else</span>
+  sleepIn();
 </code></pre></div><p>Now we get a compile error:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#66d9ef>if</span> (morning)
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#fff;font-weight:700>if</span> (morning)
   { makeCoffee(); drinkCoffee(); };
-<span style=color:#75715e>//                                ^
-</span><span style=color:#75715e></span><span style=color:#66d9ef>else</span>
-  <span style=color:#a6e22e>sleepIn</span>();
+<span style=color:#007f7f>//                                ^
+</span><span style=color:#007f7f></span><span style=color:#fff;font-weight:700>else</span>
+  sleepIn();
 </code></pre></div><p>Using <code>do while (false)</code> loop in macro looks funny. But it helps containing
 multiple statements in a block and also permits a semicolon at the end.</p>
 <h2 id=what-does-v8-do>
@@ -186,7 +186,7 @@ What does V8 do?
 <span class=sr-only>Link to heading</span>
 </a>
 </h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>d8 --print-op-code --code-comments --trace-hydrogen debug.js
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>d8 --print-op-code --code-comments --trace-hydrogen debug.js
 </code></pre></div><p><code>trace-hydrogen</code> writes itnermediate representation (IR) into hydrogen.cfg and
 can be viewed by C1Visualizer.</p>
 <h2 id=change-d8-build-flags-and-rebuild>
@@ -197,18 +197,18 @@ Change d8 build flags and rebuild
 </a>
 </h2>
 <p>To quickly update build flags and rebuild.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>cd out/arm64.debug <span style=color:#75715e># or similar directory</span>
-gn gen . --args<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;is_component_build = true
-</span><span style=color:#e6db74>is_debug = true
-</span><span style=color:#e6db74>symbol_level = 2
-</span><span style=color:#e6db74>target_cpu = &#34;arm64&#34;
-</span><span style=color:#e6db74>v8_target_cpu = &#34;arm64&#34;
-</span><span style=color:#e6db74>use_goma = false
-</span><span style=color:#e6db74>v8_enable_backtrace = true
-</span><span style=color:#e6db74>v8_enable_fast_mksnapshot = true
-</span><span style=color:#e6db74>v8_enable_slow_dchecks = true
-</span><span style=color:#e6db74>v8_optimized_debug = false
-</span><span style=color:#e6db74>v8_enable_ignition_dispatch_counting = true&#39;</span>
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=color:#fff;font-weight:700>cd</span> out/arm64.debug <span style=color:#007f7f># or similar directory</span>
+gn gen . --args=<span style=color:#0ff;font-weight:700>&#39;is_component_build = true
+</span><span style=color:#0ff;font-weight:700>is_debug = true
+</span><span style=color:#0ff;font-weight:700>symbol_level = 2
+</span><span style=color:#0ff;font-weight:700>target_cpu = &#34;arm64&#34;
+</span><span style=color:#0ff;font-weight:700>v8_target_cpu = &#34;arm64&#34;
+</span><span style=color:#0ff;font-weight:700>use_goma = false
+</span><span style=color:#0ff;font-weight:700>v8_enable_backtrace = true
+</span><span style=color:#0ff;font-weight:700>v8_enable_fast_mksnapshot = true
+</span><span style=color:#0ff;font-weight:700>v8_enable_slow_dchecks = true
+</span><span style=color:#0ff;font-weight:700>v8_optimized_debug = false
+</span><span style=color:#0ff;font-weight:700>v8_enable_ignition_dispatch_counting = true&#39;</span>
 
 autoninja -C .
 </code></pre></div><h2 id=lldbinit>
@@ -218,7 +218,7 @@ autoninja -C .
 <span class=sr-only>Link to heading</span>
 </a>
 </h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>## add following utils for lldb
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>## add following utils for lldb
 ## - job: Print a v8 heap object
 ## - jlh: Print v8::Local handle value
 ## - jco: Print the code object at the given pc (default: current pc)
@@ -235,7 +235,7 @@ v8::internal::Script
 <span class=sr-only>Link to heading</span>
 </a>
 </h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>(lldb) call (void) _v8_internal_Print_Object(*((v8::internal::Script**)(script).location_))
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>(lldb) call (void) _v8_internal_Print_Object(*((v8::internal::Script**)(script).location_))
 0x3e5900210d01: [Script] in OldSpace
  - map: 0x3e59000062bd &lt;Map[64]&gt;
  - source: 0x3e59000c5855 &lt;String[20]: &#34;&#39;Hello&#39; + &#39;, World!&#39;&#34;&gt;
@@ -257,25 +257,25 @@ class delete method
 <span class=sr-only>Link to heading</span>
 </a>
 </h2>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c++ data-lang=c++><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>AstStringConstants</span> <span style=color:#66d9ef>final</span> {
-<span style=color:#66d9ef>public</span><span style=color:#f92672>:</span>
-  AstStringConstants(Isolate<span style=color:#f92672>*</span> isolate, <span style=color:#66d9ef>uint64_t</span> hash_seed);
-  AstStringConstants(<span style=color:#66d9ef>const</span> AstStringConstants<span style=color:#f92672>&amp;</span>) <span style=color:#f92672>=</span> <span style=color:#66d9ef>delete</span>;
-  AstStringConstants<span style=color:#f92672>&amp;</span> <span style=color:#66d9ef>operator</span><span style=color:#f92672>=</span>(<span style=color:#66d9ef>const</span> AstStringConstants<span style=color:#f92672>&amp;</span>) <span style=color:#f92672>=</span> <span style=color:#66d9ef>delete</span>;
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-c++ data-lang=c++><span style=color:#fff;font-weight:700>class</span> AstStringConstants <span style=color:#fff;font-weight:700>final</span> {
+<span style=color:#fff;font-weight:700>public</span>:
+  AstStringConstants(Isolate* isolate, <span style=color:#fff;font-weight:700>uint64_t</span> hash_seed);
+  AstStringConstants(<span style=color:#fff;font-weight:700>const</span> AstStringConstants&amp;) = <span style=color:#fff;font-weight:700>delete</span>;
+  AstStringConstants&amp; <span style=color:#fff;font-weight:700>operator</span>=(<span style=color:#fff;font-weight:700>const</span> AstStringConstants&amp;) = <span style=color:#fff;font-weight:700>delete</span>;
 
 };
 
-<span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>() {
-	AstStringConstants <span style=color:#f92672>*</span> a <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> AstStringConstants();
+<span style=color:#fff;font-weight:700>int</span> main() {
+	AstStringConstants * a = <span style=color:#fff;font-weight:700>new</span> AstStringConstants();
 	
-	<span style=color:#75715e>// line 7 -&gt; error: use of deleted function
-</span><span style=color:#75715e></span>	AstStringConstants <span style=color:#f92672>*</span> a2 <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> AstStringConstants(<span style=color:#f92672>*</span>a);
+	<span style=color:#007f7f>// line 7 -&gt; error: use of deleted function
+</span><span style=color:#007f7f></span>	AstStringConstants * a2 = <span style=color:#fff;font-weight:700>new</span> AstStringConstants(*a);
 	
-	<span style=color:#75715e>// line 8 -&gt; error: use of deleted function
-</span><span style=color:#75715e></span>	AstStringConstants <span style=color:#f92672>*</span> a3 <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> AstStringConstants();
-	<span style=color:#f92672>*</span>a3 <span style=color:#f92672>=</span> <span style=color:#f92672>*</span>a;
+	<span style=color:#007f7f>// line 8 -&gt; error: use of deleted function
+</span><span style=color:#007f7f></span>	AstStringConstants * a3 = <span style=color:#fff;font-weight:700>new</span> AstStringConstants();
+	*a3 = *a;
 	
-	<span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
+	<span style=color:#fff;font-weight:700>return</span> <span style=color:#ff0;font-weight:700>0</span>;
 </code></pre></div>
 </div>
 <footer>
@@ -301,7 +301,5 @@ Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luiz
 <script data-name=BMC-Widget data-cfasync=false src=https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js data-id=sytranvn data-description="Support me on Buy me a coffee!" data-message="Thank you for visiting ❤️ . You can now buy me a conffe." data-color=#ff813f data-position=Right data-x_margin=18 data-y_margin=18></script>
 </main>
 <script src=/js/coder.min.369d90111ae4409b4e51de5efd23a46b92663fcc82dc9a0efde7f70bffc3f949.js integrity="sha256-Np2QERrkQJtOUd5e/SOka5JmP8yC3JoO/ef3C//D+Uk="></script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FHPRSC6XDQ"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-FHPRSC6XDQ',{anonymize_ip:!1})}</script>
 </body>
 </html>

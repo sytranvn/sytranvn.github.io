@@ -20,9 +20,9 @@ Config · sytranvn.dev
 <meta property="article:modified_time" content="2022-02-05T00:00:00+00:00">
 <link rel=canonical href=http://sytranvn.dev/dotfiles/>
 <link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin>
-<link rel=stylesheet href=/css/coder.min.65236a6d834b26194eed04a2a3b45e44d9194ef9e620253705d4bef03bd7ef81.css integrity="sha256-ZSNqbYNLJhlO7QSio7ReRNkZTvnmICU3BdS+8DvX74E=" crossorigin=anonymous media=screen>
-<link rel=stylesheet href=/css/coder-dark.min.f6534b0b446b75d9b6ad77a97d43ede2ddaeff1b6e2361fb7198d6f8fcb7f83f.css integrity="sha256-9lNLC0Rrddm2rXepfUPt4t2u/xtuI2H7cZjW+Py3+D8=" crossorigin=anonymous media=screen>
-<link rel=stylesheet href=/css/custom.min.81824f82c38de2d755f75442a96da905c7ffe371979cb46dc3774c7c5fac3153.css integrity="sha256-gYJPgsON4tdV91RCqW2pBcf/43GXnLRtw3dMfF+sMVM=" crossorigin=anonymous media=screen>
+<link rel=stylesheet href=/css/coder.min.85656f585fe601450b123ec7c9a997f8488faf7f9e2c81913580c9e2f8c72f82.css integrity="sha256-hWVvWF/mAUULEj7HyamX+EiPr3+eLIGRNYDJ4vjHL4I=" crossorigin=anonymous media=screen>
+<link rel=stylesheet href=/css/coder-dark.min.75de71d89fefe379cc001b6f6435f9b06dad86408428254718b48a73ea6d9e5e.css integrity="sha256-dd5x2J/v43nMABtvZDX5sG2thkCEKCVHGLSKc+ptnl4=" crossorigin=anonymous media=screen>
+<link rel=stylesheet href=/css/custom.min.042cc08ef551b3faf71db869dd24a3617f48536a67e8598dec4b1726fd3ea501.css integrity="sha256-BCzAjvVRs/r3Hbhp3SSjYX9IU2pn6FmN7EsXJv0+pQE=" crossorigin=anonymous media=screen>
 <link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32>
 <link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16>
 <link rel=apple-touch-icon href=/images/apple-touch-icon.png>
@@ -85,55 +85,55 @@ zsh
 <span class=sr-only>Link to heading</span>
 </a>
 </h1>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-zshrc data-lang=zshrc><span style=color:#75715e># autoload -U compaudit compinit colors</span>
-<span style=color:#75715e># compaudit &amp;&amp; compinit &amp;&amp; colors</span>
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-zshrc data-lang=zshrc><span style=color:#007f7f># autoload -U compaudit compinit colors</span>
+<span style=color:#007f7f># compaudit &amp;&amp; compinit &amp;&amp; colors</span>
 
-autoload -U colors <span style=color:#f92672>&amp;&amp;</span> colors
+autoload -U colors &amp;&amp; colors
 
-export EDITOR<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;vim&#39;</span>
+<span style=color:#fff;font-weight:700>export</span> EDITOR=<span style=color:#0ff;font-weight:700>&#39;vim&#39;</span>
 
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
 
-eval <span style=color:#e6db74>&#34;</span><span style=color:#66d9ef>$(</span>/opt/homebrew/bin/brew shellenv<span style=color:#66d9ef>)</span><span style=color:#e6db74>&#34;</span>
+<span style=color:#fff;font-weight:700>eval</span> <span style=color:#0ff;font-weight:700>&#34;</span><span style=color:#fff;font-weight:700>$(</span>/opt/homebrew/bin/brew shellenv<span style=color:#fff;font-weight:700>)</span><span style=color:#0ff;font-weight:700>&#34;</span>
 
-export NVM_DIR<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;</span>$HOME<span style=color:#e6db74>/.nvm&#34;</span>
-<span style=color:#f92672>[</span> -s <span style=color:#e6db74>&#34;</span>$NVM_DIR<span style=color:#e6db74>/nvm.sh&#34;</span> <span style=color:#f92672>]</span> <span style=color:#f92672>&amp;&amp;</span> <span style=color:#ae81ff>\.</span> <span style=color:#e6db74>&#34;</span>$NVM_DIR<span style=color:#e6db74>/nvm.sh&#34;</span> <span style=color:#75715e># This loads nvm</span>
-<span style=color:#f92672>[</span> -s <span style=color:#e6db74>&#34;</span>$NVM_DIR<span style=color:#e6db74>/bash_completion&#34;</span> <span style=color:#f92672>]</span> <span style=color:#f92672>&amp;&amp;</span> <span style=color:#ae81ff>\.</span> <span style=color:#e6db74>&#34;</span>$NVM_DIR<span style=color:#e6db74>/bash_completion&#34;</span>  <span style=color:#75715e># This loads nvm bash_completion</span>
+<span style=color:#fff;font-weight:700>export</span> NVM_DIR=<span style=color:#0ff;font-weight:700>&#34;</span>$HOME<span style=color:#0ff;font-weight:700>/.nvm&#34;</span>
+[ -s <span style=color:#0ff;font-weight:700>&#34;</span>$NVM_DIR<span style=color:#0ff;font-weight:700>/nvm.sh&#34;</span> ] &amp;&amp; <span style=color:#0ff;font-weight:700>\.</span> <span style=color:#0ff;font-weight:700>&#34;</span>$NVM_DIR<span style=color:#0ff;font-weight:700>/nvm.sh&#34;</span> <span style=color:#007f7f># This loads nvm</span>
+[ -s <span style=color:#0ff;font-weight:700>&#34;</span>$NVM_DIR<span style=color:#0ff;font-weight:700>/bash_completion&#34;</span> ] &amp;&amp; <span style=color:#0ff;font-weight:700>\.</span> <span style=color:#0ff;font-weight:700>&#34;</span>$NVM_DIR<span style=color:#0ff;font-weight:700>/bash_completion&#34;</span>  <span style=color:#007f7f># This loads nvm bash_completion</span>
 
-eval <span style=color:#e6db74>&#34;</span><span style=color:#66d9ef>$(</span>direnv hook zsh<span style=color:#66d9ef>)</span><span style=color:#e6db74>&#34;</span>
-source ~/.git-prompt.sh
-export GIT_PS1_SHOWDIRTYSTATE<span style=color:#f92672>=</span>true
-export GIT_PS1_SHOWUNTRACKEDFILES<span style=color:#f92672>=</span>true
-export GIT_PS1_SHOWUPSTREAM<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;auto&#34;</span>
-export GIT_PS1_SHOWCOLORHINTS<span style=color:#f92672>=</span>true
+<span style=color:#fff;font-weight:700>eval</span> <span style=color:#0ff;font-weight:700>&#34;</span><span style=color:#fff;font-weight:700>$(</span>direnv hook zsh<span style=color:#fff;font-weight:700>)</span><span style=color:#0ff;font-weight:700>&#34;</span>
+<span style=color:#fff;font-weight:700>source</span> ~/.git-prompt.sh
+<span style=color:#fff;font-weight:700>export</span> GIT_PS1_SHOWDIRTYSTATE=<span style=color:#fff;font-weight:700>true</span>
+<span style=color:#fff;font-weight:700>export</span> GIT_PS1_SHOWUNTRACKEDFILES=<span style=color:#fff;font-weight:700>true</span>
+<span style=color:#fff;font-weight:700>export</span> GIT_PS1_SHOWUPSTREAM=<span style=color:#0ff;font-weight:700>&#34;auto&#34;</span>
+<span style=color:#fff;font-weight:700>export</span> GIT_PS1_SHOWCOLORHINTS=<span style=color:#fff;font-weight:700>true</span>
 setopt PROMPT_SUBST
-export PS1<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;%{$fg[red]%}%m%{$reset_color%}:%{$fg[green]%}%c$%{$reset_color%}%{$fg[cyan]%}$(py_ps1)%{$reset_color%}$(__git_ps1) %(!.#.$) &#39;</span>
-RPROMPT<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;$(date +%T)&#39;</span>
-<span style=color:#75715e># aliases</span>
-alias zrc<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;vim ~/.zshrc&#39;</span>
-alias zrl<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;source ~/.zshrc&#39;</span>
-alias vrc<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;vim ~/.vimrc&#39;</span>
-alias ll<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;ls -lahG&#39;</span>
+<span style=color:#fff;font-weight:700>export</span> PS1=<span style=color:#0ff;font-weight:700>&#39;%{$fg[red]%}%m%{$reset_color%}:%{$fg[green]%}%c$%{$reset_color%}%{$fg[cyan]%}$(py_ps1)%{$reset_color%}$(__git_ps1) %(!.#.$) &#39;</span>
+RPROMPT=<span style=color:#0ff;font-weight:700>&#39;$(date +%T)&#39;</span>
+<span style=color:#007f7f># aliases</span>
+<span style=color:#fff;font-weight:700>alias</span> zrc=<span style=color:#0ff;font-weight:700>&#39;vim ~/.zshrc&#39;</span>
+<span style=color:#fff;font-weight:700>alias</span> zrl=<span style=color:#0ff;font-weight:700>&#39;source ~/.zshrc&#39;</span>
+<span style=color:#fff;font-weight:700>alias</span> vrc=<span style=color:#0ff;font-weight:700>&#39;vim ~/.vimrc&#39;</span>
+<span style=color:#fff;font-weight:700>alias</span> ll=<span style=color:#0ff;font-weight:700>&#39;ls -lahG&#39;</span>
 
-path<span style=color:#f92672>+=(</span>~/.bin<span style=color:#f92672>)</span>
+path+=(~/.bin)
 
-<span style=color:#f92672>[</span> -f ~/.fzf.zsh <span style=color:#f92672>]</span> <span style=color:#f92672>&amp;&amp;</span> source ~/.fzf.zsh
+[ -f ~/.fzf.zsh ] &amp;&amp; <span style=color:#fff;font-weight:700>source</span> ~/.fzf.zsh
 
-<span style=color:#75715e># &gt;&gt;&gt; conda initialize &gt;&gt;&gt;</span>
-<span style=color:#75715e># !! Contents within this block are managed by &#39;conda init&#39; !!</span>
-__conda_setup<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;</span><span style=color:#66d9ef>$(</span><span style=color:#e6db74>&#39;/Users/sytran/anaconda3/bin/conda&#39;</span> <span style=color:#e6db74>&#39;shell.zsh&#39;</span> <span style=color:#e6db74>&#39;hook&#39;</span> 2&gt; /dev/null<span style=color:#66d9ef>)</span><span style=color:#e6db74>&#34;</span>
-<span style=color:#66d9ef>if</span> <span style=color:#f92672>[</span> $? -eq <span style=color:#ae81ff>0</span> <span style=color:#f92672>]</span>; <span style=color:#66d9ef>then</span>
-    eval <span style=color:#e6db74>&#34;</span>$__conda_setup<span style=color:#e6db74>&#34;</span>
-<span style=color:#66d9ef>else</span>
-    <span style=color:#66d9ef>if</span> <span style=color:#f92672>[</span> -f <span style=color:#e6db74>&#34;/Users/sytran/anaconda3/etc/profile.d/conda.sh&#34;</span> <span style=color:#f92672>]</span>; <span style=color:#66d9ef>then</span>
-        . <span style=color:#e6db74>&#34;/Users/sytran/anaconda3/etc/profile.d/conda.sh&#34;</span>
-    <span style=color:#66d9ef>else</span>
-        export PATH<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;/Users/sytran/anaconda3/bin:</span>$PATH<span style=color:#e6db74>&#34;</span>
-    <span style=color:#66d9ef>fi</span>
-<span style=color:#66d9ef>fi</span>
-unset __conda_setup
-<span style=color:#75715e># &lt;&lt;&lt; conda initialize &lt;&lt;&lt;</span>
+<span style=color:#007f7f># &gt;&gt;&gt; conda initialize &gt;&gt;&gt;</span>
+<span style=color:#007f7f># !! Contents within this block are managed by &#39;conda init&#39; !!</span>
+__conda_setup=<span style=color:#0ff;font-weight:700>&#34;</span><span style=color:#fff;font-weight:700>$(</span><span style=color:#0ff;font-weight:700>&#39;/Users/sytran/anaconda3/bin/conda&#39;</span> <span style=color:#0ff;font-weight:700>&#39;shell.zsh&#39;</span> <span style=color:#0ff;font-weight:700>&#39;hook&#39;</span> 2&gt; /dev/null<span style=color:#fff;font-weight:700>)</span><span style=color:#0ff;font-weight:700>&#34;</span>
+<span style=color:#fff;font-weight:700>if</span> [ $? -eq <span style=color:#ff0;font-weight:700>0</span> ]; <span style=color:#fff;font-weight:700>then</span>
+    <span style=color:#fff;font-weight:700>eval</span> <span style=color:#0ff;font-weight:700>&#34;</span>$__conda_setup<span style=color:#0ff;font-weight:700>&#34;</span>
+<span style=color:#fff;font-weight:700>else</span>
+    <span style=color:#fff;font-weight:700>if</span> [ -f <span style=color:#0ff;font-weight:700>&#34;/Users/sytran/anaconda3/etc/profile.d/conda.sh&#34;</span> ]; <span style=color:#fff;font-weight:700>then</span>
+        . <span style=color:#0ff;font-weight:700>&#34;/Users/sytran/anaconda3/etc/profile.d/conda.sh&#34;</span>
+    <span style=color:#fff;font-weight:700>else</span>
+        <span style=color:#fff;font-weight:700>export</span> PATH=<span style=color:#0ff;font-weight:700>&#34;/Users/sytran/anaconda3/bin:</span>$PATH<span style=color:#0ff;font-weight:700>&#34;</span>
+    <span style=color:#fff;font-weight:700>fi</span>
+<span style=color:#fff;font-weight:700>fi</span>
+<span style=color:#fff;font-weight:700>unset</span> __conda_setup
+<span style=color:#007f7f># &lt;&lt;&lt; conda initialize &lt;&lt;&lt;</span>
 </code></pre></div>
 <h1 id=vim>
 vim
@@ -142,88 +142,88 @@ vim
 <span class=sr-only>Link to heading</span>
 </a>
 </h1>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-vimrc data-lang=vimrc><span style=color:#a6e22e>set</span> <span style=color:#a6e22e>nocompatible</span>          <span style=color:#75715e>&#34; get rid of Vi compatibility mode. SET FIRST!</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#a6e22e>filetype</span> <span style=color:#a6e22e>plugin</span> <span style=color:#a6e22e>indent</span> <span style=color:#a6e22e>on</span> <span style=color:#75715e>&#34; filetype detection[ON] plugin[ON] indent[ON]</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#a6e22e>set</span> <span style=color:#a6e22e>t_Co</span>=<span style=color:#ae81ff>256</span>              <span style=color:#75715e>&#34; enable 256-color mode.</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#a6e22e>syntax</span> <span style=color:#a6e22e>enable</span>             <span style=color:#75715e>&#34; enable syntax highlighting (previously syntax on).</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#a6e22e>colorscheme</span> <span style=color:#a6e22e>desert</span>        <span style=color:#75715e>&#34; set colorscheme</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#a6e22e>set</span> <span style=color:#a6e22e>number</span>                <span style=color:#75715e>&#34; show line numbers</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#a6e22e>set</span> <span style=color:#a6e22e>laststatus</span>=<span style=color:#ae81ff>2</span>          <span style=color:#75715e>&#34; last window always has a statusline</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#a6e22e>filetype</span> <span style=color:#a6e22e>indent</span> <span style=color:#a6e22e>on</span>        <span style=color:#75715e>&#34; activates indenting for files</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#a6e22e>set</span> <span style=color:#a6e22e>nohlsearch</span>            <span style=color:#75715e>&#34; Don&#39;t continue to highlight searched phrases.</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#a6e22e>set</span> <span style=color:#a6e22e>incsearch</span>             <span style=color:#75715e>&#34; But do highlight as you type your search.</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#a6e22e>set</span> <span style=color:#a6e22e>ignorecase</span>            <span style=color:#75715e>&#34; Make searches case-insensitive.</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#a6e22e>set</span> <span style=color:#a6e22e>ruler</span>                 <span style=color:#75715e>&#34; Always show info along bottom.</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#a6e22e>set</span> <span style=color:#a6e22e>autoindent</span>            <span style=color:#75715e>&#34; auto-indent</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#a6e22e>set</span> <span style=color:#a6e22e>tabstop</span>=<span style=color:#ae81ff>4</span>             <span style=color:#75715e>&#34; tab spacing</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#a6e22e>set</span> <span style=color:#a6e22e>softtabstop</span>=<span style=color:#ae81ff>4</span>         <span style=color:#75715e>&#34; unify</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#a6e22e>set</span> <span style=color:#a6e22e>shiftwidth</span>=<span style=color:#ae81ff>4</span>          <span style=color:#75715e>&#34; indent/outdent by 4 columns</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#a6e22e>set</span> <span style=color:#a6e22e>shiftround</span>            <span style=color:#75715e>&#34; always indent/outdent to the nearest tabstop</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#a6e22e>set</span> <span style=color:#a6e22e>expandtab</span>             <span style=color:#75715e>&#34; use spaces instead of tabs</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#a6e22e>set</span> <span style=color:#a6e22e>smarttab</span>              <span style=color:#75715e>&#34; use tabs at the start of a line, spaces elsewhere</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#a6e22e>autocmd</span> <span style=color:#a6e22e>Filetype</span> <span style=color:#a6e22e>javascript</span> <span style=color:#a6e22e>setlocal</span> <span style=color:#a6e22e>ts</span>=<span style=color:#ae81ff>2</span> <span style=color:#a6e22e>sw</span>=<span style=color:#ae81ff>2</span> <span style=color:#a6e22e>sts</span>=<span style=color:#ae81ff>0</span> <span style=color:#a6e22e>expandtab</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#a6e22e>set</span> <span style=color:#a6e22e>nowrap</span>                <span style=color:#75715e>&#34; don&#39;t wrap text</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#75715e>&#34; make backspaces more powerfull</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#a6e22e>set</span> <span style=color:#a6e22e>backspace</span>=<span style=color:#a6e22e>indent</span>,<span style=color:#a6e22e>eol</span>,<span style=color:#a6e22e>start</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#a6e22e>set</span> <span style=color:#a6e22e>showcmd</span>             <span style=color:#75715e>&#34; show (partial) command in status line</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#a6e22e>set</span> <span style=color:#a6e22e>noswapfile</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#a6e22e>set</span> <span style=color:#a6e22e>splitright</span>          <span style=color:#75715e>&#34; show split window to the right</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#a6e22e>set</span> <span style=color:#a6e22e>nu</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#a6e22e>set</span> <span style=color:#a6e22e>list</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#a6e22e>set</span> <span style=color:#a6e22e>listchars</span>=<span style=color:#a6e22e>tab</span>:┆\ <span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#a6e22e>set</span> <span style=color:#a6e22e>colorcolumn</span>=<span style=color:#ae81ff>80</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#a6e22e>set</span> <span style=color:#a6e22e>tags</span>=<span style=color:#a6e22e>tags</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>g</span>:<span style=color:#a6e22e>netrw_liststyle</span> = <span style=color:#ae81ff>3</span>       <span style=color:#75715e>&#34; tree explorer expandable</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>g</span>:<span style=color:#a6e22e>netrw_banner</span> = <span style=color:#ae81ff>0</span>          <span style=color:#75715e>&#34; hide banner</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>g</span>:<span style=color:#a6e22e>netrw_browse_split</span> = <span style=color:#ae81ff>4</span>    <span style=color:#75715e>&#34; open file in previous window</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>g</span>:<span style=color:#a6e22e>netrw_winsize</span> = <span style=color:#ae81ff>20</span>        <span style=color:#75715e>&#34; default size</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#a6e22e>command</span> <span style=color:#a6e22e>Vrc</span> :<span style=color:#a6e22e>tabedit</span> ~/.<span style=color:#a6e22e>vimrc</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#a6e22e>command</span> <span style=color:#a6e22e>Vrl</span> :<span style=color:#a6e22e>source</span> ~/.<span style=color:#a6e22e>vimrc</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#a6e22e>call</span> <span style=color:#a6e22e>plug</span>#<span style=color:#a6e22e>begin</span>()<span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#75715e>&#34; Multiple Plug commands can be written in a single line using | separators</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#a6e22e>Plug</span> <span style=color:#e6db74>&#39;SirVer/ultisnips&#39;</span> | <span style=color:#a6e22e>Plug</span> <span style=color:#e6db74>&#39;honza/vim-snippets&#39;</span> | <span style=color:#a6e22e>Plug</span> <span style=color:#e6db74>&#39;~/.vim/plugged/myvim&#39;</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>g</span>:<span style=color:#a6e22e>UltiSnipsExpandTrigger</span>=<span style=color:#e6db74>&#34;&lt;tab&gt;&#34;</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>g</span>:<span style=color:#a6e22e>UltiSnipsJumpForwardTrigger</span>=<span style=color:#e6db74>&#34;&lt;tab&gt;&#34;</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>g</span>:<span style=color:#a6e22e>UltiSnipsJumpBackwardTrigger</span>=<span style=color:#e6db74>&#34;&lt;c-b&gt;&#34;</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#75715e>
-</span><span style=color:#75715e>&#34; post install (yarn install | npm install) then load plugin only for editing supported files</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#a6e22e>Plug</span> <span style=color:#e6db74>&#39;prettier/vim-prettier&#39;</span>, {<span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span>  \ <span style=color:#e6db74>&#39;do&#39;</span>: <span style=color:#e6db74>&#39;yarn install --frozen-lockfile --production&#39;</span>,<span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span>  \ <span style=color:#e6db74>&#39;for&#39;</span>: [<span style=color:#e6db74>&#39;javascript&#39;</span>, <span style=color:#e6db74>&#39;typescript&#39;</span>, <span style=color:#e6db74>&#39;css&#39;</span>, <span style=color:#e6db74>&#39;less&#39;</span>, <span style=color:#e6db74>&#39;scss&#39;</span>, <span style=color:#e6db74>&#39;json&#39;</span>, <span style=color:#e6db74>&#39;graphql&#39;</span>, <span style=color:#e6db74>&#39;markdown&#39;</span>, <span style=color:#e6db74>&#39;vue&#39;</span>, <span style=color:#e6db74>&#39;svelte&#39;</span>, <span style=color:#e6db74>&#39;yaml&#39;</span>, <span style=color:#e6db74>&#39;html&#39;</span>] }<span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#a6e22e>Plug</span> <span style=color:#e6db74>&#39;ludovicchabant/vim-gutentags&#39;</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#a6e22e>Plug</span> <span style=color:#e6db74>&#39;preservim/tagbar&#39;</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#a6e22e>nmap</span> &lt;<span style=color:#a6e22e>F8</span>&gt; :<span style=color:#a6e22e>TagbarToggle</span>&lt;<span style=color:#a6e22e>CR</span>&gt;<span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#a6e22e>autocmd</span> <span style=color:#a6e22e>FileType</span> <span style=color:#a6e22e>python</span>,<span style=color:#a6e22e>c</span>,<span style=color:#a6e22e>cpp</span>,<span style=color:#a6e22e>js</span> <span style=color:#a6e22e>TagbarOpen</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#a6e22e>Plug</span> <span style=color:#e6db74>&#39;junegunn/fzf&#39;</span>, { <span style=color:#e6db74>&#39;do&#39;</span>: { -&gt; <span style=color:#a6e22e>fzf</span>#<span style=color:#a6e22e>install</span>() } }<span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#a6e22e>Plug</span> <span style=color:#e6db74>&#39;junegunn/fzf.vim&#39;</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#a6e22e>map</span> &lt;<span style=color:#a6e22e>C</span>-<span style=color:#a6e22e>O</span>&gt; :<span style=color:#a6e22e>Files</span> &lt;<span style=color:#a6e22e>CR</span>&gt;<span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#a6e22e>map</span> &lt;<span style=color:#a6e22e>C</span>-<span style=color:#a6e22e>F</span>&gt; :<span style=color:#a6e22e>Lines</span> &lt;<span style=color:#a6e22e>CR</span>&gt;<span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#a6e22e>map</span> &lt;<span style=color:#a6e22e>CS</span>-<span style=color:#a6e22e>F</span>&gt; :<span style=color:#a6e22e>Rg</span>&lt;<span style=color:#a6e22e>CR</span>&gt;<span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#a6e22e>Plug</span> <span style=color:#e6db74>&#39;ap/vim-buftabline&#39;</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#a6e22e>set</span> <span style=color:#a6e22e>hidden</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#a6e22e>nnoremap</span> &lt;<span style=color:#a6e22e>C</span>-<span style=color:#a6e22e>n</span>&gt; :<span style=color:#a6e22e>bnext</span>&lt;<span style=color:#a6e22e>CR</span>&gt;<span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#a6e22e>nnoremap</span> &lt;<span style=color:#a6e22e>C</span>-<span style=color:#a6e22e>p</span>&gt; :<span style=color:#a6e22e>bprev</span>&lt;<span style=color:#a6e22e>CR</span>&gt;<span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#a6e22e>Plug</span> <span style=color:#e6db74>&#39;bfrg/vim-cpp-modern&#39;</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#75715e>
-</span><span style=color:#75715e>&#34; Local plugin</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#a6e22e>Plug</span> <span style=color:#e6db74>&#39;~/.vim/plugged/vim-torque&#39;</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010>
-</span><span style=color:#960050;background-color:#1e0010></span><span style=color:#a6e22e>call</span> <span style=color:#a6e22e>plug</span>#<span style=color:#a6e22e>end</span>()<span style=color:#960050;background-color:#1e0010>
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-vimrc data-lang=vimrc>set nocompatible          <span style=color:#007f7f>&#34; get rid of Vi compatibility mode. SET FIRST!</span><span style=color:red>
+</span><span style=color:red></span>filetype plugin indent on <span style=color:#007f7f>&#34; filetype detection[ON] plugin[ON] indent[ON]</span><span style=color:red>
+</span><span style=color:red></span>set t_Co=<span style=color:#ff0;font-weight:700>256</span>              <span style=color:#007f7f>&#34; enable 256-color mode.</span><span style=color:red>
+</span><span style=color:red></span>syntax enable             <span style=color:#007f7f>&#34; enable syntax highlighting (previously syntax on).</span><span style=color:red>
+</span><span style=color:red></span>colorscheme desert        <span style=color:#007f7f>&#34; set colorscheme</span><span style=color:red>
+</span><span style=color:red></span>set number                <span style=color:#007f7f>&#34; show line numbers</span><span style=color:red>
+</span><span style=color:red></span>set laststatus=<span style=color:#ff0;font-weight:700>2</span>          <span style=color:#007f7f>&#34; last window always has a statusline</span><span style=color:red>
+</span><span style=color:red></span>filetype indent on        <span style=color:#007f7f>&#34; activates indenting for files</span><span style=color:red>
+</span><span style=color:red></span>set nohlsearch            <span style=color:#007f7f>&#34; Don&#39;t continue to highlight searched phrases.</span><span style=color:red>
+</span><span style=color:red></span>set incsearch             <span style=color:#007f7f>&#34; But do highlight as you type your search.</span><span style=color:red>
+</span><span style=color:red></span>set ignorecase            <span style=color:#007f7f>&#34; Make searches case-insensitive.</span><span style=color:red>
+</span><span style=color:red></span>set ruler                 <span style=color:#007f7f>&#34; Always show info along bottom.</span><span style=color:red>
+</span><span style=color:red></span>set autoindent            <span style=color:#007f7f>&#34; auto-indent</span><span style=color:red>
+</span><span style=color:red></span>set tabstop=<span style=color:#ff0;font-weight:700>4</span>             <span style=color:#007f7f>&#34; tab spacing</span><span style=color:red>
+</span><span style=color:red></span>set softtabstop=<span style=color:#ff0;font-weight:700>4</span>         <span style=color:#007f7f>&#34; unify</span><span style=color:red>
+</span><span style=color:red></span>set shiftwidth=<span style=color:#ff0;font-weight:700>4</span>          <span style=color:#007f7f>&#34; indent/outdent by 4 columns</span><span style=color:red>
+</span><span style=color:red></span>set shiftround            <span style=color:#007f7f>&#34; always indent/outdent to the nearest tabstop</span><span style=color:red>
+</span><span style=color:red></span>set expandtab             <span style=color:#007f7f>&#34; use spaces instead of tabs</span><span style=color:red>
+</span><span style=color:red></span>set smarttab              <span style=color:#007f7f>&#34; use tabs at the start of a line, spaces elsewhere</span><span style=color:red>
+</span><span style=color:red></span>autocmd Filetype javascript setlocal ts=<span style=color:#ff0;font-weight:700>2</span> sw=<span style=color:#ff0;font-weight:700>2</span> sts=<span style=color:#ff0;font-weight:700>0</span> expandtab<span style=color:red>
+</span><span style=color:red></span>set nowrap                <span style=color:#007f7f>&#34; don&#39;t wrap text</span><span style=color:red>
+</span><span style=color:red></span><span style=color:#007f7f>&#34; make backspaces more powerfull</span><span style=color:red>
+</span><span style=color:red></span>set backspace=indent,eol,start<span style=color:red>
+</span><span style=color:red>
+</span><span style=color:red></span>set showcmd             <span style=color:#007f7f>&#34; show (partial) command in status line</span><span style=color:red>
+</span><span style=color:red></span>set noswapfile<span style=color:red>
+</span><span style=color:red>
+</span><span style=color:red></span>set splitright          <span style=color:#007f7f>&#34; show split window to the right</span><span style=color:red>
+</span><span style=color:red>
+</span><span style=color:red></span>set nu<span style=color:red>
+</span><span style=color:red>
+</span><span style=color:red></span>set list<span style=color:red>
+</span><span style=color:red></span>set listchars=tab:┆\ <span style=color:red>
+</span><span style=color:red>
+</span><span style=color:red></span>set colorcolumn=<span style=color:#ff0;font-weight:700>80</span><span style=color:red>
+</span><span style=color:red>
+</span><span style=color:red></span>set tags=tags<span style=color:red>
+</span><span style=color:red>
+</span><span style=color:red></span><span style=color:#fff;font-weight:700>let</span> g:netrw_liststyle = <span style=color:#ff0;font-weight:700>3</span>       <span style=color:#007f7f>&#34; tree explorer expandable</span><span style=color:red>
+</span><span style=color:red></span><span style=color:#fff;font-weight:700>let</span> g:netrw_banner = <span style=color:#ff0;font-weight:700>0</span>          <span style=color:#007f7f>&#34; hide banner</span><span style=color:red>
+</span><span style=color:red></span><span style=color:#fff;font-weight:700>let</span> g:netrw_browse_split = <span style=color:#ff0;font-weight:700>4</span>    <span style=color:#007f7f>&#34; open file in previous window</span><span style=color:red>
+</span><span style=color:red></span><span style=color:#fff;font-weight:700>let</span> g:netrw_winsize = <span style=color:#ff0;font-weight:700>20</span>        <span style=color:#007f7f>&#34; default size</span><span style=color:red>
+</span><span style=color:red>
+</span><span style=color:red></span>command Vrc :tabedit ~/.vimrc<span style=color:red>
+</span><span style=color:red></span>command Vrl :source ~/.vimrc<span style=color:red>
+</span><span style=color:red>
+</span><span style=color:red></span>call plug#begin()<span style=color:red>
+</span><span style=color:red></span><span style=color:#007f7f>&#34; Multiple Plug commands can be written in a single line using | separators</span><span style=color:red>
+</span><span style=color:red></span>Plug <span style=color:#0ff;font-weight:700>&#39;SirVer/ultisnips&#39;</span> | Plug <span style=color:#0ff;font-weight:700>&#39;honza/vim-snippets&#39;</span> | Plug <span style=color:#0ff;font-weight:700>&#39;~/.vim/plugged/myvim&#39;</span><span style=color:red>
+</span><span style=color:red></span><span style=color:#fff;font-weight:700>let</span> g:UltiSnipsExpandTrigger=<span style=color:#0ff;font-weight:700>&#34;&lt;tab&gt;&#34;</span><span style=color:red>
+</span><span style=color:red></span><span style=color:#fff;font-weight:700>let</span> g:UltiSnipsJumpForwardTrigger=<span style=color:#0ff;font-weight:700>&#34;&lt;tab&gt;&#34;</span><span style=color:red>
+</span><span style=color:red></span><span style=color:#fff;font-weight:700>let</span> g:UltiSnipsJumpBackwardTrigger=<span style=color:#0ff;font-weight:700>&#34;&lt;c-b&gt;&#34;</span><span style=color:red>
+</span><span style=color:red></span><span style=color:#007f7f>
+</span><span style=color:#007f7f>&#34; post install (yarn install | npm install) then load plugin only for editing supported files</span><span style=color:red>
+</span><span style=color:red></span>Plug <span style=color:#0ff;font-weight:700>&#39;prettier/vim-prettier&#39;</span>, {<span style=color:red>
+</span><span style=color:red></span>  \ <span style=color:#0ff;font-weight:700>&#39;do&#39;</span>: <span style=color:#0ff;font-weight:700>&#39;yarn install --frozen-lockfile --production&#39;</span>,<span style=color:red>
+</span><span style=color:red></span>  \ <span style=color:#0ff;font-weight:700>&#39;for&#39;</span>: [<span style=color:#0ff;font-weight:700>&#39;javascript&#39;</span>, <span style=color:#0ff;font-weight:700>&#39;typescript&#39;</span>, <span style=color:#0ff;font-weight:700>&#39;css&#39;</span>, <span style=color:#0ff;font-weight:700>&#39;less&#39;</span>, <span style=color:#0ff;font-weight:700>&#39;scss&#39;</span>, <span style=color:#0ff;font-weight:700>&#39;json&#39;</span>, <span style=color:#0ff;font-weight:700>&#39;graphql&#39;</span>, <span style=color:#0ff;font-weight:700>&#39;markdown&#39;</span>, <span style=color:#0ff;font-weight:700>&#39;vue&#39;</span>, <span style=color:#0ff;font-weight:700>&#39;svelte&#39;</span>, <span style=color:#0ff;font-weight:700>&#39;yaml&#39;</span>, <span style=color:#0ff;font-weight:700>&#39;html&#39;</span>] }<span style=color:red>
+</span><span style=color:red>
+</span><span style=color:red></span>Plug <span style=color:#0ff;font-weight:700>&#39;ludovicchabant/vim-gutentags&#39;</span><span style=color:red>
+</span><span style=color:red>
+</span><span style=color:red></span>Plug <span style=color:#0ff;font-weight:700>&#39;preservim/tagbar&#39;</span><span style=color:red>
+</span><span style=color:red></span>nmap &lt;F8&gt; :TagbarToggle&lt;CR&gt;<span style=color:red>
+</span><span style=color:red></span>autocmd FileType python,c,cpp,js TagbarOpen<span style=color:red>
+</span><span style=color:red>
+</span><span style=color:red></span>Plug <span style=color:#0ff;font-weight:700>&#39;junegunn/fzf&#39;</span>, { <span style=color:#0ff;font-weight:700>&#39;do&#39;</span>: { -&gt; fzf#install() } }<span style=color:red>
+</span><span style=color:red></span>Plug <span style=color:#0ff;font-weight:700>&#39;junegunn/fzf.vim&#39;</span><span style=color:red>
+</span><span style=color:red></span>map &lt;C-O&gt; :Files &lt;CR&gt;<span style=color:red>
+</span><span style=color:red></span>map &lt;C-F&gt; :Lines &lt;CR&gt;<span style=color:red>
+</span><span style=color:red></span>map &lt;CS-F&gt; :Rg&lt;CR&gt;<span style=color:red>
+</span><span style=color:red>
+</span><span style=color:red></span>Plug <span style=color:#0ff;font-weight:700>&#39;ap/vim-buftabline&#39;</span><span style=color:red>
+</span><span style=color:red></span>set hidden<span style=color:red>
+</span><span style=color:red></span>nnoremap &lt;C-n&gt; :bnext&lt;CR&gt;<span style=color:red>
+</span><span style=color:red></span>nnoremap &lt;C-p&gt; :bprev&lt;CR&gt;<span style=color:red>
+</span><span style=color:red>
+</span><span style=color:red></span>Plug <span style=color:#0ff;font-weight:700>&#39;bfrg/vim-cpp-modern&#39;</span><span style=color:red>
+</span><span style=color:red></span><span style=color:#007f7f>
+</span><span style=color:#007f7f>&#34; Local plugin</span><span style=color:red>
+</span><span style=color:red></span>Plug <span style=color:#0ff;font-weight:700>&#39;~/.vim/plugged/vim-torque&#39;</span><span style=color:red>
+</span><span style=color:red>
+</span><span style=color:red>
+</span><span style=color:red></span>call plug#end()<span style=color:red>
 </span></code></pre></div>
 </article>
 </section>
@@ -246,7 +246,5 @@ Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luiz
 <script data-name=BMC-Widget data-cfasync=false src=https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js data-id=sytranvn data-description="Support me on Buy me a coffee!" data-message="Thank you for visiting ❤️ . You can now buy me a conffe." data-color=#ff813f data-position=Right data-x_margin=18 data-y_margin=18></script>
 </main>
 <script src=/js/coder.min.369d90111ae4409b4e51de5efd23a46b92663fcc82dc9a0efde7f70bffc3f949.js integrity="sha256-Np2QERrkQJtOUd5e/SOka5JmP8yC3JoO/ef3C//D+Uk="></script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FHPRSC6XDQ"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-FHPRSC6XDQ',{anonymize_ip:!1})}</script>
 </body>
 </html>

@@ -18,12 +18,11 @@ Latex cheat sheets · sytranvn.dev
 <meta property="og:url" content="http://sytranvn.dev/posts/math/intro_to_latex/"><meta property="article:section" content="posts">
 <meta property="article:published_time" content="2022-12-16T00:00:00+00:00">
 <meta property="article:modified_time" content="2022-12-16T00:00:00+00:00">
-<meta property="og:see_also" content="http://sytranvn.dev/posts/math/intro_to_latex.vi/">
 <link rel=canonical href=http://sytranvn.dev/posts/math/intro_to_latex/>
 <link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin>
-<link rel=stylesheet href=/css/coder.min.65236a6d834b26194eed04a2a3b45e44d9194ef9e620253705d4bef03bd7ef81.css integrity="sha256-ZSNqbYNLJhlO7QSio7ReRNkZTvnmICU3BdS+8DvX74E=" crossorigin=anonymous media=screen>
-<link rel=stylesheet href=/css/coder-dark.min.f6534b0b446b75d9b6ad77a97d43ede2ddaeff1b6e2361fb7198d6f8fcb7f83f.css integrity="sha256-9lNLC0Rrddm2rXepfUPt4t2u/xtuI2H7cZjW+Py3+D8=" crossorigin=anonymous media=screen>
-<link rel=stylesheet href=/css/custom.min.81824f82c38de2d755f75442a96da905c7ffe371979cb46dc3774c7c5fac3153.css integrity="sha256-gYJPgsON4tdV91RCqW2pBcf/43GXnLRtw3dMfF+sMVM=" crossorigin=anonymous media=screen>
+<link rel=stylesheet href=/css/coder.min.85656f585fe601450b123ec7c9a997f8488faf7f9e2c81913580c9e2f8c72f82.css integrity="sha256-hWVvWF/mAUULEj7HyamX+EiPr3+eLIGRNYDJ4vjHL4I=" crossorigin=anonymous media=screen>
+<link rel=stylesheet href=/css/coder-dark.min.75de71d89fefe379cc001b6f6435f9b06dad86408428254718b48a73ea6d9e5e.css integrity="sha256-dd5x2J/v43nMABtvZDX5sG2thkCEKCVHGLSKc+ptnl4=" crossorigin=anonymous media=screen>
+<link rel=stylesheet href=/css/custom.min.042cc08ef551b3faf71db869dd24a3617f48536a67e8598dec4b1726fd3ea501.css integrity="sha256-BCzAjvVRs/r3Hbhp3SSjYX9IU2pn6FmN7EsXJv0+pQE=" crossorigin=anonymous media=screen>
 <link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32>
 <link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16>
 <link rel=apple-touch-icon href=/images/apple-touch-icon.png>
@@ -118,16 +117,16 @@ Basic inline LaTeX
 </h2>
 <p>To embed LaTeX within text, simply encapsulate the LaTeX portions in dollar signs (<code>$</code>). MathJax takes care of the rest. As an example, consider the sentence below and the markdown/LaTeX code to render it.</p>
 <p>Einstein told us that $E = mc^2$.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tex data-lang=tex>Einstein told us that <span style=color:#e6db74>$</span>E <span style=color:#f92672>=</span> mc^<span style=color:#ae81ff>2</span><span style=color:#e6db74>$</span>.
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tex data-lang=tex>Einstein told us that <span style=color:#0ff;font-weight:700>$</span><span style=color:#fff;font-weight:700>E </span>=<span style=color:#fff;font-weight:700> mc^</span><span style=color:#ff0;font-weight:700>2</span><span style=color:#0ff;font-weight:700>$</span>.
 </code></pre></div><p>Notice how the equation is properly rendered, with mathematical variables in italics. Note also how <code>^2</code> was used to raise to a power. If the power has more than one character in it, it should be enclosed in braces (<code>{}</code>). In fact, braces are used to generally group symbols in LaTeX.</p>
 <p>Euler told us that $\mathrm{e}^{i \pi} - 1 = 0$.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tex data-lang=tex>Euler told us that <span style=color:#e6db74>$</span>\mathrm{e}^{i \pi} <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span><span style=color:#e6db74>$</span>.
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tex data-lang=tex>Euler told us that <span style=color:#0ff;font-weight:700>$</span>\mathrm<span style=color:#fff;font-weight:700>{e}^{i </span>\pi<span style=color:#fff;font-weight:700>} </span>-<span style=color:#fff;font-weight:700> </span><span style=color:#ff0;font-weight:700>1</span><span style=color:#fff;font-weight:700> </span>=<span style=color:#fff;font-weight:700> </span><span style=color:#ff0;font-weight:700>0</span><span style=color:#0ff;font-weight:700>$</span>.
 </code></pre></div><p>Aside from the grouping braces, there are several other syntactical items of note. First, notice that I made the special character $\pi$ with <code>\pi</code>. In general, a backward slash precedes special symbols or commands in LaTeX. If we want another Greek letter, like $\theta$, we use <code>\theta</code>. Now, also note that I used &ldquo;<code>\mathrm{e}</code>&rdquo; for the base of the natural logarithm. I was signaling to LaTeX that I wanted the character written in Roman font, and not italics, so I used <code>\mathrm</code>. Anything in the braces following the function <code>\mathrm</code> is rendered in Roman font. Note the difference.</p>
 <p>This is $e$. This is $\mathrm{e}$</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tex data-lang=tex>This is <span style=color:#e6db74>$</span>e<span style=color:#e6db74>$</span>. This is <span style=color:#e6db74>$</span>\mathrm{e}<span style=color:#e6db74>$</span>.
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tex data-lang=tex>This is <span style=color:#0ff;font-weight:700>$</span><span style=color:#fff;font-weight:700>e</span><span style=color:#0ff;font-weight:700>$</span>. This is <span style=color:#0ff;font-weight:700>$</span>\mathrm<span style=color:#fff;font-weight:700>{e}</span><span style=color:#0ff;font-weight:700>$</span>.
 </code></pre></div><p>Now, back to grouping things in braces. We can do similar groupings using braces with with subscripts.</p>
 <p>The dot product of two $n$-vectors is $\mathbf{a} \cdot \mathbf{b} = \sum_{i=1}^n a_i b_i$.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tex data-lang=tex>The dot product of two <span style=color:#e6db74>$</span>n<span style=color:#e6db74>$</span>-vectors is <span style=color:#e6db74>$</span>\mathbf{a} \cdot \mathbf{b} <span style=color:#f92672>=</span> \sum_{i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>}^n a_i b_i<span style=color:#e6db74>$</span>.
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tex data-lang=tex>The dot product of two <span style=color:#0ff;font-weight:700>$</span><span style=color:#fff;font-weight:700>n</span><span style=color:#0ff;font-weight:700>$</span>-vectors is <span style=color:#0ff;font-weight:700>$</span>\mathbf<span style=color:#fff;font-weight:700>{a} </span>\cdot<span style=color:#fff;font-weight:700> </span>\mathbf<span style=color:#fff;font-weight:700>{b} </span>=<span style=color:#fff;font-weight:700> </span>\sum<span style=color:#fff;font-weight:700>_{i</span>=<span style=color:#ff0;font-weight:700>1</span><span style=color:#fff;font-weight:700>}^n a_i b_i</span><span style=color:#0ff;font-weight:700>$</span>.
 </code></pre></div><p>Here, I have used <code>$\mathbf{a}$</code> to make the character <code>a</code> boldface, denoting a vector. Note that we denote subscripts with an underscore. Notice also that the bounds of the sum use the same underscore and caret notation as for subscripts and superscripts.</p>
 <h2 id=displaying-equations-on-separate-lines>
 Displaying equations on separate lines
@@ -143,10 +142,10 @@ Displaying equations on separate lines
 \mathbf{a} \cdot \mathbf{b} = \sum_{i=1}^n a_i b_i.
 \end{align}
 $$</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tex data-lang=tex>We can make an equation appear centered on a new line, like
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tex data-lang=tex><span style=color:#66d9ef>\begin</span>{align}
-<span style=color:#66d9ef>\mathbf</span>{a} <span style=color:#66d9ef>\cdot</span> <span style=color:#66d9ef>\mathbf</span>{b} = <span style=color:#66d9ef>\sum</span>_{i=1}^n a_i b_i.
-<span style=color:#66d9ef>\end</span>{align}
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tex data-lang=tex>We can make an equation appear centered on a new line, like
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tex data-lang=tex><span style=color:#fff;font-weight:700>\begin</span><span style=color:#fff;font-weight:700>{</span>align<span style=color:#fff;font-weight:700>}</span>
+<span style=color:#fff;font-weight:700>\mathbf</span><span style=color:#fff;font-weight:700>{</span>a<span style=color:#fff;font-weight:700>}</span> <span style=color:#fff;font-weight:700>\cdot</span> <span style=color:#fff;font-weight:700>\mathbf</span><span style=color:#fff;font-weight:700>{</span>b<span style=color:#fff;font-weight:700>}</span> = <span style=color:#fff;font-weight:700>\sum</span><span style=color:#fff;font-weight:700>_{</span>i=1<span style=color:#fff;font-weight:700>}^</span>n a<span style=color:#fff;font-weight:700>_</span>i b<span style=color:#fff;font-weight:700>_</span>i.
+<span style=color:#fff;font-weight:700>\end</span><span style=color:#fff;font-weight:700>{</span>align<span style=color:#fff;font-weight:700>}</span>
 </code></pre></div><p>The <code>align</code> environment in LaTeX specifies that you want centered equations, separated from the text. It is called <code>align</code> because it allows you to align the equations. You separate lines in the equations with a double backslash (<code>//</code>). Insert an ampersand (<code>&</code>) in each line at the alignment point. All equations will be aligned at the location of the ampersand symbols (and, of course, the ampersands will not appear in the rendered equations).</p>
 <p>For a three-vector consisting of $x$, $y$, and $z$ components,</p>
 <p>$$
@@ -155,11 +154,11 @@ $$</p>
 &= a_x b_x + a_y b_y + a_z b_z.
 \end{align}
 $$</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tex data-lang=tex>For a three-vector consisting of <span style=color:#e6db74>$</span>x<span style=color:#e6db74>$</span>, <span style=color:#e6db74>$</span>y<span style=color:#e6db74>$</span>, and <span style=color:#e6db74>$</span>z<span style=color:#e6db74>$</span> components,
-</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tex data-lang=tex><span style=color:#66d9ef>\begin</span>{align}
-<span style=color:#66d9ef>\mathbf</span>{a} <span style=color:#66d9ef>\cdot</span> <span style=color:#66d9ef>\mathbf</span>{b} &amp;= <span style=color:#66d9ef>\sum</span>_{i=1}^n a_i b_i <span style=color:#66d9ef>\\</span>
-&amp;= a_x b_x + a_y b_y + a_z b_z.
-<span style=color:#66d9ef>\end</span>{align}
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tex data-lang=tex>For a three-vector consisting of <span style=color:#0ff;font-weight:700>$</span><span style=color:#fff;font-weight:700>x</span><span style=color:#0ff;font-weight:700>$</span>, <span style=color:#0ff;font-weight:700>$</span><span style=color:#fff;font-weight:700>y</span><span style=color:#0ff;font-weight:700>$</span>, and <span style=color:#0ff;font-weight:700>$</span><span style=color:#fff;font-weight:700>z</span><span style=color:#0ff;font-weight:700>$</span> components,
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tex data-lang=tex><span style=color:#fff;font-weight:700>\begin</span><span style=color:#fff;font-weight:700>{</span>align<span style=color:#fff;font-weight:700>}</span>
+<span style=color:#fff;font-weight:700>\mathbf</span><span style=color:#fff;font-weight:700>{</span>a<span style=color:#fff;font-weight:700>}</span> <span style=color:#fff;font-weight:700>\cdot</span> <span style=color:#fff;font-weight:700>\mathbf</span><span style=color:#fff;font-weight:700>{</span>b<span style=color:#fff;font-weight:700>}</span> <span style=color:#fff;font-weight:700>&amp;</span>= <span style=color:#fff;font-weight:700>\sum</span><span style=color:#fff;font-weight:700>_{</span>i=1<span style=color:#fff;font-weight:700>}^</span>n a<span style=color:#fff;font-weight:700>_</span>i b<span style=color:#fff;font-weight:700>_</span>i <span style=color:#fff;font-weight:700>\\</span>
+<span style=color:#fff;font-weight:700>&amp;</span>= a<span style=color:#fff;font-weight:700>_</span>x b<span style=color:#fff;font-weight:700>_</span>x + a<span style=color:#fff;font-weight:700>_</span>y b<span style=color:#fff;font-weight:700>_</span>y + a<span style=color:#fff;font-weight:700>_</span>z b<span style=color:#fff;font-weight:700>_</span>z.
+<span style=color:#fff;font-weight:700>\end</span><span style=color:#fff;font-weight:700>{</span>align<span style=color:#fff;font-weight:700>}</span>
 </code></pre></div><p>Note that I always put an extra blank line before the <code>\begin{align}</code> statement. This is not necessary, but I think things look better with the extra space.</p>
 <h2 id=fractions-and-an-example-of-fine-tuning>
 Fractions (and an example of fine-tuning)
@@ -174,18 +173,18 @@ Fractions (and an example of fine-tuning)
 P(A \mid B) = \frac{P(B \mid A) , P(A)}{P(B)}
 \end{align}
 $$</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tex data-lang=tex><span style=color:#66d9ef>\begin</span>{align}
-    P(A <span style=color:#66d9ef>\mid</span> B) = <span style=color:#66d9ef>\frac</span>{P(B <span style=color:#66d9ef>\mid</span> A) <span style=color:#66d9ef>\,</span> P(A)}{P(B)}
-<span style=color:#66d9ef>\end</span>{align}
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tex data-lang=tex><span style=color:#fff;font-weight:700>\begin</span><span style=color:#fff;font-weight:700>{</span>align<span style=color:#fff;font-weight:700>}</span>
+    P(A <span style=color:#fff;font-weight:700>\mid</span> B) = <span style=color:#fff;font-weight:700>\frac</span><span style=color:#fff;font-weight:700>{</span>P(B <span style=color:#fff;font-weight:700>\mid</span> A) <span style=color:#fff;font-weight:700>\,</span> P(A)<span style=color:#fff;font-weight:700>}{</span>P(B)<span style=color:#fff;font-weight:700>}</span>
+<span style=color:#fff;font-weight:700>\end</span><span style=color:#fff;font-weight:700>{</span>align<span style=color:#fff;font-weight:700>}</span>
 </code></pre></div><p>The right hand side has a nicely-formatted fraction. I did a little extra fine-tuning in this equation. I&rsquo;ll show the equation again without the fine-tuning, which used the <code>\mid</code> and <code>\,</code> commands.</p>
 <p>$$
 \begin{align}
 P(A | B) = \frac{P(B | A) P(A)}{P(B)}.
 \end{align}
 $$</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tex data-lang=tex><span style=color:#66d9ef>\begin</span>{align}
-    P(A | B) = <span style=color:#66d9ef>\frac</span>{P(B | A) P(A)}{P(B)}.
-<span style=color:#66d9ef>\end</span>{align}
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tex data-lang=tex><span style=color:#fff;font-weight:700>\begin</span><span style=color:#fff;font-weight:700>{</span>align<span style=color:#fff;font-weight:700>}</span>
+    P(A | B) = <span style=color:#fff;font-weight:700>\frac</span><span style=color:#fff;font-weight:700>{</span>P(B | A) P(A)<span style=color:#fff;font-weight:700>}{</span>P(B)<span style=color:#fff;font-weight:700>}</span>.
+<span style=color:#fff;font-weight:700>\end</span><span style=color:#fff;font-weight:700>{</span>align<span style=color:#fff;font-weight:700>}</span>
 </code></pre></div><p>First, the <code>\mid</code> command should be used in conditional probabilities. Just using a vertical bar (<code>|</code>) results in crowding. Similarly, I used the <code>\,</code> command to insert a little extra space between the two probabilities in the numerator. This makes the equation a bit easier to read. This <code>\,</code> operator is especially important when defining integrals. We can put a little space between the $\mathrm{d}x$ and the integrand.</p>
 <p>$$
 \begin{align}
@@ -193,11 +192,11 @@ $$</p>
 \text{bad: } &\int_0^{2\pi} \mathrm{d}x \sin x.
 \end{align}
 $$</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tex data-lang=tex><span style=color:#66d9ef>\begin</span>{align}
-    <span style=color:#66d9ef>\text</span>{good: } &amp;<span style=color:#66d9ef>\int</span>_0^{2<span style=color:#66d9ef>\pi</span>} <span style=color:#66d9ef>\mathrm</span>{d}x <span style=color:#66d9ef>\,</span> <span style=color:#66d9ef>\sin</span> x.  <span style=color:#66d9ef>\\\\</span><span style=color:#e6db74>\[</span><span style=color:#ae81ff>1</span>em<span style=color:#f92672>]</span>
-    \text{bad: } &amp;\int_<span style=color:#ae81ff>0</span>^{<span style=color:#ae81ff>2</span>\pi} \mathrm{d}x \sin x.
-\end{align}
-</code></pre></div><p>Note that I inserted extra space after the new line. Specifically, <code> \\\\\[1em]</code> instructs LaTeX to insert a space equation to the width of an M character between the equations. I often do this to keep things clear.</p>
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tex data-lang=tex><span style=color:#fff;font-weight:700>\begin</span><span style=color:#fff;font-weight:700>{</span>align<span style=color:#fff;font-weight:700>}</span>
+    <span style=color:#fff;font-weight:700>\text</span><span style=color:#fff;font-weight:700>{</span>good: <span style=color:#fff;font-weight:700>}</span> <span style=color:#fff;font-weight:700>&amp;</span><span style=color:#fff;font-weight:700>\int</span><span style=color:#fff;font-weight:700>_</span>0<span style=color:#fff;font-weight:700>^{</span>2<span style=color:#fff;font-weight:700>\pi</span><span style=color:#fff;font-weight:700>}</span> <span style=color:#fff;font-weight:700>\mathrm</span><span style=color:#fff;font-weight:700>{</span>d<span style=color:#fff;font-weight:700>}</span>x <span style=color:#fff;font-weight:700>\,</span> <span style=color:#fff;font-weight:700>\sin</span> x.  <span style=color:#fff;font-weight:700>\\\\</span><span style=color:#0ff;font-weight:700>\[</span><span style=color:#ff0;font-weight:700>1</span><span style=color:#fff;font-weight:700>em</span>]<span style=color:#fff;font-weight:700>
+</span><span style=color:#fff;font-weight:700>    </span>\text<span style=color:#fff;font-weight:700>{bad: } &amp;</span>\int<span style=color:#fff;font-weight:700>_</span><span style=color:#ff0;font-weight:700>0</span><span style=color:#fff;font-weight:700>^{</span><span style=color:#ff0;font-weight:700>2</span>\pi<span style=color:#fff;font-weight:700>} </span>\mathrm<span style=color:#fff;font-weight:700>{d}x </span>\sin<span style=color:#fff;font-weight:700> x.
+</span><span style=color:#fff;font-weight:700></span>\end<span style=color:#fff;font-weight:700>{align}
+</span></code></pre></div><p>Note that I inserted extra space after the new line. Specifically, <code> \\\\\[1em]</code> instructs LaTeX to insert a space equation to the width of an M character between the equations. I often do this to keep things clear.</p>
 <p>It is also very important to note that I used $\sin$ and not $sin$. Mathematical functions should be in Roman font and are invoked with a backslash. Otherwise, the characters are interpreted as separate variables. To be clear:</p>
 <p>$$
 \begin{align}
@@ -205,11 +204,11 @@ $$</p>
 \text{bad: } & sin x.
 \end{align}
 $$</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tex data-lang=tex><span style=color:#66d9ef>\begin</span>{align}
-    <span style=color:#66d9ef>\text</span>{good: } &amp;<span style=color:#66d9ef>\sin</span> x.  <span style=color:#66d9ef>\\\\</span><span style=color:#e6db74>\[</span><span style=color:#ae81ff>1</span>em<span style=color:#f92672>]</span>
-    \text{bad: } &amp; sin x.
-\end{align}
-</code></pre></div><p>Finally, notice that I was able to put text in the equation like this: <code>\text{good: }</code>.</p>
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tex data-lang=tex><span style=color:#fff;font-weight:700>\begin</span><span style=color:#fff;font-weight:700>{</span>align<span style=color:#fff;font-weight:700>}</span>
+    <span style=color:#fff;font-weight:700>\text</span><span style=color:#fff;font-weight:700>{</span>good: <span style=color:#fff;font-weight:700>}</span> <span style=color:#fff;font-weight:700>&amp;</span><span style=color:#fff;font-weight:700>\sin</span> x.  <span style=color:#fff;font-weight:700>\\\\</span><span style=color:#0ff;font-weight:700>\[</span><span style=color:#ff0;font-weight:700>1</span><span style=color:#fff;font-weight:700>em</span>]<span style=color:#fff;font-weight:700>
+</span><span style=color:#fff;font-weight:700>    </span>\text<span style=color:#fff;font-weight:700>{bad: } &amp; sin x.
+</span><span style=color:#fff;font-weight:700></span>\end<span style=color:#fff;font-weight:700>{align}
+</span></code></pre></div><p>Finally, notice that I was able to put text in the equation like this: <code>\text{good: }</code>.</p>
 <h2 id=grouping-operators-and-more-fine-tuning>
 Grouping operators (and more fine-tuning)
 <a class=heading-link href=#grouping-operators-and-more-fine-tuning>
@@ -224,11 +223,11 @@ Grouping operators (and more fine-tuning)
 \text{bad: } &\sum_{i=1}^n i^3 = (\sum_{i=1}^n i)^2.
 \end{align}
 $$</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tex data-lang=tex><span style=color:#66d9ef>\begin</span>{align}
-    <span style=color:#66d9ef>\text</span>{good: } &amp;<span style=color:#66d9ef>\sum</span>_{i=1}^n i^3 = <span style=color:#66d9ef>\left</span>(<span style=color:#66d9ef>\sum</span>_{i=1}^n i<span style=color:#66d9ef>\right</span>)^2.  <span style=color:#66d9ef>\\\\</span><span style=color:#e6db74>\[</span><span style=color:#ae81ff>1</span>em<span style=color:#f92672>]</span>
-    \text{bad: }  &amp;\sum_{i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>}^n i^<span style=color:#ae81ff>3</span> <span style=color:#f92672>=</span> <span style=color:#f92672>(</span>\sum_{i<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span>}^n i<span style=color:#f92672>)</span>^<span style=color:#ae81ff>2</span>.
-\end{align}
-</code></pre></div><p>In the second equation, I did not use the <code>\left(</code> and <code>\right)</code> construction for parentheses and the result looks pretty awful. In LaTeX, the height of anything that is encapsulated by <code>\left(</code> and <code>\right)</code> scales the parentheses appropriately. You can use <code>\left</code> and <code>\right</code> with many symbols. An important example is <code>\left\{</code>. Note that to display braces in an equation, you have to use <code>\{</code> because just a plain brace (<code>{</code>) has a different meaning.</p>
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tex data-lang=tex><span style=color:#fff;font-weight:700>\begin</span><span style=color:#fff;font-weight:700>{</span>align<span style=color:#fff;font-weight:700>}</span>
+    <span style=color:#fff;font-weight:700>\text</span><span style=color:#fff;font-weight:700>{</span>good: <span style=color:#fff;font-weight:700>}</span> <span style=color:#fff;font-weight:700>&amp;</span><span style=color:#fff;font-weight:700>\sum</span><span style=color:#fff;font-weight:700>_{</span>i=1<span style=color:#fff;font-weight:700>}^</span>n i<span style=color:#fff;font-weight:700>^</span>3 = <span style=color:#fff;font-weight:700>\left</span>(<span style=color:#fff;font-weight:700>\sum</span><span style=color:#fff;font-weight:700>_{</span>i=1<span style=color:#fff;font-weight:700>}^</span>n i<span style=color:#fff;font-weight:700>\right</span>)<span style=color:#fff;font-weight:700>^</span>2.  <span style=color:#fff;font-weight:700>\\\\</span><span style=color:#0ff;font-weight:700>\[</span><span style=color:#ff0;font-weight:700>1</span><span style=color:#fff;font-weight:700>em</span>]<span style=color:#fff;font-weight:700>
+</span><span style=color:#fff;font-weight:700>    </span>\text<span style=color:#fff;font-weight:700>{bad: }  &amp;</span>\sum<span style=color:#fff;font-weight:700>_{i</span>=<span style=color:#ff0;font-weight:700>1</span><span style=color:#fff;font-weight:700>}^n i^</span><span style=color:#ff0;font-weight:700>3</span><span style=color:#fff;font-weight:700> </span>=<span style=color:#fff;font-weight:700> </span>(\sum<span style=color:#fff;font-weight:700>_{i</span>=<span style=color:#ff0;font-weight:700>1</span><span style=color:#fff;font-weight:700>}^n i</span>)<span style=color:#fff;font-weight:700>^</span><span style=color:#ff0;font-weight:700>2</span><span style=color:#fff;font-weight:700>.
+</span><span style=color:#fff;font-weight:700></span>\end<span style=color:#fff;font-weight:700>{align}
+</span></code></pre></div><p>In the second equation, I did not use the <code>\left(</code> and <code>\right)</code> construction for parentheses and the result looks pretty awful. In LaTeX, the height of anything that is encapsulated by <code>\left(</code> and <code>\right)</code> scales the parentheses appropriately. You can use <code>\left</code> and <code>\right</code> with many symbols. An important example is <code>\left\{</code>. Note that to display braces in an equation, you have to use <code>\{</code> because just a plain brace (<code>{</code>) has a different meaning.</p>
 <p>(By the way, that equation is true, and pretty amazing. It says that the sum of the first $n$ <em>cubes</em> of integers is equal to the sum of the first $n$ integers <em>squared</em>!)</p>
 <p>Finally, if you use <code>\left.</code> or <code>\right.</code>, LaTeX will simply scale the opposite symbol to match the height of the text, but will suppress printing the other. For example,</p>
 <p>$$
@@ -236,9 +235,9 @@ $$</p>
 \left. \frac{1}{x + 2} \right|_0^2 = -\frac{1}{4}.
 \end{align}
 $$</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tex data-lang=tex><span style=color:#66d9ef>\begin</span>{align}
-    <span style=color:#66d9ef>\left</span>. <span style=color:#66d9ef>\frac</span>{1}{x + 2} <span style=color:#66d9ef>\right</span>|_0^2 = -<span style=color:#66d9ef>\frac</span>{1}{4}.
-<span style=color:#66d9ef>\end</span>{align}
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tex data-lang=tex><span style=color:#fff;font-weight:700>\begin</span><span style=color:#fff;font-weight:700>{</span>align<span style=color:#fff;font-weight:700>}</span>
+    <span style=color:#fff;font-weight:700>\left</span>. <span style=color:#fff;font-weight:700>\frac</span><span style=color:#fff;font-weight:700>{</span>1<span style=color:#fff;font-weight:700>}{</span>x + 2<span style=color:#fff;font-weight:700>}</span> <span style=color:#fff;font-weight:700>\right</span>|<span style=color:#fff;font-weight:700>_</span>0<span style=color:#fff;font-weight:700>^</span>2 = -<span style=color:#fff;font-weight:700>\frac</span><span style=color:#fff;font-weight:700>{</span>1<span style=color:#fff;font-weight:700>}{</span>4<span style=color:#fff;font-weight:700>}</span>.
+<span style=color:#fff;font-weight:700>\end</span><span style=color:#fff;font-weight:700>{</span>align<span style=color:#fff;font-weight:700>}</span>
 </code></pre></div><p>This is also useful if you are going to use <code>/</code> for a division operation. Compare the following.</p>
 <p>$$
 \begin{align}
@@ -246,11 +245,11 @@ $$</p>
 \text{bad: } & x^2 / y^2
 \end{align}
 $$</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tex data-lang=tex><span style=color:#66d9ef>\begin</span>{align}
-    <span style=color:#66d9ef>\text</span>{good: } &amp; <span style=color:#66d9ef>\left</span>. x^2 <span style=color:#66d9ef>\middle</span>/ y^2 <span style=color:#66d9ef>\right</span>.  <span style=color:#66d9ef>\\\\</span><span style=color:#e6db74>\[</span><span style=color:#ae81ff>1</span>em<span style=color:#f92672>]</span>
-    \text{bad: } &amp; x^<span style=color:#ae81ff>2</span> <span style=color:#f92672>/</span> y^<span style=color:#ae81ff>2</span>
-\end{align}
-</code></pre></div><p>Here, we used the <code>\middle</code> operator to scale the length of the division sign.</p>
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tex data-lang=tex><span style=color:#fff;font-weight:700>\begin</span><span style=color:#fff;font-weight:700>{</span>align<span style=color:#fff;font-weight:700>}</span>
+    <span style=color:#fff;font-weight:700>\text</span><span style=color:#fff;font-weight:700>{</span>good: <span style=color:#fff;font-weight:700>}</span> <span style=color:#fff;font-weight:700>&amp;</span> <span style=color:#fff;font-weight:700>\left</span>. x<span style=color:#fff;font-weight:700>^</span>2 <span style=color:#fff;font-weight:700>\middle</span>/ y<span style=color:#fff;font-weight:700>^</span>2 <span style=color:#fff;font-weight:700>\right</span>.  <span style=color:#fff;font-weight:700>\\\\</span><span style=color:#0ff;font-weight:700>\[</span><span style=color:#ff0;font-weight:700>1</span><span style=color:#fff;font-weight:700>em</span>]<span style=color:#fff;font-weight:700>
+</span><span style=color:#fff;font-weight:700>    </span>\text<span style=color:#fff;font-weight:700>{bad: } &amp; x^</span><span style=color:#ff0;font-weight:700>2</span><span style=color:#fff;font-weight:700> </span>/<span style=color:#fff;font-weight:700> y^</span><span style=color:#ff0;font-weight:700>2</span><span style=color:#fff;font-weight:700>
+</span><span style=color:#fff;font-weight:700></span>\end<span style=color:#fff;font-weight:700>{align}
+</span></code></pre></div><p>Here, we used the <code>\middle</code> operator to scale the length of the division sign.</p>
 <h2 id=matrices-and-arrays>
 Matrices and arrays
 <a class=heading-link href=#matrices-and-arrays>
@@ -267,12 +266,12 @@ Matrices and arrays
 \end{pmatrix}.
 \end{align}
 $$</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tex data-lang=tex><span style=color:#66d9ef>\begin</span>{align}
-    <span style=color:#66d9ef>\sigma</span>^2 = <span style=color:#66d9ef>\begin</span>{pmatrix}
-    <span style=color:#66d9ef>\sigma</span>_1^2 &amp; <span style=color:#66d9ef>\sigma</span>_{12} <span style=color:#66d9ef>\\</span>
-    <span style=color:#66d9ef>\sigma</span>_{12} &amp; <span style=color:#66d9ef>\sigma</span>_2^2 
-    <span style=color:#66d9ef>\end</span>{pmatrix}.
-<span style=color:#66d9ef>\end</span>{align}
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tex data-lang=tex><span style=color:#fff;font-weight:700>\begin</span><span style=color:#fff;font-weight:700>{</span>align<span style=color:#fff;font-weight:700>}</span>
+    <span style=color:#fff;font-weight:700>\sigma</span><span style=color:#fff;font-weight:700>^</span>2 = <span style=color:#fff;font-weight:700>\begin</span><span style=color:#fff;font-weight:700>{</span>pmatrix<span style=color:#fff;font-weight:700>}</span>
+    <span style=color:#fff;font-weight:700>\sigma</span><span style=color:#fff;font-weight:700>_</span>1<span style=color:#fff;font-weight:700>^</span>2 <span style=color:#fff;font-weight:700>&amp;</span> <span style=color:#fff;font-weight:700>\sigma</span><span style=color:#fff;font-weight:700>_{</span>12<span style=color:#fff;font-weight:700>}</span> <span style=color:#fff;font-weight:700>\\</span>
+    <span style=color:#fff;font-weight:700>\sigma</span><span style=color:#fff;font-weight:700>_{</span>12<span style=color:#fff;font-weight:700>}</span> <span style=color:#fff;font-weight:700>&amp;</span> <span style=color:#fff;font-weight:700>\sigma</span><span style=color:#fff;font-weight:700>_</span>2<span style=color:#fff;font-weight:700>^</span>2 
+    <span style=color:#fff;font-weight:700>\end</span><span style=color:#fff;font-weight:700>{</span>pmatrix<span style=color:#fff;font-weight:700>}</span>.
+<span style=color:#fff;font-weight:700>\end</span><span style=color:#fff;font-weight:700>{</span>align<span style=color:#fff;font-weight:700>}</span>
 </code></pre></div><p>Once in the <code>pmatrix</code> environment, each row has entries separated by an ampersand. The row ends with a <code>\\</code>. Each row must have the same number of entries.</p>
 <p>You may also need to represent an values stacked on top of each other. For example, we might specify a piecewise linear function like this.</p>
 <p>$$
@@ -281,10 +280,10 @@ f(n) = \begin{cases} \frac{n}{2}, & \text{if } n\text{ is even} \\
 3n+1, & \text{if } n\text{ is odd} \end{cases}
 \end{align}
 $$</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tex data-lang=tex><span style=color:#66d9ef>\begin</span>{align}
-f(n) = <span style=color:#66d9ef>\begin</span>{cases} <span style=color:#66d9ef>\frac</span>{n}{2}, &amp; <span style=color:#66d9ef>\text</span>{if } n<span style=color:#66d9ef>\text</span>{ is even} <span style=color:#66d9ef>\\\</span>
-3n+1, &amp; <span style=color:#66d9ef>\text</span>{if } n<span style=color:#66d9ef>\text</span>{ is odd} <span style=color:#66d9ef>\end</span>{cases}
-<span style=color:#66d9ef>\end</span>{align}
+<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-tex data-lang=tex><span style=color:#fff;font-weight:700>\begin</span><span style=color:#fff;font-weight:700>{</span>align<span style=color:#fff;font-weight:700>}</span>
+f(n) = <span style=color:#fff;font-weight:700>\begin</span><span style=color:#fff;font-weight:700>{</span>cases<span style=color:#fff;font-weight:700>}</span> <span style=color:#fff;font-weight:700>\frac</span><span style=color:#fff;font-weight:700>{</span>n<span style=color:#fff;font-weight:700>}{</span>2<span style=color:#fff;font-weight:700>}</span>, <span style=color:#fff;font-weight:700>&amp;</span> <span style=color:#fff;font-weight:700>\text</span><span style=color:#fff;font-weight:700>{</span>if <span style=color:#fff;font-weight:700>}</span> n<span style=color:#fff;font-weight:700>\text</span><span style=color:#fff;font-weight:700>{</span> is even<span style=color:#fff;font-weight:700>}</span> <span style=color:#fff;font-weight:700>\\\</span>
+3n+1, <span style=color:#fff;font-weight:700>&amp;</span> <span style=color:#fff;font-weight:700>\text</span><span style=color:#fff;font-weight:700>{</span>if <span style=color:#fff;font-weight:700>}</span> n<span style=color:#fff;font-weight:700>\text</span><span style=color:#fff;font-weight:700>{</span> is odd<span style=color:#fff;font-weight:700>}</span> <span style=color:#fff;font-weight:700>\end</span><span style=color:#fff;font-weight:700>{</span>cases<span style=color:#fff;font-weight:700>}</span>
+<span style=color:#fff;font-weight:700>\end</span><span style=color:#fff;font-weight:700>{</span>align<span style=color:#fff;font-weight:700>}</span>
 </code></pre></div><p>The <code>array</code> environment allows arrays of text. The <code>{cl}</code> after <code>\begin{array}</code> indicates that two columns are wanted, with the first column being centered and the second being left-aligned. If we chose instead <code>{lr}</code>, the first column is left-aligned and the second column is right-aligned.</p>
 <h2 id=useful-latex-symbols-for-bebi-103>
 Useful LaTeX symbols for BE/Bi 103
@@ -371,20 +370,6 @@ Useful LaTeX symbols for BE/Bi 103
 </div>
 <footer>
 <section class=see-also>
-<h3 id=see-also-in-math>
-See also in Math
-<a class=heading-link href=#see-also-in-math>
-<i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span>
-</a>
-</h3>
-<nav>
-<ul>
-<li>
-<a href=/posts/math/intro_to_latex.vi/>Latex cheat sheets</a>
-</li>
-</ul>
-</nav>
 </section>
 <div class=comments>
 <script>let getTheme=window.localStorage&&window.localStorage.getItem("colorscheme");getTheme=getTheme==null?'preferred-color-scheme':getTheme;let theme=getTheme==='dark'?'github-dark':'github-light',s=document.createElement('script');s.src='https://utteranc.es/client.js',s.setAttribute('repo','sytranvn/sytranvn.lounge'),s.setAttribute('issue-term','title'),s.setAttribute('theme',theme),s.setAttribute('crossorigin','anonymous'),s.setAttribute('async',''),document.querySelector('div.comments').innerHTML='',document.querySelector('div.comments').appendChild(s)</script>
@@ -411,7 +396,5 @@ Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luiz
 <script data-name=BMC-Widget data-cfasync=false src=https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js data-id=sytranvn data-description="Support me on Buy me a coffee!" data-message="Thank you for visiting ❤️ . You can now buy me a conffe." data-color=#ff813f data-position=Right data-x_margin=18 data-y_margin=18></script>
 </main>
 <script src=/js/coder.min.369d90111ae4409b4e51de5efd23a46b92663fcc82dc9a0efde7f70bffc3f949.js integrity="sha256-Np2QERrkQJtOUd5e/SOka5JmP8yC3JoO/ef3C//D+Uk="></script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FHPRSC6XDQ"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-FHPRSC6XDQ',{anonymize_ip:!1})}</script>
 </body>
 </html>
