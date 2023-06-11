@@ -1,0 +1,169 @@
+<!doctype html><html lang=en>
+<head>
+<title>
+Some More Limits · sytranvn.dev
+</title>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=color-scheme content="light dark">
+<meta name=author content="Sy Tran">
+<meta name=description content="Do more math excercises">
+<meta name=keywords content="blog,developer,personal">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="Some More Limits">
+<meta name=twitter:description content="Do more math excercises">
+<meta property="og:title" content="Some More Limits">
+<meta property="og:description" content="Do more math excercises">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://sytranvn.dev/posts/math/some-more-limits/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2023-06-05T18:19:06+07:00">
+<meta property="article:modified_time" content="2023-06-05T18:19:06+07:00">
+<link rel=canonical href=http://sytranvn.dev/posts/math/some-more-limits/>
+<link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin>
+<link rel=stylesheet href=/css/coder.min.85656f585fe601450b123ec7c9a997f8488faf7f9e2c81913580c9e2f8c72f82.css integrity="sha256-hWVvWF/mAUULEj7HyamX+EiPr3+eLIGRNYDJ4vjHL4I=" crossorigin=anonymous media=screen>
+<link rel=stylesheet href=/css/coder-dark.min.75de71d89fefe379cc001b6f6435f9b06dad86408428254718b48a73ea6d9e5e.css integrity="sha256-dd5x2J/v43nMABtvZDX5sG2thkCEKCVHGLSKc+ptnl4=" crossorigin=anonymous media=screen>
+<link rel=stylesheet href=/css/custom.min.ca5f874b88e4c402f234bf2bf910a86f104289167117a551cbdc8d6d7642cf60.css integrity="sha256-yl+HS4jkxALyNL8r+RCobxBCiRZxF6VRy9yNbXZCz2A=" crossorigin=anonymous media=screen>
+<link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32>
+<link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16>
+<link rel=apple-touch-icon href=/images/apple-touch-icon.png>
+<link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png>
+<link rel=manifest href=/site.webmanifest>
+<link rel=mask-icon href=/images/safari-pinned-tab.svg color=#5bbad5>
+</head>
+<body class="preload-transitions colorscheme-dark">
+<main class=wrapper>
+<nav class=navigation>
+<section class=container>
+<a class=navigation-title href=/>
+sytranvn.dev
+</a>
+<input type=checkbox id=menu-toggle>
+<label class="menu-button float-right" for=menu-toggle>
+<i class="fa fa-bars fa-fw" aria-hidden=true></i>
+</label>
+<ul class=navigation-list>
+<li class=navigation-item>
+<a class=navigation-link href=/now/>Now</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=/posts/>Blog</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=/projects/>Projects</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=/accomplishments/>Accomplishments</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=/resume.pdf>Resume</a>
+</li>
+</ul>
+</section>
+</nav>
+<div class=content>
+<section class="container post">
+<article>
+<header>
+<div class=post-title>
+<h1 class=title>
+<a class=title-link href=http://sytranvn.dev/posts/math/some-more-limits/>
+Some More Limits
+</a>
+</h1>
+</div>
+<div class=post-meta>
+<div class=date>
+<span class=posted-on>
+<i class="fa fa-calendar" aria-hidden=true></i>
+<time datetime=2023-06-05T18:19:06+07:00>
+June 5, 2023
+</time>
+</span>
+<span class=reading-time>
+<i class="fa fa-clock-o" aria-hidden=true></i>
+3-minute read
+</span>
+</div>
+<div class=categories>
+<i class="fa fa-folder" aria-hidden=true></i>
+<a href=/categories/calculus/>calculus</a></div>
+<div class=tags>
+<i class="fa fa-tag" aria-hidden=true></i>
+<span class=tag>
+<a href=/tags/limits/>limits</a>
+</span></div>
+</div>
+</header>
+<div class=post-content>
+<ol>
+<li></li>
+</ol>
+<p>$$
+\lim_{x \to 0} \frac{ \sqrt{x + 1} - 1 }{ \sqrt[3]{x} - 1 } \\
+= \lim_{x \to 0} \frac{ ( \sqrt{x + 1} - 1 )( \sqrt{x + 1} + 1 ) }{ ( \sqrt[3]{x} - 1 ) ( \sqrt{x + 1} + 1 )} \\
+= \lim_{x \to 0} \frac{ ( \sqrt{x + 1} )^2 - 1^2 }{ ( \sqrt[3]{x} - 1 ) ( \sqrt{x + 1} + 1 )} \\
+= \lim_{x \to 0} \frac{ x + 1- 1 }{ ( \sqrt[3]{x} - 1 ) ( \sqrt{x + 1} + 1 )} \\
+= \lim_{x \to 0} \frac{ x }{ ( \sqrt[3]{x} - 1 ) ( \sqrt{x + 1} + 1 )} \\
+= \lim_{x \to 0} \frac{ 0 }{ ( \sqrt[3]{0} - 1 ) ( \sqrt{0 + 1} + 1 )} \\
+= \lim_{x \to 0} \frac{ 0 }{ -2 } \\
+= 0^-
+$$</p>
+<ol start=2>
+<li></li>
+</ol>
+<p>$$
+L = \lim_{x \to 0} \frac{ (1 + 3x^2)^4 -1 } { \sqrt[3]{1+2x^2} - 1 } \\
+= \lim_{x \to 0} \frac{ (1 + 3x^2)^4 -1 } { \sqrt[3]{1+2x^2} - 1 } \\
+= \lim_{x \to 0} \frac{ ( (1 + 3x^2)^4 -1 )(1 + \sqrt[3]{1+2x^2} + (1+2x^2)^{\frac{2}{3}})} { ( \sqrt[3]{1+2x^2} - 1 )(1 + \sqrt[3]{1+2x^2} + (1+2x^2)^{\frac{2}{3}}) } \\
+\text{ } \\
+\text{Let: } A = [ (1 + 3x^2)^4 -1 ][ 1 + \sqrt[3]{1+2x^2} + (1+2x^2)^{\frac{2}{3}} ] \\
+\text{ and } B = ( \sqrt[3]{1+2x^2} - 1 )[ 1 + \sqrt[3]{1+2x^2} + (1+2x^2)^{\frac{2}{3}} ] \\
+\\
+\text{ } \\
+A = [ (1 + 3x^2)^4 -1 ][ 1 + \sqrt[3]{1+2x^2} + (1+2x^2)^{\frac{2}{3}} ] \\
+= \big[ [(1 + 3x^2)^2]^2 -1 \big][ 1 + \sqrt[3]{1+2x^2} + (1+2x^2)^{\frac{2}{3}} ] \\
+= [ (1 + 3x^2)^2 -1 ][ (1 + 3x^2)^2 +1 ][ 1 + \sqrt[3]{1+2x^2} + (1+2x^2)^{\frac{2}{3}} ] \\
+= [ (1 + 3x^2) -1 ][ (1 + 3x^2) +1 ][ (1 + 3x^2)^2 +1 ][ 1 + \sqrt[3]{1+2x^2} + (1+2x^2)^{\frac{2}{3}} ] \\
+= 3x^2[ (1 + 3x^2) +1 ][ (1 + 3x^2)^2 +1 ][ 1 + \sqrt[3]{1+2x^2} + (1+2x^2)^{\frac{2}{3}} ] \\
+\\
+B = ( \sqrt[3]{1+2x^2} - 1 )[ 1 + \sqrt[3]{1+2x^2} + (1+2x^2)^{\frac{2}{3}} ] \\
+= \big( ( \sqrt[3]{1+2x^2} )^3 - 1^3 \big) \\
+= \big( ( 1+2x^2 ) - 1 \big) \\
+= 2x^2 \\
+\rArr L = \lim_{x \to 0}\frac{A} {B} \\
+= \lim_{x \to 0} \frac{3x^2[ (1 + 3x^2) +1 ][ (1 + 3x^2)^2 +1 ][ 1 + \sqrt[3]{1+2x^2} + (1+2x^2)^{\frac{2}{3}} ]}{2x^2} \\
+= \lim_{x \to 0} \frac{3x^2}{2x^2} \big[ [ (1 + 3x^2) +1 ][ (1 + 3x^2)^2 +1 ][ 1 + \sqrt[3]{1+2x^2} + (1+2x^2)^{\frac{2}{3}} ] \big] \\
+= \lim_{x \to 0} \frac{3}{2} \big[ [ (1 + 3x^2) +1 ][ (1 + 3x^2)^2 +1 ][ 1 + \sqrt[3]{1+2x^2} + (1+2x^2)^{\frac{2}{3}} ] \big] \\
+= \frac{3}{2} \big[ [ (1 + 3.(0)^2) +1 ][ (1 + 3.(0)^2)^2 +1 ][ 1 + \sqrt[3]{1+2.(0)^2} + (1+2.(0)^2)^{\frac{2}{3}} ] \big] \\
+= \frac{3}{2} [ 2.2.( 1 + 1 + 1 ) ] \\
+= 18 \square
+$$</p>
+</div>
+<footer>
+<div class=comments>
+<script>let getTheme=window.localStorage&&window.localStorage.getItem("colorscheme");getTheme=getTheme==null?'preferred-color-scheme':getTheme;let theme=getTheme==='dark'?'github-dark':'github-light',s=document.createElement('script');s.src='https://utteranc.es/client.js',s.setAttribute('repo','sytranvn/sytranvn.lounge'),s.setAttribute('issue-term','title'),s.setAttribute('theme',theme),s.setAttribute('crossorigin','anonymous'),s.setAttribute('async',''),document.querySelector('div.comments').innerHTML='',document.querySelector('div.comments').appendChild(s)</script>
+</div>
+</footer>
+</article>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css integrity=sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0 crossorigin=anonymous>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js integrity=sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4 crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js integrity=sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05 crossorigin=anonymous onload="renderMathInElement(document.body,{delimiters:[{left:'$$',right:'$$',display:!0},{left:'$',right:'$',display:!1},{left:'\\(',right:'\\)',display:!1},{left:'\\[',right:'\\]',display:!0}]})"></script>
+</section>
+</div>
+<footer class=footer>
+<section class=container>
+©
+2022 -
+2023
+Sy Tran
+·
+Licensed under <a rel=license href=http://creativecommons.org/licenses/by-sa/4.0/>CC BY-SA-4.0</a>
+·
+Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.
+</section>
+</footer>
+<script data-name=BMC-Widget data-cfasync=false src=https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js data-id=sytranvn data-description="Support me on Buy me a coffee!" data-message="Thank you for visiting ❤️ . You can now buy me a conffe." data-color=#ff813f data-position=Right data-x_margin=18 data-y_margin=18></script>
+</main>
+<script src=/js/coder.min.369d90111ae4409b4e51de5efd23a46b92663fcc82dc9a0efde7f70bffc3f949.js integrity="sha256-Np2QERrkQJtOUd5e/SOka5JmP8yC3JoO/ef3C//D+Uk="></script>
+</body>
+</html>
