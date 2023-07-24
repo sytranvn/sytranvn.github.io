@@ -1,137 +1,43 @@
-<!doctype html><html lang=en>
-<head>
-<title>
-Deploy Tensoflow model on browser · sytranvn.dev
-</title>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=color-scheme content="light dark">
-<meta name=author content="Sy Tran">
-<meta name=description content="For learning purpose, I deployed my trained model using Tensorflow trained on MNIST data set and deploy it on browser.">
-<meta name=keywords content="blog,developer,personal">
-<meta name=twitter:card content="summary">
-<meta name=twitter:title content="Deploy Tensoflow model on browser">
-<meta name=twitter:description content="For learning purpose, I deployed my trained model using Tensorflow trained on MNIST data set and deploy it on browser.">
-<meta property="og:title" content="Deploy Tensoflow model on browser">
-<meta property="og:description" content="For learning purpose, I deployed my trained model using Tensorflow trained on MNIST data set and deploy it on browser.">
-<meta property="og:type" content="article">
-<meta property="og:url" content="http://sytranvn.dev/projects/mnist-js/"><meta property="article:section" content="projects">
-<meta property="article:published_time" content="2022-06-19T00:00:00+00:00">
-<meta property="article:modified_time" content="2022-06-19T00:00:00+00:00">
-<link rel=canonical href=http://sytranvn.dev/projects/mnist-js/>
-<link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin>
-<link rel=stylesheet href=/css/coder.min.5adbe72fc41dcfb852215b84695288939b6b606db73238bd3ee936469572fc9c.css integrity="sha256-WtvnL8Qdz7hSIVuEaVKIk5trYG23Mji9Puk2RpVy/Jw=" crossorigin=anonymous media=screen>
-<link rel=stylesheet href=/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin=anonymous media=screen>
-<link rel=stylesheet href=/css/custom.min.ca5f874b88e4c402f234bf2bf910a86f104289167117a551cbdc8d6d7642cf60.css integrity="sha256-yl+HS4jkxALyNL8r+RCobxBCiRZxF6VRy9yNbXZCz2A=" crossorigin=anonymous media=screen>
-<link rel=icon type=image/svg+xml href=/images/favicon.svg sizes=any>
-<link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32>
-<link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16>
-<link rel=apple-touch-icon href=/images/apple-touch-icon.png>
-<link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png>
-<link rel=manifest href=/site.webmanifest>
-<link rel=mask-icon href=/images/safari-pinned-tab.svg color=#5bbad5>
-</head>
-<body class="preload-transitions colorscheme-dark">
-<main class=wrapper>
-<nav class=navigation>
-<section class=container>
-<a class=navigation-title href=/>
-sytranvn.dev
-</a>
+<!doctype html><html lang=en><head><title>Deploy Tensoflow model on browser · sytranvn.dev</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=color-scheme content="light dark"><meta name=author content="Sy Tran"><meta name=description content="For learning purpose, I deployed my trained model using Tensorflow trained on MNIST data set and deploy it on browser."><meta name=keywords content="blog,developer,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="Deploy Tensoflow model on browser"><meta name=twitter:description content="For learning purpose, I deployed my trained model using Tensorflow trained on MNIST data set and deploy it on browser."><meta property="og:title" content="Deploy Tensoflow model on browser"><meta property="og:description" content="For learning purpose, I deployed my trained model using Tensorflow trained on MNIST data set and deploy it on browser."><meta property="og:type" content="article"><meta property="og:url" content="http://sytranvn.dev/projects/mnist-js/"><meta property="article:section" content="projects"><meta property="article:published_time" content="2022-06-19T00:00:00+00:00"><meta property="article:modified_time" content="2022-06-19T00:00:00+00:00"><link rel=canonical href=http://sytranvn.dev/projects/mnist-js/><link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin><link rel=stylesheet href=/css/coder.min.5adbe72fc41dcfb852215b84695288939b6b606db73238bd3ee936469572fc9c.css integrity="sha256-WtvnL8Qdz7hSIVuEaVKIk5trYG23Mji9Puk2RpVy/Jw=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/custom.min.ca5f874b88e4c402f234bf2bf910a86f104289167117a551cbdc8d6d7642cf60.css integrity="sha256-yl+HS4jkxALyNL8r+RCobxBCiRZxF6VRy9yNbXZCz2A=" crossorigin=anonymous media=screen><link rel=icon type=image/svg+xml href=/images/favicon.svg sizes=any><link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16><link rel=apple-touch-icon href=/images/apple-touch-icon.png><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/images/safari-pinned-tab.svg color=#5bbad5></head><body class="preload-transitions colorscheme-dark"><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=/>sytranvn.dev</a>
 <input type=checkbox id=menu-toggle>
-<label class="menu-button float-right" for=menu-toggle>
-<i class="fa fa-bars fa-fw" aria-hidden=true></i>
-</label>
-<ul class=navigation-list>
-<li class=navigation-item>
-<a class=navigation-link href=/now/>Now</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/posts/>Blog</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/projects/>Projects</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/i-heart-oss/>I ❤️ OSS</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/accomplishments/>Accomplishments</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/resume.pdf>Resume</a>
-</li>
-</ul>
-</section>
-</nav>
-<div class=content>
-<section class="container post">
-<article>
-<header>
-<div class=post-title>
-<h1 class=title>Deploy Tensoflow model on browser
-</h1>
-</div>
-<div class=post-meta>
-</div>
-</header>
-<main>
-<p>For learning purpose, I deployed my trained model using Tensorflow trained on
+<label class="menu-button float-right" for=menu-toggle><i class="fa fa-bars fa-fw" aria-hidden=true></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=/now/>Now</a></li><li class=navigation-item><a class=navigation-link href=/posts/>Blog</a></li><li class=navigation-item><a class=navigation-link href=/projects/>Projects</a></li><li class=navigation-item><a class=navigation-link href=/i-heart-oss/>I ❤️ OSS</a></li><li class=navigation-item><a class=navigation-link href=/accomplishments/>Accomplishments</a></li><li class=navigation-item><a class=navigation-link href=/resume.pdf>Resume</a></li></ul></section></nav><div class=content><section class="container post"><article><header><div class=post-title><h1 class=title>Deploy Tensoflow model on browser</h1></div><div class=post-meta></div></header><main><p>For learning purpose, I deployed my trained model using Tensorflow trained on
 MNIST data set and deploy it on browser. The browser then can preprocess input
 image and make predictions without any extra calls to server.
 In practice this can be used with computer vision for lowering latancy. But we
-don&rsquo;t really want to make our model publicly available to anyone.</p>
-<p>This is how it looks like.
-<div style=display:flex>
-<div>
-<canvas id=canvas></canvas>
-<br></br>
-<button id=predict disabled>Predict</button>
-<button id=clear>Clear</button>
-</div>
-<div style=margin-left:5px>
-<div id=result>
-</div>
-</div>
-</div>
-<script type=module src=./main.mjs></script>
-</p>
-<p>First, we build a simple model.
-Import some common libraries. We use <code>tfjs</code> to export model to json at the final step.</p>
-<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#fff;font-weight:700>import</span> os
-
-<span style=color:#fff;font-weight:700>import</span> tensorflow <span style=color:#fff;font-weight:700>as</span> tf
-<span style=color:#fff;font-weight:700>import</span> tensorflowjs <span style=color:#fff;font-weight:700>as</span> tfjs
-<span style=color:#fff;font-weight:700>from</span> tensorflow <span style=color:#fff;font-weight:700>import</span> keras
-</code></pre></div><p>We use MNIST data set for this example.</p>
-<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>(train_images, train_labels), (test_images, test_labels) = tf.keras.datasets.mnist.load_data()
-
-train_labels = train_labels[:<span style=color:#ff0;font-weight:700>1000</span>]
-test_labels = test_labels[:<span style=color:#ff0;font-weight:700>1000</span>]
-
-train_images = train_images[:<span style=color:#ff0;font-weight:700>1000</span>].reshape(-<span style=color:#ff0;font-weight:700>1</span>, <span style=color:#ff0;font-weight:700>28</span> * <span style=color:#ff0;font-weight:700>28</span>) / <span style=color:#ff0;font-weight:700>255.0</span>
-test_images = test_images[:<span style=color:#ff0;font-weight:700>1000</span>].reshape(-<span style=color:#ff0;font-weight:700>1</span>, <span style=color:#ff0;font-weight:700>28</span> * <span style=color:#ff0;font-weight:700>28</span>) / <span style=color:#ff0;font-weight:700>255.0</span>
-</code></pre></div><p>Create a simple 3 layers NN model.</p>
-<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#007f7f># Define a simple sequential model</span>
-<span style=color:#fff;font-weight:700>def</span> create_model():
-  model = tf.keras.Sequential([
-    keras.layers.Dense(<span style=color:#ff0;font-weight:700>512</span>, activation=<span style=color:#0ff;font-weight:700>&#39;relu&#39;</span>, input_shape=(<span style=color:#ff0;font-weight:700>784</span>,)),
-    keras.layers.Dropout(<span style=color:#ff0;font-weight:700>0.2</span>),
-    keras.layers.Dense(<span style=color:#ff0;font-weight:700>10</span>, activation=<span style=color:#0ff;font-weight:700>&#39;sigmoid&#39;</span>),
-  ])
-
-  model.compile(optimizer=<span style=color:#0ff;font-weight:700>&#39;adam&#39;</span>,
-                loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=<span style=color:#fff;font-weight:700>True</span>),
-                metrics=[tf.keras.metrics.SparseCategoricalAccuracy()])
-
-  <span style=color:#fff;font-weight:700>return</span> model
-
-<span style=color:#007f7f># Create a basic model instance</span>
-model = create_model()
-
-<span style=color:#007f7f># Display the model&#39;s architecture</span>
-model.summary()
-</code></pre></div><pre>
+don&rsquo;t really want to make our model publicly available to anyone.</p><p>This is how it looks like.<div style=display:flex><div><canvas id=canvas></canvas><br></br><button id=predict disabled>Predict</button>
+<button id=clear>Clear</button></div><div style=margin-left:5px><div id=result></div></div></div><script type=module src=./main.mjs></script></p><p>First, we build a simple model.
+Import some common libraries. We use <code>tfjs</code> to export model to json at the final step.</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#ff7b72>import</span> <span style=color:#ff7b72>os</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>import</span> <span style=color:#ff7b72>tensorflow</span> <span style=color:#ff7b72>as</span> <span style=color:#ff7b72>tf</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>import</span> <span style=color:#ff7b72>tensorflowjs</span> <span style=color:#ff7b72>as</span> <span style=color:#ff7b72>tfjs</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>from</span> <span style=color:#ff7b72>tensorflow</span> <span style=color:#ff7b72>import</span> keras
+</span></span></code></pre></div><p>We use MNIST data set for this example.</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>(train_images, train_labels), (test_images, test_labels) <span style=color:#ff7b72;font-weight:700>=</span> tf<span style=color:#ff7b72;font-weight:700>.</span>keras<span style=color:#ff7b72;font-weight:700>.</span>datasets<span style=color:#ff7b72;font-weight:700>.</span>mnist<span style=color:#ff7b72;font-weight:700>.</span>load_data()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>train_labels <span style=color:#ff7b72;font-weight:700>=</span> train_labels[:<span style=color:#a5d6ff>1000</span>]
+</span></span><span style=display:flex><span>test_labels <span style=color:#ff7b72;font-weight:700>=</span> test_labels[:<span style=color:#a5d6ff>1000</span>]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>train_images <span style=color:#ff7b72;font-weight:700>=</span> train_images[:<span style=color:#a5d6ff>1000</span>]<span style=color:#ff7b72;font-weight:700>.</span>reshape(<span style=color:#ff7b72;font-weight:700>-</span><span style=color:#a5d6ff>1</span>, <span style=color:#a5d6ff>28</span> <span style=color:#ff7b72;font-weight:700>*</span> <span style=color:#a5d6ff>28</span>) <span style=color:#ff7b72;font-weight:700>/</span> <span style=color:#a5d6ff>255.0</span>
+</span></span><span style=display:flex><span>test_images <span style=color:#ff7b72;font-weight:700>=</span> test_images[:<span style=color:#a5d6ff>1000</span>]<span style=color:#ff7b72;font-weight:700>.</span>reshape(<span style=color:#ff7b72;font-weight:700>-</span><span style=color:#a5d6ff>1</span>, <span style=color:#a5d6ff>28</span> <span style=color:#ff7b72;font-weight:700>*</span> <span style=color:#a5d6ff>28</span>) <span style=color:#ff7b72;font-weight:700>/</span> <span style=color:#a5d6ff>255.0</span>
+</span></span></code></pre></div><p>Create a simple 3 layers NN model.</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Define a simple sequential model</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>def</span> <span style=color:#d2a8ff;font-weight:700>create_model</span>():
+</span></span><span style=display:flex><span>  model <span style=color:#ff7b72;font-weight:700>=</span> tf<span style=color:#ff7b72;font-weight:700>.</span>keras<span style=color:#ff7b72;font-weight:700>.</span>Sequential([
+</span></span><span style=display:flex><span>    keras<span style=color:#ff7b72;font-weight:700>.</span>layers<span style=color:#ff7b72;font-weight:700>.</span>Dense(<span style=color:#a5d6ff>512</span>, activation<span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>&#39;relu&#39;</span>, input_shape<span style=color:#ff7b72;font-weight:700>=</span>(<span style=color:#a5d6ff>784</span>,)),
+</span></span><span style=display:flex><span>    keras<span style=color:#ff7b72;font-weight:700>.</span>layers<span style=color:#ff7b72;font-weight:700>.</span>Dropout(<span style=color:#a5d6ff>0.2</span>),
+</span></span><span style=display:flex><span>    keras<span style=color:#ff7b72;font-weight:700>.</span>layers<span style=color:#ff7b72;font-weight:700>.</span>Dense(<span style=color:#a5d6ff>10</span>, activation<span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>&#39;sigmoid&#39;</span>),
+</span></span><span style=display:flex><span>  ])
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  model<span style=color:#ff7b72;font-weight:700>.</span>compile(optimizer<span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>&#39;adam&#39;</span>,
+</span></span><span style=display:flex><span>                loss<span style=color:#ff7b72;font-weight:700>=</span>tf<span style=color:#ff7b72;font-weight:700>.</span>keras<span style=color:#ff7b72;font-weight:700>.</span>losses<span style=color:#ff7b72;font-weight:700>.</span>SparseCategoricalCrossentropy(from_logits<span style=color:#ff7b72;font-weight:700>=</span><span style=color:#79c0ff>True</span>),
+</span></span><span style=display:flex><span>                metrics<span style=color:#ff7b72;font-weight:700>=</span>[tf<span style=color:#ff7b72;font-weight:700>.</span>keras<span style=color:#ff7b72;font-weight:700>.</span>metrics<span style=color:#ff7b72;font-weight:700>.</span>SparseCategoricalAccuracy()])
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#ff7b72>return</span> model
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Create a basic model instance</span>
+</span></span><span style=display:flex><span>model <span style=color:#ff7b72;font-weight:700>=</span> create_model()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># Display the model&#39;s architecture</span>
+</span></span><span style=display:flex><span>model<span style=color:#ff7b72;font-weight:700>.</span>summary()
+</span></span></code></pre></div><pre>
 Model: "sequential"
 _________________________________________________________________
  Layer (type)                Output Shape              Param #   
@@ -147,10 +53,9 @@ Total params: 407,050
 Trainable params: 407,050
 Non-trainable params: 0
 ____________________________
-</pre>
-<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>model.fit(train_images, train_labels, epochs=<span style=color:#ff0;font-weight:700>5</span>)
-tfjs.converters.save_keras_model(model, <span style=color:#0ff;font-weight:700>&#39;tfmnist_json&#39;</span>)
-</code></pre></div><pre>
+</pre><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>model<span style=color:#ff7b72;font-weight:700>.</span>fit(train_images, train_labels, epochs<span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>5</span>)
+</span></span><span style=display:flex><span>tfjs<span style=color:#ff7b72;font-weight:700>.</span>converters<span style=color:#ff7b72;font-weight:700>.</span>save_keras_model(model, <span style=color:#a5d6ff>&#39;tfmnist_json&#39;</span>)
+</span></span></code></pre></div><pre>
 Epoch 1/5
 32/32 [==============================] - 0s 3ms/step - loss: 1.1469 - sparse_categorical_accuracy: 0.6740
 Epoch 2/5
@@ -161,63 +66,42 @@ Epoch 4/5
 32/32 [==============================] - 0s 3ms/step - loss: 0.2133 - sparse_categorical_accuracy: 0.9410
 Epoch 5/5
 32/32 [==============================] - 0s 3ms/step - loss: 0.1592 - sparse_categorical_accuracy: 0.9700
-</pre>
-<p>After exporting the model, we get 2 files.</p>
-<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:red>!</span>ls tfmnist_json 
-model.json group1-shard1of1.bin
-</code></pre></div><p>The <code>model.json</code> will be load by <code>tfjs</code>
-library and then it will automatically download <code>group1-shard1of1.bin</code>.</p>
-<p>We need to host the exported files some where so browser can download them. You
-can checkout my model at <a href=/tfmnist_json/model.json>/tfmnist_json/model.json</a>.</p>
-<p>Here I use ES module feature to keep it simple. No build tools, just magic.</p>
-<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-mjs data-lang=mjs><span style=color:#fff;font-weight:700>import</span> * as tf from <span style=color:#0ff;font-weight:700>&#34;https://cdnjs.cloudflare.com/ajax/libs/tensorflow/3.18.0/tf.fesm.js&#34;</span>;
-<span style=color:#fff;font-weight:700>window</span>.tf = tf;
-<span style=color:#fff;font-weight:700>const</span> MODEL_DB = <span style=color:#0ff;font-weight:700>&#34;tfmnist&#34;</span>;
-<span style=color:#fff;font-weight:700>const</span> MODEL_DB_URI = <span style=color:#0ff;font-weight:700>`indexeddb://</span><span style=color:#0ff;font-weight:700>${</span>MODEL_DB<span style=color:#0ff;font-weight:700>}</span><span style=color:#0ff;font-weight:700>`</span>;
-
-<span style=color:#fff;font-weight:700>let</span> model;
-<span style=color:#fff;font-weight:700>try</span> {
-  model = <span style=color:#fff;font-weight:700>await</span> tf.loadLayersModel(MODEL_DB_URI);
-  console.debug(<span style=color:#0ff;font-weight:700>&#34;Loaded model locally&#34;</span>);
-} <span style=color:#fff;font-weight:700>catch</span> (err) {
-  console.error(<span style=color:#0ff;font-weight:700>&#34;Didn&#39;t find local model.&#34;</span>, err);
-  console.debug(<span style=color:#0ff;font-weight:700>&#34;Loading from remote&#34;</span>);
-
-  model = <span style=color:#fff;font-weight:700>await</span> tf.loadLayersModel(<span style=color:#0ff;font-weight:700>&#34;/tfmnist_json/model.json&#34;</span>);
-  console.debug(<span style=color:#0ff;font-weight:700>&#34;Loaded remote model and saving to local db.&#34;</span>);
-  model.save(MODEL_DB_URI);
-}
-</code></pre></div><p>After our model loaded successfully, we can start making predictions. Remember
-to preprocess the image so it can match input shape of our model.</p>
-<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-mjs data-lang=mjs>  <span style=color:#fff;font-weight:700>const</span> image = tf.browser
-    .fromPixels(context.getImageData(<span style=color:#ff0;font-weight:700>0</span>, <span style=color:#ff0;font-weight:700>0</span>, canvas.height, canvas.width), <span style=color:#ff0;font-weight:700>1</span>)
-    .resizeBilinear([<span style=color:#ff0;font-weight:700>28</span>, <span style=color:#ff0;font-weight:700>28</span>])
-    .div(<span style=color:#ff0;font-weight:700>255</span>);
-  <span style=color:#fff;font-weight:700>const</span> input = image.reshape([-<span style=color:#ff0;font-weight:700>1</span>, <span style=color:#ff0;font-weight:700>28</span> * <span style=color:#ff0;font-weight:700>28</span>]);
-  <span style=color:#fff;font-weight:700>const</span> predictions = <span style=color:#fff;font-weight:700>Object</span>.entries(<span style=color:#fff;font-weight:700>await</span> model.predict([input]).data()).sort(
-    (a, b) =&gt; b[<span style=color:#ff0;font-weight:700>1</span>] - a[<span style=color:#ff0;font-weight:700>1</span>]
-  );
-</code></pre></div><p>You can find the full code at <a href=./main.mjs>main.mjs</a></p>
-<p>You can also achive the same result without using Tensorflow. In fact, I trained
+</pre><p>After exporting the model, we get 2 files.</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#f85149>!</span>ls tfmnist_json 
+</span></span><span style=display:flex><span>model<span style=color:#ff7b72;font-weight:700>.</span>json group1<span style=color:#ff7b72;font-weight:700>-</span>shard1of1<span style=color:#ff7b72;font-weight:700>.</span>bin
+</span></span></code></pre></div><p>The <code>model.json</code> will be load by <code>tfjs</code>
+library and then it will automatically download <code>group1-shard1of1.bin</code>.</p><p>We need to host the exported files some where so browser can download them. You
+can checkout my model at <a href=/tfmnist_json/model.json>/tfmnist_json/model.json</a>.</p><p>Here I use ES module feature to keep it simple. No build tools, just magic.</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-mjs data-lang=mjs><span style=display:flex><span><span style=color:#ff7b72>import</span> <span style=color:#ff7b72;font-weight:700>*</span> as tf from <span style=color:#a5d6ff>&#34;https://cdnjs.cloudflare.com/ajax/libs/tensorflow/3.18.0/tf.fesm.js&#34;</span>;
+</span></span><span style=display:flex><span>window.tf <span style=color:#ff7b72;font-weight:700>=</span> tf;
+</span></span><span style=display:flex><span><span style=color:#ff7b72>const</span> MODEL_DB <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>&#34;tfmnist&#34;</span>;
+</span></span><span style=display:flex><span><span style=color:#ff7b72>const</span> MODEL_DB_URI <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>`indexeddb://</span><span style=color:#a5d6ff>${</span>MODEL_DB<span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>`</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>let</span> model;
+</span></span><span style=display:flex><span><span style=color:#ff7b72>try</span> {
+</span></span><span style=display:flex><span>  model <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#ff7b72>await</span> tf.loadLayersModel(MODEL_DB_URI);
+</span></span><span style=display:flex><span>  console.debug(<span style=color:#a5d6ff>&#34;Loaded model locally&#34;</span>);
+</span></span><span style=display:flex><span>} <span style=color:#ff7b72>catch</span> (err) {
+</span></span><span style=display:flex><span>  console.error(<span style=color:#a5d6ff>&#34;Didn&#39;t find local model.&#34;</span>, err);
+</span></span><span style=display:flex><span>  console.debug(<span style=color:#a5d6ff>&#34;Loading from remote&#34;</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  model <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#ff7b72>await</span> tf.loadLayersModel(<span style=color:#a5d6ff>&#34;/tfmnist_json/model.json&#34;</span>);
+</span></span><span style=display:flex><span>  console.debug(<span style=color:#a5d6ff>&#34;Loaded remote model and saving to local db.&#34;</span>);
+</span></span><span style=display:flex><span>  model.save(MODEL_DB_URI);
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>After our model loaded successfully, we can start making predictions. Remember
+to preprocess the image so it can match input shape of our model.</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-mjs data-lang=mjs><span style=display:flex><span>  <span style=color:#ff7b72>const</span> image <span style=color:#ff7b72;font-weight:700>=</span> tf.browser
+</span></span><span style=display:flex><span>    .fromPixels(context.getImageData(<span style=color:#a5d6ff>0</span>, <span style=color:#a5d6ff>0</span>, canvas.height, canvas.width), <span style=color:#a5d6ff>1</span>)
+</span></span><span style=display:flex><span>    .resizeBilinear([<span style=color:#a5d6ff>28</span>, <span style=color:#a5d6ff>28</span>])
+</span></span><span style=display:flex><span>    .div(<span style=color:#a5d6ff>255</span>);
+</span></span><span style=display:flex><span>  <span style=color:#ff7b72>const</span> input <span style=color:#ff7b72;font-weight:700>=</span> image.reshape([<span style=color:#ff7b72;font-weight:700>-</span><span style=color:#a5d6ff>1</span>, <span style=color:#a5d6ff>28</span> <span style=color:#ff7b72;font-weight:700>*</span> <span style=color:#a5d6ff>28</span>]);
+</span></span><span style=display:flex><span>  <span style=color:#ff7b72>const</span> predictions <span style=color:#ff7b72;font-weight:700>=</span> Object.entries(<span style=color:#ff7b72>await</span> model.predict([input]).data()).sort(
+</span></span><span style=display:flex><span>    (a, b) =&gt; b[<span style=color:#a5d6ff>1</span>] <span style=color:#ff7b72;font-weight:700>-</span> a[<span style=color:#a5d6ff>1</span>]
+</span></span><span style=display:flex><span>  );
+</span></span></code></pre></div><p>You can find the full code at <a href=./main.mjs>main.mjs</a></p><p>You can also achive the same result without using Tensorflow. In fact, I trained
 an other model using Octave and export its weights to CSV. Loaded it in to a
 React app and calculate all matrix multiplications with the helps of <code>mathjs</code>.
-And it works like a charm.</p>
-</main>
-</article>
-</section>
-</div>
-<footer class=footer>
-<section class=container>
-©
+And it works like a charm.</p></main></article></section></div><footer class=footer><section class=container>©
 2021 -
 2023
 Sy Tran
 ·
-Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.
-</section>
-</footer>
-<script data-name=BMC-Widget data-cfasync=false src=https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js data-id=sytranvn data-description="Support me on Buy me a coffee!" data-message="Thank you for visiting ❤️ . You can now buy me a conffe." data-color=#ff813f data-position=Right data-x_margin=18 data-y_margin=18></script>
-</main>
-<script src=/js/coder.min.369d90111ae4409b4e51de5efd23a46b92663fcc82dc9a0efde7f70bffc3f949.js integrity="sha256-Np2QERrkQJtOUd5e/SOka5JmP8yC3JoO/ef3C//D+Uk="></script>
-</body>
-</html>
+Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.</section></footer><script data-name=BMC-Widget data-cfasync=false src=https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js data-id=sytranvn data-description="Support me on Buy me a coffee!" data-message="Thank you for visiting ❤️ . You can now buy me a conffe." data-color=#ff813f data-position=Right data-x_margin=18 data-y_margin=18></script></main><script src=/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script></body></html>
