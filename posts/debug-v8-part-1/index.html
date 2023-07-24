@@ -1,327 +1,142 @@
-<!doctype html><html lang=en>
-<head>
-<title>
-Debug V8 part 1 · sytranvn.dev
-</title>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=color-scheme content="light dark">
-<meta name=author content="Sy Tran">
-<meta name=description content="3 things to do before debugging V8  Link to heading    Build d8 with debug flags from V8 source Install lldb A javascript file  Build d8 with debug flags from V8 source  Link to heading   If you haven&rsquo;t tried building V8 before, take a look at my other blog on how to build V8 from source on Ubuntu and Mac M1. Now we just need to make sure the d8 binary is built with debug flag instead of release.">
-<meta name=keywords content="blog,developer,personal">
-<meta name=twitter:card content="summary">
-<meta name=twitter:title content="Debug V8 part 1">
-<meta name=twitter:description content="3 things to do before debugging V8  Link to heading    Build d8 with debug flags from V8 source Install lldb A javascript file  Build d8 with debug flags from V8 source  Link to heading   If you haven&rsquo;t tried building V8 before, take a look at my other blog on how to build V8 from source on Ubuntu and Mac M1. Now we just need to make sure the d8 binary is built with debug flag instead of release.">
-<meta property="og:title" content="Debug V8 part 1">
-<meta property="og:description" content="3 things to do before debugging V8  Link to heading    Build d8 with debug flags from V8 source Install lldb A javascript file  Build d8 with debug flags from V8 source  Link to heading   If you haven&rsquo;t tried building V8 before, take a look at my other blog on how to build V8 from source on Ubuntu and Mac M1. Now we just need to make sure the d8 binary is built with debug flag instead of release.">
-<meta property="og:type" content="article">
-<meta property="og:url" content="http://sytranvn.dev/posts/debug-v8-part-1/"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2022-02-06T00:00:00+00:00">
-<meta property="article:modified_time" content="2022-02-06T00:00:00+00:00">
-<meta property="og:see_also" content="http://sytranvn.dev/posts/debug-v8-part-2/"><meta property="og:see_also" content="http://sytranvn.dev/posts/token/"><meta property="og:see_also" content="http://sytranvn.dev/posts/build-v8-from-source-on-apple-m1/"><meta property="og:see_also" content="http://sytranvn.dev/posts/build-v8-from-source/"><meta property="og:see_also" content="http://sytranvn.dev/posts/v8-adventure/">
-<link rel=canonical href=http://sytranvn.dev/posts/debug-v8-part-1/>
-<link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin>
-<link rel=stylesheet href=/css/coder.min.5adbe72fc41dcfb852215b84695288939b6b606db73238bd3ee936469572fc9c.css integrity="sha256-WtvnL8Qdz7hSIVuEaVKIk5trYG23Mji9Puk2RpVy/Jw=" crossorigin=anonymous media=screen>
-<link rel=stylesheet href=/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin=anonymous media=screen>
-<link rel=stylesheet href=/css/custom.min.ca5f874b88e4c402f234bf2bf910a86f104289167117a551cbdc8d6d7642cf60.css integrity="sha256-yl+HS4jkxALyNL8r+RCobxBCiRZxF6VRy9yNbXZCz2A=" crossorigin=anonymous media=screen>
-<link rel=icon type=image/svg+xml href=/images/favicon.svg sizes=any>
-<link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32>
-<link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16>
-<link rel=apple-touch-icon href=/images/apple-touch-icon.png>
-<link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png>
-<link rel=manifest href=/site.webmanifest>
-<link rel=mask-icon href=/images/safari-pinned-tab.svg color=#5bbad5>
-</head>
-<body class="preload-transitions colorscheme-dark">
-<main class=wrapper>
-<nav class=navigation>
-<section class=container>
-<a class=navigation-title href=/>
-sytranvn.dev
-</a>
+<!doctype html><html lang=en><head><title>Debug V8 part 1 · sytranvn.dev</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=color-scheme content="light dark"><meta name=author content="Sy Tran"><meta name=description content="3 things to do before debugging V8 Link to heading Build d8 with debug flags from V8 source Install lldb A javascript file Build d8 with debug flags from V8 source Link to heading If you haven&rsquo;t tried building V8 before, take a look at my other blog on how to build V8 from source on Ubuntu and Mac M1. Now we just need to make sure the d8 binary is built with debug flag instead of release."><meta name=keywords content="blog,developer,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="Debug V8 part 1"><meta name=twitter:description content="3 things to do before debugging V8 Link to heading Build d8 with debug flags from V8 source Install lldb A javascript file Build d8 with debug flags from V8 source Link to heading If you haven&rsquo;t tried building V8 before, take a look at my other blog on how to build V8 from source on Ubuntu and Mac M1. Now we just need to make sure the d8 binary is built with debug flag instead of release."><meta property="og:title" content="Debug V8 part 1"><meta property="og:description" content="3 things to do before debugging V8 Link to heading Build d8 with debug flags from V8 source Install lldb A javascript file Build d8 with debug flags from V8 source Link to heading If you haven&rsquo;t tried building V8 before, take a look at my other blog on how to build V8 from source on Ubuntu and Mac M1. Now we just need to make sure the d8 binary is built with debug flag instead of release."><meta property="og:type" content="article"><meta property="og:url" content="http://sytranvn.dev/posts/debug-v8-part-1/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2022-02-06T00:00:00+00:00"><meta property="article:modified_time" content="2022-02-06T00:00:00+00:00"><meta property="og:see_also" content="http://sytranvn.dev/posts/debug-v8-part-2/"><meta property="og:see_also" content="http://sytranvn.dev/posts/token/"><meta property="og:see_also" content="http://sytranvn.dev/posts/build-v8-from-source-on-apple-m1/"><meta property="og:see_also" content="http://sytranvn.dev/posts/build-v8-from-source/"><meta property="og:see_also" content="http://sytranvn.dev/posts/v8-adventure/"><link rel=canonical href=http://sytranvn.dev/posts/debug-v8-part-1/><link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin><link rel=stylesheet href=/css/coder.min.5adbe72fc41dcfb852215b84695288939b6b606db73238bd3ee936469572fc9c.css integrity="sha256-WtvnL8Qdz7hSIVuEaVKIk5trYG23Mji9Puk2RpVy/Jw=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/custom.min.ca5f874b88e4c402f234bf2bf910a86f104289167117a551cbdc8d6d7642cf60.css integrity="sha256-yl+HS4jkxALyNL8r+RCobxBCiRZxF6VRy9yNbXZCz2A=" crossorigin=anonymous media=screen><link rel=icon type=image/svg+xml href=/images/favicon.svg sizes=any><link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16><link rel=apple-touch-icon href=/images/apple-touch-icon.png><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/images/safari-pinned-tab.svg color=#5bbad5></head><body class="preload-transitions colorscheme-dark"><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=/>sytranvn.dev</a>
 <input type=checkbox id=menu-toggle>
-<label class="menu-button float-right" for=menu-toggle>
-<i class="fa fa-bars fa-fw" aria-hidden=true></i>
-</label>
-<ul class=navigation-list>
-<li class=navigation-item>
-<a class=navigation-link href=/now/>Now</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/posts/>Blog</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/projects/>Projects</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/i-heart-oss/>I ❤️ OSS</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/accomplishments/>Accomplishments</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/resume.pdf>Resume</a>
-</li>
-</ul>
-</section>
-</nav>
-<div class=content>
-<section class="container post">
-<article>
-<header>
-<div class=post-title>
-<h1 class=title>
-<a class=title-link href=http://sytranvn.dev/posts/debug-v8-part-1/>
-Debug V8 part 1
-</a>
-</h1>
-</div>
-<div class=post-meta>
-<div class=date>
-<span class=posted-on>
-<i class="fa fa-calendar" aria-hidden=true></i>
-<time datetime=2022-02-06T00:00:00Z>
-February 6, 2022
-</time>
-</span>
-<span class=reading-time>
-<i class="fa fa-clock-o" aria-hidden=true></i>
-4-minute read
-</span>
-</div>
-<div class=categories>
-<i class="fa fa-folder" aria-hidden=true></i>
+<label class="menu-button float-right" for=menu-toggle><i class="fa fa-bars fa-fw" aria-hidden=true></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=/now/>Now</a></li><li class=navigation-item><a class=navigation-link href=/posts/>Blog</a></li><li class=navigation-item><a class=navigation-link href=/projects/>Projects</a></li><li class=navigation-item><a class=navigation-link href=/i-heart-oss/>I ❤️ OSS</a></li><li class=navigation-item><a class=navigation-link href=/accomplishments/>Accomplishments</a></li><li class=navigation-item><a class=navigation-link href=/resume.pdf>Resume</a></li></ul></section></nav><div class=content><section class="container post"><article><header><div class=post-title><h1 class=title><a class=title-link href=http://sytranvn.dev/posts/debug-v8-part-1/>Debug V8 part 1</a></h1></div><div class=post-meta><div class=date><span class=posted-on><i class="fa fa-calendar" aria-hidden=true></i>
+<time datetime=2022-02-06T00:00:00Z>February 6, 2022</time></span>
+<span class=reading-time><i class="fa fa-clock-o" aria-hidden=true></i>
+4-minute read</span></div><div class=categories><i class="fa fa-folder" aria-hidden=true></i>
 <a href=/categories/v8/>v8</a>
 <span class=separator>•</span>
-<a href=/categories/lldb/>lldb</a></div>
-</div>
-</header>
-<div class=post-content>
-<h2 id=3-things-to-do-before-debugging-v8>
-3 things to do before debugging V8
-<a class=heading-link href=#3-things-to-do-before-debugging-v8>
-<i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span>
-</a>
-</h2>
-<ol>
-<li><a href=#build-d8-with-debug-flags-from-v8-source>Build d8 with debug flags from V8 source</a></li>
-<li><a href=#install-lldb>Install lldb</a></li>
-<li><a href=#create-a-js-file>A javascript file</a></li>
-</ol>
-<h3 id=build-d8-with-debug-flags-from-v8-source>
-Build d8 with debug flags from V8 source
-<a class=heading-link href=#build-d8-with-debug-flags-from-v8-source>
-<i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span>
-</a>
-</h3>
-<p>If you haven&rsquo;t tried building V8 before, take a look at my other blog on how to
+<a href=/categories/lldb/>lldb</a></div></div></header><div class=post-content><h2 id=3-things-to-do-before-debugging-v8>3 things to do before debugging V8
+<a class=heading-link href=#3-things-to-do-before-debugging-v8><i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h2><ol><li><a href=#build-d8-with-debug-flags-from-v8-source>Build d8 with debug flags from V8 source</a></li><li><a href=#install-lldb>Install lldb</a></li><li><a href=#create-a-js-file>A javascript file</a></li></ol><h3 id=build-d8-with-debug-flags-from-v8-source>Build d8 with debug flags from V8 source
+<a class=heading-link href=#build-d8-with-debug-flags-from-v8-source><i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h3><p>If you haven&rsquo;t tried building V8 before, take a look at my other blog on how to
 build V8 from source on <a href=http://sytranvn.dev/posts/build-v8-from-source/>Ubuntu</a> and
 <a href=http://sytranvn.dev/posts/build-v8-from-source-on-apple-m1/>Mac M1</a>. Now we just need to make sure the d8
 binary is built with <code>debug</code> flag instead of <code>release</code>.
 You can run this command <code>gm.py arm64.debug.d8</code>. Or incase you have built a
 release version and don&rsquo;t want to rebuild everything. Open
-<code>out/release/args.gn</code> file and update following options.</p>
-<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>is_debug = true
-symbol_level = 2
-v8_enable_backtrace = true
-v8_optimized_debug = false
-</code></pre></div><p>And then go to previous build directory and run ninja again.</p>
-<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=color:#fff;font-weight:700>cd</span> out/release
-ninja
-</code></pre></div><h3 id=install-lldb>
-Install <code>lldb</code>
-<a class=heading-link href=#install-lldb>
-<i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span>
-</a>
-</h3>
-<p>Run <code>lldb -v</code> to check if you have <code>lldb</code> installed.</p>
-<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>lldb -v
-lldb-1300.0.42.3
-</code></pre></div><p>If not. You will
-be prompt to the installation.</p>
-<h3 id=create-a-js-file>
-Create a JS file
-<a class=heading-link href=#create-a-js-file>
-<i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span>
-</a>
-</h3>
-<p>For this first debugging session we will use simple script. Let&rsquo;s create a file
-called <code>debug.js</code> in the same directory of <code>d8</code> executable.</p>
-<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=color:#fff;font-weight:700>let</span> a = <span style=color:#ff0;font-weight:700>1</span>;
-<span style=color:#fff;font-weight:700>var</span> b = <span style=color:#ff0;font-weight:700>2</span>;
-<span style=color:#fff;font-weight:700>const</span> c = <span style=color:#ff0;font-weight:700>3</span>;
-console.log(a + b + c);
-</code></pre></div><p>And we can run <code>d8</code> with <code>debug.js</code> script.</p>
-<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ ./d8 debug.js
-<span style=color:#ff0;font-weight:700>6</span>
-</code></pre></div><p>Cool, it works!</p>
-<h2 id=debug-our-script>
-Debug our script
-<a class=heading-link href=#debug-our-script>
-<i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span>
-</a>
-</h2>
-<p>Let&rsquo;s start up <code>lldb</code> debug session with command above.</p>
-<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ <span style=color:#fff;font-weight:700>cd</span> out/arm64.debug
-$ lldb -- d8 debug.js
-(lldb) target create <span style=color:#0ff;font-weight:700>&#34;d8&#34;</span>
-Current executable <span style=color:#fff;font-weight:700>set</span> to <span style=color:#0ff;font-weight:700>&#39;/Users/sytran/Code/google/v8/out/arm64.debug/d8&#39;</span> (arm64).
-(lldb) settings <span style=color:#fff;font-weight:700>set</span> -- target.run-args <span style=color:#0ff;font-weight:700>&#34;debug.js&#34;</span>
-</code></pre></div><p>Our target to debug is <code>d8</code> executable and its only argument is <code>debug.js</code>. To
-start the script, type <code>run</code> and hit <code>enter</code>.</p>
-<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>(lldb) run
-Process 80671 launched: &#39;/Users/sytran/Code/google/v8/out/arm64.debug/d8&#39; (arm64)
-6
-Process 80671 exited with status = 0 (0x00000000)
-</code></pre></div><p>Our script is executed and printed out <code>6</code> and we expect. Now we need to set a
+<code>out/release/args.gn</code> file and update following options.</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>is_debug = true
+</span></span><span style=display:flex><span>symbol_level = 2
+</span></span><span style=display:flex><span>v8_enable_backtrace = true
+</span></span><span style=display:flex><span>v8_optimized_debug = false
+</span></span></code></pre></div><p>And then go to previous build directory and run ninja again.</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>cd out/release
+</span></span><span style=display:flex><span>ninja
+</span></span></code></pre></div><h3 id=install-lldb>Install <code>lldb</code>
+<a class=heading-link href=#install-lldb><i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h3><p>Run <code>lldb -v</code> to check if you have <code>lldb</code> installed.</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>lldb -v
+</span></span><span style=display:flex><span>lldb-1300.0.42.3
+</span></span></code></pre></div><p>If not. You will
+be prompt to the installation.</p><h3 id=create-a-js-file>Create a JS file
+<a class=heading-link href=#create-a-js-file><i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h3><p>For this first debugging session we will use simple script. Let&rsquo;s create a file
+called <code>debug.js</code> in the same directory of <code>d8</code> executable.</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#ff7b72>let</span> a <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>1</span>;
+</span></span><span style=display:flex><span><span style=color:#ff7b72>var</span> b <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>2</span>;
+</span></span><span style=display:flex><span><span style=color:#ff7b72>const</span> c <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>3</span>;
+</span></span><span style=display:flex><span>console.log(a <span style=color:#ff7b72;font-weight:700>+</span> b <span style=color:#ff7b72;font-weight:700>+</span> c);
+</span></span></code></pre></div><p>And we can run <code>d8</code> with <code>debug.js</code> script.</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>$ ./d8 debug.js
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>6</span>
+</span></span></code></pre></div><p>Cool, it works!</p><h2 id=debug-our-script>Debug our script
+<a class=heading-link href=#debug-our-script><i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h2><p>Let&rsquo;s start up <code>lldb</code> debug session with command above.</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>$ cd out/arm64.debug
+</span></span><span style=display:flex><span>$ lldb -- d8 debug.js
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>(</span>lldb<span style=color:#ff7b72;font-weight:700>)</span> target create <span style=color:#a5d6ff>&#34;d8&#34;</span>
+</span></span><span style=display:flex><span>Current executable set to <span style=color:#a5d6ff>&#39;/Users/sytran/Code/google/v8/out/arm64.debug/d8&#39;</span> <span style=color:#ff7b72;font-weight:700>(</span>arm64<span style=color:#ff7b72;font-weight:700>)</span>.
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>(</span>lldb<span style=color:#ff7b72;font-weight:700>)</span> settings set -- target.run-args <span style=color:#a5d6ff>&#34;debug.js&#34;</span>
+</span></span></code></pre></div><p>Our target to debug is <code>d8</code> executable and its only argument is <code>debug.js</code>. To
+start the script, type <code>run</code> and hit <code>enter</code>.</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>(lldb) run
+</span></span><span style=display:flex><span>Process 80671 launched: &#39;/Users/sytran/Code/google/v8/out/arm64.debug/d8&#39; (arm64)
+</span></span><span style=display:flex><span>6
+</span></span><span style=display:flex><span>Process 80671 exited with status = 0 (0x00000000)
+</span></span></code></pre></div><p>Our script is executed and printed out <code>6</code> and we expect. Now we need to set a
 breakpoint in V8 C++ code for debugging. We use <code>breakpoint set --name main</code>
-command to set our first breakpoint.</p>
-<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>(lldb) breakpoint set --name main
-Breakpoint 1: where = d8`main + 24 at d8.cc:5481:59, address = 0x000000010004ec70
-</code></pre></div><p>As we are still in debug session, we just need to <code>run</code> again. But this time we
-use shortcut <code>r</code> for <code>run</code>.</p>
-<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>(lldb) r
-Process <span style=color:#ff0;font-weight:700>80711</span> launched: <span style=color:#0ff;font-weight:700>&#39;/Users/sytran/Code/google/v8/out/arm64.debug/d8&#39;</span> (arm64)
-Process <span style=color:#ff0;font-weight:700>80711</span> stopped
-* thread <span style=color:#007f7f>#1, queue = &#39;com.apple.main-thread&#39;, stop reason = breakpoint 1.1</span>
-    frame <span style=color:#007f7f>#0: 0x000000010004ec70 d8`main(argc=2, argv=0x000000016fdff330) at d8.cc:5481:59</span>
-<span style=display:block;width:100%;background-color:#191919>   <span style=color:#ff0;font-weight:700>5478</span>
-</span><span style=display:block;width:100%;background-color:#191919>   5479	}  // namespace v8
-</span><span style=display:block;width:100%;background-color:#191919>   <span style=color:#ff0;font-weight:700>5480</span>
-</span><span style=display:block;width:100%;background-color:#191919>-&gt; 5481	int main(int argc, char* argv[]) { <span style=color:#fff;font-weight:700>return</span> v8::Shell::Main(argc, argv); }
-</span><span style=display:block;width:100%;background-color:#191919>   <span style=color:#ff0;font-weight:700>5482</span>
-</span><span style=display:block;width:100%;background-color:#191919>   5483	<span style=color:#007f7f>#undef CHECK</span>
-</span><span style=display:block;width:100%;background-color:#191919>   5484	<span style=color:#007f7f>#undef DCHECK</span>
-</span>Target 0: (d8) stopped.
-</code></pre></div><p><code>d8</code> process is stopped right at <code>main</code> function (<code>-></code> position), and we can see surrounding
+command to set our first breakpoint.</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>(lldb) breakpoint set --name main
+</span></span><span style=display:flex><span>Breakpoint 1: where = d8`main + 24 at d8.cc:5481:59, address = 0x000000010004ec70
+</span></span></code></pre></div><p>As we are still in debug session, we just need to <code>run</code> again. But this time we
+use shortcut <code>r</code> for <code>run</code>.</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid><code class=language-shell data-lang=shell><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>(</span>lldb<span style=color:#ff7b72;font-weight:700>)</span> r
+</span></span><span style=display:flex><span>Process <span style=color:#a5d6ff>80711</span> launched: <span style=color:#a5d6ff>&#39;/Users/sytran/Code/google/v8/out/arm64.debug/d8&#39;</span> <span style=color:#ff7b72;font-weight:700>(</span>arm64<span style=color:#ff7b72;font-weight:700>)</span>
+</span></span><span style=display:flex><span>Process <span style=color:#a5d6ff>80711</span> stopped
+</span></span><span style=display:flex><span>* thread <span style=color:#8b949e;font-style:italic>#1, queue = &#39;com.apple.main-thread&#39;, stop reason = breakpoint 1.1</span>
+</span></span><span style=display:flex><span>    frame <span style=color:#8b949e;font-style:italic>#0: 0x000000010004ec70 d8`main(argc=2, argv=0x000000016fdff330) at d8.cc:5481:59</span>
+</span></span><span style=display:flex;color:#6e7681><span>   <span style=color:#a5d6ff>5478</span>
+</span></span><span style=display:flex;color:#6e7681><span>   5479	<span style=color:#ff7b72;font-weight:700>}</span>  // namespace v8
+</span></span><span style=display:flex;color:#6e7681><span>   <span style=color:#a5d6ff>5480</span>
+</span></span><span style=display:flex;color:#6e7681><span>-&gt; 5481	int main<span style=color:#ff7b72;font-weight:700>(</span>int argc, char* argv<span style=color:#ff7b72;font-weight:700>[])</span> <span style=color:#ff7b72;font-weight:700>{</span> <span style=color:#ff7b72>return</span> v8::Shell::Main<span style=color:#ff7b72;font-weight:700>(</span>argc, argv<span style=color:#ff7b72;font-weight:700>)</span>; <span style=color:#ff7b72;font-weight:700>}</span>
+</span></span><span style=display:flex;color:#6e7681><span>   <span style=color:#a5d6ff>5482</span>
+</span></span><span style=display:flex;color:#6e7681><span>   5483	<span style=color:#8b949e;font-style:italic>#undef CHECK</span>
+</span></span><span style=display:flex;color:#6e7681><span>   5484	<span style=color:#8b949e;font-style:italic>#undef DCHECK</span>
+</span></span><span style=display:flex><span>Target 0: <span style=color:#ff7b72;font-weight:700>(</span>d8<span style=color:#ff7b72;font-weight:700>)</span> stopped.
+</span></span></code></pre></div><p><code>d8</code> process is stopped right at <code>main</code> function (<code>-></code> position), and we can see surrounding
 lines of C++ code.
-To step into <code>v8::Shell:Main</code> function, run <code>step</code> or <code>s</code>.</p>
-<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>(lldb) s
-Process <span style=color:#ff0;font-weight:700>80711</span> stopped
-* thread <span style=color:#007f7f>#1, queue = &#39;com.apple.main-thread&#39;, stop reason = step in</span>
-    frame <span style=color:#007f7f>#0: 0x000000010004d484 d8`v8::Shell::Main(argc=2, argv=0x000000016fdff330) at d8.cc:5140:3</span>
-   5137	}  // namespace
-   <span style=color:#ff0;font-weight:700>5138</span>
-   5139	int Shell::Main(int argc, char* argv[]) {
-<span style=display:block;width:100%;background-color:#191919>-&gt; 5140	  v8::base::EnsureConsoleOutput();
-</span>   5141	  <span style=color:#fff;font-weight:700>if</span> (!SetOptions(argc, argv)) <span style=color:#fff;font-weight:700>return</span> 1;
-   <span style=color:#ff0;font-weight:700>5142</span>
-   5143	  v8::V8::InitializeICUDefaultLocation(argv[0], options.icu_data_file);
-Target 0: (d8) stopped.
-</code></pre></div><p>This function parses given arguments, for our script, it will go to last else
-block.</p>
-<div class=highlight><div style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
-<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#727272">5394
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">5395
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">5396
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">5397
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">5398
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">5399
-</span><span style=display:block;width:100%;background-color:#191919><span style="margin-right:.4em;padding:0 .4em;color:#727272">5400
-</span></span><span style=display:block;width:100%;background-color:#191919><span style="margin-right:.4em;padding:0 .4em;color:#727272">5401
-</span></span><span style="margin-right:.4em;padding:0 .4em;color:#727272">5402
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">5403
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">5404
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">5405
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">5406
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">5407
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">5408
-</span></code></pre></td>
-<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp>        printf(<span style=color:#0ff;font-weight:700>&#34;============ Run: Consume code cache ============</span><span style=color:#0ff;font-weight:700>\n</span><span style=color:#0ff;font-weight:700>&#34;</span>);
-        <span style=color:#007f7f>// Second run to consume the cache in current isolate
-</span><span style=color:#007f7f></span>        result = RunMain(isolate, <span style=color:#fff;font-weight:700>true</span>);
-        options.compile_options.Overwrite(
-            v8::ScriptCompiler::kNoCompileOptions);
-      } <span style=color:#fff;font-weight:700>else</span> {
-<span style=display:block;width:100%;background-color:#191919>        <span style=color:#fff;font-weight:700>bool</span> last_run = <span style=color:#fff;font-weight:700>true</span>;
-</span><span style=display:block;width:100%;background-color:#191919>        result = RunMain(isolate, last_run);
-</span>      }
-
-      <span style=color:#007f7f>// Run interactive shell if explicitly requested or if no script has been
-</span><span style=color:#007f7f></span>      <span style=color:#007f7f>// executed, but never on --test
-</span><span style=color:#007f7f></span>      <span style=color:#fff;font-weight:700>if</span> (use_interactive_shell()) {
-        RunShell(isolate);
-      }
-</code></pre></td></tr></table>
-</div>
-</div><p>So let set a breakpoint at that position and continue</p>
-<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>(lldb) b d8.cc:5401
-Breakpoint 2: where = d8<span style=color:#0ff;font-weight:700>`</span>v8::Shell::Main(int, char**) + <span style=color:#ff0;font-weight:700>3792</span> at d8.cc:5401:14, address = 0x000000010004e264
-(lldb) <span style=color:#fff;font-weight:700>continue</span>
-Process <span style=color:#ff0;font-weight:700>80711</span> resuming
-Process <span style=color:#ff0;font-weight:700>80711</span> stopped
-* thread <span style=color:#007f7f>#1, queue = &#39;com.apple.main-thread&#39;, stop reason = breakpoint 2.1</span>
-    frame <span style=color:#007f7f>#0: 0x000000010004e264 d8`v8::Shell::Main(argc=2, argv=0x000000016fdff330) at d8.cc:5401:14</span>
-   5397	        options.compile_options.Overwrite(
-   5398	            v8::ScriptCompiler::kNoCompileOptions);
-   5399	      } <span style=color:#fff;font-weight:700>else</span> {
-   5400	        bool last_run = true;
--&gt; 5401	        result = RunMain(isolate, last_run);
-   5402	      }
-   <span style=color:#ff0;font-weight:700>5403</span>
-Target 0: (d8) stopped.
-</code></pre></div><p>Let&rsquo;s see value of <code>last_run</code> and <code>isolate</code> variables. Because <code>isolate</code> is a
-pointer, we need to use <code>*isolate</code> to view its value.</p>
-<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>(lldb) fr v last_run *isolate
-(bool) last_run = <span style=color:#fff;font-weight:700>true</span>
-(v8::Isolate) *isolate = {}
-</code></pre></div><p>So we running new shell with an empty <code>v8::Isolate</code> (internal state). And our
+To step into <code>v8::Shell:Main</code> function, run <code>step</code> or <code>s</code>.</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid><code class=language-shell data-lang=shell><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>(</span>lldb<span style=color:#ff7b72;font-weight:700>)</span> s
+</span></span><span style=display:flex><span>Process <span style=color:#a5d6ff>80711</span> stopped
+</span></span><span style=display:flex><span>* thread <span style=color:#8b949e;font-style:italic>#1, queue = &#39;com.apple.main-thread&#39;, stop reason = step in</span>
+</span></span><span style=display:flex><span>    frame <span style=color:#8b949e;font-style:italic>#0: 0x000000010004d484 d8`v8::Shell::Main(argc=2, argv=0x000000016fdff330) at d8.cc:5140:3</span>
+</span></span><span style=display:flex><span>   5137	<span style=color:#ff7b72;font-weight:700>}</span>  // namespace
+</span></span><span style=display:flex><span>   <span style=color:#a5d6ff>5138</span>
+</span></span><span style=display:flex><span>   5139	int Shell::Main<span style=color:#ff7b72;font-weight:700>(</span>int argc, char* argv<span style=color:#ff7b72;font-weight:700>[])</span> <span style=color:#ff7b72;font-weight:700>{</span>
+</span></span><span style=display:flex;color:#6e7681><span>-&gt; 5140	  v8::base::EnsureConsoleOutput<span style=color:#ff7b72;font-weight:700>()</span>;
+</span></span><span style=display:flex><span>   5141	  <span style=color:#ff7b72>if</span> <span style=color:#ff7b72;font-weight:700>(</span>!SetOptions<span style=color:#ff7b72;font-weight:700>(</span>argc, argv<span style=color:#ff7b72;font-weight:700>))</span> <span style=color:#ff7b72>return</span> 1;
+</span></span><span style=display:flex><span>   <span style=color:#a5d6ff>5142</span>
+</span></span><span style=display:flex><span>   5143	  v8::V8::InitializeICUDefaultLocation<span style=color:#ff7b72;font-weight:700>(</span>argv<span style=color:#ff7b72;font-weight:700>[</span>0<span style=color:#ff7b72;font-weight:700>]</span>, options.icu_data_file<span style=color:#ff7b72;font-weight:700>)</span>;
+</span></span><span style=display:flex><span>Target 0: <span style=color:#ff7b72;font-weight:700>(</span>d8<span style=color:#ff7b72;font-weight:700>)</span> stopped.
+</span></span></code></pre></div><p>This function parses given arguments, for our script, it will go to last else
+block.</p><div class=highlight><div style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">5394
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">5395
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">5396
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">5397
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">5398
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">5399
+</span><span style=color:#6e7681><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">5400
+</span></span><span style=color:#6e7681><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">5401
+</span></span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">5402
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">5403
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">5404
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">5405
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">5406
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">5407
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">5408
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid><code class=language-cpp data-lang=cpp><span style=display:flex><span>        printf(<span style=color:#a5d6ff>&#34;============ Run: Consume code cache ============</span><span style=color:#79c0ff>\n</span><span style=color:#a5d6ff>&#34;</span>);
+</span></span><span style=display:flex><span>        <span style=color:#8b949e;font-style:italic>// Second run to consume the cache in current isolate
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span>        result <span style=color:#ff7b72;font-weight:700>=</span> RunMain(isolate, true);
+</span></span><span style=display:flex><span>        options.compile_options.Overwrite(
+</span></span><span style=display:flex><span>            v8<span style=color:#ff7b72;font-weight:700>::</span>ScriptCompiler<span style=color:#ff7b72;font-weight:700>::</span>kNoCompileOptions);
+</span></span><span style=display:flex><span>      } <span style=color:#ff7b72>else</span> {
+</span></span><span style=display:flex;color:#6e7681><span>        <span style=color:#ff7b72>bool</span> last_run <span style=color:#ff7b72;font-weight:700>=</span> true;
+</span></span><span style=display:flex;color:#6e7681><span>        result <span style=color:#ff7b72;font-weight:700>=</span> RunMain(isolate, last_run);
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      <span style=color:#8b949e;font-style:italic>// Run interactive shell if explicitly requested or if no script has been
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span>      <span style=color:#8b949e;font-style:italic>// executed, but never on --test
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span>      <span style=color:#ff7b72>if</span> (use_interactive_shell()) {
+</span></span><span style=display:flex><span>        RunShell(isolate);
+</span></span><span style=display:flex><span>      }
+</span></span></code></pre></td></tr></table></div></div><p>So let set a breakpoint at that position and continue</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>(</span>lldb<span style=color:#ff7b72;font-weight:700>)</span> b d8.cc:5401
+</span></span><span style=display:flex><span>Breakpoint 2: <span style=color:#79c0ff>where</span> <span style=color:#ff7b72;font-weight:700>=</span> d8<span style=color:#a5d6ff>`</span>v8::Shell::Main<span style=color:#ff7b72;font-weight:700>(</span>int, char**<span style=color:#ff7b72;font-weight:700>)</span> + <span style=color:#a5d6ff>3792</span> at d8.cc:5401:14, <span style=color:#79c0ff>address</span> <span style=color:#ff7b72;font-weight:700>=</span> 0x000000010004e264
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>(</span>lldb<span style=color:#ff7b72;font-weight:700>)</span> <span style=color:#ff7b72>continue</span>
+</span></span><span style=display:flex><span>Process <span style=color:#a5d6ff>80711</span> resuming
+</span></span><span style=display:flex><span>Process <span style=color:#a5d6ff>80711</span> stopped
+</span></span><span style=display:flex><span>* thread <span style=color:#8b949e;font-style:italic>#1, queue = &#39;com.apple.main-thread&#39;, stop reason = breakpoint 2.1</span>
+</span></span><span style=display:flex><span>    frame <span style=color:#8b949e;font-style:italic>#0: 0x000000010004e264 d8`v8::Shell::Main(argc=2, argv=0x000000016fdff330) at d8.cc:5401:14</span>
+</span></span><span style=display:flex><span>   5397	        options.compile_options.Overwrite<span style=color:#ff7b72;font-weight:700>(</span>
+</span></span><span style=display:flex><span>   5398	            v8::ScriptCompiler::kNoCompileOptions<span style=color:#ff7b72;font-weight:700>)</span>;
+</span></span><span style=display:flex><span>   5399	      <span style=color:#ff7b72;font-weight:700>}</span> <span style=color:#ff7b72>else</span> <span style=color:#ff7b72;font-weight:700>{</span>
+</span></span><span style=display:flex><span>   5400	        bool <span style=color:#79c0ff>last_run</span> <span style=color:#ff7b72;font-weight:700>=</span> true;
+</span></span><span style=display:flex><span>-&gt; 5401	        <span style=color:#79c0ff>result</span> <span style=color:#ff7b72;font-weight:700>=</span> RunMain<span style=color:#ff7b72;font-weight:700>(</span>isolate, last_run<span style=color:#ff7b72;font-weight:700>)</span>;
+</span></span><span style=display:flex><span>   5402	      <span style=color:#ff7b72;font-weight:700>}</span>
+</span></span><span style=display:flex><span>   <span style=color:#a5d6ff>5403</span>
+</span></span><span style=display:flex><span>Target 0: <span style=color:#ff7b72;font-weight:700>(</span>d8<span style=color:#ff7b72;font-weight:700>)</span> stopped.
+</span></span></code></pre></div><p>Let&rsquo;s see value of <code>last_run</code> and <code>isolate</code> variables. Because <code>isolate</code> is a
+pointer, we need to use <code>*isolate</code> to view its value.</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>(</span>lldb<span style=color:#ff7b72;font-weight:700>)</span> fr v last_run *isolate
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>(</span>bool<span style=color:#ff7b72;font-weight:700>)</span> <span style=color:#79c0ff>last_run</span> <span style=color:#ff7b72;font-weight:700>=</span> true
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>(</span>v8::Isolate<span style=color:#ff7b72;font-weight:700>)</span> *isolate <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#ff7b72;font-weight:700>{}</span>
+</span></span></code></pre></div><p>So we running new shell with an empty <code>v8::Isolate</code> (internal state). And our
 set up is complete. In order to use other <code>lldb</code> debug functions, check out their
-<a href=https://lldb.llvm.org/use/map.html class=external-link target=_blank rel=noopener>document</a>.</p>
-<p><em>Now we can dive deeper into V8 core 🤩</em></p>
-</div>
-<footer>
-<section class=see-also>
-<h3 id=see-also-in-v8-adventure>
-See also in V8 adventure
-<a class=heading-link href=#see-also-in-v8-adventure>
-<i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span>
-</a>
-</h3>
-<nav>
-<ul>
-<li>
-<a href=/posts/debug-v8-part-2/>Debug V8 part 2</a>
-</li>
-<li>
-<a href=/posts/token/>Token</a>
-</li>
-<li>
-<a href=/posts/build-v8-from-source-on-apple-m1/>Build v8 from source on Apple M1</a>
-</li>
-<li>
-<a href=/posts/build-v8-from-source/>Build v8 from source on Ubuntu 20.04</a>
-</li>
-<li>
-<a href=/posts/v8-adventure/>V8 adventure</a>
-</li>
-</ul>
-</nav>
-</section>
-</footer>
-</article>
-</section>
-</div>
-<footer class=footer>
-<section class=container>
-©
+<a href=https://lldb.llvm.org/use/map.html class=external-link target=_blank rel=noopener>document</a>.</p><p><em>Now we can dive deeper into V8 core 🤩</em></p></div><footer><section class=see-also><h3 id=see-also-in-v8-adventure>See also in V8 adventure
+<a class=heading-link href=#see-also-in-v8-adventure><i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h3><nav><ul><li><a href=/posts/debug-v8-part-2/>Debug V8 part 2</a></li><li><a href=/posts/token/>Token</a></li><li><a href=/posts/build-v8-from-source-on-apple-m1/>Build v8 from source on Apple M1</a></li><li><a href=/posts/build-v8-from-source/>Build v8 from source on Ubuntu 20.04</a></li><li><a href=/posts/v8-adventure/>V8 adventure</a></li></ul></nav></section></footer></article></section></div><footer class=footer><section class=container>©
 2021 -
 2023
 Sy Tran
 ·
-Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.
-</section>
-</footer>
-<script data-name=BMC-Widget data-cfasync=false src=https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js data-id=sytranvn data-description="Support me on Buy me a coffee!" data-message="Thank you for visiting ❤️ . You can now buy me a conffe." data-color=#ff813f data-position=Right data-x_margin=18 data-y_margin=18></script>
-</main>
-<script src=/js/coder.min.369d90111ae4409b4e51de5efd23a46b92663fcc82dc9a0efde7f70bffc3f949.js integrity="sha256-Np2QERrkQJtOUd5e/SOka5JmP8yC3JoO/ef3C//D+Uk="></script>
-</body>
-</html>
+Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.</section></footer><script data-name=BMC-Widget data-cfasync=false src=https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js data-id=sytranvn data-description="Support me on Buy me a coffee!" data-message="Thank you for visiting ❤️ . You can now buy me a conffe." data-color=#ff813f data-position=Right data-x_margin=18 data-y_margin=18></script></main><script src=/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script></body></html>
