@@ -1,0 +1,49 @@
+\begin{aligned}
+	&A=\begin{bmatrix}
+		1 & -1 & 1 \\	
+		-1 & 2 & 1 \\	
+		-2 & 3 & 1 \\	
+	\end{bmatrix} \\
+	&(A | I_{3}) = \Bigg(
+		\begin{array}{c c c | c c c}
+		1 & -1 & 1 & 1 & 0 & 0 \\	
+		-1 & 2 & 1 & 0 & 1 & 0 \\	
+		-2 & 3 & 1 & 0 & 0 & 1 \\	
+		\end{array}
+	\Bigg) \\
+
+	&\xrightarrow[(3):(3)+2(1)]{(2):=(2) + 1} \Bigg(
+		\begin{array}{c c c | c c c}
+		1 & -1 & 1 & 1 & 0 & 0 \\	
+		0 & 1 & 2 & 1 & 1 & 0 \\	
+		0 & 1 & 3 & 2 & 0 & 1 \\	
+		\end{array}
+	\Bigg) \\
+
+	&\xrightarrow{(3): (3) - (2)} \Bigg(
+		\begin{array}{c c c | c c c}
+		1 & -1 & 1 & 1 & 0 & 0 \\	
+		0 & 1 & 2 & 1 & 1 & 0 \\	
+		0 & 0 & 1 & 1 & -1 & 1 \\	
+		\end{array}
+	\Bigg) \\
+	&\xrightarrow{(1): (1) + (2)} \Bigg(
+		\begin{array}{c c c | c c c}
+		1 & 0 & 3 & 2 & 1 & 0 \\	
+		0 & 1 & 2 & 1 & 1 & 0 \\	
+		0 & 0 & 1 & 1 & -1 & 1 \\	
+		\end{array}
+	\Bigg) \\
+	&\xrightarrow[(2):=(2) - 2(3)]{(1): (1) - 3(3)} \Bigg(
+		\begin{array}{c c c | c c c}
+		1 & 0 & 0 & -1 & 4 & -3 \\	
+		0 & 1 & 0 & -1 & 3 & -2 \\	
+		0 & 0 & 1 & 1 & -1 & 1 \\	
+		\end{array}
+	\Bigg) \\
+	&A^{-1}=\begin{bmatrix}
+		-1 & 4 & -3 \\	
+                -1 & 3 & -2 \\	
+                1 & -1 & 1 \\	
+	\end{bmatrix}
+\end{aligned}
