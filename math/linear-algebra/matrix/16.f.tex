@@ -1,46 +1,18 @@
 \begin{aligned}
-	&A=\begin{bmatrix}
-		1 & 2 & -3 \\
-		2 & 1 & -2 \\
-		2 & -1 & 0 \\
+	& \det A = 2 \\
+	& \begin{bmatrix}(-1)^{i+j}\det A_{ij}\end{bmatrix}_{[3 \times 3]} = \begin{bmatrix}
+		-2 & -4 & -4 \\
+		3 & 6 & 5 \\
+		-1 & -4 & -3 \\
 	\end{bmatrix} \\
-	&(A|I_3) = \Bigg(
-		\begin{array}{c c c | c c c}
-			1 & 2 & -3 & 1 & 0 & 0 \\
-			2 & 1 & -2 & 0 & 1 & 0 \\
-			2 & -1 & 0 & 0 & 0 & 1 \\
-		\end{array}
-	\Bigg) \\
-	& \xrightarrow[(3):(3) - (2)]{(2):=(2) - 2(1)} \Bigg(
-		\begin{array}{c c c | c c c}
-			1 &  2 & -3 &     1 & 0  & 0 \\
-			0 & -3 &  4 &    -2 & 1  & 0 \\
-			0 & -2 &  2 &     0 & -1 & 1 \\
-		\end{array}
-	\Bigg) \\
-
-
-	& \xrightarrow{(2) \sim (3)} \Bigg(
-		\begin{array}{c c c | c c c}
-			1 &  2 & -3 &     1 & 0  & 0 \\
-			0 & -2 &  2 &     0 & -1 & 1 \\
-			0 & -3 &  4 &    -2 & 1  & 0 \\
-		\end{array}
-	\Bigg) \\
-
-	& \xrightarrow{(2) \sim (3)} \Bigg(
-		\begin{array}{c c c | c c c}
-			1 &  2 & -3 &     1 & 0  & 0 \\
-			0 &  1 &  1 &     0 & 0.5 & 0.5 \\
-			0 & -3 &  4 &    -2 & 1  & 0 \\
-		\end{array}
-	\Bigg) \\
-	& \xrightarrow{(3):= (3) + 3(2)} \Bigg(
-		\begin{array}{c c c | c c c}
-			1 &  2 & -3 &     1 & 0   & 0 \\ 
-			0 &  1 &  1 &     0 & 0.5 & 0.5 \\
-			0 &  0 &  7 &    -2 & 4.5 & 1.5 \\
-		\end{array}
-	\Bigg) \\
-
+	& A^{-1} = \frac{1}{2}\begin{bmatrix}
+		-2 & -4 & -4 \\
+		3 & 6 & 5 \\
+		-1 & -4 & -3 \\
+	\end{bmatrix} ^{T} \\
+	&= \frac{1}{2}\begin{bmatrix}
+		-2 & 3 & -1 \\
+		-4 & 6 & -4 \\
+		-4 & 5 & -3 \\
+	\end{bmatrix} \\
 \end{aligned}
