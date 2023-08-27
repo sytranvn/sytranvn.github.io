@@ -8,7 +8,7 @@ function [ d ] = detMatrix(m)
 			_m = m;
 			_m(_r,:) = [];
 			_m(:,_c) = [];
-			d(_r, _c) = det(_m);
+			d(_r, _c) = (-1)^(_r+_c) * det(_m);
 		end
 	end
 end
