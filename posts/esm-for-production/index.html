@@ -85,7 +85,7 @@ September 1, 2023
 </span>
 <span class=reading-time>
 <i class="fa fa-clock-o" aria-hidden=true></i>
-5-minute read
+6-minute read
 </span>
 </div>
 </div>
@@ -109,6 +109,17 @@ a few years ago. But Javascript has a &ldquo;jet engine&rdquo; (JIT), that can t
 <em>Fun fact: while I&rsquo;m writing this post and opening <a href=https://github.com/DefinitelyTyped/DefinitelyTyped/issues/60924 class=external-link target=_blank rel=noopener>node@18.x.x version not fetch global api</a> issue in a browser tab. There are 2 more comments and 1 pull request added to it</em> 🤣</p>
 <p>Of course this could be avoided in the beginning if we configured typescript to match the node version we intend to use. But we would introduce a different variant from organization standard, and in my former company, we love standard, stability, predictability (that&rsquo;s why they built a project template with TS in the first place). Though, upgrading the template to newer TS version is an other nightmare.</p>
 <p>Of course TS is very useful when you don&rsquo;t know what your teammate wrote in the other component last week, and you don&rsquo;t want to re-read their code to use it probably.</p>
+<h2 id=but-without-types-code-editor-cant-do-static-analysis-and-autocomplete>
+But without types, code editor can&rsquo;t do static analysis and autocomplete
+<a class=heading-link href=#but-without-types-code-editor-cant-do-static-analysis-and-autocomplete>
+<i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span>
+</a>
+</h2>
+<p>This point is valid. Without type definitions, code editor can&rsquo;t be smart enough to analyze our code. Function arguments can be of any types, so it can&rsquo;t suggest you what methods
+you can call on an object. But that problem has been solved long before TS is a thing. We had JSDocs for the rescue the whole time. If you don&rsquo;t mind writing type definitions with
+TS, I believe it feel the same writing JSDocs typedefs. And it doesn&rsquo;t require any other tools added to you project. And JSDocs is JS in mind so it doesn&rsquo;t introduce new concepts that
+does not belong to Javascript like TS does. Everything you write can simply run anywhere.</p>
 <h2 id=hello-webpack-my-old-friend>
 Hello Webpack my old friend
 <a class=heading-link href=#hello-webpack-my-old-friend>
