@@ -1,323 +1,202 @@
-<!doctype html><html lang=en>
-<head>
-<title>
-Debug V8 part 2 · sytranvn.dev
-</title>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=color-scheme content="light dark">
-<meta name=author content="Sy Tran">
-<meta name=description content="In previous part, we have learnt how to debug d8 with lldb. In this part we still use our debug.js script. But we&rsquo;ll add an other parameter to d8 before running process.
+<!doctype html><html lang=en><head><title>Debug V8 part 2 · sytranvn.dev</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=color-scheme content="light dark"><meta name=author content="Sy Tran"><meta name=description content="In previous part, we have learnt how to debug d8 with lldb. In this part we still use our debug.js script. But we&rsquo;ll add an other parameter to d8 before running process.
 lldb -- d8 --parse-only debug.js With parse-only flag, we will forcus on how d8 parse source content and turn into lexical input elements.
 Let&rsquo;s add a breakpoint in v8::Shell::RunMain function and jump to it.
-(lldb) b v8::Shell::RunMain (lldb) run frame #0: 0x000000010004ba68 d8`v8::Shell::RunMain(isolate=0x0000000118110000, last_run=true) at d8.">
-<meta name=keywords content="blog,developer,personal">
-<meta name=twitter:card content="summary">
-<meta name=twitter:title content="Debug V8 part 2">
-<meta name=twitter:description content="In previous part, we have learnt how to debug d8 with lldb. In this part we still use our debug.js script. But we&rsquo;ll add an other parameter to d8 before running process.
+(lldb) b v8::Shell::RunMain (lldb) run frame #0: 0x000000010004ba68 d8`v8::Shell::RunMain(isolate=0x0000000118110000, last_run=true) at d8."><meta name=keywords content="blog,developer,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="Debug V8 part 2"><meta name=twitter:description content="In previous part, we have learnt how to debug d8 with lldb. In this part we still use our debug.js script. But we&rsquo;ll add an other parameter to d8 before running process.
 lldb -- d8 --parse-only debug.js With parse-only flag, we will forcus on how d8 parse source content and turn into lexical input elements.
 Let&rsquo;s add a breakpoint in v8::Shell::RunMain function and jump to it.
-(lldb) b v8::Shell::RunMain (lldb) run frame #0: 0x000000010004ba68 d8`v8::Shell::RunMain(isolate=0x0000000118110000, last_run=true) at d8.">
-<meta property="og:title" content="Debug V8 part 2">
-<meta property="og:description" content="In previous part, we have learnt how to debug d8 with lldb. In this part we still use our debug.js script. But we&rsquo;ll add an other parameter to d8 before running process.
+(lldb) b v8::Shell::RunMain (lldb) run frame #0: 0x000000010004ba68 d8`v8::Shell::RunMain(isolate=0x0000000118110000, last_run=true) at d8."><meta property="og:title" content="Debug V8 part 2"><meta property="og:description" content="In previous part, we have learnt how to debug d8 with lldb. In this part we still use our debug.js script. But we&rsquo;ll add an other parameter to d8 before running process.
 lldb -- d8 --parse-only debug.js With parse-only flag, we will forcus on how d8 parse source content and turn into lexical input elements.
 Let&rsquo;s add a breakpoint in v8::Shell::RunMain function and jump to it.
-(lldb) b v8::Shell::RunMain (lldb) run frame #0: 0x000000010004ba68 d8`v8::Shell::RunMain(isolate=0x0000000118110000, last_run=true) at d8.">
-<meta property="og:type" content="article">
-<meta property="og:url" content="http://sytranvn.dev/posts/debug-v8-part-2/"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2022-02-10T00:00:00+00:00">
-<meta property="article:modified_time" content="2022-02-10T00:00:00+00:00">
-<meta property="og:see_also" content="http://sytranvn.dev/posts/debug-v8-part-1/"><meta property="og:see_also" content="http://sytranvn.dev/posts/token/"><meta property="og:see_also" content="http://sytranvn.dev/posts/build-v8-from-source-on-apple-m1/"><meta property="og:see_also" content="http://sytranvn.dev/posts/build-v8-from-source/"><meta property="og:see_also" content="http://sytranvn.dev/posts/v8-adventure/">
-<link rel=canonical href=http://sytranvn.dev/posts/debug-v8-part-2/>
-<link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin>
-<link rel=stylesheet href=/css/coder.min.135e22c97ff685fe983fc60048e309ced8f00d8d38f536aa67dba8a13a03dfa4.css integrity="sha256-E14iyX/2hf6YP8YASOMJztjwDY049TaqZ9uooToD36Q=" crossorigin=anonymous media=screen>
-<link rel=stylesheet href=/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin=anonymous media=screen>
-<link rel=stylesheet href=/css/custom.min.ce238cbfc90ea7190072e7fed83b6e304043d17eedf40ff7751b10f97fb947ec.css integrity="sha256-ziOMv8kOpxkAcuf+2DtuMEBD0X7t9A/3dRsQ+X+5R+w=" crossorigin=anonymous media=screen>
-<link rel=icon type=image/svg+xml href=/images/favicon.svg sizes=any>
-<link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32>
-<link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16>
-<link rel=apple-touch-icon href=/images/apple-touch-icon.png>
-<link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png>
-<link rel=manifest href=/site.webmanifest>
-<link rel=mask-icon href=/images/safari-pinned-tab.svg color=#5bbad5>
-</head>
-<body class="preload-transitions colorscheme-dark">
-<main class=wrapper>
-<nav class=navigation>
-<section class=container>
-<a class=navigation-title href=/>
-sytranvn.dev
-</a>
+(lldb) b v8::Shell::RunMain (lldb) run frame #0: 0x000000010004ba68 d8`v8::Shell::RunMain(isolate=0x0000000118110000, last_run=true) at d8."><meta property="og:type" content="article"><meta property="og:url" content="http://sytranvn.dev/posts/debug-v8-part-2/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2022-02-10T00:00:00+00:00"><meta property="article:modified_time" content="2022-02-10T00:00:00+00:00"><meta property="og:see_also" content="http://sytranvn.dev/posts/debug-v8-part-1/"><meta property="og:see_also" content="http://sytranvn.dev/posts/token/"><meta property="og:see_also" content="http://sytranvn.dev/posts/build-v8-from-source-on-apple-m1/"><meta property="og:see_also" content="http://sytranvn.dev/posts/build-v8-from-source/"><meta property="og:see_also" content="http://sytranvn.dev/posts/v8-adventure/"><link rel=canonical href=http://sytranvn.dev/posts/debug-v8-part-2/><link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin><link rel=stylesheet href=/css/coder.min.135e22c97ff685fe983fc60048e309ced8f00d8d38f536aa67dba8a13a03dfa4.css integrity="sha256-E14iyX/2hf6YP8YASOMJztjwDY049TaqZ9uooToD36Q=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/custom.min.ce238cbfc90ea7190072e7fed83b6e304043d17eedf40ff7751b10f97fb947ec.css integrity="sha256-ziOMv8kOpxkAcuf+2DtuMEBD0X7t9A/3dRsQ+X+5R+w=" crossorigin=anonymous media=screen><link rel=icon type=image/svg+xml href=/images/favicon.svg sizes=any><link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16><link rel=apple-touch-icon href=/images/apple-touch-icon.png><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/images/safari-pinned-tab.svg color=#5bbad5></head><body class="preload-transitions colorscheme-dark"><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=/>sytranvn.dev</a>
 <input type=checkbox id=menu-toggle>
-<label class="menu-button float-right" for=menu-toggle>
-<i class="fa fa-bars fa-fw" aria-hidden=true></i>
-</label>
-<ul class=navigation-list>
-<li class=navigation-item>
-<a class=navigation-link href=/now/>Now</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/posts/>Blog</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/projects/>Projects</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/i-heart-oss/>I ❤️ OSS</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/accomplishments/>Accomplishments</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/resume.pdf>Resume</a>
-</li>
-</ul>
-</section>
-</nav>
-<div class=content>
-<section class="container post">
-<article>
-<header>
-<div class=post-title>
-<h1 class=title>
-<a class=title-link href=http://sytranvn.dev/posts/debug-v8-part-2/>
-Debug V8 part 2
-</a>
-</h1>
-</div>
-<div class=post-meta>
-<div class=date>
-<span class=posted-on>
-<i class="fa fa-calendar" aria-hidden=true></i>
-<time datetime=2022-02-10T00:00:00Z>
-February 10, 2022
-</time>
-</span>
-<span class=reading-time>
-<i class="fa fa-clock-o" aria-hidden=true></i>
-7-minute read
-</span>
-</div>
-<div class=categories>
-<i class="fa fa-folder" aria-hidden=true></i>
+<label class="menu-button float-right" for=menu-toggle><i class="fa fa-bars fa-fw" aria-hidden=true></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=/now/>Now</a></li><li class=navigation-item><a class=navigation-link href=/posts/>Blog</a></li><li class=navigation-item><a class=navigation-link href=/projects/>Projects</a></li><li class=navigation-item><a class=navigation-link href=/i-heart-oss/>I ❤️ OSS</a></li><li class=navigation-item><a class=navigation-link href=/accomplishments/>Accomplishments</a></li><li class=navigation-item><a class=navigation-link href=/resume.pdf>Resume</a></li></ul></section></nav><div class=content><section class="container post"><article><header><div class=post-title><h1 class=title><a class=title-link href=http://sytranvn.dev/posts/debug-v8-part-2/>Debug V8 part 2</a></h1></div><div class=post-meta><div class=date><span class=posted-on><i class="fa fa-calendar" aria-hidden=true></i>
+<time datetime=2022-02-10T00:00:00Z>February 10, 2022</time></span>
+<span class=reading-time><i class="fa fa-clock-o" aria-hidden=true></i>
+7-minute read</span></div><div class=categories><i class="fa fa-folder" aria-hidden=true></i>
 <a href=/categories/v8/>v8</a>
 <span class=separator>•</span>
-<a href=/categories/lldb/>lldb</a></div>
-</div>
-</header>
-<div class=post-content>
-<p>In previous part, we have learnt how to debug <code>d8</code> with <code>lldb</code>. In this part
+<a href=/categories/lldb/>lldb</a></div></div></header><div class=post-content><p>In previous part, we have learnt how to debug <code>d8</code> with <code>lldb</code>. In this part
 we still use our <code>debug.js</code> script. But we&rsquo;ll add an other parameter to <code>d8</code>
-before running process.</p>
-<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>lldb -- d8 --parse-only debug.js
-</code></pre></div><p>With <code>parse-only</code> flag, we will forcus on how <code>d8</code> parse source content and
-turn into lexical input elements.</p>
-<p>Let&rsquo;s add a breakpoint in <code>v8::Shell::RunMain</code> function and jump to it.</p>
-<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>(lldb) b v8::Shell::RunMain
-(lldb) run
-frame <span style=color:#007f7f>#0: 0x000000010004ba68 d8`v8::Shell::RunMain(isolate=0x0000000118110000, last_run=true) at d8.cc:4578:12</span>
-   4575	}
-   <span style=color:#ff0;font-weight:700>4576</span>
-   4577	int Shell::RunMain(Isolate* isolate, bool last_run) {
-<span style=display:block;width:100%;background-color:#191919>-&gt; 4578	  <span style=color:#fff;font-weight:700>for</span> (int i = 1; i &lt; options.num_isolates; ++i) {
-</span>   4579	    options.isolate_sources[i].StartExecuteInThread();
-   4580	  }
-   4581	  bool success = true;
-</code></pre></div><p>At line 4578, we will loop through different isolate sources and execute them
+before running process.</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>lldb -- d8 --parse-only debug.js
+</span></span></code></pre></div><p>With <code>parse-only</code> flag, we will forcus on how <code>d8</code> parse source content and
+turn into lexical input elements.</p><p>Let&rsquo;s add a breakpoint in <code>v8::Shell::RunMain</code> function and jump to it.</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid><code class=language-shell data-lang=shell><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>(</span>lldb<span style=color:#ff7b72;font-weight:700>)</span> b v8::Shell::RunMain
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>(</span>lldb<span style=color:#ff7b72;font-weight:700>)</span> run
+</span></span><span style=display:flex><span>frame <span style=color:#8b949e;font-style:italic>#0: 0x000000010004ba68 d8`v8::Shell::RunMain(isolate=0x0000000118110000, last_run=true) at d8.cc:4578:12</span>
+</span></span><span style=display:flex><span>   4575	<span style=color:#ff7b72;font-weight:700>}</span>
+</span></span><span style=display:flex><span>   <span style=color:#a5d6ff>4576</span>
+</span></span><span style=display:flex><span>   4577	int Shell::RunMain<span style=color:#ff7b72;font-weight:700>(</span>Isolate* isolate, bool last_run<span style=color:#ff7b72;font-weight:700>)</span> <span style=color:#ff7b72;font-weight:700>{</span>
+</span></span><span style=display:flex;color:#6e7681><span>-&gt; 4578	  <span style=color:#ff7b72>for</span> <span style=color:#ff7b72;font-weight:700>(</span>int <span style=color:#79c0ff>i</span> <span style=color:#ff7b72;font-weight:700>=</span> 1; i &lt; options.num_isolates; ++i<span style=color:#ff7b72;font-weight:700>)</span> <span style=color:#ff7b72;font-weight:700>{</span>
+</span></span><span style=display:flex><span>   4579	    options.isolate_sources<span style=color:#ff7b72;font-weight:700>[</span>i<span style=color:#ff7b72;font-weight:700>]</span>.StartExecuteInThread<span style=color:#ff7b72;font-weight:700>()</span>;
+</span></span><span style=display:flex><span>   4580	  <span style=color:#ff7b72;font-weight:700>}</span>
+</span></span><span style=display:flex><span>   4581	  bool <span style=color:#79c0ff>success</span> <span style=color:#ff7b72;font-weight:700>=</span> true;
+</span></span></code></pre></div><p>At line 4578, we will loop through different isolate sources and execute them
 in threads. But as our <code>options.num_isolates = 1</code>, we don&rsquo;t need to worry about
-multi-threads at this point.</p>
-<div class=highlight title=src/d8.cc><div style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
-<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#727272">4595
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">4596
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">4597
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">4598
-</span><span style=display:block;width:100%;background-color:#191919><span style="margin-right:.4em;padding:0 .4em;color:#727272">4599
-</span></span><span style="margin-right:.4em;padding:0 .4em;color:#727272">4600
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">4601
-</span></code></pre></td>
-<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp>    {
-      Context::Scope cscope(context);
-      InspectorClient inspector_client(context, options.enable_inspector);
-      PerIsolateData::RealmScope realm_scope(PerIsolateData::Get(isolate));
-<span style=display:block;width:100%;background-color:#191919>      <span style=color:#fff;font-weight:700>if</span> (!options.isolate_sources[<span style=color:#ff0;font-weight:700>0</span>].Execute(isolate)) success = <span style=color:#fff;font-weight:700>false</span>;
-</span>      <span style=color:#fff;font-weight:700>if</span> (!CompleteMessageLoop(isolate)) success = <span style=color:#fff;font-weight:700>false</span>;
-    }
-</code></pre></td></tr></table>
-</div>
-</div><p>Let&rsquo;s jump into <code>Execute(isolate)</code> function.</p>
-<div class=highlight title=src/d8.cc><div style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
-<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#727272">3927
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">3928
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">3929
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">3930
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">3931
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">3932
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">3933
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">3934
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">3935
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">3936
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">3937
-</span><span style=display:block;width:100%;background-color:#191919><span style="margin-right:.4em;padding:0 .4em;color:#727272">3938
-</span></span><span style="margin-right:.4em;padding:0 .4em;color:#727272">3939
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">3940
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">3941
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">3942
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">3943
-</span></code></pre></td>
-<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp>    <span style=color:#007f7f>// Use all other arguments as names of files to load and run.
-</span><span style=color:#007f7f></span>    HandleScope handle_scope(isolate);
-    Local&lt;String&gt; file_name =
-        String::NewFromUtf8(isolate, arg).ToLocalChecked();
-    Local&lt;String&gt; source = Shell::ReadFile(isolate, arg);
-    <span style=color:#fff;font-weight:700>if</span> (source.IsEmpty()) {
-      printf(<span style=color:#0ff;font-weight:700>&#34;Error reading &#39;%s&#39;</span><span style=color:#0ff;font-weight:700>\n</span><span style=color:#0ff;font-weight:700>&#34;</span>, arg);
-      base::OS::ExitProcess(<span style=color:#ff0;font-weight:700>1</span>);
-    }
-    Shell::set_script_executed();
-    Shell::update_script_size(source-&gt;Length());
-<span style=display:block;width:100%;background-color:#191919>    <span style=color:#fff;font-weight:700>if</span> (!Shell::ExecuteString(isolate, source, file_name, Shell::kNoPrintResult,
-</span>                              Shell::kReportExceptions,
-                              Shell::kProcessMessageQueue)) {
-      success = <span style=color:#fff;font-weight:700>false</span>;
-      <span style=color:#fff;font-weight:700>break</span>;
-    }
-</code></pre></td></tr></table>
-</div>
-</div><p>Ource <code>debug.js</code> will be read into <code>Local&lt;String> source</code> variable. So let take
-a look at <code>v8::Shell::ReadFile</code>.</p>
-<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>b v8::Shell::ReadFile
-c
-</code></pre></div><div class=highlight title=src/d8.cc><div style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
-<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#727272">3620
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">3621
-</span><span style=display:block;width:100%;background-color:#191919><span style="margin-right:.4em;padding:0 .4em;color:#727272">3622
-</span></span><span style=display:block;width:100%;background-color:#191919><span style="margin-right:.4em;padding:0 .4em;color:#727272">3623
-</span></span><span style=display:block;width:100%;background-color:#191919><span style="margin-right:.4em;padding:0 .4em;color:#727272">3624
-</span></span><span style="margin-right:.4em;padding:0 .4em;color:#727272">3625
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">3626
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">3627
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">3628
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">3629
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">3630
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">3631
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">3632
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">3633
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">3634
-</span><span style=display:block;width:100%;background-color:#191919><span style="margin-right:.4em;padding:0 .4em;color:#727272">3635
-</span></span><span style=display:block;width:100%;background-color:#191919><span style="margin-right:.4em;padding:0 .4em;color:#727272">3636
-</span></span><span style="margin-right:.4em;padding:0 .4em;color:#727272">3637
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">3638
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">3639
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">3640
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">3641
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">3642
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">3643
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">3644
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">3645
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">3646
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">3647
-</span></code></pre></td>
-<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp>Local&lt;String&gt; Shell::ReadFile(Isolate* isolate, <span style=color:#fff;font-weight:700>const</span> <span style=color:#fff;font-weight:700>char</span>* name,
-                              <span style=color:#fff;font-weight:700>bool</span> should_throw) {
-<span style=display:block;width:100%;background-color:#191919>  std::unique_ptr&lt;base::OS::MemoryMappedFile&gt; file(
-</span><span style=display:block;width:100%;background-color:#191919>      base::OS::MemoryMappedFile::open(
-</span><span style=display:block;width:100%;background-color:#191919>          name, base::OS::MemoryMappedFile::FileMode::kReadOnly));
-</span>  <span style=color:#fff;font-weight:700>if</span> (!file) {
-    <span style=color:#fff;font-weight:700>if</span> (should_throw) {
-      std::ostringstream oss;
-      oss &lt;&lt; <span style=color:#0ff;font-weight:700>&#34;Error loading file: </span><span style=color:#0ff;font-weight:700>\&#34;</span><span style=color:#0ff;font-weight:700>&#34;</span> &lt;&lt; name &lt;&lt; <span style=color:#0ff;font-weight:700>&#39;&#34;&#39;</span>;
-      isolate-&gt;ThrowError(
-          v8::String::NewFromUtf8(isolate, oss.str().c_str()).ToLocalChecked());
-    }
-    <span style=color:#fff;font-weight:700>return</span> Local&lt;String&gt;();
-  }
-
-<span style=display:block;width:100%;background-color:#191919>  <span style=color:#fff;font-weight:700>int</span> size = <span style=color:#fff;font-weight:700>static_cast</span>&lt;<span style=color:#fff;font-weight:700>int</span>&gt;(file-&gt;size());
-</span><span style=display:block;width:100%;background-color:#191919>  <span style=color:#fff;font-weight:700>char</span>* chars = <span style=color:#fff;font-weight:700>static_cast</span>&lt;<span style=color:#fff;font-weight:700>char</span>*&gt;(file-&gt;memory());
-</span>  Local&lt;String&gt; result;
-  <span style=color:#fff;font-weight:700>if</span> (i::FLAG_use_external_strings &amp;&amp; i::String::IsAscii(chars, size)) {
-    String::ExternalOneByteStringResource* resource =
-        <span style=color:#fff;font-weight:700>new</span> ExternalOwningOneByteStringResource(std::move(file));
-    result = String::NewExternalOneByte(isolate, resource).ToLocalChecked();
-  } <span style=color:#fff;font-weight:700>else</span> {
-    result = String::NewFromUtf8(isolate, chars, NewStringType::kNormal, size)
-                 .ToLocalChecked();
-  }
-  <span style=color:#fff;font-weight:700>return</span> result;
-}
-</code></pre></td></tr></table>
-</div>
-</div><div class=highlight title=src/base/platform/platform-posix.cc><div style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
-<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#727272">629
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">630
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">631
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">632
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">633
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">634
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">635
-</span><span style=display:block;width:100%;background-color:#191919><span style="margin-right:.4em;padding:0 .4em;color:#727272">636
-</span></span><span style="margin-right:.4em;padding:0 .4em;color:#727272">637
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">638
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">639
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">640
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">641
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">642
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">643
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">644
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">645
-</span><span style=display:block;width:100%;background-color:#191919><span style="margin-right:.4em;padding:0 .4em;color:#727272">646
-</span></span><span style=display:block;width:100%;background-color:#191919><span style="margin-right:.4em;padding:0 .4em;color:#727272">647
-</span></span><span style=display:block;width:100%;background-color:#191919><span style="margin-right:.4em;padding:0 .4em;color:#727272">648
-</span></span><span style=display:block;width:100%;background-color:#191919><span style="margin-right:.4em;padding:0 .4em;color:#727272">649
-</span></span><span style=display:block;width:100%;background-color:#191919><span style="margin-right:.4em;padding:0 .4em;color:#727272">650
-</span></span><span style="margin-right:.4em;padding:0 .4em;color:#727272">651
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">652
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">653
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">654
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">655
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">656
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">657
-</span></code></pre></td>
-<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp>OS::MemoryMappedFile* OS::MemoryMappedFile::open(<span style=color:#fff;font-weight:700>const</span> <span style=color:#fff;font-weight:700>char</span>* name,
-                                                 FileMode mode) {
-  <span style=color:#fff;font-weight:700>const</span> <span style=color:#fff;font-weight:700>char</span>* fopen_mode = (mode == FileMode::kReadOnly) ? <span style=color:#0ff;font-weight:700>&#34;r&#34;</span> : <span style=color:#0ff;font-weight:700>&#34;r+&#34;</span>;
-  <span style=color:#fff;font-weight:700>struct</span> stat statbuf;
-  <span style=color:#007f7f>// Make sure path exists and is not a directory.
-</span><span style=color:#007f7f></span>  <span style=color:#fff;font-weight:700>if</span> (stat(name, &amp;statbuf) == <span style=color:#ff0;font-weight:700>0</span> &amp;&amp; !S_ISDIR(statbuf.st_mode)) {
-    <span style=color:#fff;font-weight:700>if</span> (FILE* file = fopen(name, fopen_mode)) {
-<span style=display:block;width:100%;background-color:#191919>      <span style=color:#fff;font-weight:700>if</span> (fseek(file, <span style=color:#ff0;font-weight:700>0</span>, SEEK_END) == <span style=color:#ff0;font-weight:700>0</span>) {
-</span>        <span style=color:#fff;font-weight:700>long</span> size = ftell(file);  <span style=color:#007f7f>// NOLINT(runtime/int)
-</span><span style=color:#007f7f></span>        <span style=color:#fff;font-weight:700>if</span> (size == <span style=color:#ff0;font-weight:700>0</span>) <span style=color:#fff;font-weight:700>return</span> <span style=color:#fff;font-weight:700>new</span> PosixMemoryMappedFile(file, <span style=color:#fff;font-weight:700>nullptr</span>, <span style=color:#ff0;font-weight:700>0</span>);
-        <span style=color:#fff;font-weight:700>if</span> (size &gt; <span style=color:#ff0;font-weight:700>0</span>) {
-          <span style=color:#fff;font-weight:700>int</span> prot = PROT_READ;
-          <span style=color:#fff;font-weight:700>int</span> flags = MAP_PRIVATE;
-          <span style=color:#fff;font-weight:700>if</span> (mode == FileMode::kReadWrite) {
-            prot |= PROT_WRITE;
-            flags = MAP_SHARED;
-          }
-<span style=display:block;width:100%;background-color:#191919>          <span style=color:#fff;font-weight:700>void</span>* <span style=color:#fff;font-weight:700>const</span> memory =
-</span><span style=display:block;width:100%;background-color:#191919>              mmap(OS::GetRandomMmapAddr(), size, prot, flags, fileno(file), <span style=color:#ff0;font-weight:700>0</span>);
-</span><span style=display:block;width:100%;background-color:#191919>          <span style=color:#fff;font-weight:700>if</span> (memory != MAP_FAILED) {
-</span><span style=display:block;width:100%;background-color:#191919>            <span style=color:#fff;font-weight:700>return</span> <span style=color:#fff;font-weight:700>new</span> PosixMemoryMappedFile(file, memory, size);
-</span><span style=display:block;width:100%;background-color:#191919>          }
-</span>        }
-      }
-      fclose(file);
-    }
-  }
-  <span style=color:#fff;font-weight:700>return</span> <span style=color:#fff;font-weight:700>nullptr</span>;
-}
-</code></pre></td></tr></table>
-</div>
-</div><p>If you feel overwhelmed by above functions, don&rsquo;t worry, I did too. But focus on
+multi-threads at this point.</p><div class=highlight title=src/d8.cc><div style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">4595
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">4596
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">4597
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">4598
+</span><span style=color:#6e7681><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">4599
+</span></span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">4600
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">4601
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid><code class=language-cpp data-lang=cpp><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>      Context<span style=color:#ff7b72;font-weight:700>::</span>Scope cscope(context);
+</span></span><span style=display:flex><span>      InspectorClient <span style=color:#d2a8ff;font-weight:700>inspector_client</span>(context, options.enable_inspector);
+</span></span><span style=display:flex><span>      PerIsolateData<span style=color:#ff7b72;font-weight:700>::</span>RealmScope realm_scope(PerIsolateData<span style=color:#ff7b72;font-weight:700>::</span>Get(isolate));
+</span></span><span style=display:flex;color:#6e7681><span>      <span style=color:#ff7b72>if</span> (<span style=color:#ff7b72;font-weight:700>!</span>options.isolate_sources[<span style=color:#a5d6ff>0</span>].Execute(isolate)) success <span style=color:#ff7b72;font-weight:700>=</span> false;
+</span></span><span style=display:flex><span>      <span style=color:#ff7b72>if</span> (<span style=color:#ff7b72;font-weight:700>!</span>CompleteMessageLoop(isolate)) success <span style=color:#ff7b72;font-weight:700>=</span> false;
+</span></span><span style=display:flex><span>    }
+</span></span></code></pre></td></tr></table></div></div><p>Let&rsquo;s jump into <code>Execute(isolate)</code> function.</p><div class=highlight title=src/d8.cc><div style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">3927
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">3928
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">3929
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">3930
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">3931
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">3932
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">3933
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">3934
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">3935
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">3936
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">3937
+</span><span style=color:#6e7681><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">3938
+</span></span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">3939
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">3940
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">3941
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">3942
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">3943
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid><code class=language-cpp data-lang=cpp><span style=display:flex><span>    <span style=color:#8b949e;font-style:italic>// Use all other arguments as names of files to load and run.
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span>    HandleScope <span style=color:#d2a8ff;font-weight:700>handle_scope</span>(isolate);
+</span></span><span style=display:flex><span>    Local<span style=color:#ff7b72;font-weight:700>&lt;</span>String<span style=color:#ff7b72;font-weight:700>&gt;</span> file_name <span style=color:#ff7b72;font-weight:700>=</span>
+</span></span><span style=display:flex><span>        String<span style=color:#ff7b72;font-weight:700>::</span>NewFromUtf8(isolate, arg).ToLocalChecked();
+</span></span><span style=display:flex><span>    Local<span style=color:#ff7b72;font-weight:700>&lt;</span>String<span style=color:#ff7b72;font-weight:700>&gt;</span> source <span style=color:#ff7b72;font-weight:700>=</span> Shell<span style=color:#ff7b72;font-weight:700>::</span>ReadFile(isolate, arg);
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> (source.IsEmpty()) {
+</span></span><span style=display:flex><span>      printf(<span style=color:#a5d6ff>&#34;Error reading &#39;%s&#39;</span><span style=color:#79c0ff>\n</span><span style=color:#a5d6ff>&#34;</span>, arg);
+</span></span><span style=display:flex><span>      base<span style=color:#ff7b72;font-weight:700>::</span>OS<span style=color:#ff7b72;font-weight:700>::</span>ExitProcess(<span style=color:#a5d6ff>1</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    Shell<span style=color:#ff7b72;font-weight:700>::</span>set_script_executed();
+</span></span><span style=display:flex><span>    Shell<span style=color:#ff7b72;font-weight:700>::</span>update_script_size(source<span style=color:#ff7b72;font-weight:700>-&gt;</span>Length());
+</span></span><span style=display:flex;color:#6e7681><span>    <span style=color:#ff7b72>if</span> (<span style=color:#ff7b72;font-weight:700>!</span>Shell<span style=color:#ff7b72;font-weight:700>::</span>ExecuteString(isolate, source, file_name, Shell<span style=color:#ff7b72;font-weight:700>::</span>kNoPrintResult,
+</span></span><span style=display:flex><span>                              Shell<span style=color:#ff7b72;font-weight:700>::</span>kReportExceptions,
+</span></span><span style=display:flex><span>                              Shell<span style=color:#ff7b72;font-weight:700>::</span>kProcessMessageQueue)) {
+</span></span><span style=display:flex><span>      success <span style=color:#ff7b72;font-weight:700>=</span> false;
+</span></span><span style=display:flex><span>      <span style=color:#ff7b72>break</span>;
+</span></span><span style=display:flex><span>    }
+</span></span></code></pre></td></tr></table></div></div><p>Ource <code>debug.js</code> will be read into <code>Local&lt;String> source</code> variable. So let take
+a look at <code>v8::Shell::ReadFile</code>.</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>b v8::Shell::ReadFile
+</span></span><span style=display:flex><span>c
+</span></span></code></pre></div><div class=highlight title=src/d8.cc><div style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">3620
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">3621
+</span><span style=color:#6e7681><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">3622
+</span></span><span style=color:#6e7681><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">3623
+</span></span><span style=color:#6e7681><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">3624
+</span></span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">3625
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">3626
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">3627
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">3628
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">3629
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">3630
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">3631
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">3632
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">3633
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">3634
+</span><span style=color:#6e7681><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">3635
+</span></span><span style=color:#6e7681><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">3636
+</span></span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">3637
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">3638
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">3639
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">3640
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">3641
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">3642
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">3643
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">3644
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">3645
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">3646
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">3647
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid><code class=language-cpp data-lang=cpp><span style=display:flex><span>Local<span style=color:#ff7b72;font-weight:700>&lt;</span>String<span style=color:#ff7b72;font-weight:700>&gt;</span> Shell<span style=color:#ff7b72;font-weight:700>::</span>ReadFile(Isolate<span style=color:#ff7b72;font-weight:700>*</span> isolate, <span style=color:#ff7b72>const</span> <span style=color:#ff7b72>char</span><span style=color:#ff7b72;font-weight:700>*</span> name,
+</span></span><span style=display:flex><span>                              <span style=color:#ff7b72>bool</span> should_throw) {
+</span></span><span style=display:flex;color:#6e7681><span>  std<span style=color:#ff7b72;font-weight:700>::</span>unique_ptr<span style=color:#ff7b72;font-weight:700>&lt;</span>base<span style=color:#ff7b72;font-weight:700>::</span>OS<span style=color:#ff7b72;font-weight:700>::</span>MemoryMappedFile<span style=color:#ff7b72;font-weight:700>&gt;</span> file(
+</span></span><span style=display:flex;color:#6e7681><span>      base<span style=color:#ff7b72;font-weight:700>::</span>OS<span style=color:#ff7b72;font-weight:700>::</span>MemoryMappedFile<span style=color:#ff7b72;font-weight:700>::</span>open(
+</span></span><span style=display:flex;color:#6e7681><span>          name, base<span style=color:#ff7b72;font-weight:700>::</span>OS<span style=color:#ff7b72;font-weight:700>::</span>MemoryMappedFile<span style=color:#ff7b72;font-weight:700>::</span>FileMode<span style=color:#ff7b72;font-weight:700>::</span>kReadOnly));
+</span></span><span style=display:flex><span>  <span style=color:#ff7b72>if</span> (<span style=color:#ff7b72;font-weight:700>!</span>file) {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> (should_throw) {
+</span></span><span style=display:flex><span>      std<span style=color:#ff7b72;font-weight:700>::</span>ostringstream oss;
+</span></span><span style=display:flex><span>      oss <span style=color:#ff7b72;font-weight:700>&lt;&lt;</span> <span style=color:#a5d6ff>&#34;Error loading file: </span><span style=color:#79c0ff>\&#34;</span><span style=color:#a5d6ff>&#34;</span> <span style=color:#ff7b72;font-weight:700>&lt;&lt;</span> name <span style=color:#ff7b72;font-weight:700>&lt;&lt;</span> <span style=color:#a5d6ff>&#39;&#34;&#39;</span>;
+</span></span><span style=display:flex><span>      isolate<span style=color:#ff7b72;font-weight:700>-&gt;</span>ThrowError(
+</span></span><span style=display:flex><span>          v8<span style=color:#ff7b72;font-weight:700>::</span>String<span style=color:#ff7b72;font-weight:700>::</span>NewFromUtf8(isolate, oss.str().c_str()).ToLocalChecked());
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> Local<span style=color:#ff7b72;font-weight:700>&lt;</span>String<span style=color:#ff7b72;font-weight:700>&gt;</span>();
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex;color:#6e7681><span>  <span style=color:#ff7b72>int</span> size <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#ff7b72>static_cast</span><span style=color:#ff7b72;font-weight:700>&lt;</span><span style=color:#ff7b72>int</span><span style=color:#ff7b72;font-weight:700>&gt;</span>(file<span style=color:#ff7b72;font-weight:700>-&gt;</span>size());
+</span></span><span style=display:flex;color:#6e7681><span>  <span style=color:#ff7b72>char</span><span style=color:#ff7b72;font-weight:700>*</span> chars <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#ff7b72>static_cast</span><span style=color:#ff7b72;font-weight:700>&lt;</span><span style=color:#ff7b72>char</span><span style=color:#ff7b72;font-weight:700>*&gt;</span>(file<span style=color:#ff7b72;font-weight:700>-&gt;</span>memory());
+</span></span><span style=display:flex><span>  Local<span style=color:#ff7b72;font-weight:700>&lt;</span>String<span style=color:#ff7b72;font-weight:700>&gt;</span> result;
+</span></span><span style=display:flex><span>  <span style=color:#ff7b72>if</span> (i<span style=color:#ff7b72;font-weight:700>::</span>FLAG_use_external_strings <span style=color:#ff7b72;font-weight:700>&amp;&amp;</span> i<span style=color:#ff7b72;font-weight:700>::</span>String<span style=color:#ff7b72;font-weight:700>::</span>IsAscii(chars, size)) {
+</span></span><span style=display:flex><span>    String<span style=color:#ff7b72;font-weight:700>::</span>ExternalOneByteStringResource<span style=color:#ff7b72;font-weight:700>*</span> resource <span style=color:#ff7b72;font-weight:700>=</span>
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>new</span> ExternalOwningOneByteStringResource(std<span style=color:#ff7b72;font-weight:700>::</span>move(file));
+</span></span><span style=display:flex><span>    result <span style=color:#ff7b72;font-weight:700>=</span> String<span style=color:#ff7b72;font-weight:700>::</span>NewExternalOneByte(isolate, resource).ToLocalChecked();
+</span></span><span style=display:flex><span>  } <span style=color:#ff7b72>else</span> {
+</span></span><span style=display:flex><span>    result <span style=color:#ff7b72;font-weight:700>=</span> String<span style=color:#ff7b72;font-weight:700>::</span>NewFromUtf8(isolate, chars, NewStringType<span style=color:#ff7b72;font-weight:700>::</span>kNormal, size)
+</span></span><span style=display:flex><span>                 .ToLocalChecked();
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  <span style=color:#ff7b72>return</span> result;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></td></tr></table></div></div><div class=highlight title=src/base/platform/platform-posix.cc><div style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">629
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">630
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">631
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">632
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">633
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">634
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">635
+</span><span style=color:#6e7681><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">636
+</span></span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">637
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">638
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">639
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">640
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">641
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">642
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">643
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">644
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">645
+</span><span style=color:#6e7681><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">646
+</span></span><span style=color:#6e7681><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">647
+</span></span><span style=color:#6e7681><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">648
+</span></span><span style=color:#6e7681><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">649
+</span></span><span style=color:#6e7681><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">650
+</span></span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">651
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">652
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">653
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">654
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">655
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">656
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">657
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid><code class=language-cpp data-lang=cpp><span style=display:flex><span>OS<span style=color:#ff7b72;font-weight:700>::</span>MemoryMappedFile<span style=color:#ff7b72;font-weight:700>*</span> OS<span style=color:#ff7b72;font-weight:700>::</span>MemoryMappedFile<span style=color:#ff7b72;font-weight:700>::</span>open(<span style=color:#ff7b72>const</span> <span style=color:#ff7b72>char</span><span style=color:#ff7b72;font-weight:700>*</span> name,
+</span></span><span style=display:flex><span>                                                 FileMode mode) {
+</span></span><span style=display:flex><span>  <span style=color:#ff7b72>const</span> <span style=color:#ff7b72>char</span><span style=color:#ff7b72;font-weight:700>*</span> fopen_mode <span style=color:#ff7b72;font-weight:700>=</span> (mode <span style=color:#ff7b72;font-weight:700>==</span> FileMode<span style=color:#ff7b72;font-weight:700>::</span>kReadOnly) <span style=color:#ff7b72;font-weight:700>?</span> <span style=color:#a5d6ff>&#34;r&#34;</span> <span style=color:#ff7b72;font-weight:700>:</span> <span style=color:#a5d6ff>&#34;r+&#34;</span>;
+</span></span><span style=display:flex><span>  <span style=color:#ff7b72>struct</span> <span style=color:#f0883e;font-weight:700>stat</span> statbuf;
+</span></span><span style=display:flex><span>  <span style=color:#8b949e;font-style:italic>// Make sure path exists and is not a directory.
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span>  <span style=color:#ff7b72>if</span> (stat(name, <span style=color:#ff7b72;font-weight:700>&amp;</span>statbuf) <span style=color:#ff7b72;font-weight:700>==</span> <span style=color:#a5d6ff>0</span> <span style=color:#ff7b72;font-weight:700>&amp;&amp;</span> <span style=color:#ff7b72;font-weight:700>!</span>S_ISDIR(statbuf.st_mode)) {
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> (FILE<span style=color:#ff7b72;font-weight:700>*</span> file <span style=color:#ff7b72;font-weight:700>=</span> fopen(name, fopen_mode)) {
+</span></span><span style=display:flex;color:#6e7681><span>      <span style=color:#ff7b72>if</span> (fseek(file, <span style=color:#a5d6ff>0</span>, SEEK_END) <span style=color:#ff7b72;font-weight:700>==</span> <span style=color:#a5d6ff>0</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>long</span> size <span style=color:#ff7b72;font-weight:700>=</span> ftell(file);  <span style=color:#8b949e;font-style:italic>// NOLINT(runtime/int)
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span>        <span style=color:#ff7b72>if</span> (size <span style=color:#ff7b72;font-weight:700>==</span> <span style=color:#a5d6ff>0</span>) <span style=color:#ff7b72>return</span> <span style=color:#ff7b72>new</span> PosixMemoryMappedFile(file, <span style=color:#ff7b72>nullptr</span>, <span style=color:#a5d6ff>0</span>);
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>if</span> (size <span style=color:#ff7b72;font-weight:700>&gt;</span> <span style=color:#a5d6ff>0</span>) {
+</span></span><span style=display:flex><span>          <span style=color:#ff7b72>int</span> prot <span style=color:#ff7b72;font-weight:700>=</span> PROT_READ;
+</span></span><span style=display:flex><span>          <span style=color:#ff7b72>int</span> flags <span style=color:#ff7b72;font-weight:700>=</span> MAP_PRIVATE;
+</span></span><span style=display:flex><span>          <span style=color:#ff7b72>if</span> (mode <span style=color:#ff7b72;font-weight:700>==</span> FileMode<span style=color:#ff7b72;font-weight:700>::</span>kReadWrite) {
+</span></span><span style=display:flex><span>            prot <span style=color:#ff7b72;font-weight:700>|=</span> PROT_WRITE;
+</span></span><span style=display:flex><span>            flags <span style=color:#ff7b72;font-weight:700>=</span> MAP_SHARED;
+</span></span><span style=display:flex><span>          }
+</span></span><span style=display:flex;color:#6e7681><span>          <span style=color:#ff7b72>void</span><span style=color:#ff7b72;font-weight:700>*</span> <span style=color:#ff7b72>const</span> memory <span style=color:#ff7b72;font-weight:700>=</span>
+</span></span><span style=display:flex;color:#6e7681><span>              mmap(OS<span style=color:#ff7b72;font-weight:700>::</span>GetRandomMmapAddr(), size, prot, flags, fileno(file), <span style=color:#a5d6ff>0</span>);
+</span></span><span style=display:flex;color:#6e7681><span>          <span style=color:#ff7b72>if</span> (memory <span style=color:#ff7b72;font-weight:700>!=</span> MAP_FAILED) {
+</span></span><span style=display:flex;color:#6e7681><span>            <span style=color:#ff7b72>return</span> <span style=color:#ff7b72>new</span> <span style=color:#d2a8ff;font-weight:700>PosixMemoryMappedFile</span>(file, memory, size);
+</span></span><span style=display:flex;color:#6e7681><span>          }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>      }
+</span></span><span style=display:flex><span>      fclose(file);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>  <span style=color:#ff7b72>return</span> <span style=color:#ff7b72>nullptr</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></td></tr></table></div></div><p>If you feel overwhelmed by above functions, don&rsquo;t worry, I did too. But focus on
 highlighted lines, I added the functions because they are so interesting. Source
 file can be very small as our <code>debug.js</code>, or very large, I actually don&rsquo;t know
 if ECMAScript has a spec for max source size or not. But anyway, V8 scanner will
@@ -327,287 +206,229 @@ file. Even though kernel code is very fast to do such operations, we can still
 improve by using <code>mmap</code> You can take a break on this
 blog, go checkout
 <a href="https://youtu.be/8hVLcyBkSXY?t=247" class=external-link target=_blank rel=noopener>explaination video of <code>mmap</code></a>
-and then come back.<br>
-<em>(*) Disclaimer: At the time of writing this part, I also discover <code>mmap</code>. So
-my explaination can be incorrect.</em></p>
-<p>Hey, you&rsquo;re back. So you know what&rsquo;s nice about <code>mmap</code>.
+and then come back.<br><em>(*) Disclaimer: At the time of writing this part, I also discover <code>mmap</code>. So
+my explaination can be incorrect.</em></p><p>Hey, you&rsquo;re back. So you know what&rsquo;s nice about <code>mmap</code>.
 Hence, V8 only seeks for the end of file position to know file size and then
 maps source file to a address in <code>V8</code> virtual memory space. Run <code>thread step-out</code>
 or <code>f</code> to jump up to <code>Execute</code> function.
-Now we can check if source informaiton is handled correctly.</p>
-<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>(lldb) p arg
-(const char *) $48 = 0x000000016fdff555 <span style=color:#0ff;font-weight:700>&#34;debug.js&#34;</span>
-(lldb) p source-&gt;Length()
-(int) $49 = <span style=color:#ff0;font-weight:700>55</span>
-</code></pre></div><p>File name is correct, and content length looks good.</p>
-<p>Next, <code>v8::Shell::ExecuteString</code> function call will execute our source script.
-We set a breakpoint at that function and continue process.</p>
-<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>(lldb) b v8::Shell::ExecuteString
-Breakpoint 1: where = d8<span style=color:#0ff;font-weight:700>`</span>v8::Shell::ExecuteString(v8::Isolate*, v8::Local&lt;v8::String&gt;, v8::Local&lt;v8::String&gt;, v8::Shell::PrintResult, v8::Shell::ReportExceptions, v8::Shell::ProcessMessageQueue) + <span style=color:#ff0;font-weight:700>140</span> at d8.cc:685:15, address = 0x000000010002b2bc
-c
-* thread <span style=color:#007f7f>#1, queue = &#39;com.apple.main-thread&#39;, stop reason = breakpoint 1.1</span>
-    frame <span style=color:#007f7f>#0: 0x000000010002b2bc d8`v8::Shell::ExecuteString(isolate=0x0000000118110000, source=(val_ = 0x0000000102020060), name=(val_ = 0x0000000102020058), print_result=kNoPrintResult, report_exceptions=kReportExceptions, process_message_queue=kProcessMessageQueue) at d8.cc:685:15</span>
-   <span style=color:#ff0;font-weight:700>682</span> 	                          Local&lt;String&gt; name, PrintResult print_result,
-   <span style=color:#ff0;font-weight:700>683</span> 	                          ReportExceptions report_exceptions,
-   <span style=color:#ff0;font-weight:700>684</span> 	                          ProcessMessageQueue process_message_queue) {
--&gt; <span style=color:#ff0;font-weight:700>685</span> 	  i::Isolate* i_isolate = reinterpret_cast&lt;i::Isolate*&gt;(isolate);
-   <span style=color:#ff0;font-weight:700>686</span> 	  <span style=color:#fff;font-weight:700>if</span> (i::FLAG_parse_only) {
-   <span style=color:#ff0;font-weight:700>687</span> 	    i::VMState&lt;PARSER&gt; state(i_isolate);
-   <span style=color:#ff0;font-weight:700>688</span> 	    i::Handle&lt;i::String&gt; str = Utils::OpenHandle(*(<span style=color:#fff;font-weight:700>source</span>));
-Target 0: (d8) stopped.
-</code></pre></div><p>In this function, <code>d8</code> opens the source and parse script inside it.</p>
-<div class=highlight title=src/d8.cc><div style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
-<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#727272">703
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">704
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">705
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">706
-</span><span style=display:block;width:100%;background-color:#191919><span style="margin-right:.4em;padding:0 .4em;color:#727272">707
-</span></span><span style="margin-right:.4em;padding:0 .4em;color:#727272">708
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">709
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">710
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">711
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">712
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">713
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">714
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">715
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">716
-</span></code></pre></td>
-<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp>    i::ParseInfo parse_info(i_isolate, flags, &amp;compile_state, &amp;reusable_state);
-
-    i::Handle&lt;i::Script&gt; script = parse_info.CreateScript(
-        i_isolate, str, i::kNullMaybeHandle, ScriptOriginOptions());
-<span style=display:block;width:100%;background-color:#191919>    <span style=color:#fff;font-weight:700>if</span> (!i::parsing::ParseProgram(&amp;parse_info, script, i_isolate,
-</span>                                  i::parsing::ReportStatisticsMode::kYes)) {
-      parse_info.pending_error_handler()-&gt;PrepareErrors(
-          i_isolate, parse_info.ast_value_factory());
-      parse_info.pending_error_handler()-&gt;ReportErrors(i_isolate, script);
-
-      fprintf(stderr, <span style=color:#0ff;font-weight:700>&#34;Failed parsing</span><span style=color:#0ff;font-weight:700>\n</span><span style=color:#0ff;font-weight:700>&#34;</span>);
-      <span style=color:#fff;font-weight:700>return</span> <span style=color:#fff;font-weight:700>false</span>;
-    }
-    <span style=color:#fff;font-weight:700>return</span> <span style=color:#fff;font-weight:700>true</span>;
-</code></pre></td></tr></table>
-</div>
-</div><p>Hopefully now you are more familiar with <code>lldb</code> step movements like step over,
+Now we can check if source informaiton is handled correctly.</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>(</span>lldb<span style=color:#ff7b72;font-weight:700>)</span> p arg
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>(</span>const char *<span style=color:#ff7b72;font-weight:700>)</span> <span style=color:#79c0ff>$48</span> <span style=color:#ff7b72;font-weight:700>=</span> 0x000000016fdff555 <span style=color:#a5d6ff>&#34;debug.js&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>(</span>lldb<span style=color:#ff7b72;font-weight:700>)</span> p source-&gt;Length<span style=color:#ff7b72;font-weight:700>()</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>(</span>int<span style=color:#ff7b72;font-weight:700>)</span> <span style=color:#79c0ff>$49</span> <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>55</span>
+</span></span></code></pre></div><p>File name is correct, and content length looks good.</p><p>Next, <code>v8::Shell::ExecuteString</code> function call will execute our source script.
+We set a breakpoint at that function and continue process.</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>(</span>lldb<span style=color:#ff7b72;font-weight:700>)</span> b v8::Shell::ExecuteString
+</span></span><span style=display:flex><span>Breakpoint 1: <span style=color:#79c0ff>where</span> <span style=color:#ff7b72;font-weight:700>=</span> d8<span style=color:#a5d6ff>`</span>v8::Shell::ExecuteString<span style=color:#ff7b72;font-weight:700>(</span>v8::Isolate*, v8::Local&lt;v8::String&gt;, v8::Local&lt;v8::String&gt;, v8::Shell::PrintResult, v8::Shell::ReportExceptions, v8::Shell::ProcessMessageQueue<span style=color:#ff7b72;font-weight:700>)</span> + <span style=color:#a5d6ff>140</span> at d8.cc:685:15, <span style=color:#79c0ff>address</span> <span style=color:#ff7b72;font-weight:700>=</span> 0x000000010002b2bc
+</span></span><span style=display:flex><span>c
+</span></span><span style=display:flex><span>* thread <span style=color:#8b949e;font-style:italic>#1, queue = &#39;com.apple.main-thread&#39;, stop reason = breakpoint 1.1</span>
+</span></span><span style=display:flex><span>    frame <span style=color:#8b949e;font-style:italic>#0: 0x000000010002b2bc d8`v8::Shell::ExecuteString(isolate=0x0000000118110000, source=(val_ = 0x0000000102020060), name=(val_ = 0x0000000102020058), print_result=kNoPrintResult, report_exceptions=kReportExceptions, process_message_queue=kProcessMessageQueue) at d8.cc:685:15</span>
+</span></span><span style=display:flex><span>   <span style=color:#a5d6ff>682</span> 	                          Local&lt;String&gt; name, PrintResult print_result,
+</span></span><span style=display:flex><span>   <span style=color:#a5d6ff>683</span> 	                          ReportExceptions report_exceptions,
+</span></span><span style=display:flex><span>   <span style=color:#a5d6ff>684</span> 	                          ProcessMessageQueue process_message_queue<span style=color:#ff7b72;font-weight:700>)</span> <span style=color:#ff7b72;font-weight:700>{</span>
+</span></span><span style=display:flex><span>-&gt; <span style=color:#a5d6ff>685</span> 	  i::Isolate* <span style=color:#79c0ff>i_isolate</span> <span style=color:#ff7b72;font-weight:700>=</span> reinterpret_cast&lt;i::Isolate*&gt;<span style=color:#ff7b72;font-weight:700>(</span>isolate<span style=color:#ff7b72;font-weight:700>)</span>;
+</span></span><span style=display:flex><span>   <span style=color:#a5d6ff>686</span> 	  <span style=color:#ff7b72>if</span> <span style=color:#ff7b72;font-weight:700>(</span>i::FLAG_parse_only<span style=color:#ff7b72;font-weight:700>)</span> <span style=color:#ff7b72;font-weight:700>{</span>
+</span></span><span style=display:flex><span>   <span style=color:#a5d6ff>687</span> 	    i::VMState&lt;PARSER&gt; state<span style=color:#ff7b72;font-weight:700>(</span>i_isolate<span style=color:#ff7b72;font-weight:700>)</span>;
+</span></span><span style=display:flex><span>   <span style=color:#a5d6ff>688</span> 	    i::Handle&lt;i::String&gt; <span style=color:#79c0ff>str</span> <span style=color:#ff7b72;font-weight:700>=</span> Utils::OpenHandle<span style=color:#ff7b72;font-weight:700>(</span>*<span style=color:#ff7b72;font-weight:700>(</span>source<span style=color:#ff7b72;font-weight:700>))</span>;
+</span></span><span style=display:flex><span>Target 0: <span style=color:#ff7b72;font-weight:700>(</span>d8<span style=color:#ff7b72;font-weight:700>)</span> stopped.
+</span></span></code></pre></div><p>In this function, <code>d8</code> opens the source and parse script inside it.</p><div class=highlight title=src/d8.cc><div style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">703
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">704
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">705
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">706
+</span><span style=color:#6e7681><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">707
+</span></span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">708
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">709
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">710
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">711
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">712
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">713
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">714
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">715
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">716
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid><code class=language-cpp data-lang=cpp><span style=display:flex><span>    i<span style=color:#ff7b72;font-weight:700>::</span>ParseInfo parse_info(i_isolate, flags, <span style=color:#ff7b72;font-weight:700>&amp;</span>compile_state, <span style=color:#ff7b72;font-weight:700>&amp;</span>reusable_state);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    i<span style=color:#ff7b72;font-weight:700>::</span>Handle<span style=color:#ff7b72;font-weight:700>&lt;</span>i<span style=color:#ff7b72;font-weight:700>::</span>Script<span style=color:#ff7b72;font-weight:700>&gt;</span> script <span style=color:#ff7b72;font-weight:700>=</span> parse_info.CreateScript(
+</span></span><span style=display:flex><span>        i_isolate, str, i<span style=color:#ff7b72;font-weight:700>::</span>kNullMaybeHandle, ScriptOriginOptions());
+</span></span><span style=display:flex;color:#6e7681><span>    <span style=color:#ff7b72>if</span> (<span style=color:#ff7b72;font-weight:700>!</span>i<span style=color:#ff7b72;font-weight:700>::</span>parsing<span style=color:#ff7b72;font-weight:700>::</span>ParseProgram(<span style=color:#ff7b72;font-weight:700>&amp;</span>parse_info, script, i_isolate,
+</span></span><span style=display:flex><span>                                  i<span style=color:#ff7b72;font-weight:700>::</span>parsing<span style=color:#ff7b72;font-weight:700>::</span>ReportStatisticsMode<span style=color:#ff7b72;font-weight:700>::</span>kYes)) {
+</span></span><span style=display:flex><span>      parse_info.pending_error_handler()<span style=color:#ff7b72;font-weight:700>-&gt;</span>PrepareErrors(
+</span></span><span style=display:flex><span>          i_isolate, parse_info.ast_value_factory());
+</span></span><span style=display:flex><span>      parse_info.pending_error_handler()<span style=color:#ff7b72;font-weight:700>-&gt;</span>ReportErrors(i_isolate, script);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>      fprintf(stderr, <span style=color:#a5d6ff>&#34;Failed parsing</span><span style=color:#79c0ff>\n</span><span style=color:#a5d6ff>&#34;</span>);
+</span></span><span style=display:flex><span>      <span style=color:#ff7b72>return</span> false;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>return</span> true;
+</span></span></code></pre></td></tr></table></div></div><p>Hopefully now you are more familiar with <code>lldb</code> step movements like step over,
 step into, adding breakpoint and continue to next breakpoint. I will skip <code>lldb</code>
-commands like <code>run, breakpoint set, continue, thread step-in, thread step-out</code>.</p>
-<p>Now we take a look at <code>v8::internal::parsing::ParseProgram</code> function. Because it
-is short, I put the whole function code here.</p>
-<div class=highlight title=src/parsing/parsing.cc><div style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
-<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#727272">40
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">41
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">42
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">43
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">44
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">45
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">46
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">47
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">48
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">49
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">50
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">51
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">52
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">53
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">54
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">55
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">56
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">57
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">58
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">59
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">60
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">61
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">62
-</span></code></pre></td>
-<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#fff;font-weight:700>bool</span> ParseProgram(ParseInfo* info, Handle&lt;Script&gt; script,
-                  MaybeHandle&lt;ScopeInfo&gt; maybe_outer_scope_info,
-                  Isolate* isolate, ReportStatisticsMode mode) {
-  DCHECK(info-&gt;flags().is_toplevel());
-  DCHECK_NULL(info-&gt;literal());
-
-  VMState&lt;PARSER&gt; state(isolate);
-
-  <span style=color:#007f7f>// Create a character stream for the parser.
-</span><span style=color:#007f7f></span>  Handle&lt;String&gt; source(String::cast(script-&gt;source()), isolate);
-  isolate-&gt;counters()-&gt;total_parse_size()-&gt;Increment(source-&gt;length());
-  std::unique_ptr&lt;Utf16CharacterStream&gt; stream(
-      ScannerStream::For(isolate, source));
-  info-&gt;set_character_stream(std::move(stream));
-
-  Parser parser(isolate-&gt;main_thread_local_isolate(), info, script);
-
-  <span style=color:#007f7f>// Ok to use Isolate here; this function is only called in the main thread.
-</span><span style=color:#007f7f></span>  DCHECK(parser.parsing_on_main_thread_);
-  parser.ParseProgram(isolate, script, info, maybe_outer_scope_info);
-  MaybeReportStatistics(info, script, isolate, &amp;parser, mode);
-  <span style=color:#fff;font-weight:700>return</span> info-&gt;literal() != <span style=color:#fff;font-weight:700>nullptr</span>;
-}
-</code></pre></td></tr></table>
-</div>
-</div><p>As you can see, we read source code by a character stream, but at this point,
-our stream is still empty. Let&rsquo;s step into <code>parser.ParseProgram</code> call.</p>
-<div class=highlight title=src/parsing/parser.cc><div style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
-<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#727272">536
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">537
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">538
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">539
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">540
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">541
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">542
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">543
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">544
-</span><span style=display:block;width:100%;background-color:#191919><span style="margin-right:.4em;padding:0 .4em;color:#727272">545
-</span></span><span style="margin-right:.4em;padding:0 .4em;color:#727272">546
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">547
-</span><span style="margin-right:.4em;padding:0 .4em;color:#727272">548
-</span></code></pre></td>
-<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp>  <span style=color:#007f7f>// Initialize parser state.
-</span><span style=color:#007f7f></span>  DeserializeScopeChain(isolate, info, maybe_outer_scope_info,
-                        Scope::DeserializationMode::kIncludingVariables);
-
-  DCHECK_EQ(script-&gt;is_wrapped(), info-&gt;is_wrapped_as_function());
-  <span style=color:#fff;font-weight:700>if</span> (script-&gt;is_wrapped()) {
-    maybe_wrapped_arguments_ = handle(script-&gt;wrapped_arguments(), isolate);
-  }
-
-<span style=display:block;width:100%;background-color:#191919>  scanner_.Initialize();
-</span>  FunctionLiteral* result = DoParseProgram(isolate, info);
-  MaybeProcessSourceRanges(info, result, stack_limit_);
-  PostProcessParseResult(isolate, info, result);
-</code></pre></td></tr></table>
-</div>
-</div><p>After a few internal checks, the <code>scanner</code> start initializing. This is where our
+commands like <code>run, breakpoint set, continue, thread step-in, thread step-out</code>.</p><p>Now we take a look at <code>v8::internal::parsing::ParseProgram</code> function. Because it
+is short, I put the whole function code here.</p><div class=highlight title=src/parsing/parsing.cc><div style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">40
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">41
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">42
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">43
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">44
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">45
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">46
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">47
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">48
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">49
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">50
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">51
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">52
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">53
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">54
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">55
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">56
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">57
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">58
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">59
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">60
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">61
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">62
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#ff7b72>bool</span> <span style=color:#d2a8ff;font-weight:700>ParseProgram</span>(ParseInfo<span style=color:#ff7b72;font-weight:700>*</span> info, Handle<span style=color:#ff7b72;font-weight:700>&lt;</span>Script<span style=color:#ff7b72;font-weight:700>&gt;</span> script,
+</span></span><span style=display:flex><span>                  MaybeHandle<span style=color:#ff7b72;font-weight:700>&lt;</span>ScopeInfo<span style=color:#ff7b72;font-weight:700>&gt;</span> maybe_outer_scope_info,
+</span></span><span style=display:flex><span>                  Isolate<span style=color:#ff7b72;font-weight:700>*</span> isolate, ReportStatisticsMode mode) {
+</span></span><span style=display:flex><span>  DCHECK(info<span style=color:#ff7b72;font-weight:700>-&gt;</span>flags().is_toplevel());
+</span></span><span style=display:flex><span>  DCHECK_NULL(info<span style=color:#ff7b72;font-weight:700>-&gt;</span>literal());
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  VMState<span style=color:#ff7b72;font-weight:700>&lt;</span>PARSER<span style=color:#ff7b72;font-weight:700>&gt;</span> state(isolate);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#8b949e;font-style:italic>// Create a character stream for the parser.
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span>  Handle<span style=color:#ff7b72;font-weight:700>&lt;</span>String<span style=color:#ff7b72;font-weight:700>&gt;</span> source(String<span style=color:#ff7b72;font-weight:700>::</span>cast(script<span style=color:#ff7b72;font-weight:700>-&gt;</span>source()), isolate);
+</span></span><span style=display:flex><span>  isolate<span style=color:#ff7b72;font-weight:700>-&gt;</span>counters()<span style=color:#ff7b72;font-weight:700>-&gt;</span>total_parse_size()<span style=color:#ff7b72;font-weight:700>-&gt;</span>Increment(source<span style=color:#ff7b72;font-weight:700>-&gt;</span>length());
+</span></span><span style=display:flex><span>  std<span style=color:#ff7b72;font-weight:700>::</span>unique_ptr<span style=color:#ff7b72;font-weight:700>&lt;</span>Utf16CharacterStream<span style=color:#ff7b72;font-weight:700>&gt;</span> stream(
+</span></span><span style=display:flex><span>      ScannerStream<span style=color:#ff7b72;font-weight:700>::</span>For(isolate, source));
+</span></span><span style=display:flex><span>  info<span style=color:#ff7b72;font-weight:700>-&gt;</span>set_character_stream(std<span style=color:#ff7b72;font-weight:700>::</span>move(stream));
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  Parser parser(isolate<span style=color:#ff7b72;font-weight:700>-&gt;</span>main_thread_local_isolate(), info, script);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#8b949e;font-style:italic>// Ok to use Isolate here; this function is only called in the main thread.
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span>  DCHECK(parser.parsing_on_main_thread_);
+</span></span><span style=display:flex><span>  parser.ParseProgram(isolate, script, info, maybe_outer_scope_info);
+</span></span><span style=display:flex><span>  MaybeReportStatistics(info, script, isolate, <span style=color:#ff7b72;font-weight:700>&amp;</span>parser, mode);
+</span></span><span style=display:flex><span>  <span style=color:#ff7b72>return</span> info<span style=color:#ff7b72;font-weight:700>-&gt;</span>literal() <span style=color:#ff7b72;font-weight:700>!=</span> <span style=color:#ff7b72>nullptr</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></td></tr></table></div></div><p>As you can see, we read source code by a character stream, but at this point,
+our stream is still empty. Let&rsquo;s step into <code>parser.ParseProgram</code> call.</p><div class=highlight title=src/parsing/parser.cc><div style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">536
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">537
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">538
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">539
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">540
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">541
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">542
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">543
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">544
+</span><span style=color:#6e7681><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">545
+</span></span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">546
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">547
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">548
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid><code class=language-cpp data-lang=cpp><span style=display:flex><span>  <span style=color:#8b949e;font-style:italic>// Initialize parser state.
+</span></span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic></span>  DeserializeScopeChain(isolate, info, maybe_outer_scope_info,
+</span></span><span style=display:flex><span>                        Scope<span style=color:#ff7b72;font-weight:700>::</span>DeserializationMode<span style=color:#ff7b72;font-weight:700>::</span>kIncludingVariables);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  DCHECK_EQ(script<span style=color:#ff7b72;font-weight:700>-&gt;</span>is_wrapped(), info<span style=color:#ff7b72;font-weight:700>-&gt;</span>is_wrapped_as_function());
+</span></span><span style=display:flex><span>  <span style=color:#ff7b72>if</span> (script<span style=color:#ff7b72;font-weight:700>-&gt;</span>is_wrapped()) {
+</span></span><span style=display:flex><span>    maybe_wrapped_arguments_ <span style=color:#ff7b72;font-weight:700>=</span> handle(script<span style=color:#ff7b72;font-weight:700>-&gt;</span>wrapped_arguments(), isolate);
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex;color:#6e7681><span>  scanner_.Initialize();
+</span></span><span style=display:flex><span>  FunctionLiteral<span style=color:#ff7b72;font-weight:700>*</span> result <span style=color:#ff7b72;font-weight:700>=</span> DoParseProgram(isolate, info);
+</span></span><span style=display:flex><span>  MaybeProcessSourceRanges(info, result, stack_limit_);
+</span></span><span style=display:flex><span>  PostProcessParseResult(isolate, info, result);
+</span></span></code></pre></td></tr></table></div></div><p>After a few internal checks, the <code>scanner</code> start initializing. This is where our
 code being translated to Javascript lexical elements. The structure of scanner
-source stream is documented in header file.</p>
-<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>Fields describing the location of the current buffer physically in memory,
-and semantically within the source string.
-
-                 0              buffer_pos_   pos()
-                 |                        |   |
-                 v________________________v___v_____________
-                 |                        |        |        |
-  Source string: |                        | Buffer |        |
-                 |________________________|________|________|
-                                          ^   ^    ^
-                                          |   |    |
-                  Pointers:   buffer_start_   |    buffer_end_
-                                        buffer_cursor_
-</code></pre></div><p>Let&rsquo;s checkout what is in current buffer.</p>
-<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>(lldb) p scanner()-&gt;source_-&gt;buffer_start_
-(const uint16_t *) $40 = 0x0000000102016032
-(lldb) x/s 0x0000000102016032
-0x102016032: <span style=color:#0ff;font-weight:700>&#34;l&#34;</span>
-</code></pre></div><p>We got our first character of source file ( <code>l</code> in <code>let</code> keywork). Because we
-knew source length is 55. We can print out the whole file.</p>
-<div class=highlight><pre tabindex=0 style=color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>(lldb) x/55s 0x0000000102016032
-0x102016032: <span style=color:#0ff;font-weight:700>&#34;l&#34;</span>
-0x102016034: <span style=color:#0ff;font-weight:700>&#34;e&#34;</span>
-0x102016036: <span style=color:#0ff;font-weight:700>&#34;t&#34;</span>
-0x102016038: <span style=color:#0ff;font-weight:700>&#34; &#34;</span>
-0x10201603a: <span style=color:#0ff;font-weight:700>&#34;a&#34;</span>
-0x10201603c: <span style=color:#0ff;font-weight:700>&#34; &#34;</span>
-0x10201603e: <span style=color:#0ff;font-weight:700>&#34;=&#34;</span>
-0x102016040: <span style=color:#0ff;font-weight:700>&#34; &#34;</span>
-0x102016042: <span style=color:#0ff;font-weight:700>&#34;1&#34;</span>
-0x102016044: <span style=color:#0ff;font-weight:700>&#34;\n&#34;</span>
-0x102016046: <span style=color:#0ff;font-weight:700>&#34;v&#34;</span>
-0x102016048: <span style=color:#0ff;font-weight:700>&#34;a&#34;</span>
-0x10201604a: <span style=color:#0ff;font-weight:700>&#34;r&#34;</span>
-0x10201604c: <span style=color:#0ff;font-weight:700>&#34; &#34;</span>
-0x10201604e: <span style=color:#0ff;font-weight:700>&#34;b&#34;</span>
-0x102016050: <span style=color:#0ff;font-weight:700>&#34; &#34;</span>
-0x102016052: <span style=color:#0ff;font-weight:700>&#34;=&#34;</span>
-0x102016054: <span style=color:#0ff;font-weight:700>&#34; &#34;</span>
-0x102016056: <span style=color:#0ff;font-weight:700>&#34;2&#34;</span>
-0x102016058: <span style=color:#0ff;font-weight:700>&#34;\n&#34;</span>
-0x10201605a: <span style=color:#0ff;font-weight:700>&#34;c&#34;</span>
-0x10201605c: <span style=color:#0ff;font-weight:700>&#34;o&#34;</span>
-0x10201605e: <span style=color:#0ff;font-weight:700>&#34;n&#34;</span>
-0x102016060: <span style=color:#0ff;font-weight:700>&#34;s&#34;</span>
-0x102016062: <span style=color:#0ff;font-weight:700>&#34;t&#34;</span>
-0x102016064: <span style=color:#0ff;font-weight:700>&#34; &#34;</span>
-0x102016066: <span style=color:#0ff;font-weight:700>&#34;c&#34;</span>
-0x102016068: <span style=color:#0ff;font-weight:700>&#34; &#34;</span>
-0x10201606a: <span style=color:#0ff;font-weight:700>&#34;=&#34;</span>
-0x10201606c: <span style=color:#0ff;font-weight:700>&#34; &#34;</span>
-0x10201606e: <span style=color:#0ff;font-weight:700>&#34;3&#34;</span>
-0x102016070: <span style=color:#0ff;font-weight:700>&#34;\n&#34;</span>
-0x102016072: <span style=color:#0ff;font-weight:700>&#34;c&#34;</span>
-0x102016074: <span style=color:#0ff;font-weight:700>&#34;o&#34;</span>
-0x102016076: <span style=color:#0ff;font-weight:700>&#34;n&#34;</span>
-0x102016078: <span style=color:#0ff;font-weight:700>&#34;s&#34;</span>
-0x10201607a: <span style=color:#0ff;font-weight:700>&#34;o&#34;</span>
-0x10201607c: <span style=color:#0ff;font-weight:700>&#34;l&#34;</span>
-0x10201607e: <span style=color:#0ff;font-weight:700>&#34;e&#34;</span>
-0x102016080: <span style=color:#0ff;font-weight:700>&#34;.&#34;</span>
-0x102016082: <span style=color:#0ff;font-weight:700>&#34;l&#34;</span>
-0x102016084: <span style=color:#0ff;font-weight:700>&#34;o&#34;</span>
-0x102016086: <span style=color:#0ff;font-weight:700>&#34;g&#34;</span>
-0x102016088: <span style=color:#0ff;font-weight:700>&#34;(&#34;</span>
-0x10201608a: <span style=color:#0ff;font-weight:700>&#34;a&#34;</span>
-0x10201608c: <span style=color:#0ff;font-weight:700>&#34; &#34;</span>
-0x10201608e: <span style=color:#0ff;font-weight:700>&#34;+&#34;</span>
-0x102016090: <span style=color:#0ff;font-weight:700>&#34; &#34;</span>
-0x102016092: <span style=color:#0ff;font-weight:700>&#34;b&#34;</span>
-0x102016094: <span style=color:#0ff;font-weight:700>&#34; &#34;</span>
-0x102016096: <span style=color:#0ff;font-weight:700>&#34;+&#34;</span>
-0x102016098: <span style=color:#0ff;font-weight:700>&#34; &#34;</span>
-0x10201609a: <span style=color:#0ff;font-weight:700>&#34;c&#34;</span>
-0x10201609c: <span style=color:#0ff;font-weight:700>&#34;)&#34;</span>
-0x10201609e: <span style=color:#0ff;font-weight:700>&#34;\n&#34;</span>
-</code></pre></div><p>That&rsquo;s exact our script from very first part.
+source stream is documented in header file.</p><div class=highlight title=src/parsing/scanner.h><div style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">190
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">191
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">192
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">193
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">194
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">195
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">196
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">197
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">198
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">199
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">200
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">201
+</span><span style="white-space:pre;user-select:none;margin-right:.4em;padding:0 .4em;color:#64686c">202
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>Fields describing the location of the current buffer physically in memory,
+</span></span><span style=display:flex><span>and semantically within the source string.
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                 0              buffer_pos_   pos()
+</span></span><span style=display:flex><span>                 |                        |   |
+</span></span><span style=display:flex><span>                 v________________________v___v_____________
+</span></span><span style=display:flex><span>                 |                        |        |        |
+</span></span><span style=display:flex><span>  Source string: |                        | Buffer |        |
+</span></span><span style=display:flex><span>                 |________________________|________|________|
+</span></span><span style=display:flex><span>                                          ^   ^    ^
+</span></span><span style=display:flex><span>                                          |   |    |
+</span></span><span style=display:flex><span>                  Pointers:   buffer_start_   |    buffer_end_
+</span></span><span style=display:flex><span>                                        buffer_cursor_
+</span></span></code></pre></td></tr></table></div></div><p>Let&rsquo;s checkout what is in current buffer.</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>(</span>lldb<span style=color:#ff7b72;font-weight:700>)</span> p scanner<span style=color:#ff7b72;font-weight:700>()</span>-&gt;source_-&gt;buffer_start_
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>(</span>const uint16_t *<span style=color:#ff7b72;font-weight:700>)</span> <span style=color:#79c0ff>$40</span> <span style=color:#ff7b72;font-weight:700>=</span> 0x0000000102016032
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>(</span>lldb<span style=color:#ff7b72;font-weight:700>)</span> x/s 0x0000000102016032
+</span></span><span style=display:flex><span>0x102016032: <span style=color:#a5d6ff>&#34;l&#34;</span>
+</span></span></code></pre></div><p>We got our first character of source file ( <code>l</code> in <code>let</code> keywork). Because we
+knew source length is 55. We can print out the whole file.</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>(</span>lldb<span style=color:#ff7b72;font-weight:700>)</span> x/55s 0x0000000102016032
+</span></span><span style=display:flex><span>0x102016032: <span style=color:#a5d6ff>&#34;l&#34;</span>
+</span></span><span style=display:flex><span>0x102016034: <span style=color:#a5d6ff>&#34;e&#34;</span>
+</span></span><span style=display:flex><span>0x102016036: <span style=color:#a5d6ff>&#34;t&#34;</span>
+</span></span><span style=display:flex><span>0x102016038: <span style=color:#a5d6ff>&#34; &#34;</span>
+</span></span><span style=display:flex><span>0x10201603a: <span style=color:#a5d6ff>&#34;a&#34;</span>
+</span></span><span style=display:flex><span>0x10201603c: <span style=color:#a5d6ff>&#34; &#34;</span>
+</span></span><span style=display:flex><span>0x10201603e: <span style=color:#a5d6ff>&#34;=&#34;</span>
+</span></span><span style=display:flex><span>0x102016040: <span style=color:#a5d6ff>&#34; &#34;</span>
+</span></span><span style=display:flex><span>0x102016042: <span style=color:#a5d6ff>&#34;1&#34;</span>
+</span></span><span style=display:flex><span>0x102016044: <span style=color:#a5d6ff>&#34;\n&#34;</span>
+</span></span><span style=display:flex><span>0x102016046: <span style=color:#a5d6ff>&#34;v&#34;</span>
+</span></span><span style=display:flex><span>0x102016048: <span style=color:#a5d6ff>&#34;a&#34;</span>
+</span></span><span style=display:flex><span>0x10201604a: <span style=color:#a5d6ff>&#34;r&#34;</span>
+</span></span><span style=display:flex><span>0x10201604c: <span style=color:#a5d6ff>&#34; &#34;</span>
+</span></span><span style=display:flex><span>0x10201604e: <span style=color:#a5d6ff>&#34;b&#34;</span>
+</span></span><span style=display:flex><span>0x102016050: <span style=color:#a5d6ff>&#34; &#34;</span>
+</span></span><span style=display:flex><span>0x102016052: <span style=color:#a5d6ff>&#34;=&#34;</span>
+</span></span><span style=display:flex><span>0x102016054: <span style=color:#a5d6ff>&#34; &#34;</span>
+</span></span><span style=display:flex><span>0x102016056: <span style=color:#a5d6ff>&#34;2&#34;</span>
+</span></span><span style=display:flex><span>0x102016058: <span style=color:#a5d6ff>&#34;\n&#34;</span>
+</span></span><span style=display:flex><span>0x10201605a: <span style=color:#a5d6ff>&#34;c&#34;</span>
+</span></span><span style=display:flex><span>0x10201605c: <span style=color:#a5d6ff>&#34;o&#34;</span>
+</span></span><span style=display:flex><span>0x10201605e: <span style=color:#a5d6ff>&#34;n&#34;</span>
+</span></span><span style=display:flex><span>0x102016060: <span style=color:#a5d6ff>&#34;s&#34;</span>
+</span></span><span style=display:flex><span>0x102016062: <span style=color:#a5d6ff>&#34;t&#34;</span>
+</span></span><span style=display:flex><span>0x102016064: <span style=color:#a5d6ff>&#34; &#34;</span>
+</span></span><span style=display:flex><span>0x102016066: <span style=color:#a5d6ff>&#34;c&#34;</span>
+</span></span><span style=display:flex><span>0x102016068: <span style=color:#a5d6ff>&#34; &#34;</span>
+</span></span><span style=display:flex><span>0x10201606a: <span style=color:#a5d6ff>&#34;=&#34;</span>
+</span></span><span style=display:flex><span>0x10201606c: <span style=color:#a5d6ff>&#34; &#34;</span>
+</span></span><span style=display:flex><span>0x10201606e: <span style=color:#a5d6ff>&#34;3&#34;</span>
+</span></span><span style=display:flex><span>0x102016070: <span style=color:#a5d6ff>&#34;\n&#34;</span>
+</span></span><span style=display:flex><span>0x102016072: <span style=color:#a5d6ff>&#34;c&#34;</span>
+</span></span><span style=display:flex><span>0x102016074: <span style=color:#a5d6ff>&#34;o&#34;</span>
+</span></span><span style=display:flex><span>0x102016076: <span style=color:#a5d6ff>&#34;n&#34;</span>
+</span></span><span style=display:flex><span>0x102016078: <span style=color:#a5d6ff>&#34;s&#34;</span>
+</span></span><span style=display:flex><span>0x10201607a: <span style=color:#a5d6ff>&#34;o&#34;</span>
+</span></span><span style=display:flex><span>0x10201607c: <span style=color:#a5d6ff>&#34;l&#34;</span>
+</span></span><span style=display:flex><span>0x10201607e: <span style=color:#a5d6ff>&#34;e&#34;</span>
+</span></span><span style=display:flex><span>0x102016080: <span style=color:#a5d6ff>&#34;.&#34;</span>
+</span></span><span style=display:flex><span>0x102016082: <span style=color:#a5d6ff>&#34;l&#34;</span>
+</span></span><span style=display:flex><span>0x102016084: <span style=color:#a5d6ff>&#34;o&#34;</span>
+</span></span><span style=display:flex><span>0x102016086: <span style=color:#a5d6ff>&#34;g&#34;</span>
+</span></span><span style=display:flex><span>0x102016088: <span style=color:#a5d6ff>&#34;(&#34;</span>
+</span></span><span style=display:flex><span>0x10201608a: <span style=color:#a5d6ff>&#34;a&#34;</span>
+</span></span><span style=display:flex><span>0x10201608c: <span style=color:#a5d6ff>&#34; &#34;</span>
+</span></span><span style=display:flex><span>0x10201608e: <span style=color:#a5d6ff>&#34;+&#34;</span>
+</span></span><span style=display:flex><span>0x102016090: <span style=color:#a5d6ff>&#34; &#34;</span>
+</span></span><span style=display:flex><span>0x102016092: <span style=color:#a5d6ff>&#34;b&#34;</span>
+</span></span><span style=display:flex><span>0x102016094: <span style=color:#a5d6ff>&#34; &#34;</span>
+</span></span><span style=display:flex><span>0x102016096: <span style=color:#a5d6ff>&#34;+&#34;</span>
+</span></span><span style=display:flex><span>0x102016098: <span style=color:#a5d6ff>&#34; &#34;</span>
+</span></span><span style=display:flex><span>0x10201609a: <span style=color:#a5d6ff>&#34;c&#34;</span>
+</span></span><span style=display:flex><span>0x10201609c: <span style=color:#a5d6ff>&#34;)&#34;</span>
+</span></span><span style=display:flex><span>0x10201609e: <span style=color:#a5d6ff>&#34;\n&#34;</span>
+</span></span></code></pre></div><p>That&rsquo;s exact our script from very first part.
 Wow! I can&rsquo;t believe we go this far. But it&rsquo;s just the beginning. I&rsquo;ll see you
-next time.</p>
-</div>
-<footer>
-<section class=see-also>
-<h3 id=see-also-in-v8-adventure>
-See also in V8 adventure
-<a class=heading-link href=#see-also-in-v8-adventure>
-<i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span>
-</a>
-</h3>
-<nav>
-<ul>
-<li>
-<a href=/posts/debug-v8-part-1/>Debug V8 part 1</a>
-</li>
-<li>
-<a href=/posts/token/>Token</a>
-</li>
-<li>
-<a href=/posts/build-v8-from-source-on-apple-m1/>Build v8 from source on Apple M1</a>
-</li>
-<li>
-<a href=/posts/build-v8-from-source/>Build v8 from source on Ubuntu 20.04</a>
-</li>
-<li>
-<a href=/posts/v8-adventure/>V8 adventure</a>
-</li>
-</ul>
-</nav>
-</section>
-</footer>
-</article>
-</section>
-</div>
-<footer class=footer>
-<section class=container>
-©
+next time.</p></div><footer><section class=see-also><h3 id=see-also-in-v8-adventure>See also in V8 adventure
+<a class=heading-link href=#see-also-in-v8-adventure><i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h3><nav><ul><li><a href=/posts/debug-v8-part-1/>Debug V8 part 1</a></li><li><a href=/posts/token/>Token</a></li><li><a href=/posts/build-v8-from-source-on-apple-m1/>Build v8 from source on Apple M1</a></li><li><a href=/posts/build-v8-from-source/>Build v8 from source on Ubuntu 20.04</a></li><li><a href=/posts/v8-adventure/>V8 adventure</a></li></ul></nav></section></footer></article></section></div><footer class=footer><section class=container>©
 2021 -
 2023
 Sy Tran
 ·
-Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.
-</section>
-</footer>
-</main>
-<script src=/js/coder.min.369d90111ae4409b4e51de5efd23a46b92663fcc82dc9a0efde7f70bffc3f949.js integrity="sha256-Np2QERrkQJtOUd5e/SOka5JmP8yC3JoO/ef3C//D+Uk="></script>
-</body>
-</html>
+Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.</section></footer></main><script src=/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script></body></html>
