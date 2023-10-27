@@ -1,0 +1,171 @@
+[generating bytecode for function: ]
+--- AST ---
+FUNC at 0
+. KIND 0
+. LITERAL ID 0
+. SUSPEND COUNT 0
+. NAME ""
+. INFERRED NAME ""
+. DECLS
+. . FUNCTION "Obj" = function Obj
+. . VARIABLE (0x128831930) (mode = VAR, assigned = true) "N"
+. . VARIABLE (0x128831a20) (mode = VAR, assigned = true) "obj"
+. . VARIABLE (0x1288323b0) (mode = VAR, assigned = true) "other"
+. BLOCK NOCOMPLETIONS at -1
+. . EXPRESSION STATEMENT at 137
+. . . INIT at 137
+. . . . VAR PROXY unallocated (0x128831930) (mode = VAR, assigned = true) "N"
+. . . . PROPERTY at 146
+. . . . . VAR PROXY unallocated (0x128832ad0) (mode = DYNAMIC_GLOBAL, assigned = false) "arguments"
+. . . . . KEY at 147
+. . . . . . LITERAL 0
+. BLOCK NOCOMPLETIONS at -1
+. . EXPRESSION STATEMENT at 160
+. . . INIT at 160
+. . . . VAR PROXY unallocated (0x128831a20) (mode = VAR, assigned = true) "obj"
+. . . . CALL NEW at 160
+. . . . . VAR PROXY unallocated (0x1288318d0) (mode = VAR, assigned = true) "Obj"
+. . . . . LITERAL 1
+. . . . . LITERAL 1
+. BLOCK at -1
+. . BLOCK NOCOMPLETIONS at -1
+. . . EXPRESSION STATEMENT at 187
+. . . . INIT at 187
+. . . . . VAR PROXY local[1] (0x128831dd0) (mode = LET, assigned = true) "x"
+. . . . . LITERAL 1
+. . . EXPRESSION STATEMENT at 194
+. . . . INIT at 194
+. . . . . VAR PROXY local[2] (0x128831e40) (mode = LET, assigned = true) "y"
+. . . . . LITERAL 1
+. . BLOCK at -1
+. . . EXPRESSION STATEMENT at -1
+. . . . ASSIGN at -1
+. . . . . VAR PROXY local[0] (0x1288328f0) (mode = TEMPORARY, assigned = true) ".result"
+. . . . . LITERAL undefined
+. . . FOR at 174
+. . . . COND at 199
+. . . . . LT at 199
+. . . . . . VAR PROXY local[1] (0x128831dd0) (mode = LET, assigned = true) "x"
+. . . . . . VAR PROXY unallocated (0x128831930) (mode = VAR, assigned = true) "N"
+. . . . BODY at -1
+. . . . . BLOCK at -1
+. . . . . . EXPRESSION STATEMENT at 219
+. . . . . . . CALL
+. . . . . . . . PROPERTY at 227
+. . . . . . . . . VAR PROXY unallocated (0x128832c80) (mode = DYNAMIC_GLOBAL, assigned = false) "console"
+. . . . . . . . . NAME log
+. . . . . . . . VAR PROXY local[1] (0x128831dd0) (mode = LET, assigned = true) "x"
+. . . . . . BLOCK NOCOMPLETIONS at -1
+. . . . . . . EXPRESSION STATEMENT at 248
+. . . . . . . . INIT at 248
+. . . . . . . . . VAR PROXY unallocated (0x1288323b0) (mode = VAR, assigned = true) "other"
+. . . . . . . . . CALL NEW at 248
+. . . . . . . . . . VAR PROXY unallocated (0x1288318d0) (mode = VAR, assigned = true) "Obj"
+. . . . . . . . . . VAR PROXY local[1] (0x128831dd0) (mode = LET, assigned = true) "x"
+. . . . . . . . . . VAR PROXY local[2] (0x128831e40) (mode = LET, assigned = true) "y"
+. . . . . . EXPRESSION STATEMENT at 264
+. . . . . . . CALL
+. . . . . . . . PROPERTY at 268
+. . . . . . . . . VAR PROXY unallocated (0x128831a20) (mode = VAR, assigned = true) "obj"
+. . . . . . . . . NAME add
+. . . . . . . . VAR PROXY unallocated (0x1288323b0) (mode = VAR, assigned = true) "other"
+. . . . . . BLOCK at -1
+. . . . . . . EXPRESSION STATEMENT at -1
+. . . . . . . . ASSIGN at -1
+. . . . . . . . . VAR PROXY local[0] (0x1288328f0) (mode = TEMPORARY, assigned = true) ".result"
+. . . . . . . . . LITERAL undefined
+. . . . . . . IF at 281
+. . . . . . . . CONDITION at 291
+. . . . . . . . . GT at 291
+. . . . . . . . . . PROPERTY at 289
+. . . . . . . . . . . VAR PROXY unallocated (0x128831a20) (mode = VAR, assigned = true) "obj"
+. . . . . . . . . . . NAME x
+. . . . . . . . . . LITERAL 50000
+. . . . . . . . THEN at -1
+. . . . . . . . . BLOCK at -1
+. . . . . . . . . . EXPRESSION STATEMENT at 306
+. . . . . . . . . . . ASSIGN at -1
+. . . . . . . . . . . . VAR PROXY local[0] (0x1288328f0) (mode = TEMPORARY, assigned = true) ".result"
+. . . . . . . . . . . . ASSIGN at 312
+. . . . . . . . . . . . . PROPERTY at 310
+. . . . . . . . . . . . . . VAR PROXY unallocated (0x128831a20) (mode = VAR, assigned = true) "obj"
+. . . . . . . . . . . . . . NAME z
+. . . . . . . . . . . . . ADD at 320
+. . . . . . . . . . . . . . PROPERTY at 318
+. . . . . . . . . . . . . . . VAR PROXY unallocated (0x128831a20) (mode = VAR, assigned = true) "obj"
+. . . . . . . . . . . . . . . NAME x
+. . . . . . . . . . . . . . PROPERTY at 326
+. . . . . . . . . . . . . . . VAR PROXY unallocated (0x128831a20) (mode = VAR, assigned = true) "obj"
+. . . . . . . . . . . . . . . NAME y
+. . . . NEXT at 210
+. . . . . EXPRESSION STATEMENT at 210
+. . . . . . COMMA at 210
+. . . . . . . POST INC at 205
+. . . . . . . . VAR PROXY local[1] (0x128831dd0) (mode = LET, assigned = true) "x"
+. . . . . . . ASSIGN_ADD at 210
+. . . . . . . . VAR PROXY local[2] (0x128831e40) (mode = LET, assigned = true) "y"
+. . . . . . . . LITERAL 2
+. RETURN at -1
+. . VAR PROXY local[0] (0x1288328f0) (mode = TEMPORARY, assigned = true) ".result"
+[generating bytecode for function: Obj]
+--- AST ---
+FUNC at 12
+. KIND 0
+. LITERAL ID 1
+. SUSPEND COUNT 0
+. NAME "Obj"
+. PARAMS
+. . VAR (0x128831870) (mode = VAR, assigned = false) "x"
+. . VAR (0x1288318f0) (mode = VAR, assigned = false) "y"
+. DECLS
+. . VARIABLE (0x128831870) (mode = VAR, assigned = false) "x"
+. . VARIABLE (0x1288318f0) (mode = VAR, assigned = false) "y"
+. EXPRESSION STATEMENT at 23
+. . ASSIGN at 30
+. . . PROPERTY at 28
+. . . . THIS-EXPRESSION at 23
+. . . . NAME x
+. . . VAR PROXY parameter[0] (0x128831870) (mode = VAR, assigned = false) "x"
+. EXPRESSION STATEMENT at 36
+. . ASSIGN at 43
+. . . PROPERTY at 41
+. . . . THIS-EXPRESSION at 36
+. . . . NAME y
+. . . VAR PROXY parameter[1] (0x1288318f0) (mode = VAR, assigned = false) "y"
+. EXPRESSION STATEMENT at 50
+. . ASSIGN at 59
+. . . PROPERTY at 55
+. . . . THIS-EXPRESSION at 50
+. . . . NAME add
+. . . FUNC LITERAL at 61
+. . . . LITERAL ID 2
+. . . . NAME 
+. . . . INFERRED NAME Obj.add
+1
+[generating bytecode for function: Obj.add]
+--- AST ---
+FUNC at 69
+. KIND 0
+. LITERAL ID 2
+. SUSPEND COUNT 0
+. NAME ""
+. PARAMS
+. . VAR (0x128831870) (mode = VAR, assigned = false) "other"
+. DECLS
+. . VARIABLE (0x128831870) (mode = VAR, assigned = false) "other"
+. EXPRESSION STATEMENT at 83
+. . ASSIGN_ADD at 90
+. . . PROPERTY at 88
+. . . . THIS-EXPRESSION at 83
+. . . . NAME x
+. . . PROPERTY at 99
+. . . . VAR PROXY parameter[0] (0x128831870) (mode = VAR, assigned = false) "other"
+. . . . NAME x
+. EXPRESSION STATEMENT at 105
+. . ASSIGN_ADD at 112
+. . . PROPERTY at 110
+. . . . THIS-EXPRESSION at 105
+. . . . NAME y
+. . . PROPERTY at 121
+. . . . VAR PROXY parameter[0] (0x128831870) (mode = VAR, assigned = false) "other"
+. . . . NAME y
