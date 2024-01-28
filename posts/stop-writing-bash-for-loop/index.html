@@ -150,7 +150,7 @@ for all the child processes to finish.</p>
 [6]+  Done                    sleep $item
 </code></pre>
 <p>Now it&rsquo;s better, we can see the shell is waiting for all jobs to finish.</p>
-<p>But sometime, we realize the command we written is incorrect, and we want to
+<p>But sometimes, we realize the command we written is incorrect, and we want to
 stop them immediately. With previous code, if we send a <code>SIGINT</code> by pressing
 <code>CTRL-C</code>, it only tell <code>wait</code> to stop waiting, instead of stopping the actual
 jobs. The jobs are still running in the background.</p>
