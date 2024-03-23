@@ -1,61 +1,209 @@
-<!doctype html><html lang=en><head><title>8 Terminal Movement Shortcuts You Should Know · sytranvn.dev</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=color-scheme content="light dark"><meta name=author content="Sy Tran"><meta name=description content="1. Move to end Link to heading ^e Example: From current cursor position move to end of line
-▌echo hello world ^e echo hello world▌ 2. Move to beginning Link to heading ^a Example: From last position move to beginning
-^a ▌echo hello world 3. Move to next word Link to heading alt-f Example: From last position move cursor to after hello position
-alt-f alt-f echo hello▌ world 4. Move to next character Link to heading ^f Example: From last position move cursor to character r in word"><meta name=keywords content="blog,developer,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="8 Terminal Movement Shortcuts You Should Know"><meta name=twitter:description content="1. Move to end Link to heading ^e Example: From current cursor position move to end of line
-▌echo hello world ^e echo hello world▌ 2. Move to beginning Link to heading ^a Example: From last position move to beginning
-^a ▌echo hello world 3. Move to next word Link to heading alt-f Example: From last position move cursor to after hello position
-alt-f alt-f echo hello▌ world 4. Move to next character Link to heading ^f Example: From last position move cursor to character r in word"><meta property="og:title" content="8 Terminal Movement Shortcuts You Should Know"><meta property="og:description" content="1. Move to end Link to heading ^e Example: From current cursor position move to end of line
-▌echo hello world ^e echo hello world▌ 2. Move to beginning Link to heading ^a Example: From last position move to beginning
-^a ▌echo hello world 3. Move to next word Link to heading alt-f Example: From last position move cursor to after hello position
-alt-f alt-f echo hello▌ world 4. Move to next character Link to heading ^f Example: From last position move cursor to character r in word"><meta property="og:type" content="article"><meta property="og:url" content="http://sytranvn.dev/posts/8-terminal-movement-key-strokes-you-should-know/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2023-10-27T17:29:33+07:00"><meta property="article:modified_time" content="2023-10-27T17:29:33+07:00"><link rel=canonical href=http://sytranvn.dev/posts/8-terminal-movement-key-strokes-you-should-know/><link rel=preload href=/fonts/fa-brands-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/fa-regular-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/fa-solid-900.woff2 as=font type=font/woff2 crossorigin><link rel=stylesheet href=/css/coder.min.577e3c5ead537873430da16f0964b754a120fd87c4e2203a00686e7c75b51378.css integrity="sha256-V348Xq1TeHNDDaFvCWS3VKEg/YfE4iA6AGhufHW1E3g=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/custom.min.ce238cbfc90ea7190072e7fed83b6e304043d17eedf40ff7751b10f97fb947ec.css integrity="sha256-ziOMv8kOpxkAcuf+2DtuMEBD0X7t9A/3dRsQ+X+5R+w=" crossorigin=anonymous media=screen><link rel=icon type=image/svg+xml href=/images/favicon.svg sizes=any><link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16><link rel=apple-touch-icon href=/images/apple-touch-icon.png><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/images/safari-pinned-tab.svg color=#5bbad5></head><body class="preload-transitions colorscheme-dark"><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=/>sytranvn.dev</a>
+<!doctype html><html lang=en>
+<head>
+<title>
+8 Terminal Movement Shortcuts You Should Know · sytranvn.dev
+</title>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=color-scheme content="light dark">
+<meta name=author content="Sy Tran">
+<meta name=description content="1. Move to end  Link to heading   ^e Example: From current cursor position move to end of line
+▌echo hello world ^e echo hello world▌ 2. Move to beginning  Link to heading   ^a Example: From last position move to beginning
+^a ▌echo hello world 3. Move to next word  Link to heading   alt-f Example: From last position move cursor to after hello position">
+<meta name=keywords content="blog,developer,personal">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="8 Terminal Movement Shortcuts You Should Know">
+<meta name=twitter:description content="1. Move to end  Link to heading   ^e Example: From current cursor position move to end of line
+▌echo hello world ^e echo hello world▌ 2. Move to beginning  Link to heading   ^a Example: From last position move to beginning
+^a ▌echo hello world 3. Move to next word  Link to heading   alt-f Example: From last position move cursor to after hello position">
+<meta property="og:title" content="8 Terminal Movement Shortcuts You Should Know">
+<meta property="og:description" content="1. Move to end  Link to heading   ^e Example: From current cursor position move to end of line
+▌echo hello world ^e echo hello world▌ 2. Move to beginning  Link to heading   ^a Example: From last position move to beginning
+^a ▌echo hello world 3. Move to next word  Link to heading   alt-f Example: From last position move cursor to after hello position">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://sytranvn.dev/posts/8-terminal-movement-key-strokes-you-should-know/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2023-10-27T17:29:33+07:00">
+<meta property="article:modified_time" content="2023-10-27T17:29:33+07:00">
+<link rel=canonical href=http://sytranvn.dev/posts/8-terminal-movement-key-strokes-you-should-know/>
+<link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin>
+<link rel=stylesheet href=/css/coder.min.e1bdf152d93b060b06ba5d496486ed9c201a8b95d335e035beb5faebe3b61cad.css integrity="sha256-4b3xUtk7BgsGul1JZIbtnCAai5XTNeA1vrX66+O2HK0=" crossorigin=anonymous media=screen>
+<link rel=stylesheet href=/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin=anonymous media=screen>
+<link rel=stylesheet href=/css/custom.min.e01fd2443128634dc9cf70bef26c23d851bd25b3bb24cf183925fcc0e318f691.css integrity="sha256-4B/SRDEoY03Jz3C+8mwj2FG9JbO7JM8YOSX8wOMY9pE=" crossorigin=anonymous media=screen>
+<link rel=icon type=image/svg+xml href=/images/favicon.svg sizes=any>
+<link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32>
+<link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16>
+<link rel=apple-touch-icon href=/images/apple-touch-icon.png>
+<link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png>
+<link rel=manifest href=/site.webmanifest>
+<link rel=mask-icon href=/images/safari-pinned-tab.svg color=#5bbad5>
+</head>
+<body class="preload-transitions colorscheme-dark">
+<main class=wrapper>
+<nav class=navigation>
+<section class=container>
+<a class=navigation-title href=/>
+sytranvn.dev
+</a>
 <input type=checkbox id=menu-toggle>
-<label class="menu-button float-right" for=menu-toggle><i class="fa-solid fa-bars fa-fw" aria-hidden=true></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=/now/>Now</a></li><li class=navigation-item><a class=navigation-link href=/posts/>Blog</a></li><li class=navigation-item><a class=navigation-link href=/projects/>Projects</a></li><li class=navigation-item><a class=navigation-link href=/i-heart-oss/>I ❤️ OSS</a></li><li class=navigation-item><a class=navigation-link href=/accomplishments/>Accomplishments</a></li><li class=navigation-item><a class=navigation-link href=/resume.pdf>Resume</a></li></ul></section></nav><div class=content><section class="container post"><article><header><div class=post-title><h1 class=title><a class=title-link href=http://sytranvn.dev/posts/8-terminal-movement-key-strokes-you-should-know/>8 Terminal Movement Shortcuts You Should Know</a></h1></div><div class=post-meta><div class=date><span class=posted-on><i class="fa-solid fa-calendar" aria-hidden=true></i>
-<time datetime=2023-10-27T17:29:33+07:00>October 27, 2023</time></span>
-<span class=reading-time><i class="fa-solid fa-clock" aria-hidden=true></i>
-One-minute read</span></div></div></header><div class=post-content><h2 id=1-move-to-end>1. Move to end
-<a class=heading-link href=#1-move-to-end><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>^e
-</span></span></code></pre></div><p>Example: From current cursor position move to end of line</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>▌echo hello world
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>^e
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>echo hello world▌
-</span></span></code></pre></div><h2 id=2-move-to-beginning>2. Move to beginning
-<a class=heading-link href=#2-move-to-beginning><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>^a
-</span></span></code></pre></div><p>Example: From last position move to beginning</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>^a
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>▌echo hello world
-</span></span></code></pre></div><h2 id=3-move-to-next-word>3. Move to next word
-<a class=heading-link href=#3-move-to-next-word><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>alt-f
-</span></span></code></pre></div><p>Example: From last position move cursor to after <code>hello</code> position</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>alt-f alt-f
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>echo hello▌ world
-</span></span></code></pre></div><h2 id=4-move-to-next-character>4. Move to next character
-<a class=heading-link href=#4-move-to-next-character><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>^f
-</span></span></code></pre></div><p>Example: From last position move cursor to character <code>r</code> in <code>word</code></p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>^f ^f ^f ^f
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>echo hello wor▌ld
-</span></span></code></pre></div><h2 id=5-move-to-previous-word>5. Move to previous word
-<a class=heading-link href=#5-move-to-previous-word><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>alt-b
-</span></span></code></pre></div><p>Example: From last position move cursor to before <code>hello</code> word</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>alt-b alt-b
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>echo ▌hello world
-</span></span></code></pre></div><h2 id=6-move-to-previous-character>6. Move to previous character
-<a class=heading-link href=#6-move-to-previous-character><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>^b
-</span></span></code></pre></div><p>Example: From last position move cursor to before character <code>c</code> in <code>echo</code></p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>^b ^b ^b ^b
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>e▌cho hello world
-</span></span></code></pre></div><h2 id=7-delete-previous-word>7. Delete previous word
-<a class=heading-link href=#7-delete-previous-word><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>^w
-</span></span></code></pre></div><p>Example: From last position delete <code>hello</code></p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>^e alt-b ^w
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>echo ▌world
-</span></span></code></pre></div><h2 id=8-delete-next-word>8. Delete next word
-<a class=heading-link href=#8-delete-next-word><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h2><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>alt-d
-</span></span></code></pre></div><p>Example: From last position delete <code>world</code></p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>alt-d
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>echo
-</span></span></code></pre></div></div><footer></footer></article></section></div><footer class=footer><section class=container>©
+<label class="menu-button float-right" for=menu-toggle>
+<i class="fa fa-bars fa-fw" aria-hidden=true></i>
+</label>
+<ul class=navigation-list>
+<li class=navigation-item>
+<a class=navigation-link href=/now/>Now</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=/posts/>Blog</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=/projects/>Projects</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=/i-heart-oss/>I ❤️ OSS</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=/accomplishments/>Accomplishments</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=/resume.pdf>Resume</a>
+</li>
+</ul>
+</section>
+</nav>
+<div class=content>
+<section class="container post">
+<article>
+<header>
+<div class=post-title>
+<h1 class=title>
+<a class=title-link href=http://sytranvn.dev/posts/8-terminal-movement-key-strokes-you-should-know/>
+8 Terminal Movement Shortcuts You Should Know
+</a>
+</h1>
+</div>
+<div class=post-meta>
+<div class=date>
+<span class=posted-on>
+<i class="fa fa-calendar" aria-hidden=true></i>
+<time datetime=2023-10-27T17:29:33+07:00>
+October 27, 2023
+</time>
+</span>
+<span class=reading-time>
+<i class="fa fa-clock-o" aria-hidden=true></i>
+One-minute read
+</span>
+</div>
+</div>
+</header>
+<div class=post-content>
+<h2 id=1-move-to-end>
+1. Move to end
+<a class=heading-link href=#1-move-to-end>
+<i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span>
+</a>
+</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>^e
+</code></pre></div><p>Example: From current cursor position move to end of line</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>▌echo hello world
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>^e
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>echo hello world▌
+</code></pre></div><h2 id=2-move-to-beginning>
+2. Move to beginning
+<a class=heading-link href=#2-move-to-beginning>
+<i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span>
+</a>
+</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>^a
+</code></pre></div><p>Example: From last position move to beginning</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>^a
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>▌echo hello world
+</code></pre></div><h2 id=3-move-to-next-word>
+3. Move to next word
+<a class=heading-link href=#3-move-to-next-word>
+<i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span>
+</a>
+</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>alt-f
+</code></pre></div><p>Example: From last position move cursor to after <code>hello</code> position</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>alt-f alt-f
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>echo hello▌ world
+</code></pre></div><h2 id=4-move-to-next-character>
+4. Move to next character
+<a class=heading-link href=#4-move-to-next-character>
+<i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span>
+</a>
+</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>^f
+</code></pre></div><p>Example: From last position move cursor to character <code>r</code> in <code>word</code></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>^f ^f ^f ^f
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>echo hello wor▌ld
+</code></pre></div><h2 id=5-move-to-previous-word>
+5. Move to previous word
+<a class=heading-link href=#5-move-to-previous-word>
+<i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span>
+</a>
+</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>alt-b
+</code></pre></div><p>Example: From last position move cursor to before <code>hello</code> word</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>alt-b alt-b
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>echo ▌hello world
+</code></pre></div><h2 id=6-move-to-previous-character>
+6. Move to previous character
+<a class=heading-link href=#6-move-to-previous-character>
+<i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span>
+</a>
+</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>^b
+</code></pre></div><p>Example: From last position move cursor to before character <code>c</code> in <code>echo</code></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>^b ^b ^b ^b
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>e▌cho hello world
+</code></pre></div><h2 id=7-delete-previous-word>
+7. Delete previous word
+<a class=heading-link href=#7-delete-previous-word>
+<i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span>
+</a>
+</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>^w
+</code></pre></div><p>Example: From last position delete <code>hello</code></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>^e alt-b ^w
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>echo ▌world
+</code></pre></div><h2 id=8-delete-next-word>
+8. Delete next word
+<a class=heading-link href=#8-delete-next-word>
+<i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span>
+</a>
+</h2>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>alt-d
+</code></pre></div><p>Example: From last position delete <code>world</code></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>alt-d
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>echo
+</code></pre></div>
+</div>
+<footer>
+</footer>
+</article>
+</section>
+</div>
+<footer class=footer>
+<section class=container>
+©
 2021 -
 2024
 Sy Tran
 ·
-Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.</section></footer></main><script src=/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script></body></html>
+Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.
+</section>
+</footer>
+</main>
+<script src=/js/coder.min.369d90111ae4409b4e51de5efd23a46b92663fcc82dc9a0efde7f70bffc3f949.js integrity="sha256-Np2QERrkQJtOUd5e/SOka5JmP8yC3JoO/ef3C//D+Uk="></script>
+</body>
+</html>

@@ -1,46 +1,142 @@
-<!doctype html><html lang=en><head><title>Stop Writing Bash for Loop · sytranvn.dev</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=color-scheme content="light dark"><meta name=author content="Sy Tran"><meta name=description content="Bash for loop is useful to reduce repetitive tasks, but is it the best tool yet?"><meta name=keywords content="blog,developer,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="Stop Writing Bash for Loop"><meta name=twitter:description content="Bash for loop is useful to reduce repetitive tasks, but is it the best tool yet?"><meta property="og:title" content="Stop Writing Bash for Loop"><meta property="og:description" content="Bash for loop is useful to reduce repetitive tasks, but is it the best tool yet?"><meta property="og:type" content="article"><meta property="og:url" content="http://sytranvn.dev/posts/stop-writing-bash-for-loop/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2024-01-24T15:39:19+07:00"><meta property="article:modified_time" content="2024-01-24T15:39:19+07:00"><link rel=canonical href=http://sytranvn.dev/posts/stop-writing-bash-for-loop/><link rel=preload href=/fonts/fa-brands-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/fa-regular-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/fa-solid-900.woff2 as=font type=font/woff2 crossorigin><link rel=stylesheet href=/css/coder.min.577e3c5ead537873430da16f0964b754a120fd87c4e2203a00686e7c75b51378.css integrity="sha256-V348Xq1TeHNDDaFvCWS3VKEg/YfE4iA6AGhufHW1E3g=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/custom.min.ce238cbfc90ea7190072e7fed83b6e304043d17eedf40ff7751b10f97fb947ec.css integrity="sha256-ziOMv8kOpxkAcuf+2DtuMEBD0X7t9A/3dRsQ+X+5R+w=" crossorigin=anonymous media=screen><link rel=icon type=image/svg+xml href=/images/favicon.svg sizes=any><link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16><link rel=apple-touch-icon href=/images/apple-touch-icon.png><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/images/safari-pinned-tab.svg color=#5bbad5></head><body class="preload-transitions colorscheme-dark"><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=/>sytranvn.dev</a>
+<!doctype html><html lang=en>
+<head>
+<title>
+Stop Writing Bash for Loop · sytranvn.dev
+</title>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=color-scheme content="light dark">
+<meta name=author content="Sy Tran">
+<meta name=description content="Bash for loop is useful to reduce repetitive tasks, but is it the best tool yet?">
+<meta name=keywords content="blog,developer,personal">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="Stop Writing Bash for Loop">
+<meta name=twitter:description content="Bash for loop is useful to reduce repetitive tasks, but is it the best tool yet?">
+<meta property="og:title" content="Stop Writing Bash for Loop">
+<meta property="og:description" content="Bash for loop is useful to reduce repetitive tasks, but is it the best tool yet?">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://sytranvn.dev/posts/stop-writing-bash-for-loop/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2024-01-24T15:39:19+07:00">
+<meta property="article:modified_time" content="2024-01-24T15:39:19+07:00">
+<link rel=canonical href=http://sytranvn.dev/posts/stop-writing-bash-for-loop/>
+<link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin>
+<link rel=stylesheet href=/css/coder.min.e1bdf152d93b060b06ba5d496486ed9c201a8b95d335e035beb5faebe3b61cad.css integrity="sha256-4b3xUtk7BgsGul1JZIbtnCAai5XTNeA1vrX66+O2HK0=" crossorigin=anonymous media=screen>
+<link rel=stylesheet href=/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin=anonymous media=screen>
+<link rel=stylesheet href=/css/custom.min.e01fd2443128634dc9cf70bef26c23d851bd25b3bb24cf183925fcc0e318f691.css integrity="sha256-4B/SRDEoY03Jz3C+8mwj2FG9JbO7JM8YOSX8wOMY9pE=" crossorigin=anonymous media=screen>
+<link rel=icon type=image/svg+xml href=/images/favicon.svg sizes=any>
+<link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32>
+<link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16>
+<link rel=apple-touch-icon href=/images/apple-touch-icon.png>
+<link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png>
+<link rel=manifest href=/site.webmanifest>
+<link rel=mask-icon href=/images/safari-pinned-tab.svg color=#5bbad5>
+</head>
+<body class="preload-transitions colorscheme-dark">
+<main class=wrapper>
+<nav class=navigation>
+<section class=container>
+<a class=navigation-title href=/>
+sytranvn.dev
+</a>
 <input type=checkbox id=menu-toggle>
-<label class="menu-button float-right" for=menu-toggle><i class="fa-solid fa-bars fa-fw" aria-hidden=true></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=/now/>Now</a></li><li class=navigation-item><a class=navigation-link href=/posts/>Blog</a></li><li class=navigation-item><a class=navigation-link href=/projects/>Projects</a></li><li class=navigation-item><a class=navigation-link href=/i-heart-oss/>I ❤️ OSS</a></li><li class=navigation-item><a class=navigation-link href=/accomplishments/>Accomplishments</a></li><li class=navigation-item><a class=navigation-link href=/resume.pdf>Resume</a></li></ul></section></nav><div class=content><section class="container post"><article><header><div class=post-title><h1 class=title><a class=title-link href=http://sytranvn.dev/posts/stop-writing-bash-for-loop/>Stop Writing Bash for Loop</a></h1></div><div class=post-meta><div class=date><span class=posted-on><i class="fa-solid fa-calendar" aria-hidden=true></i>
-<time datetime=2024-01-24T15:39:19+07:00>January 24, 2024</time></span>
-<span class=reading-time><i class="fa-solid fa-clock" aria-hidden=true></i>
-4-minute read</span></div></div></header><div class=post-content><p>If you love CLI and run a lot of commands, write a lot of bash scripts, you
+<label class="menu-button float-right" for=menu-toggle>
+<i class="fa fa-bars fa-fw" aria-hidden=true></i>
+</label>
+<ul class=navigation-list>
+<li class=navigation-item>
+<a class=navigation-link href=/now/>Now</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=/posts/>Blog</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=/projects/>Projects</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=/i-heart-oss/>I ❤️ OSS</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=/accomplishments/>Accomplishments</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=/resume.pdf>Resume</a>
+</li>
+</ul>
+</section>
+</nav>
+<div class=content>
+<section class="container post">
+<article>
+<header>
+<div class=post-title>
+<h1 class=title>
+<a class=title-link href=http://sytranvn.dev/posts/stop-writing-bash-for-loop/>
+Stop Writing Bash for Loop
+</a>
+</h1>
+</div>
+<div class=post-meta>
+<div class=date>
+<span class=posted-on>
+<i class="fa fa-calendar" aria-hidden=true></i>
+<time datetime=2024-01-24T15:39:19+07:00>
+January 24, 2024
+</time>
+</span>
+<span class=reading-time>
+<i class="fa fa-clock-o" aria-hidden=true></i>
+4-minute read
+</span>
+</div>
+</div>
+</header>
+<div class=post-content>
+<p>If you love CLI and run a lot of commands, write a lot of bash scripts, you
 probably know bash for loop. For example to count from 1 to 10, we can write
 <code>for i in {1..10}; do echo $i; done</code> . Or if we have an array of items, and
-want to iterate over it, we can write</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span><span style=color:#79c0ff>items</span><span style=color:#ff7b72;font-weight:700>=(</span><span style=color:#a5d6ff>1</span> <span style=color:#a5d6ff>2</span> <span style=color:#a5d6ff>3</span> <span style=color:#a5d6ff>4</span> 5<span style=color:#ff7b72;font-weight:700>)</span> 
-</span></span><span style=display:flex><span><span style=color:#ff7b72>for</span> item in <span style=color:#a5d6ff>${</span><span style=color:#79c0ff>items</span>[@]<span style=color:#a5d6ff>}</span>; <span style=color:#ff7b72>do</span> 
-</span></span><span style=display:flex><span>    echo <span style=color:#79c0ff>$item</span>; 
-</span></span><span style=display:flex><span><span style=color:#ff7b72>done</span>
-</span></span></code></pre></div><p>Easy-breezy.</p><p>Even though it takes a little bit time to write down, it still helps reducing
-amount of time repeating the same command.<br>But normally our command or commands does not finish immediately. Sometimes, they
+want to iterate over it, we can write</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>items<span style=color:#f92672>=(</span><span style=color:#ae81ff>1</span> <span style=color:#ae81ff>2</span> <span style=color:#ae81ff>3</span> <span style=color:#ae81ff>4</span> 5<span style=color:#f92672>)</span> 
+<span style=color:#66d9ef>for</span> item in <span style=color:#e6db74>${</span>items[@]<span style=color:#e6db74>}</span>; <span style=color:#66d9ef>do</span> 
+    echo $item; 
+<span style=color:#66d9ef>done</span>
+</code></pre></div><p>Easy-breezy.</p>
+<p>Even though it takes a little bit time to write down, it still helps reducing
+amount of time repeating the same command.<br>
+But normally our command or commands does not finish immediately. Sometimes, they
 can take several minutes to complete, but one does not depend on the other. So we
-want to make them run in parallel or concurrently.</p><p>For example, if we run this</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span><span style=color:#79c0ff>items</span><span style=color:#ff7b72;font-weight:700>=({</span>10..15<span style=color:#ff7b72;font-weight:700>})</span>
-</span></span><span style=display:flex><span><span style=color:#ff7b72>for</span> item in <span style=color:#a5d6ff>${</span><span style=color:#79c0ff>items</span>[@]<span style=color:#a5d6ff>}</span>; <span style=color:#ff7b72>do</span>
-</span></span><span style=display:flex><span>    sleep <span style=color:#79c0ff>$item</span>
-</span></span><span style=display:flex><span><span style=color:#ff7b72>done</span>
-</span></span></code></pre></div><p>This would take us more than 60 seconds to complete. Can we achieve the same
+want to make them run in parallel or concurrently.</p>
+<p>For example, if we run this</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>items<span style=color:#f92672>=({</span>10..15<span style=color:#f92672>})</span>
+<span style=color:#66d9ef>for</span> item in <span style=color:#e6db74>${</span>items[@]<span style=color:#e6db74>}</span>; <span style=color:#66d9ef>do</span>
+    sleep $item
+<span style=color:#66d9ef>done</span>
+</code></pre></div><p>This would take us more than 60 seconds to complete. Can we achieve the same
 result with less time? Of course we can, by adding <code>&</code> at the end of our command and
-let each job run in background.</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span><span style=color:#79c0ff>items</span><span style=color:#ff7b72;font-weight:700>=({</span>10..15<span style=color:#ff7b72;font-weight:700>})</span>
-</span></span><span style=display:flex><span><span style=color:#ff7b72>for</span> item in <span style=color:#a5d6ff>${</span><span style=color:#79c0ff>items</span>[@]<span style=color:#a5d6ff>}</span>; <span style=color:#ff7b72>do</span>
-</span></span><span style=display:flex><span>    sleep <span style=color:#79c0ff>$item</span> &amp;
-</span></span><span style=display:flex><span><span style=color:#ff7b72>done</span>
-</span></span></code></pre></div><pre><code>[1] 9286
+let each job run in background.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>items<span style=color:#f92672>=({</span>10..15<span style=color:#f92672>})</span>
+<span style=color:#66d9ef>for</span> item in <span style=color:#e6db74>${</span>items[@]<span style=color:#e6db74>}</span>; <span style=color:#66d9ef>do</span>
+    sleep $item &amp;
+<span style=color:#66d9ef>done</span>
+</code></pre></div><pre><code>[1] 9286
 [2] 9287
 [3] 9288
 [4] 9289
 [5] 9290
 [6] 9291
-</code></pre><p>But we lost control when we let it go. The shell return with success status code
+</code></pre>
+<p>But we lost control when we let it go. The shell return with success status code
 immediately even when our commands haven&rsquo;t finished yet. To fix that, we can ask bash wait
-for all the child processes to finish.</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span><span style=color:#79c0ff>items</span><span style=color:#ff7b72;font-weight:700>=({</span>10..15<span style=color:#ff7b72;font-weight:700>})</span>
-</span></span><span style=display:flex><span><span style=color:#ff7b72>for</span> item in <span style=color:#a5d6ff>${</span><span style=color:#79c0ff>items</span>[@]<span style=color:#a5d6ff>}</span>; <span style=color:#ff7b72>do</span>
-</span></span><span style=display:flex><span>    sleep <span style=color:#79c0ff>$item</span> &amp;
-</span></span><span style=display:flex><span>    pids<span style=color:#ff7b72;font-weight:700>[</span><span style=color:#a5d6ff>${</span><span style=color:#79c0ff>i</span><span style=color:#a5d6ff>}</span><span style=color:#ff7b72;font-weight:700>]=</span><span style=color:#79c0ff>$!</span>
-</span></span><span style=display:flex><span><span style=color:#ff7b72>done</span>
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#ff7b72>for</span> pid in <span style=color:#a5d6ff>${</span><span style=color:#79c0ff>pids</span>[@]<span style=color:#a5d6ff>}</span>; <span style=color:#ff7b72>do</span>
-</span></span><span style=display:flex><span>    wait <span style=color:#79c0ff>$pid</span>
-</span></span><span style=display:flex><span><span style=color:#ff7b72>done</span>
-</span></span></code></pre></div><pre><code>[1] 10348
+for all the child processes to finish.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>items<span style=color:#f92672>=({</span>10..15<span style=color:#f92672>})</span>
+<span style=color:#66d9ef>for</span> item in <span style=color:#e6db74>${</span>items[@]<span style=color:#e6db74>}</span>; <span style=color:#66d9ef>do</span>
+    sleep $item &amp;
+    pids<span style=color:#f92672>[</span><span style=color:#e6db74>${</span>i<span style=color:#e6db74>}</span><span style=color:#f92672>]=</span>$!
+<span style=color:#66d9ef>done</span>
+
+<span style=color:#66d9ef>for</span> pid in <span style=color:#e6db74>${</span>pids[@]<span style=color:#e6db74>}</span>; <span style=color:#66d9ef>do</span>
+    wait $pid
+<span style=color:#66d9ef>done</span>
+</code></pre></div><pre><code>[1] 10348
 [2] 10349
 [3] 10350
 [4] 10351
@@ -52,57 +148,94 @@ for all the child processes to finish.</p><div class=highlight><pre tabindex=0 s
 [4]   Done                    sleep $item
 [5]-  Done                    sleep $item
 [6]+  Done                    sleep $item
-</code></pre><p>Now it&rsquo;s better, we can see the shell is waiting for all jobs to finish.</p><p>But sometimes, we realize the command we written is incorrect, and we want to
+</code></pre>
+<p>Now it&rsquo;s better, we can see the shell is waiting for all jobs to finish.</p>
+<p>But sometimes, we realize the command we written is incorrect, and we want to
 stop them immediately. With previous code, if we send a <code>SIGINT</code> by pressing
 <code>CTRL-C</code>, it only tell <code>wait</code> to stop waiting, instead of stopping the actual
-jobs. The jobs are still running in the background.</p><p>If you ran into these situations before, just stop wasting your time writing
-<code>for</code> loop with bash. Try this instead.</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>parallel sleep ::: <span style=color:#ff7b72;font-weight:700>{</span>10..15<span style=color:#ff7b72;font-weight:700>}</span>
-</span></span></code></pre></div><p>On the left hand side of <code>:::</code> is the command we want to run. And on the right
+jobs. The jobs are still running in the background.</p>
+<p>If you ran into these situations before, just stop wasting your time writing
+<code>for</code> loop with bash. Try this instead.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>parallel sleep ::: <span style=color:#f92672>{</span>10..15<span style=color:#f92672>}</span>
+</code></pre></div><p>On the left hand side of <code>:::</code> is the command we want to run. And on the right
 hand side of <code>:::</code> is our list of items.
 It only takes about 15 seconds to complete all the tasks.
 Try adding a <code>--bar</code> option to previous command, you can see we even
-have a progress bar without having to implement is ourself.</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span><span style=color:#79c0ff>delays</span><span style=color:#ff7b72;font-weight:700>=({</span>1..10<span style=color:#ff7b72;font-weight:700>})</span>
-</span></span><span style=display:flex><span>parallel --bar sleep ::: <span style=color:#a5d6ff>${</span><span style=color:#79c0ff>delays</span>[@]<span style=color:#a5d6ff>}</span>
-</span></span></code></pre></div><p>Now we just need to <code>parallel</code> every commands and enjoy a cup of ☕ and let
-<code>parallel</code> cook.</p><p>We might want to use output of some arguments with <code>parallel</code> , instead of
-declaring an array, we can simply pipe the output to <code>parallel</code>.</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>echo <span style=color:#a5d6ff>&#39;
-</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>1
-</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>2
-</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>3
-</span></span></span><span style=display:flex><span><span style=color:#a5d6ff>5&#39;</span> | parallel  echo this is
-</span></span></code></pre></div><p>By default, <code>parallel</code> will treat a full line as a single argument. If you have
+have a progress bar without having to implement is ourself.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>delays<span style=color:#f92672>=({</span>1..10<span style=color:#f92672>})</span>
+parallel --bar sleep ::: <span style=color:#e6db74>${</span>delays[@]<span style=color:#e6db74>}</span>
+</code></pre></div><p>Now we just need to <code>parallel</code> every commands and enjoy a cup of ☕ and let
+<code>parallel</code> cook.</p>
+<p>We might want to use output of some arguments with <code>parallel</code> , instead of
+declaring an array, we can simply pipe the output to <code>parallel</code>.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>echo <span style=color:#e6db74>&#39;
+</span><span style=color:#e6db74>1
+</span><span style=color:#e6db74>2
+</span><span style=color:#e6db74>3
+</span><span style=color:#e6db74>5&#39;</span> | parallel  echo this is
+</code></pre></div><p>By default, <code>parallel</code> will treat a full line as a single argument. If you have
 a list separated by a different character, you can add <code>-d &lt;delim></code> option.
 One catch in this case is if your string end with a new line, that new line
-character will also be included into the last item.</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>echo <span style=color:#ff7b72;font-weight:700>{</span>1..5<span style=color:#ff7b72;font-weight:700>}</span> | parallel -d<span style=color:#a5d6ff>&#39; &#39;</span> echo this is <span style=color:#ff7b72;font-weight:700>{}</span>.
-</span></span></code></pre></div><pre><code>this is 1.
+character will also be included into the last item.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>echo <span style=color:#f92672>{</span>1..5<span style=color:#f92672>}</span> | parallel -d<span style=color:#e6db74>&#39; &#39;</span> echo this is <span style=color:#f92672>{}</span>.
+</code></pre></div><pre><code>this is 1.
 this is 2.
 this is 3.
 this is 4.
 this is 5
 .
-</code></pre><p>So you should make sure you input is trimmed before piping it to <code>parallel</code> in
-this case.</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>echo -n <span style=color:#ff7b72;font-weight:700>{</span>1..5<span style=color:#ff7b72;font-weight:700>}</span>  | parallel -d<span style=color:#a5d6ff>&#39; &#39;</span> echo hello <span style=color:#ff7b72;font-weight:700>{}</span> .
-</span></span></code></pre></div><pre><code>hello 1 .
+</code></pre>
+<p>So you should make sure you input is trimmed before piping it to <code>parallel</code> in
+this case.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>echo -n <span style=color:#f92672>{</span>1..5<span style=color:#f92672>}</span>  | parallel -d<span style=color:#e6db74>&#39; &#39;</span> echo hello <span style=color:#f92672>{}</span> .
+</code></pre></div><pre><code>hello 1 .
 hello 2 .
 hello 3 .
 hello 4 .
 hello 5 .
-</code></pre><p>You might have noticed that I use a <code>{}</code>. If we don&rsquo;t want to place our item at
+</code></pre>
+<p>You might have noticed that I use a <code>{}</code>. If we don&rsquo;t want to place our item at
 the end of the command but somewhere in the middle and then follow by some other
-options, how can we achieve that? The answer is by using <code>{}</code> placeholder.</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>parallel echo This is <span style=color:#ff7b72;font-weight:700>{}</span> item ::: <span style=color:#ff7b72;font-weight:700>{</span>1..5<span style=color:#ff7b72;font-weight:700>}</span>
-</span></span></code></pre></div><p>But I have more, <code>parallel</code> also supports some useful replacement strings.</p><p>Remove the extension:</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>parallel echo <span style=color:#ff7b72;font-weight:700>{</span>.<span style=color:#ff7b72;font-weight:700>}</span> ::: A/B.C
-</span></span></code></pre></div><p>Output</p><pre><code>A/B
-</code></pre><p>Remove the path:</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>parallel echo <span style=color:#ff7b72;font-weight:700>{</span>/<span style=color:#ff7b72;font-weight:700>}</span> ::: A/B.C
-</span></span></code></pre></div><p>Output</p><pre><code>B.C
-</code></pre><p>Keep only the path:</p><div class=highlight><pre tabindex=0 style=color:#c9d1d9;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>parallel echo <span style=color:#ff7b72;font-weight:700>{</span>//<span style=color:#ff7b72;font-weight:700>}</span> ::: A/B.C
-</span></span></code></pre></div><p>Output</p><pre><code>A
-</code></pre><p>There are more <code>parallel</code>&rsquo;s features to explorer at
+options, how can we achieve that? The answer is by using <code>{}</code> placeholder.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>parallel echo This is <span style=color:#f92672>{}</span> item ::: <span style=color:#f92672>{</span>1..5<span style=color:#f92672>}</span>
+</code></pre></div><p>But I have more, <code>parallel</code> also supports some useful replacement strings.</p>
+<p>Remove the extension:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>parallel echo <span style=color:#f92672>{</span>.<span style=color:#f92672>}</span> ::: A/B.C
+</code></pre></div><p>Output</p>
+<pre><code>A/B
+</code></pre>
+<p>Remove the path:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>parallel echo <span style=color:#f92672>{</span>/<span style=color:#f92672>}</span> ::: A/B.C
+</code></pre></div><p>Output</p>
+<pre><code>B.C
+</code></pre>
+<p>Keep only the path:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>parallel echo <span style=color:#f92672>{</span>//<span style=color:#f92672>}</span> ::: A/B.C
+</code></pre></div><p>Output</p>
+<pre><code>A
+</code></pre>
+<p>There are more <code>parallel</code>&rsquo;s features to explorer at
 <a href=https://www.gnu.org/software/parallel/parallel_tutorial.html class=external-link target=_blank rel=noopener>https://www.gnu.org/software/parallel/parallel_tutorial.html</a>
 .
 Hope you find this command useful and let me know how you use it to replace
-<code>for</code> loop.</p></div><footer></footer></article></section></div><footer class=footer><section class=container>©
+<code>for</code> loop.</p>
+</div>
+<footer>
+</footer>
+</article>
+</section>
+</div>
+<footer class=footer>
+<section class=container>
+©
 2021 -
 2024
 Sy Tran
 ·
-Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.</section></footer></main><script src=/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script></body></html>
+Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.
+</section>
+</footer>
+</main>
+<script src=/js/coder.min.369d90111ae4409b4e51de5efd23a46b92663fcc82dc9a0efde7f70bffc3f949.js integrity="sha256-Np2QERrkQJtOUd5e/SOka5JmP8yC3JoO/ef3C//D+Uk="></script>
+</body>
+</html>
