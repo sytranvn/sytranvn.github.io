@@ -9,17 +9,17 @@ Modify Element in Zig 2D Array · sytranvn.dev
 <meta name=author content="Sy Tran">
 <meta name=description content="So I&rsquo;m learning Zig and trying to write a Arkanoid game in Zig.
 I have to iterate through 2D array of bricks, check collision and update each brick status. This is easy to do with high level languages. With C++ vector, we can use range-based for loop like this.
-vector<vector<int>> items; for (auto & row : items) { for (auto &item: row) { item = 1; } } With C, we have to do this old fashion way by accessing each brick by i and j indexes.">
+vector<vector<int>> items; for (auto & row : items) { for (auto &item: row) { item += 1; } } With C, we have to do this old fashion way by accessing each brick by i and j indexes.">
 <meta name=keywords content="blog,developer,personal">
 <meta name=twitter:card content="summary">
 <meta name=twitter:title content="Modify Element in Zig 2D Array">
 <meta name=twitter:description content="So I&rsquo;m learning Zig and trying to write a Arkanoid game in Zig.
 I have to iterate through 2D array of bricks, check collision and update each brick status. This is easy to do with high level languages. With C++ vector, we can use range-based for loop like this.
-vector<vector<int>> items; for (auto & row : items) { for (auto &item: row) { item = 1; } } With C, we have to do this old fashion way by accessing each brick by i and j indexes.">
+vector<vector<int>> items; for (auto & row : items) { for (auto &item: row) { item += 1; } } With C, we have to do this old fashion way by accessing each brick by i and j indexes.">
 <meta property="og:title" content="Modify Element in Zig 2D Array">
 <meta property="og:description" content="So I&rsquo;m learning Zig and trying to write a Arkanoid game in Zig.
 I have to iterate through 2D array of bricks, check collision and update each brick status. This is easy to do with high level languages. With C++ vector, we can use range-based for loop like this.
-vector<vector<int>> items; for (auto & row : items) { for (auto &item: row) { item = 1; } } With C, we have to do this old fashion way by accessing each brick by i and j indexes.">
+vector<vector<int>> items; for (auto & row : items) { for (auto &item: row) { item += 1; } } With C, we have to do this old fashion way by accessing each brick by i and j indexes.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="http://sytranvn.dev/posts/modify-element-in-zig-array/"><meta property="article:section" content="posts">
 <meta property="article:published_time" content="2024-03-23T11:11:12+07:00">
@@ -112,7 +112,7 @@ This is easy to do with high level languages. With C++ vector, we can use range-
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp>vector<span style=color:#f92672>&lt;</span>vector<span style=color:#f92672>&lt;</span><span style=color:#66d9ef>int</span><span style=color:#f92672>&gt;&gt;</span> items;
 <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>auto</span> <span style=color:#f92672>&amp;</span> row : items) {
         <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>auto</span> <span style=color:#f92672>&amp;</span>item: row) {
-                item <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>;
+                item <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>;
         }
 }
 </code></pre></div><p>With C, we have to do this old fashion way by accessing each brick by <code>i</code> and <code>j</code> indexes.</p>
@@ -153,14 +153,14 @@ been referenced, we should not use <code>&</code> a gain in the inner loop.</p>
 
 </code></pre></div><p>Let&rsquo;s put C++ and Zig code side by side to see the difference.</p>
 <div style=display:flex;justify-content:space-between;flex-direction:row;max-width:90rem>
-<div style=flex-grow:1;margin-right:2em>
+<div style=flex-grow:1;flex-basis:0>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>auto</span> <span style=color:#f92672>&amp;</span> row : items) {
     <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>auto</span> <span style=color:#f92672>&amp;</span>item: row) {
-            item <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>;
+            item <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>;
     }
 }
 </code></pre></div></div>
-<div style=flex-grow:1>
+<div style=flex-grow:1;margin-left:2em;flex-basis:0>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-zig data-lang=zig><span style=color:#66d9ef>for</span> (<span style=color:#f92672>&amp;</span>items) <span style=color:#f92672>|*</span>row<span style=color:#f92672>|</span> {
     <span style=color:#66d9ef>for</span> (row) <span style=color:#f92672>|*</span>item<span style=color:#f92672>|</span> {
         item.<span style=color:#f92672>*</span> <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>;
