@@ -1,139 +1,22 @@
-<!doctype html><html lang=en>
-<head>
-<title>
-Node and Memory Leak · sytranvn.dev
-</title>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=color-scheme content="light dark">
-<meta name=author content="Sy Tran">
-<meta name=description content="Unlike other languages, a Node server keep running forever. If it happens to have memory leak in your app, it will get worse.">
-<meta name=keywords content="blog,developer,personal">
-<meta name=twitter:card content="summary">
-<meta name=twitter:title content="Node and Memory Leak">
-<meta name=twitter:description content="Unlike other languages, a Node server keep running forever. If it happens to have memory leak in your app, it will get worse.">
-<meta property="og:title" content="Node and Memory Leak">
-<meta property="og:description" content="Unlike other languages, a Node server keep running forever. If it happens to have memory leak in your app, it will get worse.">
-<meta property="og:type" content="article">
-<meta property="og:url" content="http://sytranvn.dev/posts/node-and-memory-leak/"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2024-04-02T21:01:05+07:00">
-<meta property="article:modified_time" content="2024-04-02T21:01:05+07:00">
-<link rel=canonical href=http://sytranvn.dev/posts/node-and-memory-leak/>
-<link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin>
-<link rel=stylesheet href=/css/coder.min.e1bdf152d93b060b06ba5d496486ed9c201a8b95d335e035beb5faebe3b61cad.css integrity="sha256-4b3xUtk7BgsGul1JZIbtnCAai5XTNeA1vrX66+O2HK0=" crossorigin=anonymous media=screen>
-<link rel=stylesheet href=/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin=anonymous media=screen>
-<link rel=stylesheet href=/css/custom.min.e01fd2443128634dc9cf70bef26c23d851bd25b3bb24cf183925fcc0e318f691.css integrity="sha256-4B/SRDEoY03Jz3C+8mwj2FG9JbO7JM8YOSX8wOMY9pE=" crossorigin=anonymous media=screen>
-<link rel=icon type=image/svg+xml href=/images/favicon.svg sizes=any>
-<link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32>
-<link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16>
-<link rel=apple-touch-icon href=/images/apple-touch-icon.png>
-<link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png>
-<link rel=manifest href=/site.webmanifest>
-<link rel=mask-icon href=/images/safari-pinned-tab.svg color=#5bbad5>
-</head>
-<body class="preload-transitions colorscheme-dark">
-<main class=wrapper>
-<nav class=navigation>
-<section class=container>
-<a class=navigation-title href=/>
-sytranvn.dev
-</a>
+<!doctype html><html lang=en><head><title>Node and Memory Leak · sytranvn.dev</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=color-scheme content="light dark"><meta name=author content="Sy Tran"><meta name=description content="Unlike other languages, a Node server keep running forever. If it happens to have memory leak in your app, it will get worse."><meta name=keywords content="blog,developer,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="Node and Memory Leak"><meta name=twitter:description content="Unlike other languages, a Node server keep running forever. If it happens to have memory leak in your app, it will get worse."><meta property="og:title" content="Node and Memory Leak"><meta property="og:description" content="Unlike other languages, a Node server keep running forever. If it happens to have memory leak in your app, it will get worse."><meta property="og:type" content="article"><meta property="og:url" content="http://sytranvn.dev/posts/node-and-memory-leak/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2024-04-02T21:01:05+07:00"><meta property="article:modified_time" content="2024-04-02T21:01:05+07:00"><link rel=canonical href=http://sytranvn.dev/posts/node-and-memory-leak/><link rel=preload href=/fonts/fa-brands-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/fa-regular-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/fa-solid-900.woff2 as=font type=font/woff2 crossorigin><link rel=stylesheet href=/css/coder.min.38c4552ac40f9ae3408bad40358f654ebd8804412fe74ed56f2d6c8a7af82dd3.css integrity="sha256-OMRVKsQPmuNAi61ANY9lTr2IBEEv507Vby1sinr4LdM=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/custom.min.e01fd2443128634dc9cf70bef26c23d851bd25b3bb24cf183925fcc0e318f691.css integrity="sha256-4B/SRDEoY03Jz3C+8mwj2FG9JbO7JM8YOSX8wOMY9pE=" crossorigin=anonymous media=screen><link rel=icon type=image/svg+xml href=/images/favicon.svg sizes=any><link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16><link rel=apple-touch-icon href=/images/apple-touch-icon.png><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/images/safari-pinned-tab.svg color=#5bbad5></head><body class="preload-transitions colorscheme-dark"><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=http://sytranvn.dev/>sytranvn.dev</a>
 <input type=checkbox id=menu-toggle>
-<label class="menu-button float-right" for=menu-toggle>
-<i class="fa fa-bars fa-fw" aria-hidden=true></i>
-</label>
-<ul class=navigation-list>
-<li class=navigation-item>
-<a class=navigation-link href=/now/>Now</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/posts/>Blog</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/projects/>Projects</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/i-heart-oss/>I ❤️ OSS</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/accomplishments/>Accomplishments</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/resume.pdf>Resume</a>
-</li>
-</ul>
-</section>
-</nav>
-<div class=content>
-<section class="container post">
-<article>
-<header>
-<div class=post-title>
-<h1 class=title>
-<a class=title-link href=http://sytranvn.dev/posts/node-and-memory-leak/>
-Node and Memory Leak
-</a>
-</h1>
-</div>
-<div class=post-meta>
-<div class=date>
-<span class=posted-on>
-<i class="fa fa-calendar" aria-hidden=true></i>
-<time datetime=2024-04-02T21:01:05+07:00>
-April 2, 2024
-</time>
-</span>
-<span class=reading-time>
-<i class="fa fa-clock-o" aria-hidden=true></i>
-2-minute read
-</span>
-</div>
-</div>
-</header>
-<div class=post-content>
-<p>Unlike other languages, a Node server keep running forever. If it happens to
+<label class="menu-button float-right" for=menu-toggle><i class="fa-solid fa-bars fa-fw" aria-hidden=true></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=/now/>Now</a></li><li class=navigation-item><a class=navigation-link href=/posts/>Blog</a></li><li class=navigation-item><a class=navigation-link href=/projects/>Projects</a></li><li class=navigation-item><a class=navigation-link href=/i-heart-oss/>I ❤️ OSS</a></li><li class=navigation-item><a class=navigation-link href=/accomplishments/>Accomplishments</a></li><li class=navigation-item><a class=navigation-link href=/resume.pdf>Resume</a></li></ul></section></nav><div class=content><section class="container post"><article><header><div class=post-title><h1 class=title><a class=title-link href=http://sytranvn.dev/posts/node-and-memory-leak/>Node and Memory Leak</a></h1></div><div class=post-meta><div class=date><span class=posted-on><i class="fa-solid fa-calendar" aria-hidden=true></i>
+<time datetime=" 2024-04-02T21:01:05+07:00">April 2, 2024</time></span>
+<span class=reading-time><i class="fa-solid fa-clock" aria-hidden=true></i>
+2-minute read</span></div></div></header><div class=post-content>Unlike other languages, a Node server keep running forever. If it happens to have memory leak in your app, it will get worse.<p>Unlike other languages, a Node server keep running forever. If it happens to
 have memory leak in your app, it will get worse until it blows up.
 This is how my server memory looks like after releasing new feature for a week.
-The memory keep going up and up.</p>
-<p><img src=leak.png alt=leak></p>
-<p>It wasn&rsquo;t obvious immediately because requests come in, the server needs to do
+The memory keep going up and up.</p><p><img src=leak.png alt=leak></p><p>It wasn&rsquo;t obvious immediately because requests come in, the server needs to do
 its job, and need to allocate memory. We need to give it some time to see if
-the memory consumption become stable or it keep 🚀</p>
-<p>Once it becomes more obvious you should grab your tools and find out the leak
-as soon as possible. Before your server blow up.</p>
-<p>When it comes to NodeJS, Chrome Dev tool is one of the bests. A few simple
-steps can help you identify the leak.</p>
-<ol>
-<li>Run your app with <code>--inspect</code> or <code>--inspect-brk</code> flag</li>
-<li>Open devtool and attach it to running node process</li>
-<li>Make a request and take an snapshot</li>
-<li>Make an other request and take an other snapshot</li>
-<li>Compare it with previous one, find out what changed by delta</li>
-<li>If it is not obvious, you can try running a bunch of requests before taking
+the memory consumption become stable or it keep 🚀</p><p>Once it becomes more obvious you should grab your tools and find out the leak
+as soon as possible. Before your server blow up.</p><p>When it comes to NodeJS, Chrome Dev tool is one of the bests. A few simple
+steps can help you identify the leak.</p><ol><li>Run your app with <code>--inspect</code> or <code>--inspect-brk</code> flag</li><li>Open devtool and attach it to running node process</li><li>Make a request and take an snapshot</li><li>Make an other request and take an other snapshot</li><li>Compare it with previous one, find out what changed by delta</li><li>If it is not obvious, you can try running a bunch of requests before taking
 an other snapshot, because memory leak adds up proportional with number of
-requests</li>
-<li>At this point you should found the naughty little bug, go fix it. It really
-depends on specific context.</li>
-<li>Depends on your project process, you can test it local, deploy to staging,
-or deploy a hotfix. But make sure you keep an eye on it</li>
-</ol>
-</div>
-<footer>
-</footer>
-</article>
-</section>
-</div>
-<footer class=footer>
-<section class=container>
-©
+requests</li><li>At this point you should found the naughty little bug, go fix it. It really
+depends on specific context.</li><li>Depends on your project process, you can test it local, deploy to staging,
+or deploy a hotfix. But make sure you keep an eye on it</li></ol></div><footer></footer></article></section></div><footer class=footer><section class=container>©
 2021 -
 2024
 Sy Tran
 ·
-Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.
-</section>
-</footer>
-</main>
-<script src=/js/coder.min.369d90111ae4409b4e51de5efd23a46b92663fcc82dc9a0efde7f70bffc3f949.js integrity="sha256-Np2QERrkQJtOUd5e/SOka5JmP8yC3JoO/ef3C//D+Uk="></script>
-</body>
-</html>
+Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.</section></footer></main><script src=/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script></body></html>
