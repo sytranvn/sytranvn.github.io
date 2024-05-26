@@ -1,16 +1,107 @@
-<!doctype html><html lang=en><head><title>Why you should use Javascripts for scripting · sytranvn.dev</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=color-scheme content="light dark"><meta name=author content="Sy Tran"><meta name=description content="I like to write small scripts, but used to suggle when I want to use Javascript to fetch API data, or use some helper packages. Then I go with Python instead. But things have changed. With the supports of ES module and fetch and node:module API. It is much easier now since I feel more comfortable using JS.
-Unlike normal js files, node treats mjs files as ECMAScript modules. So it means you can use any supported ES-next features w/o a transpiler like Babel."><meta name=keywords content="blog,developer,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="Why you should use Javascripts for scripting"><meta name=twitter:description content="I like to write small scripts, but used to suggle when I want to use Javascript to fetch API data, or use some helper packages. Then I go with Python instead. But things have changed. With the supports of ES module and fetch and node:module API. It is much easier now since I feel more comfortable using JS.
-Unlike normal js files, node treats mjs files as ECMAScript modules. So it means you can use any supported ES-next features w/o a transpiler like Babel."><meta property="og:title" content="Why you should use Javascripts for scripting"><meta property="og:description" content="I like to write small scripts, but used to suggle when I want to use Javascript to fetch API data, or use some helper packages. Then I go with Python instead. But things have changed. With the supports of ES module and fetch and node:module API. It is much easier now since I feel more comfortable using JS.
-Unlike normal js files, node treats mjs files as ECMAScript modules. So it means you can use any supported ES-next features w/o a transpiler like Babel."><meta property="og:type" content="article"><meta property="og:url" content="http://sytranvn.dev/posts/why-you-should-use-mjs-file-for-scripting/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2023-02-10T00:00:00+00:00"><meta property="article:modified_time" content="2023-02-10T00:00:00+00:00"><link rel=canonical href=http://sytranvn.dev/posts/why-you-should-use-mjs-file-for-scripting/><link rel=preload href=/fonts/fa-brands-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/fa-regular-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/fa-solid-900.woff2 as=font type=font/woff2 crossorigin><link rel=stylesheet href=/css/coder.min.38c4552ac40f9ae3408bad40358f654ebd8804412fe74ed56f2d6c8a7af82dd3.css integrity="sha256-OMRVKsQPmuNAi61ANY9lTr2IBEEv507Vby1sinr4LdM=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/custom.min.e01fd2443128634dc9cf70bef26c23d851bd25b3bb24cf183925fcc0e318f691.css integrity="sha256-4B/SRDEoY03Jz3C+8mwj2FG9JbO7JM8YOSX8wOMY9pE=" crossorigin=anonymous media=screen><link rel=icon type=image/svg+xml href=/images/favicon.svg sizes=any><link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16><link rel=apple-touch-icon href=/images/apple-touch-icon.png><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/images/safari-pinned-tab.svg color=#5bbad5></head><body class="preload-transitions colorscheme-dark"><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=http://sytranvn.dev/>sytranvn.dev</a>
+<!doctype html><html lang=en>
+<head>
+<title>
+Why you should use Javascripts for scripting · sytranvn.dev
+</title>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=color-scheme content="light dark">
+<meta name=author content="Sy Tran">
+<meta name=description content="I like to write small scripts, but used to suggle when I want to use Javascript to fetch API data, or use some helper packages. Then I go with Python instead. But things have changed. With the supports of ES module and fetch and node:module API. It is much easier now since I feel more comfortable using JS.
+Unlike normal js files, node treats mjs files as ECMAScript modules. So it means you can use any supported ES-next features w/o a transpiler like Babel.">
+<meta name=keywords content="blog,developer,personal">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="Why you should use Javascripts for scripting">
+<meta name=twitter:description content="I like to write small scripts, but used to suggle when I want to use Javascript to fetch API data, or use some helper packages. Then I go with Python instead. But things have changed. With the supports of ES module and fetch and node:module API. It is much easier now since I feel more comfortable using JS.
+Unlike normal js files, node treats mjs files as ECMAScript modules. So it means you can use any supported ES-next features w/o a transpiler like Babel.">
+<meta property="og:title" content="Why you should use Javascripts for scripting">
+<meta property="og:description" content="I like to write small scripts, but used to suggle when I want to use Javascript to fetch API data, or use some helper packages. Then I go with Python instead. But things have changed. With the supports of ES module and fetch and node:module API. It is much easier now since I feel more comfortable using JS.
+Unlike normal js files, node treats mjs files as ECMAScript modules. So it means you can use any supported ES-next features w/o a transpiler like Babel.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://sytranvn.dev/posts/why-you-should-use-mjs-file-for-scripting/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2023-02-10T00:00:00+00:00">
+<meta property="article:modified_time" content="2023-02-10T00:00:00+00:00">
+<link rel=canonical href=http://sytranvn.dev/posts/why-you-should-use-mjs-file-for-scripting/>
+<link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin>
+<link rel=stylesheet href=/css/coder.min.e1bdf152d93b060b06ba5d496486ed9c201a8b95d335e035beb5faebe3b61cad.css integrity="sha256-4b3xUtk7BgsGul1JZIbtnCAai5XTNeA1vrX66+O2HK0=" crossorigin=anonymous media=screen>
+<link rel=stylesheet href=/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin=anonymous media=screen>
+<link rel=stylesheet href=/css/custom.min.e01fd2443128634dc9cf70bef26c23d851bd25b3bb24cf183925fcc0e318f691.css integrity="sha256-4B/SRDEoY03Jz3C+8mwj2FG9JbO7JM8YOSX8wOMY9pE=" crossorigin=anonymous media=screen>
+<link rel=icon type=image/svg+xml href=/images/favicon.svg sizes=any>
+<link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32>
+<link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16>
+<link rel=apple-touch-icon href=/images/apple-touch-icon.png>
+<link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png>
+<link rel=manifest href=/site.webmanifest>
+<link rel=mask-icon href=/images/safari-pinned-tab.svg color=#5bbad5>
+</head>
+<body class="preload-transitions colorscheme-dark">
+<main class=wrapper>
+<nav class=navigation>
+<section class=container>
+<a class=navigation-title href=/>
+sytranvn.dev
+</a>
 <input type=checkbox id=menu-toggle>
-<label class="menu-button float-right" for=menu-toggle><i class="fa-solid fa-bars fa-fw" aria-hidden=true></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=/now/>Now</a></li><li class=navigation-item><a class=navigation-link href=/posts/>Blog</a></li><li class=navigation-item><a class=navigation-link href=/projects/>Projects</a></li><li class=navigation-item><a class=navigation-link href=/i-heart-oss/>I ❤️ OSS</a></li><li class=navigation-item><a class=navigation-link href=/accomplishments/>Accomplishments</a></li><li class=navigation-item><a class=navigation-link href=/resume.pdf>Resume</a></li></ul></section></nav><div class=content><section class="container post"><article><header><div class=post-title><h1 class=title><a class=title-link href=http://sytranvn.dev/posts/why-you-should-use-mjs-file-for-scripting/>Why you should use Javascripts for scripting</a></h1></div><div class=post-meta><div class=date><span class=posted-on><i class="fa-solid fa-calendar" aria-hidden=true></i>
-<time datetime=" 2023-02-10T00:00:00Z">February 10, 2023</time></span>
-<span class=reading-time><i class="fa-solid fa-clock" aria-hidden=true></i>
-4-minute read</span></div><div class=categories><i class="fa-solid fa-folder" aria-hidden=true></i>
-<a href=/categories/javascripts/>JavaScripts</a></div></div></header><div class=post-content><p>I like to write small scripts, but used to suggle when I want to use Javascript
+<label class="menu-button float-right" for=menu-toggle>
+<i class="fa fa-bars fa-fw" aria-hidden=true></i>
+</label>
+<ul class=navigation-list>
+<li class=navigation-item>
+<a class=navigation-link href=/now/>Now</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=/posts/>Blog</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=/projects/>Projects</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=/i-heart-oss/>I ❤️ OSS</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=/accomplishments/>Accomplishments</a>
+</li>
+<li class=navigation-item>
+<a class=navigation-link href=/resume.pdf>Resume</a>
+</li>
+</ul>
+</section>
+</nav>
+<div class=content>
+<section class="container post">
+<article>
+<header>
+<div class=post-title>
+<h1 class=title>
+<a class=title-link href=http://sytranvn.dev/posts/why-you-should-use-mjs-file-for-scripting/>
+Why you should use Javascripts for scripting
+</a>
+</h1>
+</div>
+<div class=post-meta>
+<div class=date>
+<span class=posted-on>
+<i class="fa-solid fa-calendar" aria-hidden=true></i>
+<time datetime=" 2023-02-10T00:00:00Z">
+February 10, 2023
+</time>
+</span>
+<span class=reading-time>
+<i class="fa-solid fa-clock" aria-hidden=true></i>
+4-minute read
+</span>
+</div>
+<div class=categories>
+<i class="fa fa-folder" aria-hidden=true></i>
+<a href=/categories/javascripts/>JavaScripts</a></div>
+</div>
+</header>
+<div class=post-content>
+<p>I like to write small scripts, but used to suggle when I want to use Javascript
 to fetch API data, or use some helper packages. Then I go with Python instead.
 But things have changed. With the supports of ES module and <code>fetch</code> and
-<code>node:module</code> API. It is much easier now since I feel more comfortable using JS.</p><p>Unlike normal <code>js</code> files, node treats <code>mjs</code> files as ECMAScript modules. So
+<code>node:module</code> API. It is much easier now since I feel more comfortable using JS.</p>
+<p>Unlike normal <code>js</code> files, node treats <code>mjs</code> files as ECMAScript modules. So
 it means you can use any supported ES-next features w/o a transpiler like Babel.
 In the past, to be able to use ES features, we had to set up build and compilation
 tools like Webpack and Babel (due to conflicts between common JS <code>require</code> is
@@ -23,66 +114,99 @@ Javascripts if you don&rsquo;t configurate it at latest version. I have suffered
 many times that I can&rsquo;t use <code>...</code>, or <code>Array.at</code> in my code just because my
 project configuration is so outdated, not to mention the over advertised
 Typescripts, migrating those tools just to use a natively supported feature is
-pain in the a&mldr;</p><p>For example I want to write a script to quickly check
+pain in the a&mldr;</p>
+<p>For example I want to write a script to quickly check
 current price of BTC on Binance. Write it to a json file for later if I want
 to do anything with that data. And we want to do it without installing any
-packages at all.</p><p>First of all, we know we&rsquo;ll need to write some data, so we need some helps
-from Node builtin <code>fs</code> package.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#66d9ef>import</span> <span style=color:#a6e22e>fs</span> <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#39;node:fs/promises&#39;</span>
-</span></span></code></pre></div><p>Here I use <code>node:fs/promises</code>, new api return promises instead of callbacks.
-And because it is builtin package, we don&rsquo;t need to install like <code>fs</code>.</p><p>Secondly, we need to get data from Binance API at <a href=https://api.binance.com/api/v3/ticker/price class=external-link target=_blank rel=noopener>https://api.binance.com/api/v3/ticker/price</a>.
+packages at all.</p>
+<p>First of all, we know we&rsquo;ll need to write some data, so we need some helps
+from Node builtin <code>fs</code> package.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=color:#66d9ef>import</span> <span style=color:#a6e22e>fs</span> <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#39;node:fs/promises&#39;</span>
+</code></pre></div><p>Here I use <code>node:fs/promises</code>, new api return promises instead of callbacks.
+And because it is builtin package, we don&rsquo;t need to install like <code>fs</code>.</p>
+<p>Secondly, we need to get data from Binance API at <a href=https://api.binance.com/api/v3/ticker/price class=external-link target=_blank rel=noopener>https://api.binance.com/api/v3/ticker/price</a>.
 At this point, we have Node 18 released and it added <code>fetch</code>, the dead simple
 api for fetching data has been available in browsers for a long long time.
 Other wise we would need to go through these tutorials again to know how to
-fetch data with node <a href=https://blog.logrocket.com/5-ways-to-make-http-requests-in-node-js/ class=external-link target=_blank rel=noopener>https://blog.logrocket.com/5-ways-to-make-http-requests-in-node-js/</a></p><p>So our following lines of code look like this.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>response</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>fetch</span>(<span style=color:#e6db74>&#39;https://api.binance.com/api/v3/ticker/price&#39;</span>)
-</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>response</span>.<span style=color:#a6e22e>ok</span>) {
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>data</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>response</span>.<span style=color:#a6e22e>json</span>()
-</span></span><span style=display:flex><span>}
-</span></span></code></pre></div><p>Next, I want to find the price of <code>BTC</code> to <code>USDT</code>, so let&rsquo;s loop through the
-data and find it.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>const</span> <span style=color:#a6e22e>pair</span> <span style=color:#66d9ef>of</span> <span style=color:#a6e22e>data</span>) {
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>pair</span>.<span style=color:#a6e22e>symbol</span> <span style=color:#f92672>===</span> <span style=color:#e6db74>&#39;BTCUSDT&#39;</span>) {
-</span></span><span style=display:flex><span>        <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>`Current price of BTC is </span><span style=color:#e6db74>${</span><span style=color:#a6e22e>pair</span>.<span style=color:#a6e22e>price</span><span style=color:#e6db74>}</span><span style=color:#e6db74>`</span>)
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>break</span>
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>}
-</span></span></code></pre></div><p>And finally, let&rsquo;s backup our data in a file for later.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#66d9ef>await</span> <span style=color:#a6e22e>fs</span>.<span style=color:#a6e22e>writeFile</span>(<span style=color:#e6db74>&#39;./price.json&#39;</span>, <span style=color:#a6e22e>JSON</span>.<span style=color:#a6e22e>stringify</span>(<span style=color:#a6e22e>data</span>, <span style=color:#66d9ef>null</span>, <span style=color:#ae81ff>2</span>))
-</span></span></code></pre></div><p>Let&rsquo;s put it all together.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#66d9ef>import</span> <span style=color:#a6e22e>fs</span> <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#39;node:fs/promises&#39;</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>response</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>fetch</span>(<span style=color:#e6db74>&#39;https://api.binance.com/api/v3/ticker/price&#39;</span>)
-</span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>response</span>.<span style=color:#a6e22e>ok</span>) {
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>data</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>response</span>.<span style=color:#a6e22e>json</span>()
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>const</span> <span style=color:#a6e22e>pair</span> <span style=color:#66d9ef>of</span> <span style=color:#a6e22e>data</span>) {
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>pair</span>.<span style=color:#a6e22e>symbol</span> <span style=color:#f92672>===</span> <span style=color:#e6db74>&#39;BTCUSDT&#39;</span>) {
-</span></span><span style=display:flex><span>            <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>`Current price of BTC is </span><span style=color:#e6db74>${</span><span style=color:#a6e22e>pair</span>.<span style=color:#a6e22e>price</span><span style=color:#e6db74>}</span><span style=color:#e6db74>`</span>)
-</span></span><span style=display:flex><span>            <span style=color:#66d9ef>break</span>
-</span></span><span style=display:flex><span>        }
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>fs</span>.<span style=color:#a6e22e>writeFile</span>(<span style=color:#e6db74>&#39;./price.json&#39;</span>, <span style=color:#a6e22e>JSON</span>.<span style=color:#a6e22e>stringify</span>(<span style=color:#a6e22e>data</span>, <span style=color:#66d9ef>null</span>, <span style=color:#ae81ff>2</span>))
-</span></span><span style=display:flex><span>} <span style=color:#66d9ef>else</span> {
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>error</span>(<span style=color:#e6db74>&#39;Cannot get BTC price&#39;</span>)
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>process</span>.<span style=color:#a6e22e>exit</span>(<span style=color:#ae81ff>1</span>)    
-</span></span><span style=display:flex><span>}
-</span></span></code></pre></div><p>If you save this file as <code>price.js</code> and try to run it with <code>node price.js</code>, you
-will see the following error.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-txt data-lang=txt><span style=display:flex><span>price.js:1
-</span></span><span style=display:flex><span>import fs from &#39;node:fs/promises&#39;
-</span></span><span style=display:flex><span>^^^^^^
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>SyntaxError: Cannot use import statement outside a module
-</span></span></code></pre></div><p>Because by default, Node treats <code>js</code> files as Common JS module, so using
+fetch data with node <a href=https://blog.logrocket.com/5-ways-to-make-http-requests-in-node-js/ class=external-link target=_blank rel=noopener>https://blog.logrocket.com/5-ways-to-make-http-requests-in-node-js/</a></p>
+<p>So our following lines of code look like this.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>response</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>fetch</span>(<span style=color:#e6db74>&#39;https://api.binance.com/api/v3/ticker/price&#39;</span>)
+<span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>response</span>.<span style=color:#a6e22e>ok</span>) {
+    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>data</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>response</span>.<span style=color:#a6e22e>json</span>()
+}
+</code></pre></div><p>Next, I want to find the price of <code>BTC</code> to <code>USDT</code>, so let&rsquo;s loop through the
+data and find it.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>const</span> <span style=color:#a6e22e>pair</span> <span style=color:#66d9ef>of</span> <span style=color:#a6e22e>data</span>) {
+    <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>pair</span>.<span style=color:#a6e22e>symbol</span> <span style=color:#f92672>===</span> <span style=color:#e6db74>&#39;BTCUSDT&#39;</span>) {
+        <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>`Current price of BTC is </span><span style=color:#e6db74>${</span><span style=color:#a6e22e>pair</span>.<span style=color:#a6e22e>price</span><span style=color:#e6db74>}</span><span style=color:#e6db74>`</span>)
+        <span style=color:#66d9ef>break</span>
+    }
+}
+</code></pre></div><p>And finally, let&rsquo;s backup our data in a file for later.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=color:#66d9ef>await</span> <span style=color:#a6e22e>fs</span>.<span style=color:#a6e22e>writeFile</span>(<span style=color:#e6db74>&#39;./price.json&#39;</span>, <span style=color:#a6e22e>JSON</span>.<span style=color:#a6e22e>stringify</span>(<span style=color:#a6e22e>data</span>, <span style=color:#66d9ef>null</span>, <span style=color:#ae81ff>2</span>))
+</code></pre></div><p>Let&rsquo;s put it all together.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=color:#66d9ef>import</span> <span style=color:#a6e22e>fs</span> <span style=color:#a6e22e>from</span> <span style=color:#e6db74>&#39;node:fs/promises&#39;</span>
+<span style=color:#66d9ef>const</span> <span style=color:#a6e22e>response</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>fetch</span>(<span style=color:#e6db74>&#39;https://api.binance.com/api/v3/ticker/price&#39;</span>)
+<span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>response</span>.<span style=color:#a6e22e>ok</span>) {
+    <span style=color:#66d9ef>const</span> <span style=color:#a6e22e>data</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>response</span>.<span style=color:#a6e22e>json</span>()
+    <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>const</span> <span style=color:#a6e22e>pair</span> <span style=color:#66d9ef>of</span> <span style=color:#a6e22e>data</span>) {
+        <span style=color:#66d9ef>if</span> (<span style=color:#a6e22e>pair</span>.<span style=color:#a6e22e>symbol</span> <span style=color:#f92672>===</span> <span style=color:#e6db74>&#39;BTCUSDT&#39;</span>) {
+            <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>log</span>(<span style=color:#e6db74>`Current price of BTC is </span><span style=color:#e6db74>${</span><span style=color:#a6e22e>pair</span>.<span style=color:#a6e22e>price</span><span style=color:#e6db74>}</span><span style=color:#e6db74>`</span>)
+            <span style=color:#66d9ef>break</span>
+        }
+    }
+    <span style=color:#66d9ef>await</span> <span style=color:#a6e22e>fs</span>.<span style=color:#a6e22e>writeFile</span>(<span style=color:#e6db74>&#39;./price.json&#39;</span>, <span style=color:#a6e22e>JSON</span>.<span style=color:#a6e22e>stringify</span>(<span style=color:#a6e22e>data</span>, <span style=color:#66d9ef>null</span>, <span style=color:#ae81ff>2</span>))
+} <span style=color:#66d9ef>else</span> {
+    <span style=color:#a6e22e>console</span>.<span style=color:#a6e22e>error</span>(<span style=color:#e6db74>&#39;Cannot get BTC price&#39;</span>)
+    <span style=color:#a6e22e>process</span>.<span style=color:#a6e22e>exit</span>(<span style=color:#ae81ff>1</span>)    
+}
+</code></pre></div><p>If you save this file as <code>price.js</code> and try to run it with <code>node price.js</code>, you
+will see the following error.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-txt data-lang=txt>price.js:1
+import fs from &#39;node:fs/promises&#39;
+^^^^^^
+
+SyntaxError: Cannot use import statement outside a module
+</code></pre></div><p>Because by default, Node treats <code>js</code> files as Common JS module, so using
 <code>import</code> is not supported. We have three ways to let node know that we want to
-run our script as an ES module.</p><blockquote><p>Authors can tell Node.js to use the ECMAScript modules loader via the <code>.mjs</code>
+run our script as an ES module.</p>
+<blockquote>
+<p>Authors can tell Node.js to use the ECMAScript modules loader via the <code>.mjs</code>
 file extension, the <code>package.json</code> <strong>&ldquo;type&rdquo;</strong> field, or the <code>--input-type</code>
-flag.</p></blockquote><p><a href=https://nodejs.org/dist/latest-v18.x/docs/api/esm.html#enabling class=external-link target=_blank rel=noopener>https://nodejs.org/dist/latest-v18.x/docs/api/esm.html#enabling</a>
-Without chaning the file name, we can either run this command</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>cat price.js | node --input-type=module
-</span></span></code></pre></div><p>or create <code>package.json</code> file</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json><span style=display:flex><span>{
-</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;type&#34;</span>: <span style=color:#e6db74>&#34;module&#34;</span>
-</span></span><span style=display:flex><span>}
-</span></span></code></pre></div><p>and then run</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>$ node test.js 
-</span></span><span style=display:flex><span>Current price of BTC is 21726.41000000
-</span></span></code></pre></div><p>But I like the <code>.mjs</code> the most because it the fastest way.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>$ node test.mjs 
-</span></span><span style=display:flex><span>Current price of BTC is 21716.93000000
-</span></span></code></pre></div><p>In this example I also use top level <code>await</code>, so much easier than Python
-<code>ev.run_until_complete()</code>.</p></div><footer></footer></article></section></div><footer class=footer><section class=container>©
+flag.</p>
+</blockquote>
+<p><a href=https://nodejs.org/dist/latest-v18.x/docs/api/esm.html#enabling class=external-link target=_blank rel=noopener>https://nodejs.org/dist/latest-v18.x/docs/api/esm.html#enabling</a>
+Without chaning the file name, we can either run this command</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>cat price.js | node --input-type=module
+</code></pre></div><p>or create <code>package.json</code> file</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json>{
+    <span style=color:#f92672>&#34;type&#34;</span>: <span style=color:#e6db74>&#34;module&#34;</span>
+}
+</code></pre></div><p>and then run</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ node test.js 
+Current price of BTC is 21726.41000000
+</code></pre></div><p>But I like the <code>.mjs</code> the most because it the fastest way.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ node test.mjs 
+Current price of BTC is 21716.93000000
+</code></pre></div><p>In this example I also use top level <code>await</code>, so much easier than Python
+<code>ev.run_until_complete()</code>.</p>
+</div>
+<footer>
+</footer>
+</article>
+</section>
+</div>
+<footer class=footer>
+<section class=container>
+©
 2021 -
 2024
 Sy Tran
 ·
-Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.</section></footer></main><script src=/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script></body></html>
+Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.
+</section>
+</footer>
+</main>
+<script src=/js/coder.min.369d90111ae4409b4e51de5efd23a46b92663fcc82dc9a0efde7f70bffc3f949.js integrity="sha256-Np2QERrkQJtOUd5e/SOka5JmP8yC3JoO/ef3C//D+Uk="></script>
+</body>
+</html>
