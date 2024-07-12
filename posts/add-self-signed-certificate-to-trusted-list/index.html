@@ -1,24 +1,24 @@
 <!doctype html><html lang=en>
 <head>
 <title>
-Hugo PDF · sytranvn.dev
+Add Self Signed Certificate to Trusted List · sytranvn.dev
 </title>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta name=color-scheme content="light dark">
 <meta name=author content="Sy Tran">
-<meta name=description content="Hugo shortcode allows you to add PDF file to your pages using browser native PDF renderer. Therefore, no additional Javascripts needed.">
+<meta name=description content="certutil -d sql:$HOME/.pki/nssdb -A -t C -n <cert-name> -i <certificate.pem> -d sql:$HOME/.pki/nssdb specify database location -A Add a certificate to the database. -D to delete -t C Set the certificate trust attributes. C means trusted CA to issue server certs -n <cert-name> Name of certificate to be used later with -D -i <certificate.pem> Certificate file location ">
 <meta name=keywords content="blog,developer,personal">
 <meta name=twitter:card content="summary">
-<meta name=twitter:title content="Hugo PDF">
-<meta name=twitter:description content="Hugo shortcode allows you to add PDF file to your pages using browser native PDF renderer. Therefore, no additional Javascripts needed.">
-<meta property="og:title" content="Hugo PDF">
-<meta property="og:description" content="Hugo shortcode allows you to add PDF file to your pages using browser native PDF renderer. Therefore, no additional Javascripts needed.">
+<meta name=twitter:title content="Add Self Signed Certificate to Trusted List">
+<meta name=twitter:description content="certutil -d sql:$HOME/.pki/nssdb -A -t C -n <cert-name> -i <certificate.pem> -d sql:$HOME/.pki/nssdb specify database location -A Add a certificate to the database. -D to delete -t C Set the certificate trust attributes. C means trusted CA to issue server certs -n <cert-name> Name of certificate to be used later with -D -i <certificate.pem> Certificate file location ">
+<meta property="og:title" content="Add Self Signed Certificate to Trusted List">
+<meta property="og:description" content="certutil -d sql:$HOME/.pki/nssdb -A -t C -n <cert-name> -i <certificate.pem> -d sql:$HOME/.pki/nssdb specify database location -A Add a certificate to the database. -D to delete -t C Set the certificate trust attributes. C means trusted CA to issue server certs -n <cert-name> Name of certificate to be used later with -D -i <certificate.pem> Certificate file location ">
 <meta property="og:type" content="article">
-<meta property="og:url" content="http://sytranvn.dev/projects/hugo-pdf/"><meta property="article:section" content="projects">
-<meta property="article:published_time" content="2023-05-25T21:17:05+07:00">
-<meta property="article:modified_time" content="2023-05-25T21:17:05+07:00">
-<link rel=canonical href=http://sytranvn.dev/projects/hugo-pdf/>
+<meta property="og:url" content="http://sytranvn.dev/posts/add-self-signed-certificate-to-trusted-list/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2024-07-12T09:17:34+07:00">
+<meta property="article:modified_time" content="2024-07-12T09:17:34+07:00">
+<link rel=canonical href=http://sytranvn.dev/posts/add-self-signed-certificate-to-trusted-list/>
 <link rel=preload href=/fonts/fa-brands-400.woff2 as=font type=font/woff2 crossorigin>
 <link rel=preload href=/fonts/fa-regular-400.woff2 as=font type=font/woff2 crossorigin>
 <link rel=preload href=/fonts/fa-solid-900.woff2 as=font type=font/woff2 crossorigin>
@@ -71,16 +71,39 @@ sytranvn.dev
 <article>
 <header>
 <div class=post-title>
-<h1 class=title>Hugo PDF
-<a href=https://github.com/sytranvn/hugo-pdf.git><i class="fa fa-github"></i></a>
+<h1 class=title>
+<a class=title-link href=http://sytranvn.dev/posts/add-self-signed-certificate-to-trusted-list/>
+Add Self Signed Certificate to Trusted List
+</a>
 </h1>
 </div>
 <div class=post-meta>
+<div class=date>
+<span class=posted-on>
+<i class="fa-solid fa-calendar" aria-hidden=true></i>
+<time datetime=" 2024-07-12T09:17:34+07:00">
+July 12, 2024
+</time>
+</span>
+<span class=reading-time>
+<i class="fa-solid fa-clock" aria-hidden=true></i>
+One-minute read
+</span>
+</div>
 </div>
 </header>
-<main>
-<p>Hugo shortcode allows you to add PDF file to your pages using browser native PDF renderer. Therefore, no additional Javascripts needed.</p>
-</main>
+<div class=post-content>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>certutil -d sql:$HOME/.pki/nssdb -A -t C -n &lt;cert-name&gt; -i &lt;certificate.pem&gt;
+
+    -d sql:$HOME/.pki/nssdb     specify database location
+    -A                          Add a certificate to the database. -D to delete
+    -t C                        Set the certificate trust attributes. C means trusted CA to issue server certs
+    -n &lt;cert-name&gt;              Name of certificate to be used later with -D
+    -i &lt;certificate.pem&gt;        Certificate file location
+</code></pre></div>
+</div>
+<footer>
+</footer>
 </article>
 </section>
 </div>
