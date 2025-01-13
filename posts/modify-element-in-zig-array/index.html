@@ -1,206 +1,87 @@
-<!doctype html><html lang=en>
-<head>
-<title>
-Modify Element in Zig 2D Array · sytranvn.dev
-</title>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=color-scheme content="light dark">
-<meta name=author content="Sy Tran">
-<meta name=description content="So I&rsquo;m learning Zig and trying to write a Arkanoid game in Zig.
-I have to iterate through 2D array of bricks, check collision and update each brick status. This is easy to do with high level languages. With C++ vector, we can use range-based for loop like this.
-vector<vector<int>> items; for (auto & row : items) { for (auto &item: row) { item += 1; } } With C, we have to do this old fashion way by accessing each brick by i and j indexes.">
-<meta name=keywords content="blog,developer,personal">
-<meta name=twitter:card content="summary">
-<meta name=twitter:title content="Modify Element in Zig 2D Array">
-<meta name=twitter:description content="So I&rsquo;m learning Zig and trying to write a Arkanoid game in Zig.
-I have to iterate through 2D array of bricks, check collision and update each brick status. This is easy to do with high level languages. With C++ vector, we can use range-based for loop like this.
-vector<vector<int>> items; for (auto & row : items) { for (auto &item: row) { item += 1; } } With C, we have to do this old fashion way by accessing each brick by i and j indexes.">
-<meta property="og:title" content="Modify Element in Zig 2D Array">
-<meta property="og:description" content="So I&rsquo;m learning Zig and trying to write a Arkanoid game in Zig.
-I have to iterate through 2D array of bricks, check collision and update each brick status. This is easy to do with high level languages. With C++ vector, we can use range-based for loop like this.
-vector<vector<int>> items; for (auto & row : items) { for (auto &item: row) { item += 1; } } With C, we have to do this old fashion way by accessing each brick by i and j indexes.">
-<meta property="og:type" content="article">
-<meta property="og:url" content="http://sytranvn.dev/posts/modify-element-in-zig-array/"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2024-03-23T11:11:12+07:00">
-<meta property="article:modified_time" content="2024-03-23T11:11:12+07:00">
-<link rel=canonical href=http://sytranvn.dev/posts/modify-element-in-zig-array/>
-<link rel=preload href=/fonts/fa-brands-400.woff2 as=font type=font/woff2 crossorigin>
-<link rel=preload href=/fonts/fa-regular-400.woff2 as=font type=font/woff2 crossorigin>
-<link rel=preload href=/fonts/fa-solid-900.woff2 as=font type=font/woff2 crossorigin>
-<link rel=stylesheet href=/css/coder.min.38c4552ac40f9ae3408bad40358f654ebd8804412fe74ed56f2d6c8a7af82dd3.css integrity="sha256-OMRVKsQPmuNAi61ANY9lTr2IBEEv507Vby1sinr4LdM=" crossorigin=anonymous media=screen>
-<link rel=stylesheet href=/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin=anonymous media=screen>
-<link rel=stylesheet href=/css/custom.min.e01fd2443128634dc9cf70bef26c23d851bd25b3bb24cf183925fcc0e318f691.css integrity="sha256-4B/SRDEoY03Jz3C+8mwj2FG9JbO7JM8YOSX8wOMY9pE=" crossorigin=anonymous media=screen>
-<link rel=icon type=image/svg+xml href=/images/favicon.svg sizes=any>
-<link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32>
-<link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16>
-<link rel=apple-touch-icon href=/images/apple-touch-icon.png>
-<link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png>
-<link rel=manifest href=/site.webmanifest>
-<link rel=mask-icon href=/images/safari-pinned-tab.svg color=#5bbad5>
-</head>
-<body class="preload-transitions colorscheme-dark">
-<main class=wrapper>
-<nav class=navigation>
-<section class=container>
-<a class=navigation-title href=http://sytranvn.dev/>
-sytranvn.dev
-</a>
-<input type=checkbox id=menu-toggle>
-<label class="menu-button float-right" for=menu-toggle>
-<i class="fa-solid fa-bars fa-fw" aria-hidden=true></i>
-</label>
-<ul class=navigation-list>
-<li class=navigation-item>
-<a class=navigation-link href=/now/>Now</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/posts/>Blog</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/projects/>Projects</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/i-heart-oss/>I ❤️ OSS</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/accomplishments/>Accomplishments</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/resume.pdf>Resume</a>
-</li>
-</ul>
-</section>
-</nav>
-<div class=content>
-<section class="container post">
-<article>
-<header>
-<div class=post-title>
-<h1 class=title>
-<a class=title-link href=http://sytranvn.dev/posts/modify-element-in-zig-array/>
-Modify Element in Zig 2D Array
-</a>
-</h1>
-</div>
-<div class=post-meta>
-<div class=date>
-<span class=posted-on>
-<i class="fa-solid fa-calendar" aria-hidden=true></i>
-<time datetime=" 2024-03-23T11:11:12+07:00">
-March 23, 2024
-</time>
-</span>
-<span class=reading-time>
-<i class="fa-solid fa-clock" aria-hidden=true></i>
-2-minute read
-</span>
-</div>
-<div class=tags>
-<i class="fa-solid fa-tag" aria-hidden=true></i>
-<span class=tag>
-<a href=/tags/zig/>zig</a>
-</span>
-<span class=separator>•</span>
-<span class=tag>
-<a href=/tags/2d-array/>2d-array</a>
-</span></div>
-</div>
-</header>
-<div class=post-content>
-<p>So I&rsquo;m learning Zig and trying to write a <a href=https://vi.wikipedia.org/wiki/Arkanoid class=external-link target=_blank rel=noopener>Arkanoid game</a> in Zig.<br>
+<!doctype html><html lang=en><head><title>Modify Element in Zig 2D Array · sytranvn.dev
+</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=color-scheme content="light dark"><meta name=author content="Sy Tran"><meta name=description content="So I&rsquo;m learning Zig and trying to write a Arkanoid game in Zig.
 I have to iterate through 2D array of bricks, check collision and update each brick status.
-This is easy to do with high level languages. With C++ vector, we can use range-based for loop like this.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp>vector<span style=color:#f92672>&lt;</span>vector<span style=color:#f92672>&lt;</span><span style=color:#66d9ef>int</span><span style=color:#f92672>&gt;&gt;</span> items;
-<span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>auto</span> <span style=color:#f92672>&amp;</span> row : items) {
-        <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>auto</span> <span style=color:#f92672>&amp;</span>item: row) {
-                item <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>;
+This is easy to do with high level languages. With C++ vector, we can use range-based for loop like this.
+vector<vector<int>> items;
+for (auto & row : items) {
+        for (auto &amp;item: row) {
+                item += 1;
         }
 }
-</code></pre></div><p>With C, we have to do this old fashion way by accessing each brick by <code>i</code> and <code>j</code> indexes.</p>
-<p>Zig does support range-based for loop, so I want to use that instead of traditional <code>i</code> and <code>j</code>.</p>
-<p>From <a href=https://ziglang.org/documentation/master/#toc-for class=external-link target=_blank rel=noopener>Zig reference</a>, we can modify 1D array&rsquo;s elements like this.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-zig data-lang=zig><span style=color:#66d9ef>test</span> <span style=color:#e6db74>&#34;for reference&#34;</span> {
-    <span style=color:#66d9ef>var</span> items <span style=color:#f92672>=</span> [_]<span style=color:#66d9ef>i32</span>{ <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>4</span>, <span style=color:#ae81ff>2</span> };
-
-    <span style=color:#75715e>// Iterate over the slice by reference by
-</span><span style=color:#75715e></span>    <span style=color:#75715e>// specifying that the capture value is a pointer.
-</span><span style=color:#75715e></span>    <span style=color:#66d9ef>for</span> (<span style=color:#f92672>&amp;</span>items) <span style=color:#f92672>|*</span>value<span style=color:#f92672>|</span> {
-        value.<span style=color:#f92672>*</span> <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>;
-    }
-
-    <span style=color:#66d9ef>try</span> expect(items[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>==</span> <span style=color:#ae81ff>4</span>);
-    <span style=color:#66d9ef>try</span> expect(items[<span style=color:#ae81ff>1</span>] <span style=color:#f92672>==</span> <span style=color:#ae81ff>5</span>);
-    <span style=color:#66d9ef>try</span> expect(items[<span style=color:#ae81ff>2</span>] <span style=color:#f92672>==</span> <span style=color:#ae81ff>3</span>);
-}
-</code></pre></div><p>For 2D array, we also have that fancy utility. There&rsquo;s a catch here is that we need to
+With C, we have to do this old fashion way by accessing each brick by i and j indexes."><meta name=keywords content="blog,developer,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="Modify Element in Zig 2D Array"><meta name=twitter:description content="So I’m learning Zig and trying to write a Arkanoid game in Zig.
+I have to iterate through 2D array of bricks, check collision and update each brick status. This is easy to do with high level languages. With C++ vector, we can use range-based for loop like this.
+vector<vector<int>> items; for (auto & row : items) { for (auto &amp;item: row) { item += 1; } } With C, we have to do this old fashion way by accessing each brick by i and j indexes."><meta property="og:url" content="http://sytranvn.dev/posts/modify-element-in-zig-array/"><meta property="og:site_name" content="sytranvn.dev"><meta property="og:title" content="Modify Element in Zig 2D Array"><meta property="og:description" content="So I’m learning Zig and trying to write a Arkanoid game in Zig.
+I have to iterate through 2D array of bricks, check collision and update each brick status. This is easy to do with high level languages. With C++ vector, we can use range-based for loop like this.
+vector<vector<int>> items; for (auto & row : items) { for (auto &amp;item: row) { item += 1; } } With C, we have to do this old fashion way by accessing each brick by i and j indexes."><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2024-03-23T11:11:12+07:00"><meta property="article:modified_time" content="2024-03-23T11:11:12+07:00"><meta property="article:tag" content="Zig"><meta property="article:tag" content="2d-Array"><link rel=canonical href=http://sytranvn.dev/posts/modify-element-in-zig-array/><link rel=preload href=/fonts/fa-brands-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/fa-regular-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/fa-solid-900.woff2 as=font type=font/woff2 crossorigin><link rel=stylesheet href=/css/coder.min.ed30115a76cdaa62f2229e973d5b1c89b2d3dd4b1d9c07a729baad06aa3b0cbe.css integrity="sha256-7TARWnbNqmLyIp6XPVscibLT3UsdnAenKbqtBqo7DL4=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/custom.min.e01fd2443128634dc9cf70bef26c23d851bd25b3bb24cf183925fcc0e318f691.css integrity="sha256-4B/SRDEoY03Jz3C+8mwj2FG9JbO7JM8YOSX8wOMY9pE=" crossorigin=anonymous media=screen><link rel=icon type=image/svg+xml href=/images/favicon.svg sizes=any><link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16><link rel=apple-touch-icon href=/images/apple-touch-icon.png><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/images/safari-pinned-tab.svg color=#5bbad5></head><body class="preload-transitions colorscheme-dark"><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=http://sytranvn.dev/>sytranvn.dev
+</a><input type=checkbox id=menu-toggle>
+<label class="menu-button float-right" for=menu-toggle><i class="fa-solid fa-bars fa-fw" aria-hidden=true></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=/now/>Now</a></li><li class=navigation-item><a class=navigation-link href=/posts/>Blog</a></li><li class=navigation-item><a class=navigation-link href=/projects/>Projects</a></li><li class=navigation-item><a class=navigation-link href=/i-heart-oss/>I ❤️ OSS</a></li><li class=navigation-item><a class=navigation-link href=/accomplishments/>Accomplishments</a></li><li class=navigation-item><a class=navigation-link href=/resume.pdf>Resume</a></li></ul></section></nav><div class=content><section class="container post"><article><header><div class=post-title><h1 class=title><a class=title-link href=http://sytranvn.dev/posts/modify-element-in-zig-array/>Modify Element in Zig 2D Array</a></h1></div><div class=post-meta><div class=date><span class=posted-on><i class="fa-solid fa-calendar" aria-hidden=true></i>
+<time datetime=2024-03-23T11:11:12+07:00>March 23, 2024
+</time></span><span class=reading-time><i class="fa-solid fa-clock" aria-hidden=true></i>
+2-minute read</span></div><div class=tags><i class="fa-solid fa-tag" aria-hidden=true></i>
+<span class=tag><a href=/tags/zig/>Zig</a>
+</span><span class=separator>•</span>
+<span class=tag><a href=/tags/2d-array/>2d-Array</a></span></div></div></header><div class=post-content><p>So I&rsquo;m learning Zig and trying to write a <a href=https://vi.wikipedia.org/wiki/Arkanoid class=external-link target=_blank rel=noopener>Arkanoid game</a> in Zig.<br>I have to iterate through 2D array of bricks, check collision and update each brick status.
+This is easy to do with high level languages. With C++ vector, we can use range-based for loop like this.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span>vector<span style=color:#f92672>&lt;</span>vector<span style=color:#f92672>&lt;</span><span style=color:#66d9ef>int</span><span style=color:#f92672>&gt;&gt;</span> items;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>auto</span> <span style=color:#f92672>&amp;</span> row : items) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>auto</span> <span style=color:#f92672>&amp;</span>item: row) {
+</span></span><span style=display:flex><span>                item <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>With C, we have to do this old fashion way by accessing each brick by <code>i</code> and <code>j</code> indexes.</p><p>Zig does support range-based for loop, so I want to use that instead of traditional <code>i</code> and <code>j</code>.</p><p>From <a href=https://ziglang.org/documentation/master/#toc-for class=external-link target=_blank rel=noopener>Zig reference</a>, we can modify 1D array&rsquo;s elements like this.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-zig data-lang=zig><span style=display:flex><span><span style=color:#66d9ef>test</span> <span style=color:#e6db74>&#34;for reference&#34;</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> items <span style=color:#f92672>=</span> [_]<span style=color:#66d9ef>i32</span>{ <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>4</span>, <span style=color:#ae81ff>2</span> };
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Iterate over the slice by reference by
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#75715e>// specifying that the capture value is a pointer.
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>for</span> (<span style=color:#f92672>&amp;</span>items) <span style=color:#f92672>|*</span>value<span style=color:#f92672>|</span> {
+</span></span><span style=display:flex><span>        value.<span style=color:#f92672>*</span> <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>try</span> expect(items[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>==</span> <span style=color:#ae81ff>4</span>);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>try</span> expect(items[<span style=color:#ae81ff>1</span>] <span style=color:#f92672>==</span> <span style=color:#ae81ff>5</span>);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>try</span> expect(items[<span style=color:#ae81ff>2</span>] <span style=color:#f92672>==</span> <span style=color:#ae81ff>3</span>);
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>For 2D array, we also have that fancy utility. There&rsquo;s a catch here is that we need to
 reference item at both outer and inner loop, like C++. And because item of outer loop has
-been referenced, we should not use <code>&</code> a gain in the inner loop.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-zig data-lang=zig><span style=color:#66d9ef>test</span> <span style=color:#e6db74>&#34;for reference 2d&#34;</span> {
-    <span style=color:#66d9ef>var</span> items <span style=color:#f92672>=</span> [_][<span style=color:#ae81ff>3</span>]<span style=color:#66d9ef>i32</span>{[_]<span style=color:#66d9ef>i32</span>{ <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>4</span>, <span style=color:#ae81ff>2</span> }};
-
-    <span style=color:#75715e>// Iterate over the slice by reference by
-</span><span style=color:#75715e></span>    <span style=color:#75715e>// specifying that the capture value is a pointer.
-</span><span style=color:#75715e></span>    <span style=color:#66d9ef>for</span> (<span style=color:#f92672>&amp;</span>items) <span style=color:#f92672>|*</span>row<span style=color:#f92672>|</span> {
-        <span style=color:#75715e>// value is pointer so we don&#39;t need to reference
-</span><span style=color:#75715e></span>        <span style=color:#66d9ef>for</span> (row) <span style=color:#f92672>|*</span>item<span style=color:#f92672>|</span> {
-            item.<span style=color:#f92672>*</span> <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>;
-        }
-    }
-
-    <span style=color:#66d9ef>try</span> expect(items[<span style=color:#ae81ff>0</span>][<span style=color:#ae81ff>0</span>] <span style=color:#f92672>==</span> <span style=color:#ae81ff>4</span>);
-    <span style=color:#66d9ef>try</span> expect(items[<span style=color:#ae81ff>0</span>][<span style=color:#ae81ff>1</span>] <span style=color:#f92672>==</span> <span style=color:#ae81ff>5</span>);
-    <span style=color:#66d9ef>try</span> expect(items[<span style=color:#ae81ff>0</span>][<span style=color:#ae81ff>2</span>] <span style=color:#f92672>==</span> <span style=color:#ae81ff>3</span>);
-}
-
-</code></pre></div><p>Let&rsquo;s put C++ and Zig code side by side to see the difference.</p>
-<div style=display:flex;justify-content:space-between;flex-direction:row;max-width:90rem>
-<div style=flex-grow:1;flex-basis:0>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>auto</span> <span style=color:#f92672>&amp;</span> row : items) {
-    <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>auto</span> <span style=color:#f92672>&amp;</span>item: row) {
-            item <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>;
-    }
-}
-</code></pre></div></div>
-<div style=flex-grow:1;margin-left:2em;flex-basis:0>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-zig data-lang=zig><span style=color:#66d9ef>for</span> (<span style=color:#f92672>&amp;</span>items) <span style=color:#f92672>|*</span>row<span style=color:#f92672>|</span> {
-    <span style=color:#66d9ef>for</span> (row) <span style=color:#f92672>|*</span>item<span style=color:#f92672>|</span> {
-        item.<span style=color:#f92672>*</span> <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>;
-    }
-}
-</code></pre></div></div>
-</div>
-<p>Here&rsquo;s a bonus, to modify struct elements in 2D array.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-zig data-lang=zig><span style=color:#66d9ef>const</span> Point <span style=color:#f92672>=</span> <span style=color:#66d9ef>struct</span> {
-    x<span style=color:#f92672>:</span> <span style=color:#66d9ef>f64</span>,
-    y<span style=color:#f92672>:</span> <span style=color:#66d9ef>f64</span>,
-};
-<span style=color:#66d9ef>var</span> items <span style=color:#f92672>=</span> [_][<span style=color:#ae81ff>3</span>]Point{[_]Point{ .{ .x <span style=color:#f92672>=</span> <span style=color:#ae81ff>3</span>, .y <span style=color:#f92672>=</span> <span style=color:#ae81ff>3</span> }, .{ .x <span style=color:#f92672>=</span> <span style=color:#ae81ff>4</span>, .y <span style=color:#f92672>=</span> <span style=color:#ae81ff>4</span> }, .{ .x <span style=color:#f92672>=</span> <span style=color:#ae81ff>2</span>, .y <span style=color:#f92672>=</span> <span style=color:#ae81ff>2</span> } }};
-<span style=color:#66d9ef>for</span> (<span style=color:#f92672>&amp;</span>items) <span style=color:#f92672>|*</span>value<span style=color:#f92672>|</span> {
-    <span style=color:#66d9ef>for</span> (value) <span style=color:#f92672>|*</span>item<span style=color:#f92672>|</span> {
-        item.x <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>;
-        item.y <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>;
-    }
-}
-
-</code></pre></div>
-</div>
-<footer>
-</footer>
-</article>
-</section>
-</div>
-<footer class=footer>
-<section class=container>
-©
+been referenced, we should not use <code>&</code> a gain in the inner loop.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-zig data-lang=zig><span style=display:flex><span><span style=color:#66d9ef>test</span> <span style=color:#e6db74>&#34;for reference 2d&#34;</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>var</span> items <span style=color:#f92672>=</span> [_][<span style=color:#ae81ff>3</span>]<span style=color:#66d9ef>i32</span>{[_]<span style=color:#66d9ef>i32</span>{ <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>4</span>, <span style=color:#ae81ff>2</span> }};
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// Iterate over the slice by reference by
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#75715e>// specifying that the capture value is a pointer.
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>for</span> (<span style=color:#f92672>&amp;</span>items) <span style=color:#f92672>|*</span>row<span style=color:#f92672>|</span> {
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// value is pointer so we don&#39;t need to reference
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>for</span> (row) <span style=color:#f92672>|*</span>item<span style=color:#f92672>|</span> {
+</span></span><span style=display:flex><span>            item.<span style=color:#f92672>*</span> <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>try</span> expect(items[<span style=color:#ae81ff>0</span>][<span style=color:#ae81ff>0</span>] <span style=color:#f92672>==</span> <span style=color:#ae81ff>4</span>);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>try</span> expect(items[<span style=color:#ae81ff>0</span>][<span style=color:#ae81ff>1</span>] <span style=color:#f92672>==</span> <span style=color:#ae81ff>5</span>);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>try</span> expect(items[<span style=color:#ae81ff>0</span>][<span style=color:#ae81ff>2</span>] <span style=color:#f92672>==</span> <span style=color:#ae81ff>3</span>);
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><p>Let&rsquo;s put C++ and Zig code side by side to see the difference.</p><div style=display:flex;justify-content:space-between;flex-direction:row;max-width:90rem><div style=flex-grow:1;flex-basis:0><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>auto</span> <span style=color:#f92672>&amp;</span> row : items) {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>auto</span> <span style=color:#f92672>&amp;</span>item: row) {
+</span></span><span style=display:flex><span>            item <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div></div><div style=flex-grow:1;margin-left:2em;flex-basis:0><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-zig data-lang=zig><span style=display:flex><span><span style=color:#66d9ef>for</span> (<span style=color:#f92672>&amp;</span>items) <span style=color:#f92672>|*</span>row<span style=color:#f92672>|</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (row) <span style=color:#f92672>|*</span>item<span style=color:#f92672>|</span> {
+</span></span><span style=display:flex><span>        item.<span style=color:#f92672>*</span> <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div></div></div><p>Here&rsquo;s a bonus, to modify struct elements in 2D array.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-zig data-lang=zig><span style=display:flex><span><span style=color:#66d9ef>const</span> Point <span style=color:#f92672>=</span> <span style=color:#66d9ef>struct</span> {
+</span></span><span style=display:flex><span>    x<span style=color:#f92672>:</span> <span style=color:#66d9ef>f64</span>,
+</span></span><span style=display:flex><span>    y<span style=color:#f92672>:</span> <span style=color:#66d9ef>f64</span>,
+</span></span><span style=display:flex><span>};
+</span></span><span style=display:flex><span><span style=color:#66d9ef>var</span> items <span style=color:#f92672>=</span> [_][<span style=color:#ae81ff>3</span>]Point{[_]Point{ .{ .x <span style=color:#f92672>=</span> <span style=color:#ae81ff>3</span>, .y <span style=color:#f92672>=</span> <span style=color:#ae81ff>3</span> }, .{ .x <span style=color:#f92672>=</span> <span style=color:#ae81ff>4</span>, .y <span style=color:#f92672>=</span> <span style=color:#ae81ff>4</span> }, .{ .x <span style=color:#f92672>=</span> <span style=color:#ae81ff>2</span>, .y <span style=color:#f92672>=</span> <span style=color:#ae81ff>2</span> } }};
+</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> (<span style=color:#f92672>&amp;</span>items) <span style=color:#f92672>|*</span>value<span style=color:#f92672>|</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (value) <span style=color:#f92672>|*</span>item<span style=color:#f92672>|</span> {
+</span></span><span style=display:flex><span>        item.x <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>        item.y <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div></div><footer></footer></article></section></div><footer class=footer><section class=container>©
 2021 -
-2024
+2025
 Sy Tran
 ·
-Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.
-</section>
-</footer>
-</main>
-<script src=/js/coder.min.369d90111ae4409b4e51de5efd23a46b92663fcc82dc9a0efde7f70bffc3f949.js integrity="sha256-Np2QERrkQJtOUd5e/SOka5JmP8yC3JoO/ef3C//D+Uk="></script>
-</body>
-</html>
+Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.</section></footer></main><script src=/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script></body></html>
