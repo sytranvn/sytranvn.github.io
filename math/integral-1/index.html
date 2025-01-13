@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
+  Integral · sytranvn.dev
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Sy Tran">
+<meta name="description" content="$$
+I= \int_{-\infin}^{-1}{\frac{dx}{x^2}} \
+= \lim_{t \to -\infin}\int_{t}^{-1}{\frac{dx}{x^2}} (1) \
+A = \int_{t}^{-1}{\frac{dx}{x^2}} \
+= -\frac{1}{x}\Big|{t}^{-1} = 1 &#43; \frac{1}{t} \
+\
+I = \lim{t \to -\infin}{1 &#43; \frac{1}{t}} \
+= 1 &#43; 0 = 0 \square
+$$
+$$
+I = \int_{0}^{&#43;\infin}{(x&#43;1).e^{-x}dx} \
+= \lim_{0 \to t}\int_{0}^{t}{(x&#43;1).e^{-x}dx} \
+A = \int_{0}^{t}{(x&#43;1).e^{-x}dx} \
+\text{Let: } \
+u = x&#43;1\
+dv = e^{-x}dx \
+\rArr du = 1dx \
+\rArr \text{pick } v = -e^{-x} \
+A = uv|0^t - \int{0}^{t}{vdu}|_0^t \
+= (x &#43; 1)(-e^{-x})|0^t - \int{0}^{t}{-e^{-x}dx} \
+= (t &#43; 1)(-e^{-t}) - (0 &#43; 1)(-e^{-0}) - (-e^{-x}|0^t) \
+= (t &#43; 1)(-e^{-t}) - (0 &#43; 1)(-e^{-0}) - (-e^{-t} -e^0) \
+= (t &#43; 1)(-e^{-t}) &#43; 1  &#43; e^{-t} - 1 \
+= (t &#43; 1)(-e^{-t}) &#43; e^{-t} \
+= -te^{-t} \
+I = \lim{0 \to t}{-te^{-t}}
+$$">
+<meta name="keywords" content="blog,developer,personal">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Integral">
+  <meta name="twitter:description" content="$$ I= \int_{-\infin}^{-1}{\frac{dx}{x^2}} \ = \lim_{t \to -\infin}\int_{t}^{-1}{\frac{dx}{x^2}} (1) \ A = \int_{t}^{-1}{\frac{dx}{x^2}} \ = -\frac{1}{x}\Big|{t}^{-1} = 1 &#43; \frac{1}{t} \ \ I = \lim{t \to -\infin}{1 &#43; \frac{1}{t}} \ = 1 &#43; 0 = 0 \square $$
+$$ I = \int_{0}^{&#43;\infin}{(x&#43;1).e^{-x}dx} \ = \lim_{0 \to t}\int_{0}^{t}{(x&#43;1).e^{-x}dx} \ A = \int_{0}^{t}{(x&#43;1).e^{-x}dx} \ \text{Let: } \ u = x&#43;1\ dv = e^{-x}dx \ \rArr du = 1dx \ \rArr \text{pick } v = -e^{-x} \ A = uv|0^t - \int{0}^{t}{vdu}|_0^t \ = (x &#43; 1)(-e^{-x})|0^t - \int{0}^{t}{-e^{-x}dx} \ = (t &#43; 1)(-e^{-t}) - (0 &#43; 1)(-e^{-0}) - (-e^{-x}|0^t) \ = (t &#43; 1)(-e^{-t}) - (0 &#43; 1)(-e^{-0}) - (-e^{-t} -e^0) \ = (t &#43; 1)(-e^{-t}) &#43; 1 &#43; e^{-t} - 1 \ = (t &#43; 1)(-e^{-t}) &#43; e^{-t} \ = -te^{-t} \ I = \lim{0 \to t}{-te^{-t}} $$">
+
+<meta property="og:url" content="http://localhost:1313/math/integral-1/">
+  <meta property="og:site_name" content="sytranvn.dev">
+  <meta property="og:title" content="Integral">
+  <meta property="og:description" content="$$ I= \int_{-\infin}^{-1}{\frac{dx}{x^2}} \ = \lim_{t \to -\infin}\int_{t}^{-1}{\frac{dx}{x^2}} (1) \ A = \int_{t}^{-1}{\frac{dx}{x^2}} \ = -\frac{1}{x}\Big|{t}^{-1} = 1 &#43; \frac{1}{t} \ \ I = \lim{t \to -\infin}{1 &#43; \frac{1}{t}} \ = 1 &#43; 0 = 0 \square $$
+$$ I = \int_{0}^{&#43;\infin}{(x&#43;1).e^{-x}dx} \ = \lim_{0 \to t}\int_{0}^{t}{(x&#43;1).e^{-x}dx} \ A = \int_{0}^{t}{(x&#43;1).e^{-x}dx} \ \text{Let: } \ u = x&#43;1\ dv = e^{-x}dx \ \rArr du = 1dx \ \rArr \text{pick } v = -e^{-x} \ A = uv|0^t - \int{0}^{t}{vdu}|_0^t \ = (x &#43; 1)(-e^{-x})|0^t - \int{0}^{t}{-e^{-x}dx} \ = (t &#43; 1)(-e^{-t}) - (0 &#43; 1)(-e^{-0}) - (-e^{-x}|0^t) \ = (t &#43; 1)(-e^{-t}) - (0 &#43; 1)(-e^{-0}) - (-e^{-t} -e^0) \ = (t &#43; 1)(-e^{-t}) &#43; 1 &#43; e^{-t} - 1 \ = (t &#43; 1)(-e^{-t}) &#43; e^{-t} \ = -te^{-t} \ I = \lim{0 \to t}{-te^{-t}} $$">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="math">
+    <meta property="article:published_time" content="2023-06-09T13:10:56+07:00">
+    <meta property="article:modified_time" content="2023-06-09T13:10:56+07:00">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/math/integral-1/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-dark">
+  
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
+      sytranvn.dev
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/now/">Now</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/i-heart-oss/">I ❤️ OSS</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/accomplishments/">Accomplishments</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/resume.pdf">Resume</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container page">
+  <article>
+    <header>
+      <h1 class="title">
+        <a class="title-link" href="http://localhost:1313/math/integral-1/">
+          Integral
+        </a>
+      </h1>
+    </header>
+
+    <p>$$
+I= \int_{-\infin}^{-1}{\frac{dx}{x^2}} \
+= \lim_{t \to -\infin}\int_{t}^{-1}{\frac{dx}{x^2}} (1) \
+A = \int_{t}^{-1}{\frac{dx}{x^2}} \
+= -\frac{1}{x}\Big|<em>{t}^{-1} = 1 + \frac{1}{t} \
+\
+I = \lim</em>{t \to -\infin}{1 + \frac{1}{t}} \
+= 1 + 0 = 0 \square
+$$</p>
+<p>$$
+I = \int_{0}^{+\infin}{(x+1).e^{-x}dx} \
+= \lim_{0 \to t}\int_{0}^{t}{(x+1).e^{-x}dx} \
+A = \int_{0}^{t}{(x+1).e^{-x}dx} \
+\text{Let: } \
+u = x+1\
+dv = e^{-x}dx \
+\rArr du = 1dx \
+\rArr \text{pick } v = -e^{-x} \
+A = uv|<em>0^t - \int</em>{0}^{t}{vdu}|_0^t \
+= (x + 1)(-e^{-x})|<em>0^t - \int</em>{0}^{t}{-e^{-x}dx} \
+= (t + 1)(-e^{-t}) - (0 + 1)(-e^{-0}) - (-e^{-x}|<em>0^t) \
+= (t + 1)(-e^{-t}) - (0 + 1)(-e^{-0}) - (-e^{-t} -e^0) \
+= (t + 1)(-e^{-t}) + 1  + e^{-t} - 1 \
+= (t + 1)(-e^{-t}) + e^{-t} \
+= -te^{-t} \
+I = \lim</em>{0 \to t}{-te^{-t}}
+$$</p>
+
+  </article>
+</section>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
+  integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"
+  integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"
+  integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body,
+      {
+        delimiters: [
+          {left: '$$', right: '$$', display:true},
+          {left: '$', right: '$', display:false},
+        ]
+      }
+    );"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/copy-tex.min.js"
+  integrity="sha384-ww/583aHhxWkz5DEVn6OKtNiIaLi2iBRNZXfJRiY1Ai7tnJ9UXpEsyvOITVpTl4A" crossorigin="anonymous"></script>
+
+    </div>
+
+    <footer class="footer">
+  
+  <section class="container">
+    ©
+    
+    2021 -
+    
+    2025
+     Sy Tran 
+    ·
+    
+    Powered by <a href="https://gohugo.io/">Hugo</a> & <a
+      href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/js/coder.js"></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

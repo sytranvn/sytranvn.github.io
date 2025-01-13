@@ -1,373 +1,235 @@
-<!doctype html><html lang=en>
-<head>
-<title>
-Fix npm cannot install packages · sytranvn.dev
-</title>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta name=color-scheme content="light dark">
-<meta name=author content="Sy Tran">
-<meta name=description content="Recently I experienced an issue with NPM, I couldn&rsquo;t install any packages. I found some suggestions on google to upgrade npm but npm install -g npm didn&rsquo;t work either. After some debugging and searching on npm repo issues, I finally found a temporary solution.
-If you need the solution, you can go straight to Solution and come back to read my findings later while npm doing what it needs to do.">
-<meta name=keywords content="blog,developer,personal">
-<meta name=twitter:card content="summary">
-<meta name=twitter:title content="Fix npm cannot install packages">
-<meta name=twitter:description content="Recently I experienced an issue with NPM, I couldn&rsquo;t install any packages. I found some suggestions on google to upgrade npm but npm install -g npm didn&rsquo;t work either. After some debugging and searching on npm repo issues, I finally found a temporary solution.
-If you need the solution, you can go straight to Solution and come back to read my findings later while npm doing what it needs to do.">
-<meta property="og:title" content="Fix npm cannot install packages">
-<meta property="og:description" content="Recently I experienced an issue with NPM, I couldn&rsquo;t install any packages. I found some suggestions on google to upgrade npm but npm install -g npm didn&rsquo;t work either. After some debugging and searching on npm repo issues, I finally found a temporary solution.
-If you need the solution, you can go straight to Solution and come back to read my findings later while npm doing what it needs to do.">
-<meta property="og:type" content="article">
-<meta property="og:url" content="http://sytranvn.dev/posts/fix-npm-cannot-install-packages/"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2023-05-29T19:53:52+07:00">
-<meta property="article:modified_time" content="2023-05-29T19:53:52+07:00">
-<link rel=canonical href=http://sytranvn.dev/posts/fix-npm-cannot-install-packages/>
-<link rel=preload href=/fonts/fa-brands-400.woff2 as=font type=font/woff2 crossorigin>
-<link rel=preload href=/fonts/fa-regular-400.woff2 as=font type=font/woff2 crossorigin>
-<link rel=preload href=/fonts/fa-solid-900.woff2 as=font type=font/woff2 crossorigin>
-<link rel=stylesheet href=/css/coder.min.38c4552ac40f9ae3408bad40358f654ebd8804412fe74ed56f2d6c8a7af82dd3.css integrity="sha256-OMRVKsQPmuNAi61ANY9lTr2IBEEv507Vby1sinr4LdM=" crossorigin=anonymous media=screen>
-<link rel=stylesheet href=/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin=anonymous media=screen>
-<link rel=stylesheet href=/css/custom.min.e01fd2443128634dc9cf70bef26c23d851bd25b3bb24cf183925fcc0e318f691.css integrity="sha256-4B/SRDEoY03Jz3C+8mwj2FG9JbO7JM8YOSX8wOMY9pE=" crossorigin=anonymous media=screen>
-<link rel=icon type=image/svg+xml href=/images/favicon.svg sizes=any>
-<link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32>
-<link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16>
-<link rel=apple-touch-icon href=/images/apple-touch-icon.png>
-<link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png>
-<link rel=manifest href=/site.webmanifest>
-<link rel=mask-icon href=/images/safari-pinned-tab.svg color=#5bbad5>
-</head>
-<body class="preload-transitions colorscheme-dark">
-<main class=wrapper>
-<nav class=navigation>
-<section class=container>
-<a class=navigation-title href=http://sytranvn.dev/>
-sytranvn.dev
-</a>
-<input type=checkbox id=menu-toggle>
-<label class="menu-button float-right" for=menu-toggle>
-<i class="fa-solid fa-bars fa-fw" aria-hidden=true></i>
-</label>
-<ul class=navigation-list>
-<li class=navigation-item>
-<a class=navigation-link href=/now/>Now</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/posts/>Blog</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/projects/>Projects</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/i-heart-oss/>I ❤️ OSS</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/accomplishments/>Accomplishments</a>
-</li>
-<li class=navigation-item>
-<a class=navigation-link href=/resume.pdf>Resume</a>
-</li>
-</ul>
-</section>
-</nav>
-<div class=content>
-<section class="container post">
-<article>
-<header>
-<div class=post-title>
-<h1 class=title>
-<a class=title-link href=http://sytranvn.dev/posts/fix-npm-cannot-install-packages/>
-Fix npm cannot install packages
-</a>
-</h1>
-</div>
-<div class=post-meta>
-<div class=date>
-<span class=posted-on>
-<i class="fa-solid fa-calendar" aria-hidden=true></i>
-<time datetime=" 2023-05-29T19:53:52+07:00">
-May 29, 2023
-</time>
-</span>
-<span class=reading-time>
-<i class="fa-solid fa-clock" aria-hidden=true></i>
-6-minute read
-</span>
-</div>
-<div class=categories>
-<i class="fa-solid fa-folder" aria-hidden=true></i>
-<a href=/categories/javascript/>javascript</a></div>
-<div class=tags>
-<i class="fa-solid fa-tag" aria-hidden=true></i>
-<span class=tag>
-<a href=/tags/node/>node</a>
-</span>
-<span class=separator>•</span>
-<span class=tag>
-<a href=/tags/js/>js</a>
-</span>
-<span class=separator>•</span>
-<span class=tag>
-<a href=/tags/npm/>npm</a>
-</span></div>
-</div>
-</header>
-<div class=post-content>
-<p>Recently I experienced an issue with NPM, I couldn&rsquo;t install any packages. I found some
+<!doctype html><html lang=en><head><title>Fix npm cannot install packages · sytranvn.dev
+</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=color-scheme content="light dark"><meta name=author content="Sy Tran"><meta name=description content="Recently I experienced an issue with NPM, I couldn&rsquo;t install any packages. I found some
+suggestions on google to upgrade npm but npm install -g npm didn&rsquo;t work either. After some
+debugging and searching on npm repo issues, I finally found a temporary solution.
+If you need the solution, you can go straight to Solution and come back to read my findings later while npm doing what
+it needs to do."><meta name=keywords content="blog,developer,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="Fix npm cannot install packages"><meta name=twitter:description content="Recently I experienced an issue with NPM, I couldn’t install any packages. I found some suggestions on google to upgrade npm but npm install -g npm didn’t work either. After some debugging and searching on npm repo issues, I finally found a temporary solution.
+If you need the solution, you can go straight to Solution and come back to read my findings later while npm doing what it needs to do."><meta property="og:url" content="http://sytranvn.dev/posts/fix-npm-cannot-install-packages/"><meta property="og:site_name" content="sytranvn.dev"><meta property="og:title" content="Fix npm cannot install packages"><meta property="og:description" content="Recently I experienced an issue with NPM, I couldn’t install any packages. I found some suggestions on google to upgrade npm but npm install -g npm didn’t work either. After some debugging and searching on npm repo issues, I finally found a temporary solution.
+If you need the solution, you can go straight to Solution and come back to read my findings later while npm doing what it needs to do."><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2023-05-29T19:53:52+07:00"><meta property="article:modified_time" content="2023-05-29T19:53:52+07:00"><meta property="article:tag" content="Node"><meta property="article:tag" content="Js"><meta property="article:tag" content="Npm"><link rel=canonical href=http://sytranvn.dev/posts/fix-npm-cannot-install-packages/><link rel=preload href=/fonts/fa-brands-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/fa-regular-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/fa-solid-900.woff2 as=font type=font/woff2 crossorigin><link rel=stylesheet href=/css/coder.min.ed30115a76cdaa62f2229e973d5b1c89b2d3dd4b1d9c07a729baad06aa3b0cbe.css integrity="sha256-7TARWnbNqmLyIp6XPVscibLT3UsdnAenKbqtBqo7DL4=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/custom.min.e01fd2443128634dc9cf70bef26c23d851bd25b3bb24cf183925fcc0e318f691.css integrity="sha256-4B/SRDEoY03Jz3C+8mwj2FG9JbO7JM8YOSX8wOMY9pE=" crossorigin=anonymous media=screen><link rel=icon type=image/svg+xml href=/images/favicon.svg sizes=any><link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16><link rel=apple-touch-icon href=/images/apple-touch-icon.png><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/images/safari-pinned-tab.svg color=#5bbad5></head><body class="preload-transitions colorscheme-dark"><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=http://sytranvn.dev/>sytranvn.dev
+</a><input type=checkbox id=menu-toggle>
+<label class="menu-button float-right" for=menu-toggle><i class="fa-solid fa-bars fa-fw" aria-hidden=true></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=/now/>Now</a></li><li class=navigation-item><a class=navigation-link href=/posts/>Blog</a></li><li class=navigation-item><a class=navigation-link href=/projects/>Projects</a></li><li class=navigation-item><a class=navigation-link href=/i-heart-oss/>I ❤️ OSS</a></li><li class=navigation-item><a class=navigation-link href=/accomplishments/>Accomplishments</a></li><li class=navigation-item><a class=navigation-link href=/resume.pdf>Resume</a></li></ul></section></nav><div class=content><section class="container post"><article><header><div class=post-title><h1 class=title><a class=title-link href=http://sytranvn.dev/posts/fix-npm-cannot-install-packages/>Fix npm cannot install packages</a></h1></div><div class=post-meta><div class=date><span class=posted-on><i class="fa-solid fa-calendar" aria-hidden=true></i>
+<time datetime=2023-05-29T19:53:52+07:00>May 29, 2023
+</time></span><span class=reading-time><i class="fa-solid fa-clock" aria-hidden=true></i>
+6-minute read</span></div><div class=categories><i class="fa-solid fa-folder" aria-hidden=true></i>
+<a href=/categories/javascript/>Javascript</a></div><div class=tags><i class="fa-solid fa-tag" aria-hidden=true></i>
+<span class=tag><a href=/tags/node/>Node</a>
+</span><span class=separator>•</span>
+<span class=tag><a href=/tags/js/>Js</a>
+</span><span class=separator>•</span>
+<span class=tag><a href=/tags/npm/>Npm</a></span></div></div></header><div class=post-content><p>Recently I experienced an issue with NPM, I couldn&rsquo;t install any packages. I found some
 suggestions on google to upgrade <code>npm</code> but <code>npm install -g npm</code> didn&rsquo;t work either. After some
-debugging and searching on npm repo issues, I finally found a temporary solution.</p>
-<p>If you need the solution, you can go straight to <a href=#solution>Solution</a> and come back to read my findings later while npm doing what
-it needs to do.</p>
-<p>At first, when I tried installing packages for a cloned repository. I got following log.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>npm ERR! code ERR_SOCKET_TIMEOUT
-npm ERR! network Socket timeout
-npm ERR! network This is a problem related to network connectivity.
-npm ERR! network In most cases you are behind a proxy or have bad network settings.
-npm ERR! network 
-npm ERR! network If you are behind a proxy, please make sure that the
-npm ERR! network &#39;proxy&#39; config is set properly.  See: &#39;npm help config&#39;
-
-npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/node/.npm/_logs/2023-05-29T10_05_11_383Z-debug-0.log
-</code></pre></div><p>It looked like
+debugging and searching on npm repo issues, I finally found a temporary solution.</p><p>If you need the solution, you can go straight to <a href=#solution>Solution</a> and come back to read my findings later while npm doing what
+it needs to do.</p><p>At first, when I tried installing packages for a cloned repository. I got following log.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>npm ERR! code ERR_SOCKET_TIMEOUT
+</span></span><span style=display:flex><span>npm ERR! network Socket timeout
+</span></span><span style=display:flex><span>npm ERR! network This is a problem related to network connectivity.
+</span></span><span style=display:flex><span>npm ERR! network In most cases you are behind a proxy or have bad network settings.
+</span></span><span style=display:flex><span>npm ERR! network 
+</span></span><span style=display:flex><span>npm ERR! network If you are behind a proxy, please make sure that the
+</span></span><span style=display:flex><span>npm ERR! network &#39;proxy&#39; config is set properly.  See: &#39;npm help config&#39;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>npm ERR! A complete log of this run can be found in:
+</span></span><span style=display:flex><span>npm ERR!     /home/node/.npm/_logs/2023-05-29T10_05_11_383Z-debug-0.log
+</span></span></code></pre></div><p>It looked like
 I have some network problem. But I could browse npm and go to <a href=https://registry.npmjs.org class=external-link target=_blank rel=noopener>https://registry.npmjs.org</a> ok. So I didn&rsquo;t
-understand why it happened.</p>
-<p>I tried to run the command again with more debugging info</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>npm i -g npm --verbose
-npm verb cli /home/sytran/.nvm/versions/node/v18.16.0/bin/node /home/sytran/.nvm/versions/node/
-v18.16.0/bin/npm
-npm info using npm@9.5.1
-npm info using node@v18.16.0
-npm verb title npm i npm
-npm verb argv <span style=color:#e6db74>&#34;i&#34;</span> <span style=color:#e6db74>&#34;--global&#34;</span> <span style=color:#e6db74>&#34;npm&#34;</span> <span style=color:#e6db74>&#34;--loglevel&#34;</span> <span style=color:#e6db74>&#34;verbose&#34;</span>
-npm verb logfile logs-max:10 dir:/home/sytran/.npm/_logs/2023-05-29T10_26_47_469Z-
-npm verb logfile /home/sytran/.npm/_logs/2023-05-29T10_26_47_469Z-debug-0.log
-^C
-</code></pre></div><p>And also <code>tail</code>ing the log file to quickly identify any issues</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>tail -f -n <span style=color:#ae81ff>100</span>  /home/sytran/.npm/_logs/2023-05-29T10_26_47_469Z-debug-0.log
-<span style=color:#ae81ff>0</span> verbose cli /home/sytran/.nvm/versions/node/v18.16.0/bin/node /home/sytran/.nvm/versions/node/v18.16.0/bin/npm
-<span style=color:#ae81ff>1</span> info using npm@9.5.1
-<span style=color:#ae81ff>2</span> info using node@v18.16.0
-<span style=color:#ae81ff>3</span> timing npm:load:whichnode Completed in 1ms
-<span style=color:#ae81ff>4</span> timing config:load:defaults Completed in 2ms
-<span style=color:#ae81ff>5</span> timing config:load:file:/home/sytran/.nvm/versions/node/v18.16.0/lib/node_modules/npm/npmrc Completed in 0ms
-<span style=color:#ae81ff>6</span> timing config:load:builtin Completed in 0ms
-<span style=color:#ae81ff>7</span> timing config:load:cli Completed in 2ms
-<span style=color:#ae81ff>8</span> timing config:load:env Completed in 0ms
-<span style=color:#ae81ff>9</span> timing config:load:project Completed in 1ms
-<span style=color:#ae81ff>10</span> timing config:load:file:/home/sytran/.npmrc Completed in 1ms
-<span style=color:#ae81ff>11</span> timing config:load:user Completed in 1ms
-<span style=color:#ae81ff>12</span> timing config:load:file:/home/sytran/.nvm/versions/node/v18.16.0/etc/npmrc Completed in 1ms
-<span style=color:#ae81ff>13</span> timing config:load:global Completed in 1ms
-<span style=color:#ae81ff>14</span> timing config:load:setEnvs Completed in 1ms
-<span style=color:#ae81ff>15</span> timing config:load Completed in 8ms
-<span style=color:#ae81ff>16</span> timing npm:load:configload Completed in 8ms
-<span style=color:#ae81ff>17</span> timing npm:load:mkdirpcache Completed in 0ms
-<span style=color:#ae81ff>18</span> timing npm:load:mkdirplogs Completed in 0ms
-<span style=color:#ae81ff>19</span> verbose title npm i npm
-<span style=color:#ae81ff>20</span> verbose argv <span style=color:#e6db74>&#34;i&#34;</span> <span style=color:#e6db74>&#34;--global&#34;</span> <span style=color:#e6db74>&#34;npm&#34;</span> <span style=color:#e6db74>&#34;--loglevel&#34;</span> <span style=color:#e6db74>&#34;verbose&#34;</span>
-<span style=color:#ae81ff>21</span> timing npm:load:setTitle Completed in 1ms
-<span style=color:#ae81ff>22</span> timing config:load:flatten Completed in 3ms
-<span style=color:#ae81ff>23</span> timing npm:load:display Completed in 5ms
-<span style=color:#ae81ff>24</span> verbose logfile logs-max:10 dir:/home/sytran/.npm/_logs/2023-05-29T10_26_47_469Z-
-<span style=color:#ae81ff>25</span> verbose logfile /home/sytran/.npm/_logs/2023-05-29T10_26_47_469Z-debug-0.log
-<span style=color:#ae81ff>26</span> timing npm:load:logFile Completed in 5ms
-<span style=color:#ae81ff>27</span> timing npm:load:timers Completed in 0ms
-<span style=color:#ae81ff>28</span> timing npm:load:configScope Completed in 0ms
-<span style=color:#ae81ff>29</span> timing npm:load Completed in 20ms
-<span style=color:#ae81ff>30</span> timing config:load:flatten Completed in 0ms
-</code></pre></div><p>Because it took too long freezing, I decided to log everything and let it run. And I just went to
-swimming pool for the next hour 🏊 🏊</p>
-<div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4>
-<table style=border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block><tr><td style=vertical-align:top;padding:0;margin:0;border:0>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
-</span><span style=display:block;width:100%;background-color:#3c3d38><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
-</span></span><span style=display:block;width:100%;background-color:#3c3d38><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
-</span></span><span style=display:block;width:100%;background-color:#3c3d38><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
-</span></span><span style=display:block;width:100%;background-color:#3c3d38><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">28
-</span></span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">29
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">30
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">31
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">32
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">33
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">34
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">35
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">36
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">37
-</span><span style="margin-right:.4em;padding:0 .4em;color:#7f7f7f">38
-</span></code></pre></td>
-<td style=vertical-align:top;padding:0;margin:0;border:0;width:100%>
-<pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ npm i -g npm -ddd
-npm verb cli /home/sytran/.nvm/versions/node/v18.16.0/bin/node /home/sytran/.nvm/versions/node/v18.16.0/bin/npm
-npm info using npm@9.5.1
-npm info using node@v18.16.0
-npm verb title npm i npm
-npm verb argv <span style=color:#e6db74>&#34;i&#34;</span> <span style=color:#e6db74>&#34;--global&#34;</span> <span style=color:#e6db74>&#34;npm&#34;</span> <span style=color:#e6db74>&#34;--loglevel&#34;</span> <span style=color:#e6db74>&#34;silly&#34;</span>
-npm verb logfile logs-max:10 dir:/home/sytran/.npm/_logs/2023-05-29T10_32_29_127Z-
-npm verb logfile /home/sytran/.npm/_logs/2023-05-29T10_32_29_127Z-debug-0.log
-npm sill logfile start cleaning logs, removing 
-<span style=color:#ae81ff>2</span> files
-npm sill logfile <span style=color:#66d9ef>done</span> cleaning log files
-npm verb type system
-npm verb stack FetchError: request to https://registry.npmjs.org/npm failed, reason: connect ETIMEDOUT 2606:4700::6810:1723:443
-npm verb stack     at ClientRequest.&lt;anonymous&gt; <span style=color:#f92672>(</span>/home/sytran/.nvm/versions/node/v18.16.0/lib/node_modules/npm/node_modules/minipass-fetch/lib/index.js:130:14<span style=color:#f92672>)</span>
-npm verb stack     at ClientRequest.emit <span style=color:#f92672>(</span>node:events:513:28<span style=color:#f92672>)</span>
-npm verb stack     at TLSSocket.socketErrorListener <span style=color:#f92672>(</span>node:_http_client:502:9<span style=color:#f92672>)</span>
-npm verb stack     at TLSSocket.emit <span style=color:#f92672>(</span>node:events:525:35<span style=color:#f92672>)</span>
-npm verb stack     at emitErrorNT <span style=color:#f92672>(</span>node:internal/streams/destroy:151:8<span style=color:#f92672>)</span>
-npm verb stack     at emitErrorCloseNT <span style=color:#f92672>(</span>node:internal/streams/destroy:116:3<span style=color:#f92672>)</span>
-npm verb stack     at process.processTicksAndRejections <span style=color:#f92672>(</span>node:internal/process/task_queues:82:21<span style=color:#f92672>)</span>
-npm verb cwd /home/sytran/Work/athena/exchange_service
-npm verb Linux 5.15.0-72-generic
-npm verb node v18.16.0
-npm verb npm  v9.5.1
-<span style=display:block;width:100%;background-color:#3c3d38>npm ERR! code ETIMEDOUT
-</span><span style=display:block;width:100%;background-color:#3c3d38>npm ERR! syscall connect
-</span><span style=display:block;width:100%;background-color:#3c3d38>npm ERR! errno ETIMEDOUT
-</span><span style=display:block;width:100%;background-color:#3c3d38>npm ERR! network request to https://registry.npmjs.org/npm failed, reason: connect ETIMEDOUT 2606:4700::6810:1723:443
-</span>npm ERR! network This is a problem related to network connectivity.
-npm ERR! network In most cases you are behind a proxy or have bad network settings.
-npm ERR! network 
-npm ERR! network If you are behind a proxy, please make sure that the
-npm ERR! network <span style=color:#e6db74>&#39;proxy&#39;</span> config is set properly.  See: <span style=color:#e6db74>&#39;npm help config&#39;</span>
-npm verb exit <span style=color:#ae81ff>1</span>
-npm verb code <span style=color:#ae81ff>1</span>
-
-npm ERR! A complete log of this run can be found in:
-npm ERR!     /home/sytran/.npm/_logs/2023-05-29T10_32_29_127Z-debug-0.log
-</code></pre></td></tr></table>
-</div>
-</div><p>I realised registry.npmjs.org resolved to an IPv6, and that could be the problem. Maybe it was not correct IP. I did
-a <code>nslookup</code> to confirm.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback>nslookup registry.npmjs.org
-Server:		127.0.0.53
-Address:	127.0.0.53#53
-
-Non-authoritative answer:
-Name:	registry.npmjs.org
-Address: 104.16.26.35
-Name:	registry.npmjs.org
-Address: 104.16.24.35
-Name:	registry.npmjs.org
-Address: 104.16.18.35
-Name:	registry.npmjs.org
-Address: 104.16.21.35
-Name:	registry.npmjs.org
-Address: 104.16.27.35
-Name:	registry.npmjs.org
-Address: 104.16.17.35
-Name:	registry.npmjs.org
-Address: 104.16.23.35
-Name:	registry.npmjs.org
-Address: 104.16.20.35
-Name:	registry.npmjs.org
-Address: 104.16.19.35
-Name:	registry.npmjs.org
-Address: 104.16.22.35
-Name:	registry.npmjs.org
-Address: 104.16.25.35
-Name:	registry.npmjs.org
-Address: 104.16.16.35
-Name:	registry.npmjs.org
-Address: 2606:4700::6810:1423
-Name:	registry.npmjs.org
-Address: 2606:4700::6810:1123
-Name:	registry.npmjs.org
-Address: 2606:4700::6810:1523
-Name:	registry.npmjs.org
-Address: 2606:4700::6810:1b23
-Name:	registry.npmjs.org
-Address: 2606:4700::6810:1623
-Name:	registry.npmjs.org
-Address: 2606:4700::6810:1023
-Name:	registry.npmjs.org
-Address: 2606:4700::6810:1923
-Name:	registry.npmjs.org
-Address: 2606:4700::6810:1323
-Name:	registry.npmjs.org
-Address: 2606:4700::6810:1723
-Name:	registry.npmjs.org
-Address: 2606:4700::6810:1223
-Name:	registry.npmjs.org
-Address: 2606:4700::6810:1823
-Name:	registry.npmjs.org
-Address: 2606:4700::6810:1a23
-</code></pre></div><p>Well, there was not one but many IPv6 ones, so that couldn&rsquo;t be wrong. But I couldn&rsquo;t ping any of them.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>ping -c <span style=color:#ae81ff>1</span> 2606:4700::6810:1a23
-PING 2606:4700::6810:1a23<span style=color:#f92672>(</span>2606:4700::6810:1a23<span style=color:#f92672>)</span> <span style=color:#ae81ff>56</span> data bytes
-^C
---- 2606:4700::6810:1a23 ping statistics ---
-<span style=color:#ae81ff>1</span> packets transmitted, <span style=color:#ae81ff>0</span> received, 100% packet loss, time 0ms
-</code></pre></div><p>But I can still ping IPv4 ok.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>ping -c <span style=color:#ae81ff>1</span> 104.16.26.35
-PING 104.16.26.35 <span style=color:#f92672>(</span>104.16.26.35<span style=color:#f92672>)</span> 56<span style=color:#f92672>(</span>84<span style=color:#f92672>)</span> bytes of data.
-<span style=color:#ae81ff>64</span> bytes from 104.16.26.35: icmp_seq<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span> ttl<span style=color:#f92672>=</span><span style=color:#ae81ff>56</span> time<span style=color:#f92672>=</span>29.2 ms
-
---- 104.16.26.35 ping statistics ---
-<span style=color:#ae81ff>1</span> packets transmitted, <span style=color:#ae81ff>1</span> received, 0% packet loss, time 0ms
-rtt min/avg/max/mdev <span style=color:#f92672>=</span> 29.157/29.157/29.157/0.000 ms
-</code></pre></div><p>At this point, I know I just need to disable the IPv6 DNS.
-So I just go straight into my <code>/etc/hosts</code> and edit it.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback># temporary fix for dns v6 issue. remove later
-104.16.26.35    registry.npmjs.org
-</code></pre></div><p>After that I could install all packages under a minute 😌</p>
-<p>But I couldn&rsquo;t stop there. Searching for NPM IPv6 issue, I found <a href=https://github.com/npm/cli/issues/4163 class=external-link target=_blank rel=noopener> this issue </a>
-on npm repo. Reading further I found <a href=https://github.com/npm/cli/issues/4163#issuecomment-1528127872 class=external-link target=_blank rel=noopener> the solution </a> comment.</p>
-<h2 id=solution>
-Solution
-<a class=heading-link href=#solution>
-<i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span>
-</a>
-</h2>
-<p>NPM registry has some IPv4 and IPv6 DNS records, but my ISP cannot resolve IPv6 address. So we need to force NPM to
-use IPv4 instead. Try <code>npm ping</code> with extra node options as follow.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ NODE_OPTIONS<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;--dns-result-order=ipv4first&#39;</span> npm ping registry.npmjs.org
-npm notice PING https://registry.npmjs.org/
-npm notice PONG 440ms
-</code></pre></div><p>If the ping success you can install packages with this command</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell>$ NODE_OPTIONS<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;--dns-result-order=ipv4first&#39;</span> npm install
-</code></pre></div><p>For longer term. We might need to wait for NPM to add a patch to fallback to IPv4 incase IPv6 doesn&rsquo;t work.
-Or change the ISP 😱</p>
-</div>
-<footer>
-</footer>
-</article>
-</section>
-</div>
-<footer class=footer>
-<section class=container>
-©
+understand why it happened.</p><p>I tried to run the command again with more debugging info</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>npm i -g npm --verbose
+</span></span><span style=display:flex><span>npm verb cli /home/sytran/.nvm/versions/node/v18.16.0/bin/node /home/sytran/.nvm/versions/node/
+</span></span><span style=display:flex><span>v18.16.0/bin/npm
+</span></span><span style=display:flex><span>npm info using npm@9.5.1
+</span></span><span style=display:flex><span>npm info using node@v18.16.0
+</span></span><span style=display:flex><span>npm verb title npm i npm
+</span></span><span style=display:flex><span>npm verb argv <span style=color:#e6db74>&#34;i&#34;</span> <span style=color:#e6db74>&#34;--global&#34;</span> <span style=color:#e6db74>&#34;npm&#34;</span> <span style=color:#e6db74>&#34;--loglevel&#34;</span> <span style=color:#e6db74>&#34;verbose&#34;</span>
+</span></span><span style=display:flex><span>npm verb logfile logs-max:10 dir:/home/sytran/.npm/_logs/2023-05-29T10_26_47_469Z-
+</span></span><span style=display:flex><span>npm verb logfile /home/sytran/.npm/_logs/2023-05-29T10_26_47_469Z-debug-0.log
+</span></span><span style=display:flex><span>^C
+</span></span></code></pre></div><p>And also <code>tail</code>ing the log file to quickly identify any issues</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>tail -f -n <span style=color:#ae81ff>100</span>  /home/sytran/.npm/_logs/2023-05-29T10_26_47_469Z-debug-0.log
+</span></span><span style=display:flex><span><span style=color:#ae81ff>0</span> verbose cli /home/sytran/.nvm/versions/node/v18.16.0/bin/node /home/sytran/.nvm/versions/node/v18.16.0/bin/npm
+</span></span><span style=display:flex><span><span style=color:#ae81ff>1</span> info using npm@9.5.1
+</span></span><span style=display:flex><span><span style=color:#ae81ff>2</span> info using node@v18.16.0
+</span></span><span style=display:flex><span><span style=color:#ae81ff>3</span> timing npm:load:whichnode Completed in 1ms
+</span></span><span style=display:flex><span><span style=color:#ae81ff>4</span> timing config:load:defaults Completed in 2ms
+</span></span><span style=display:flex><span><span style=color:#ae81ff>5</span> timing config:load:file:/home/sytran/.nvm/versions/node/v18.16.0/lib/node_modules/npm/npmrc Completed in 0ms
+</span></span><span style=display:flex><span><span style=color:#ae81ff>6</span> timing config:load:builtin Completed in 0ms
+</span></span><span style=display:flex><span><span style=color:#ae81ff>7</span> timing config:load:cli Completed in 2ms
+</span></span><span style=display:flex><span><span style=color:#ae81ff>8</span> timing config:load:env Completed in 0ms
+</span></span><span style=display:flex><span><span style=color:#ae81ff>9</span> timing config:load:project Completed in 1ms
+</span></span><span style=display:flex><span><span style=color:#ae81ff>10</span> timing config:load:file:/home/sytran/.npmrc Completed in 1ms
+</span></span><span style=display:flex><span><span style=color:#ae81ff>11</span> timing config:load:user Completed in 1ms
+</span></span><span style=display:flex><span><span style=color:#ae81ff>12</span> timing config:load:file:/home/sytran/.nvm/versions/node/v18.16.0/etc/npmrc Completed in 1ms
+</span></span><span style=display:flex><span><span style=color:#ae81ff>13</span> timing config:load:global Completed in 1ms
+</span></span><span style=display:flex><span><span style=color:#ae81ff>14</span> timing config:load:setEnvs Completed in 1ms
+</span></span><span style=display:flex><span><span style=color:#ae81ff>15</span> timing config:load Completed in 8ms
+</span></span><span style=display:flex><span><span style=color:#ae81ff>16</span> timing npm:load:configload Completed in 8ms
+</span></span><span style=display:flex><span><span style=color:#ae81ff>17</span> timing npm:load:mkdirpcache Completed in 0ms
+</span></span><span style=display:flex><span><span style=color:#ae81ff>18</span> timing npm:load:mkdirplogs Completed in 0ms
+</span></span><span style=display:flex><span><span style=color:#ae81ff>19</span> verbose title npm i npm
+</span></span><span style=display:flex><span><span style=color:#ae81ff>20</span> verbose argv <span style=color:#e6db74>&#34;i&#34;</span> <span style=color:#e6db74>&#34;--global&#34;</span> <span style=color:#e6db74>&#34;npm&#34;</span> <span style=color:#e6db74>&#34;--loglevel&#34;</span> <span style=color:#e6db74>&#34;verbose&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#ae81ff>21</span> timing npm:load:setTitle Completed in 1ms
+</span></span><span style=display:flex><span><span style=color:#ae81ff>22</span> timing config:load:flatten Completed in 3ms
+</span></span><span style=display:flex><span><span style=color:#ae81ff>23</span> timing npm:load:display Completed in 5ms
+</span></span><span style=display:flex><span><span style=color:#ae81ff>24</span> verbose logfile logs-max:10 dir:/home/sytran/.npm/_logs/2023-05-29T10_26_47_469Z-
+</span></span><span style=display:flex><span><span style=color:#ae81ff>25</span> verbose logfile /home/sytran/.npm/_logs/2023-05-29T10_26_47_469Z-debug-0.log
+</span></span><span style=display:flex><span><span style=color:#ae81ff>26</span> timing npm:load:logFile Completed in 5ms
+</span></span><span style=display:flex><span><span style=color:#ae81ff>27</span> timing npm:load:timers Completed in 0ms
+</span></span><span style=display:flex><span><span style=color:#ae81ff>28</span> timing npm:load:configScope Completed in 0ms
+</span></span><span style=display:flex><span><span style=color:#ae81ff>29</span> timing npm:load Completed in 20ms
+</span></span><span style=display:flex><span><span style=color:#ae81ff>30</span> timing config:load:flatten Completed in 0ms
+</span></span></code></pre></div><p>Because it took too long freezing, I decided to log everything and let it run. And I just went to
+swimming pool for the next hour 🏊 🏊</p><div class=highlight><div style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid><table style=border-spacing:0;padding:0;margin:0;border:0><tr><td style=vertical-align:top;padding:0;margin:0;border:0><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">24
+</span><span style=background-color:#3c3d38><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">25
+</span></span><span style=background-color:#3c3d38><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">26
+</span></span><span style=background-color:#3c3d38><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">27
+</span></span><span style=background-color:#3c3d38><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">28
+</span></span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">37
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f7f7f">38
+</span></code></pre></td><td style=vertical-align:top;padding:0;margin:0;border:0;width:100%><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid><code class=language-shell data-lang=shell><span style=display:flex><span>$ npm i -g npm -ddd
+</span></span><span style=display:flex><span>npm verb cli /home/sytran/.nvm/versions/node/v18.16.0/bin/node /home/sytran/.nvm/versions/node/v18.16.0/bin/npm
+</span></span><span style=display:flex><span>npm info using npm@9.5.1
+</span></span><span style=display:flex><span>npm info using node@v18.16.0
+</span></span><span style=display:flex><span>npm verb title npm i npm
+</span></span><span style=display:flex><span>npm verb argv <span style=color:#e6db74>&#34;i&#34;</span> <span style=color:#e6db74>&#34;--global&#34;</span> <span style=color:#e6db74>&#34;npm&#34;</span> <span style=color:#e6db74>&#34;--loglevel&#34;</span> <span style=color:#e6db74>&#34;silly&#34;</span>
+</span></span><span style=display:flex><span>npm verb logfile logs-max:10 dir:/home/sytran/.npm/_logs/2023-05-29T10_32_29_127Z-
+</span></span><span style=display:flex><span>npm verb logfile /home/sytran/.npm/_logs/2023-05-29T10_32_29_127Z-debug-0.log
+</span></span><span style=display:flex><span>npm sill logfile start cleaning logs, removing 
+</span></span><span style=display:flex><span><span style=color:#ae81ff>2</span> files
+</span></span><span style=display:flex><span>npm sill logfile <span style=color:#66d9ef>done</span> cleaning log files
+</span></span><span style=display:flex><span>npm verb type system
+</span></span><span style=display:flex><span>npm verb stack FetchError: request to https://registry.npmjs.org/npm failed, reason: connect ETIMEDOUT 2606:4700::6810:1723:443
+</span></span><span style=display:flex><span>npm verb stack     at ClientRequest.&lt;anonymous&gt; <span style=color:#f92672>(</span>/home/sytran/.nvm/versions/node/v18.16.0/lib/node_modules/npm/node_modules/minipass-fetch/lib/index.js:130:14<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>npm verb stack     at ClientRequest.emit <span style=color:#f92672>(</span>node:events:513:28<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>npm verb stack     at TLSSocket.socketErrorListener <span style=color:#f92672>(</span>node:_http_client:502:9<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>npm verb stack     at TLSSocket.emit <span style=color:#f92672>(</span>node:events:525:35<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>npm verb stack     at emitErrorNT <span style=color:#f92672>(</span>node:internal/streams/destroy:151:8<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>npm verb stack     at emitErrorCloseNT <span style=color:#f92672>(</span>node:internal/streams/destroy:116:3<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>npm verb stack     at process.processTicksAndRejections <span style=color:#f92672>(</span>node:internal/process/task_queues:82:21<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>npm verb cwd /home/sytran/Work/athena/exchange_service
+</span></span><span style=display:flex><span>npm verb Linux 5.15.0-72-generic
+</span></span><span style=display:flex><span>npm verb node v18.16.0
+</span></span><span style=display:flex><span>npm verb npm  v9.5.1
+</span></span><span style=display:flex;background-color:#3c3d38><span>npm ERR! code ETIMEDOUT
+</span></span><span style=display:flex;background-color:#3c3d38><span>npm ERR! syscall connect
+</span></span><span style=display:flex;background-color:#3c3d38><span>npm ERR! errno ETIMEDOUT
+</span></span><span style=display:flex;background-color:#3c3d38><span>npm ERR! network request to https://registry.npmjs.org/npm failed, reason: connect ETIMEDOUT 2606:4700::6810:1723:443
+</span></span><span style=display:flex><span>npm ERR! network This is a problem related to network connectivity.
+</span></span><span style=display:flex><span>npm ERR! network In most cases you are behind a proxy or have bad network settings.
+</span></span><span style=display:flex><span>npm ERR! network 
+</span></span><span style=display:flex><span>npm ERR! network If you are behind a proxy, please make sure that the
+</span></span><span style=display:flex><span>npm ERR! network <span style=color:#e6db74>&#39;proxy&#39;</span> config is set properly.  See: <span style=color:#e6db74>&#39;npm help config&#39;</span>
+</span></span><span style=display:flex><span>npm verb exit <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>npm verb code <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>npm ERR! A complete log of this run can be found in:
+</span></span><span style=display:flex><span>npm ERR!     /home/sytran/.npm/_logs/2023-05-29T10_32_29_127Z-debug-0.log
+</span></span></code></pre></td></tr></table></div></div><p>I realised registry.npmjs.org resolved to an IPv6, and that could be the problem. Maybe it was not correct IP. I did
+a <code>nslookup</code> to confirm.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span>nslookup registry.npmjs.org
+</span></span><span style=display:flex><span>Server:		127.0.0.53
+</span></span><span style=display:flex><span>Address:	127.0.0.53#53
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>Non-authoritative answer:
+</span></span><span style=display:flex><span>Name:	registry.npmjs.org
+</span></span><span style=display:flex><span>Address: 104.16.26.35
+</span></span><span style=display:flex><span>Name:	registry.npmjs.org
+</span></span><span style=display:flex><span>Address: 104.16.24.35
+</span></span><span style=display:flex><span>Name:	registry.npmjs.org
+</span></span><span style=display:flex><span>Address: 104.16.18.35
+</span></span><span style=display:flex><span>Name:	registry.npmjs.org
+</span></span><span style=display:flex><span>Address: 104.16.21.35
+</span></span><span style=display:flex><span>Name:	registry.npmjs.org
+</span></span><span style=display:flex><span>Address: 104.16.27.35
+</span></span><span style=display:flex><span>Name:	registry.npmjs.org
+</span></span><span style=display:flex><span>Address: 104.16.17.35
+</span></span><span style=display:flex><span>Name:	registry.npmjs.org
+</span></span><span style=display:flex><span>Address: 104.16.23.35
+</span></span><span style=display:flex><span>Name:	registry.npmjs.org
+</span></span><span style=display:flex><span>Address: 104.16.20.35
+</span></span><span style=display:flex><span>Name:	registry.npmjs.org
+</span></span><span style=display:flex><span>Address: 104.16.19.35
+</span></span><span style=display:flex><span>Name:	registry.npmjs.org
+</span></span><span style=display:flex><span>Address: 104.16.22.35
+</span></span><span style=display:flex><span>Name:	registry.npmjs.org
+</span></span><span style=display:flex><span>Address: 104.16.25.35
+</span></span><span style=display:flex><span>Name:	registry.npmjs.org
+</span></span><span style=display:flex><span>Address: 104.16.16.35
+</span></span><span style=display:flex><span>Name:	registry.npmjs.org
+</span></span><span style=display:flex><span>Address: 2606:4700::6810:1423
+</span></span><span style=display:flex><span>Name:	registry.npmjs.org
+</span></span><span style=display:flex><span>Address: 2606:4700::6810:1123
+</span></span><span style=display:flex><span>Name:	registry.npmjs.org
+</span></span><span style=display:flex><span>Address: 2606:4700::6810:1523
+</span></span><span style=display:flex><span>Name:	registry.npmjs.org
+</span></span><span style=display:flex><span>Address: 2606:4700::6810:1b23
+</span></span><span style=display:flex><span>Name:	registry.npmjs.org
+</span></span><span style=display:flex><span>Address: 2606:4700::6810:1623
+</span></span><span style=display:flex><span>Name:	registry.npmjs.org
+</span></span><span style=display:flex><span>Address: 2606:4700::6810:1023
+</span></span><span style=display:flex><span>Name:	registry.npmjs.org
+</span></span><span style=display:flex><span>Address: 2606:4700::6810:1923
+</span></span><span style=display:flex><span>Name:	registry.npmjs.org
+</span></span><span style=display:flex><span>Address: 2606:4700::6810:1323
+</span></span><span style=display:flex><span>Name:	registry.npmjs.org
+</span></span><span style=display:flex><span>Address: 2606:4700::6810:1723
+</span></span><span style=display:flex><span>Name:	registry.npmjs.org
+</span></span><span style=display:flex><span>Address: 2606:4700::6810:1223
+</span></span><span style=display:flex><span>Name:	registry.npmjs.org
+</span></span><span style=display:flex><span>Address: 2606:4700::6810:1823
+</span></span><span style=display:flex><span>Name:	registry.npmjs.org
+</span></span><span style=display:flex><span>Address: 2606:4700::6810:1a23
+</span></span></code></pre></div><p>Well, there was not one but many IPv6 ones, so that couldn&rsquo;t be wrong. But I couldn&rsquo;t ping any of them.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>ping -c <span style=color:#ae81ff>1</span> 2606:4700::6810:1a23
+</span></span><span style=display:flex><span>PING 2606:4700::6810:1a23<span style=color:#f92672>(</span>2606:4700::6810:1a23<span style=color:#f92672>)</span> <span style=color:#ae81ff>56</span> data bytes
+</span></span><span style=display:flex><span>^C
+</span></span><span style=display:flex><span>--- 2606:4700::6810:1a23 ping statistics ---
+</span></span><span style=display:flex><span><span style=color:#ae81ff>1</span> packets transmitted, <span style=color:#ae81ff>0</span> received, 100% packet loss, time 0ms
+</span></span></code></pre></div><p>But I can still ping IPv4 ok.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>ping -c <span style=color:#ae81ff>1</span> 104.16.26.35
+</span></span><span style=display:flex><span>PING 104.16.26.35 <span style=color:#f92672>(</span>104.16.26.35<span style=color:#f92672>)</span> 56<span style=color:#f92672>(</span>84<span style=color:#f92672>)</span> bytes of data.
+</span></span><span style=display:flex><span><span style=color:#ae81ff>64</span> bytes from 104.16.26.35: icmp_seq<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span> ttl<span style=color:#f92672>=</span><span style=color:#ae81ff>56</span> time<span style=color:#f92672>=</span>29.2 ms
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>--- 104.16.26.35 ping statistics ---
+</span></span><span style=display:flex><span><span style=color:#ae81ff>1</span> packets transmitted, <span style=color:#ae81ff>1</span> received, 0% packet loss, time 0ms
+</span></span><span style=display:flex><span>rtt min/avg/max/mdev <span style=color:#f92672>=</span> 29.157/29.157/29.157/0.000 ms
+</span></span></code></pre></div><p>At this point, I know I just need to disable the IPv6 DNS.
+So I just go straight into my <code>/etc/hosts</code> and edit it.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-fallback data-lang=fallback><span style=display:flex><span># temporary fix for dns v6 issue. remove later
+</span></span><span style=display:flex><span>104.16.26.35    registry.npmjs.org
+</span></span></code></pre></div><p>After that I could install all packages under a minute 😌</p><p>But I couldn&rsquo;t stop there. Searching for NPM IPv6 issue, I found <a href=https://github.com/npm/cli/issues/4163 class=external-link target=_blank rel=noopener>this issue </a>on npm repo. Reading further I found <a href=https://github.com/npm/cli/issues/4163#issuecomment-1528127872 class=external-link target=_blank rel=noopener>the solution </a>comment.</p><h2 id=solution>Solution
+<a class=heading-link href=#solution><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h2><p>NPM registry has some IPv4 and IPv6 DNS records, but my ISP cannot resolve IPv6 address. So we need to force NPM to
+use IPv4 instead. Try <code>npm ping</code> with extra node options as follow.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>$ NODE_OPTIONS<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;--dns-result-order=ipv4first&#39;</span> npm ping registry.npmjs.org
+</span></span><span style=display:flex><span>npm notice PING https://registry.npmjs.org/
+</span></span><span style=display:flex><span>npm notice PONG 440ms
+</span></span></code></pre></div><p>If the ping success you can install packages with this command</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>$ NODE_OPTIONS<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;--dns-result-order=ipv4first&#39;</span> npm install
+</span></span></code></pre></div><p>For longer term. We might need to wait for NPM to add a patch to fallback to IPv4 incase IPv6 doesn&rsquo;t work.
+Or change the ISP 😱</p></div><footer></footer></article></section></div><footer class=footer><section class=container>©
 2021 -
-2024
+2025
 Sy Tran
 ·
-Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.
-</section>
-</footer>
-</main>
-<script src=/js/coder.min.369d90111ae4409b4e51de5efd23a46b92663fcc82dc9a0efde7f70bffc3f949.js integrity="sha256-Np2QERrkQJtOUd5e/SOka5JmP8yC3JoO/ef3C//D+Uk="></script>
-</body>
-</html>
+Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.</section></footer></main><script src=/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script></body></html>
