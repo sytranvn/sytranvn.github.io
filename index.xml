@@ -1,4 +1,13 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>sytranvn.dev</title><link>http://sytranvn.dev/</link><description>Recent content on sytranvn.dev</description><generator>Hugo</generator><language>en</language><lastBuildDate>Sat, 13 Jul 2024 15:49:47 +0700</lastBuildDate><atom:link href="http://sytranvn.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Setup Desktop Environment on a Remote Server</title><link>http://sytranvn.dev/posts/setup-desktop-environment-on-a-remote-server/</link><pubDate>Sat, 13 Jul 2024 15:49:47 +0700</pubDate><guid>http://sytranvn.dev/posts/setup-desktop-environment-on-a-remote-server/</guid><description>&lt;p>&lt;img src="http://sytranvn.dev/posts/setup-desktop-environment-on-a-remote-server/remote-cloud.png" alt="server desktop">&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>sytranvn.dev</title><link>http://sytranvn.dev/</link><description>Recent content on sytranvn.dev</description><generator>Hugo</generator><language>en</language><lastBuildDate>Tue, 14 Jan 2025 11:25:29 +0700</lastBuildDate><atom:link href="http://sytranvn.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Vi Everything</title><link>http://sytranvn.dev/posts/vi-everything/</link><pubDate>Tue, 14 Jan 2025 11:25:29 +0700</pubDate><guid>http://sytranvn.dev/posts/vi-everything/</guid><description>&lt;p>Here&amp;rsquo;s the list of couple places that I enable &lt;code>vi&lt;/code> mode.&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>Bash shell
+&lt;code>set -o vi&lt;/code> I always enable bash movement mode in my &lt;code>.bashrc&lt;/code> file.
+With it set, I can switch between normal mode and edit mode by pressing &lt;code>ESC&lt;/code>.
+Editing works as any normal shell, but when switching to normal mode, I can
+use &lt;code>vi&lt;/code> movement keys like &lt;code>j, k, h, l, w, b, e, $, ^&lt;/code>, editing current
+line is also faster by using selectors such as &lt;code>cw, dw, C, D...&lt;/code>. One important
+note is that we are using &lt;code>vi&lt;/code> mode, so selectors like &lt;code>ciw, caw, ci(&lt;/code> does not work.&lt;/p></description></item><item><title>Setup Desktop Environment on a Remote Server</title><link>http://sytranvn.dev/posts/setup-desktop-environment-on-a-remote-server/</link><pubDate>Sat, 13 Jul 2024 15:49:47 +0700</pubDate><guid>http://sytranvn.dev/posts/setup-desktop-environment-on-a-remote-server/</guid><description>&lt;p>&lt;img src="http://sytranvn.dev/posts/setup-desktop-environment-on-a-remote-server/remote-cloud.png" alt="server desktop">&lt;/p>
 &lt;p>Most of the time when we work on a remote server, we only use &lt;code>ssh&lt;/code> to get
 access to the command line interface of remote host. And from there, we execute
 commands to various tasks.&lt;br>
