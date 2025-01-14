@@ -1,14 +1,7 @@
 <!doctype html><html lang=en><head><title>Modify Element in Zig 2D Array · sytranvn.dev
 </title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=color-scheme content="light dark"><meta name=author content="Sy Tran"><meta name=description content="So I&rsquo;m learning Zig and trying to write a Arkanoid game in Zig.
-I have to iterate through 2D array of bricks, check collision and update each brick status.
-This is easy to do with high level languages. With C++ vector, we can use range-based for loop like this.
-vector<vector<int>> items;
-for (auto & row : items) {
-        for (auto &amp;item: row) {
-                item += 1;
-        }
-}
-With C, we have to do this old fashion way by accessing each brick by i and j indexes."><meta name=keywords content="blog,developer,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="Modify Element in Zig 2D Array"><meta name=twitter:description content="So I’m learning Zig and trying to write a Arkanoid game in Zig.
+I have to iterate through 2D array of bricks, check collision and update each brick status. This is easy to do with high level languages. With C++ vector, we can use range-based for loop like this.
+vector<vector<int>> items; for (auto & row : items) { for (auto &amp;item: row) { item += 1; } } With C, we have to do this old fashion way by accessing each brick by i and j indexes."><meta name=keywords content="blog,developer,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="Modify Element in Zig 2D Array"><meta name=twitter:description content="So I’m learning Zig and trying to write a Arkanoid game in Zig.
 I have to iterate through 2D array of bricks, check collision and update each brick status. This is easy to do with high level languages. With C++ vector, we can use range-based for loop like this.
 vector<vector<int>> items; for (auto & row : items) { for (auto &amp;item: row) { item += 1; } } With C, we have to do this old fashion way by accessing each brick by i and j indexes."><meta property="og:url" content="http://sytranvn.dev/posts/modify-element-in-zig-array/"><meta property="og:site_name" content="sytranvn.dev"><meta property="og:title" content="Modify Element in Zig 2D Array"><meta property="og:description" content="So I’m learning Zig and trying to write a Arkanoid game in Zig.
 I have to iterate through 2D array of bricks, check collision and update each brick status. This is easy to do with high level languages. With C++ vector, we can use range-based for loop like this.
