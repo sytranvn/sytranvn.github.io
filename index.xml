@@ -7,7 +7,7 @@ With it set, I can switch between normal mode and edit mode by pressing &lt;code
 Editing works as any normal shell, but when switching to normal mode, I can
 use &lt;code>vi&lt;/code> movement keys like &lt;code>j, k, h, l, w, b, e, $, ^&lt;/code>, editing current
 line is also faster by using selectors such as &lt;code>cw, dw, C, D...&lt;/code>. One important
-note is that we are using &lt;code>vi&lt;/code> mode, so selectors like &lt;code>ciw, caw, ci(&lt;/code> does not work.&lt;/p></description></item><item><title>Setup Desktop Environment on a Remote Server</title><link>http://sytranvn.dev/posts/setup-desktop-environment-on-a-remote-server/</link><pubDate>Sat, 13 Jul 2024 15:49:47 +0700</pubDate><guid>http://sytranvn.dev/posts/setup-desktop-environment-on-a-remote-server/</guid><description>&lt;p>&lt;img src="http://sytranvn.dev/posts/setup-desktop-environment-on-a-remote-server/remote-cloud.png" alt="server desktop">&lt;/p>
+note is that we are using &lt;code>vi&lt;/code> mode, not &lt;code>vim&lt;/code>, so selectors like &lt;code>ciw, caw, ci(&lt;/code> does not work.&lt;/p></description></item><item><title>Setup Desktop Environment on a Remote Server</title><link>http://sytranvn.dev/posts/setup-desktop-environment-on-a-remote-server/</link><pubDate>Sat, 13 Jul 2024 15:49:47 +0700</pubDate><guid>http://sytranvn.dev/posts/setup-desktop-environment-on-a-remote-server/</guid><description>&lt;p>&lt;img src="http://sytranvn.dev/posts/setup-desktop-environment-on-a-remote-server/remote-cloud.png" alt="server desktop">&lt;/p>
 &lt;p>Most of the time when we work on a remote server, we only use &lt;code>ssh&lt;/code> to get
 access to the command line interface of remote host. And from there, we execute
 commands to various tasks.&lt;br>
