@@ -7,7 +7,7 @@
 2-minute read</span></div></div></header><div class=post-content>Unlike other languages, a Node server keep running forever. If it happens to have memory leak in your app, it will get worse.<p>Unlike other languages, a Node server keep running forever. If it happens to
 have memory leak in your app, it will get worse until it blows up.
 This is how my server memory looks like after releasing new feature for a week.
-The memory keep going up and up.</p><p><img alt=leak src=/posts/node-and-memory-leak/leak.png></p><p>It wasn&rsquo;t obvious immediately because requests come in, the server needs to do
+The memory keep going up and up.</p><p><img src=/posts/node-and-memory-leak/leak.png alt=leak></p><p>It wasn&rsquo;t obvious immediately because requests come in, the server needs to do
 its job, and need to allocate memory. We need to give it some time to see if
 the memory consumption become stable or it keep 🚀</p><p>Once it becomes more obvious you should grab your tools and find out the leak
 as soon as possible. Before your server blow up.</p><p>When it comes to NodeJS, Chrome Dev tool is one of the bests. A few simple
