@@ -1,7 +1,50 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tools on sytranvn.dev</title><link>http://sytranvn.dev/categories/tools/</link><description>Recent content in Tools on sytranvn.dev</description><generator>Hugo</generator><language>en</language><lastBuildDate>Sat, 03 Jun 2023 18:26:51 +0700</lastBuildDate><atom:link href="http://sytranvn.dev/categories/tools/index.xml" rel="self" type="application/rss+xml"/><item><title>Configure kitty terminal on both Linux and MacOS</title><link>http://sytranvn.dev/posts/configure-kitty-terminal-cross-operating-systems/</link><pubDate>Sat, 03 Jun 2023 18:26:51 +0700</pubDate><guid>http://sytranvn.dev/posts/configure-kitty-terminal-cross-operating-systems/</guid><description>Kitty is cross platform and I use it on both Linux home PC and company Macbook. Sharing the configuration and reuse it is crutial because Kitty is highly scriptable. And changing the configuration once should affect on both of my computers.
-Sharing the configuration Link to heading For this task, I use git to manage the ~/.config directory. Where most of tools configurations live. For example kitty, neovim, direnv. The problem is ~/.</description></item><item><title>Debug flask app with Neovim</title><link>http://sytranvn.dev/posts/debug-flask-app-with-neovim/</link><pubDate>Fri, 14 Apr 2023 23:46:03 +0700</pubDate><guid>http://sytranvn.dev/posts/debug-flask-app-with-neovim/</guid><description>After installing Neovim and some plugins. Now I want to try debugging Python project. I created a small Flask app from template with a few apis. And here&amp;rsquo;s the result. Amazing!
-Here&amp;rsquo;s how to Link to heading Prepare a Flask app Link to heading I use this template to generate a Flask app repo.
-Then I clone my new repo and install the requirements.
-After that I run the app and test an endpoint to make sure it works.</description></item><item><title>Start using Neovim</title><link>http://sytranvn.dev/posts/start-using-neovim/</link><pubDate>Thu, 13 Apr 2023 23:29:48 +0700</pubDate><guid>http://sytranvn.dev/posts/start-using-neovim/</guid><description>TLDR Link to heading I get bored of using VS Code and want to try Neovim and I love it.
-Installing Neovim Link to heading I have tried to use Neovim but it was not working well with my vim configurations. And now I try it again with no configs.
-First of all, even though I like using vim, but during development I still use VSCode more as main IDE.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tools on sytranvn.dev</title><link>http://sytranvn.dev/categories/tools/</link><description>Recent content in Tools on sytranvn.dev</description><generator>Hugo</generator><language>en</language><lastBuildDate>Sat, 03 Jun 2023 18:26:51 +0700</lastBuildDate><atom:link href="http://sytranvn.dev/categories/tools/index.xml" rel="self" type="application/rss+xml"/><item><title>Configure kitty terminal on both Linux and MacOS</title><link>http://sytranvn.dev/posts/configure-kitty-terminal-cross-operating-systems/</link><pubDate>Sat, 03 Jun 2023 18:26:51 +0700</pubDate><guid>http://sytranvn.dev/posts/configure-kitty-terminal-cross-operating-systems/</guid><description>&lt;p>Kitty is cross platform and I use it on both Linux home PC and company Macbook. Sharing
+the configuration and reuse it is crutial because Kitty is highly scriptable. And changing
+the configuration once should affect on both of my computers.&lt;/p>
+&lt;h2 id="sharing-the-configuration">
+ Sharing the configuration
+ &lt;a class="heading-link" href="#sharing-the-configuration">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;p>For this task, I use git to manage the &lt;code>~/.config&lt;/code> directory. Where most of tools configurations
+live. For example &lt;code>kitty&lt;/code>, &lt;code>neovim&lt;/code>, &lt;code>direnv&lt;/code>. The problem is &lt;code>~/.config&lt;/code> directory is also used
+by other applications. But I don&amp;rsquo;t want git to track everything. So I need to tell git to ignore
+everything but the ones I need.&lt;/p></description></item><item><title>Debug flask app with Neovim</title><link>http://sytranvn.dev/posts/debug-flask-app-with-neovim/</link><pubDate>Fri, 14 Apr 2023 23:46:03 +0700</pubDate><guid>http://sytranvn.dev/posts/debug-flask-app-with-neovim/</guid><description>&lt;p>After installing Neovim and some plugins. Now I want to try debugging Python project.
+I created a small Flask app from template with a few apis.
+And here&amp;rsquo;s the result. Amazing!&lt;/p>
+&lt;img src="debug.png" style="filter: unset;" />
+&lt;h1 id="heres-how-to">
+ Here&amp;rsquo;s how to
+ &lt;a class="heading-link" href="#heres-how-to">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h1>
+&lt;h2 id="prepare-a-flask-app">
+ Prepare a Flask app
+ &lt;a class="heading-link" href="#prepare-a-flask-app">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;p>I use &lt;a href="https://github.com/jainamoswal/Flask-Example" class="external-link" target="_blank" rel="noopener">this template&lt;/a> to generate a Flask app repo.&lt;/p>
+&lt;p>Then I clone my new repo and install the requirements.&lt;/p></description></item><item><title>Start using Neovim</title><link>http://sytranvn.dev/posts/start-using-neovim/</link><pubDate>Thu, 13 Apr 2023 23:29:48 +0700</pubDate><guid>http://sytranvn.dev/posts/start-using-neovim/</guid><description>&lt;h1 id="tldr">
+ TLDR
+ &lt;a class="heading-link" href="#tldr">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h1>
+&lt;p>I get bored of using VS Code and want to try Neovim and I love it.&lt;/p>
+&lt;h1 id="installing-neovim">
+ Installing Neovim
+ &lt;a class="heading-link" href="#installing-neovim">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h1>
+&lt;p>I have tried to use Neovim but it was not working well with my vim configurations. And now I try it again with no configs.&lt;/p>
+&lt;p>First of all, even though I like using vim, but during development I still use VSCode more as main IDE. Setting up debuggers
+with VSCode is much easier and I need it to work for my daily job so I keep sticking with it.&lt;/p></description></item></channel></rss>

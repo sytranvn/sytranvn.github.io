@@ -1,3 +1,18 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tools on sytranvn.dev</title><link>http://sytranvn.dev/series/tools/</link><description>Recent content in Tools on sytranvn.dev</description><generator>Hugo</generator><language>en</language><lastBuildDate>Thu, 13 Apr 2023 23:29:48 +0700</lastBuildDate><atom:link href="http://sytranvn.dev/series/tools/index.xml" rel="self" type="application/rss+xml"/><item><title>Start using Neovim</title><link>http://sytranvn.dev/posts/start-using-neovim/</link><pubDate>Thu, 13 Apr 2023 23:29:48 +0700</pubDate><guid>http://sytranvn.dev/posts/start-using-neovim/</guid><description>TLDR Link to heading I get bored of using VS Code and want to try Neovim and I love it.
-Installing Neovim Link to heading I have tried to use Neovim but it was not working well with my vim configurations. And now I try it again with no configs.
-First of all, even though I like using vim, but during development I still use VSCode more as main IDE.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tools on sytranvn.dev</title><link>http://sytranvn.dev/series/tools/</link><description>Recent content in Tools on sytranvn.dev</description><generator>Hugo</generator><language>en</language><lastBuildDate>Thu, 13 Apr 2023 23:29:48 +0700</lastBuildDate><atom:link href="http://sytranvn.dev/series/tools/index.xml" rel="self" type="application/rss+xml"/><item><title>Start using Neovim</title><link>http://sytranvn.dev/posts/start-using-neovim/</link><pubDate>Thu, 13 Apr 2023 23:29:48 +0700</pubDate><guid>http://sytranvn.dev/posts/start-using-neovim/</guid><description>&lt;h1 id="tldr">
+ TLDR
+ &lt;a class="heading-link" href="#tldr">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h1>
+&lt;p>I get bored of using VS Code and want to try Neovim and I love it.&lt;/p>
+&lt;h1 id="installing-neovim">
+ Installing Neovim
+ &lt;a class="heading-link" href="#installing-neovim">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h1>
+&lt;p>I have tried to use Neovim but it was not working well with my vim configurations. And now I try it again with no configs.&lt;/p>
+&lt;p>First of all, even though I like using vim, but during development I still use VSCode more as main IDE. Setting up debuggers
+with VSCode is much easier and I need it to work for my daily job so I keep sticking with it.&lt;/p></description></item></channel></rss>

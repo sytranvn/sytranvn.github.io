@@ -1,2 +1,18 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>JavaScripts on sytranvn.dev</title><link>http://sytranvn.dev/categories/javascripts/</link><description>Recent content in JavaScripts on sytranvn.dev</description><generator>Hugo</generator><language>en</language><lastBuildDate>Fri, 10 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://sytranvn.dev/categories/javascripts/index.xml" rel="self" type="application/rss+xml"/><item><title>Why you should use Javascripts for scripting</title><link>http://sytranvn.dev/posts/why-you-should-use-mjs-file-for-scripting/</link><pubDate>Fri, 10 Feb 2023 00:00:00 +0000</pubDate><guid>http://sytranvn.dev/posts/why-you-should-use-mjs-file-for-scripting/</guid><description>I like to write small scripts, but used to suggle when I want to use Javascript to fetch API data, or use some helper packages. Then I go with Python instead. But things have changed. With the supports of ES module and fetch and node:module API. It is much easier now since I feel more comfortable using JS.
-Unlike normal js files, node treats mjs files as ECMAScript modules. So it means you can use any supported ES-next features w/o a transpiler like Babel.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>JavaScripts on sytranvn.dev</title><link>http://sytranvn.dev/categories/javascripts/</link><description>Recent content in JavaScripts on sytranvn.dev</description><generator>Hugo</generator><language>en</language><lastBuildDate>Fri, 10 Feb 2023 00:00:00 +0000</lastBuildDate><atom:link href="http://sytranvn.dev/categories/javascripts/index.xml" rel="self" type="application/rss+xml"/><item><title>Why you should use Javascripts for scripting</title><link>http://sytranvn.dev/posts/why-you-should-use-mjs-file-for-scripting/</link><pubDate>Fri, 10 Feb 2023 00:00:00 +0000</pubDate><guid>http://sytranvn.dev/posts/why-you-should-use-mjs-file-for-scripting/</guid><description>&lt;p>I like to write small scripts, but used to suggle when I want to use Javascript
+to fetch API data, or use some helper packages. Then I go with Python instead.
+But things have changed. With the supports of ES module and &lt;code>fetch&lt;/code> and
+&lt;code>node:module&lt;/code> API. It is much easier now since I feel more comfortable using JS.&lt;/p>
+&lt;p>Unlike normal &lt;code>js&lt;/code> files, node treats &lt;code>mjs&lt;/code> files as ECMAScript modules. So
+it means you can use any supported ES-next features w/o a transpiler like Babel.
+In the past, to be able to use ES features, we had to set up build and compilation
+tools like Webpack and Babel (due to conflicts between common JS &lt;code>require&lt;/code> is
+synchronous but &lt;code>import&lt;/code> is asynchronous, NodeJS didn&amp;rsquo;t support import/export
+natively until node 13). Webpack and Babel are not ment to do the jobs of Node.
+anymore. We should use them now when we need code bundling and compile some
+other language to JS such as JSX or new ES proposals still in staging. And even
+worse, sometimes they can even hold you back from using new features added to
+Javascripts if you don&amp;rsquo;t configurate it at latest version. I have suffered so
+many times that I can&amp;rsquo;t use &lt;code>...&lt;/code>, or &lt;code>Array.at&lt;/code> in my code just because my
+project configuration is so outdated, not to mention the over advertised
+Typescripts, migrating those tools just to use a natively supported feature is
+pain in the a&amp;hellip;&lt;/p></description></item></channel></rss>
