@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>V8 Adventure on sytranvn.dev</title><link>https://sytranvn.dev/series/v8-adventure/</link><description>Recent content in V8 Adventure on sytranvn.dev</description><generator>Hugo</generator><language>en</language><lastBuildDate>Thu, 10 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://sytranvn.dev/series/v8-adventure/index.xml" rel="self" type="application/rss+xml"/><item><title>Debug V8 part 2</title><link>https://sytranvn.dev/posts/debug-v8-part-2/</link><pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/debug-v8-part-2/</guid><description>&lt;p>In previous part, we have learnt how to debug &lt;code>d8&lt;/code> with &lt;code>lldb&lt;/code>. In this part
 we still use our &lt;code>debug.js&lt;/code> script. But we&amp;rsquo;ll add an other parameter to &lt;code>d8&lt;/code>
 before running process.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>lldb -- d8 --parse-only debug.js
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">lldb -- d8 --parse-only debug.js
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>With &lt;code>parse-only&lt;/code> flag, we will forcus on how &lt;code>d8&lt;/code> parse source content and
 turn into lexical input elements.&lt;/p>
 &lt;p>Let&amp;rsquo;s add a breakpoint in &lt;code>v8::Shell::RunMain&lt;/code> function and jump to it.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">(&lt;/span>lldb&lt;span style="color:#f92672">)&lt;/span> b v8::Shell::RunMain
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">(&lt;/span>lldb&lt;span style="color:#f92672">)&lt;/span> run
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>frame &lt;span style="color:#75715e">#0: 0x000000010004ba68 d8`v8::Shell::RunMain(isolate=0x0000000118110000, last_run=true) at d8.cc:4578:12&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 4575	&lt;span style="color:#f92672">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#ae81ff">4576&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 4577	int Shell::RunMain&lt;span style="color:#f92672">(&lt;/span>Isolate* isolate, bool last_run&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex; background-color:#3c3d38">&lt;span>-&amp;gt; 4578	 &lt;span style="color:#66d9ef">for&lt;/span> &lt;span style="color:#f92672">(&lt;/span>int i &lt;span style="color:#f92672">=&lt;/span> 1; i &amp;lt; options.num_isolates; ++i&lt;span style="color:#f92672">)&lt;/span> &lt;span style="color:#f92672">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 4579	 options.isolate_sources&lt;span style="color:#f92672">[&lt;/span>i&lt;span style="color:#f92672">]&lt;/span>.StartExecuteInThread&lt;span style="color:#f92672">()&lt;/span>;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 4580	 &lt;span style="color:#f92672">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 4581	 bool success &lt;span style="color:#f92672">=&lt;/span> true;
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">&lt;span class="o">(&lt;/span>lldb&lt;span class="o">)&lt;/span> b v8::Shell::RunMain
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">(&lt;/span>lldb&lt;span class="o">)&lt;/span> run
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">frame &lt;span class="c1">#0: 0x000000010004ba68 d8`v8::Shell::RunMain(isolate=0x0000000118110000, last_run=true) at d8.cc:4578:12&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 4575	&lt;span class="o">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="m">4576&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 4577	int Shell::RunMain&lt;span class="o">(&lt;/span>Isolate* isolate, bool last_run&lt;span class="o">)&lt;/span> &lt;span class="o">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line hl">&lt;span class="cl">-&amp;gt; 4578	 &lt;span class="k">for&lt;/span> &lt;span class="o">(&lt;/span>int &lt;span class="nv">i&lt;/span> &lt;span class="o">=&lt;/span> 1&lt;span class="p">;&lt;/span> i &amp;lt; options.num_isolates&lt;span class="p">;&lt;/span> ++i&lt;span class="o">)&lt;/span> &lt;span class="o">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 4579	 options.isolate_sources&lt;span class="o">[&lt;/span>i&lt;span class="o">]&lt;/span>.StartExecuteInThread&lt;span class="o">()&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 4580	 &lt;span class="o">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 4581	 bool &lt;span class="nv">success&lt;/span> &lt;span class="o">=&lt;/span> true&lt;span class="p">;&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>At line 4578, we will loop through different isolate sources and execute them
 in threads. But as our &lt;code>options.num_isolates = 1&lt;/code>, we don&amp;rsquo;t need to worry about
 multi-threads at this point.&lt;/p></description></item><item><title>Debug V8 part 1</title><link>https://sytranvn.dev/posts/debug-v8-part-1/</link><pubDate>Sun, 06 Feb 2022 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/debug-v8-part-1/</guid><description>&lt;h2 id="3-things-to-do-before-debugging-v8">
