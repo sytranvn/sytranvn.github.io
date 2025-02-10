@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Memory on sytranvn.dev</title><link>http://sytranvn.dev/tags/memory/</link><description>Recent content in Memory on sytranvn.dev</description><generator>Hugo</generator><language>en</language><lastBuildDate>Thu, 14 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://sytranvn.dev/tags/memory/index.xml" rel="self" type="application/rss+xml"/><item><title>Allocation</title><link>http://sytranvn.dev/posts/allocation/</link><pubDate>Thu, 14 Oct 2021 00:00:00 +0000</pubDate><guid>http://sytranvn.dev/posts/allocation/</guid><description>&lt;h3 id="allocation-in-v8">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Memory on sytranvn.dev</title><link>https://sytranvn.dev/tags/memory/</link><description>Recent content in Memory on sytranvn.dev</description><generator>Hugo</generator><language>en</language><lastBuildDate>Thu, 14 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://sytranvn.dev/tags/memory/index.xml" rel="self" type="application/rss+xml"/><item><title>Allocation</title><link>https://sytranvn.dev/posts/allocation/</link><pubDate>Thu, 14 Oct 2021 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/allocation/</guid><description>&lt;h3 id="allocation-in-v8">
  Allocation in V8
  &lt;a class="heading-link" href="#allocation-in-v8">
  &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
@@ -18,24 +18,24 @@
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> free(p);
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Besides of that, V8 defined a &lt;code>PreallocatedStorage&lt;/code> (double linked list) to manage allocated memorry.
-&lt;figure>&lt;img src="http://sytranvn.dev/posts/allocation/PreallocatedStorage-LinkTo.png">&lt;figcaption>
+&lt;figure>&lt;img src="https://sytranvn.dev/posts/allocation/PreallocatedStorage-LinkTo.png">&lt;figcaption>
  &lt;h4>link chunks&lt;/h4>
  &lt;/figcaption>
 &lt;/figure>
 &lt;/p>
-&lt;figure>&lt;img src="http://sytranvn.dev/posts/allocation/PreallocatedStorage-Unlink.png">&lt;figcaption>
+&lt;figure>&lt;img src="https://sytranvn.dev/posts/allocation/PreallocatedStorage-Unlink.png">&lt;figcaption>
  &lt;h4>unlink chunks&lt;/h4>
  &lt;/figcaption>
 &lt;/figure>
 
 &lt;p>When we need to allocate some memorry, first V8 will find available memorry chunk in &lt;code>free_list_&lt;/code> that fit before call &lt;code>Malloced::New()&lt;/code> to allocate new memorry. And when V8 done using a memorry chunk, it does not &lt;code>free&lt;/code> instantly. Instead, V8 just removes the chunk from &lt;code>in_use_list_&lt;/code> and move it to &lt;code>free_list_&lt;/code>.
-&lt;figure>&lt;img src="http://sytranvn.dev/posts/allocation/PreallocatedStorage-New-1.png">&lt;figcaption>
+&lt;figure>&lt;img src="https://sytranvn.dev/posts/allocation/PreallocatedStorage-New-1.png">&lt;figcaption>
  &lt;h4>find fit memorry chunk&lt;/h4>
  &lt;/figcaption>
 &lt;/figure>
 
 So when we need memorry to store something else, we just override data on allocated memory, it save us one free operation.
-&lt;figure>&lt;img src="http://sytranvn.dev/posts/allocation/PreallocatedStorage-New-2.png">&lt;figcaption>
+&lt;figure>&lt;img src="https://sytranvn.dev/posts/allocation/PreallocatedStorage-New-2.png">&lt;figcaption>
  &lt;h4>add free chunk to in used&lt;/h4>
  &lt;/figcaption>
 &lt;/figure>

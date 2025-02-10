@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>sytranvn.dev</title><link>http://sytranvn.dev/</link><description>Recent content on sytranvn.dev</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 20 Jan 2025 15:58:00 +0700</lastBuildDate><atom:link href="http://sytranvn.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Setting Up Your Ton Site Is Easier Than You Think</title><link>http://sytranvn.dev/posts/setting-up-your-ton-site-is-easier-than-you-think/</link><pubDate>Mon, 20 Jan 2025 15:58:00 +0700</pubDate><guid>http://sytranvn.dev/posts/setting-up-your-ton-site-is-easier-than-you-think/</guid><description>&lt;p>Stay tune!&lt;/p></description></item><item><title>Vi Everything</title><link>http://sytranvn.dev/posts/vi-everything/</link><pubDate>Tue, 14 Jan 2025 11:25:29 +0700</pubDate><guid>http://sytranvn.dev/posts/vi-everything/</guid><description>&lt;p>Here&amp;rsquo;s the list of couple places that I enable &lt;code>vi&lt;/code> mode.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>sytranvn.dev</title><link>https://sytranvn.dev/</link><description>Recent content on sytranvn.dev</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 20 Jan 2025 15:58:00 +0700</lastBuildDate><atom:link href="https://sytranvn.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Setting Up Your Ton Site Is Easier Than You Think</title><link>https://sytranvn.dev/posts/setting-up-your-ton-site-is-easier-than-you-think/</link><pubDate>Mon, 20 Jan 2025 15:58:00 +0700</pubDate><guid>https://sytranvn.dev/posts/setting-up-your-ton-site-is-easier-than-you-think/</guid><description>&lt;p>Stay tune!&lt;/p></description></item><item><title>Vi Everything</title><link>https://sytranvn.dev/posts/vi-everything/</link><pubDate>Tue, 14 Jan 2025 11:25:29 +0700</pubDate><guid>https://sytranvn.dev/posts/vi-everything/</guid><description>&lt;p>Here&amp;rsquo;s the list of couple places that I enable &lt;code>vi&lt;/code> mode.&lt;/p>
 &lt;ol>
 &lt;li>
 &lt;p>Bash shell
@@ -7,14 +7,14 @@ With it set, I can switch between normal mode and edit mode by pressing &lt;code
 Editing works as any normal shell, but when switching to normal mode, I can
 use &lt;code>vi&lt;/code> movement keys like &lt;code>j, k, h, l, w, b, e, $, ^&lt;/code>, editing current
 line is also faster by using selectors such as &lt;code>cw, dw, C, D...&lt;/code>. One important
-note is that we are using &lt;code>vi&lt;/code> mode, not &lt;code>vim&lt;/code>, so selectors like &lt;code>ciw, caw, ci(&lt;/code> does not work.&lt;/p></description></item><item><title>Setup Desktop Environment on a Remote Server</title><link>http://sytranvn.dev/posts/setup-desktop-environment-on-a-remote-server/</link><pubDate>Sat, 13 Jul 2024 15:49:47 +0700</pubDate><guid>http://sytranvn.dev/posts/setup-desktop-environment-on-a-remote-server/</guid><description>&lt;p>&lt;img src="http://sytranvn.dev/posts/setup-desktop-environment-on-a-remote-server/remote-cloud.png" alt="server desktop">&lt;/p>
+note is that we are using &lt;code>vi&lt;/code> mode, not &lt;code>vim&lt;/code>, so selectors like &lt;code>ciw, caw, ci(&lt;/code> does not work.&lt;/p></description></item><item><title>Setup Desktop Environment on a Remote Server</title><link>https://sytranvn.dev/posts/setup-desktop-environment-on-a-remote-server/</link><pubDate>Sat, 13 Jul 2024 15:49:47 +0700</pubDate><guid>https://sytranvn.dev/posts/setup-desktop-environment-on-a-remote-server/</guid><description>&lt;p>&lt;img src="https://sytranvn.dev/posts/setup-desktop-environment-on-a-remote-server/remote-cloud.png" alt="server desktop">&lt;/p>
 &lt;p>Most of the time when we work on a remote server, we only use &lt;code>ssh&lt;/code> to get
 access to the command line interface of remote host. And from there, we execute
 commands to various tasks.&lt;br>
 However, this remote server won&amp;rsquo;t be accessible to non-technical person like
 us. What if we want to share some resources on this server to someone else on
 team that doesn&amp;rsquo;t know much about command line? I believe the best solution is
-to find a better team member 😉&lt;/p></description></item><item><title>Nvim External Commands</title><link>http://sytranvn.dev/posts/nvim-external-commands/</link><pubDate>Fri, 12 Jul 2024 11:07:52 +0700</pubDate><guid>http://sytranvn.dev/posts/nvim-external-commands/</guid><description>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>:!{cmd}
+to find a better team member 😉&lt;/p></description></item><item><title>Nvim External Commands</title><link>https://sytranvn.dev/posts/nvim-external-commands/</link><pubDate>Fri, 12 Jul 2024 11:07:52 +0700</pubDate><guid>https://sytranvn.dev/posts/nvim-external-commands/</guid><description>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>:!{cmd}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Execute &lt;code>cmd&lt;/code>, display output&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>:r !{cmd}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Execute &lt;code>cmd&lt;/code>, insert output to current current cursor position&lt;/p>
@@ -25,14 +25,14 @@ to find a better team member 😉&lt;/p></description></item><item><title>Nvim E
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>:%!{cmd}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Execute &lt;code>cmd&lt;/code>, replace entire buffer with output&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>:&amp;lt;&amp;#39;,&amp;#39;&amp;gt;!{cmd}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Execute &lt;code>cmd&lt;/code>, replace current selection output&lt;/p></description></item><item><title>Add Self Signed Certificate to Trusted List</title><link>http://sytranvn.dev/posts/add-self-signed-certificate-to-trusted-list/</link><pubDate>Fri, 12 Jul 2024 09:17:34 +0700</pubDate><guid>http://sytranvn.dev/posts/add-self-signed-certificate-to-trusted-list/</guid><description>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>certutil -d sql:$HOME/.pki/nssdb -A -t C -n &amp;lt;cert-name&amp;gt; -i &amp;lt;certificate.pem&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Execute &lt;code>cmd&lt;/code>, replace current selection output&lt;/p></description></item><item><title>Add Self Signed Certificate to Trusted List</title><link>https://sytranvn.dev/posts/add-self-signed-certificate-to-trusted-list/</link><pubDate>Fri, 12 Jul 2024 09:17:34 +0700</pubDate><guid>https://sytranvn.dev/posts/add-self-signed-certificate-to-trusted-list/</guid><description>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-fallback" data-lang="fallback">&lt;span style="display:flex;">&lt;span>certutil -d sql:$HOME/.pki/nssdb -A -t C -n &amp;lt;cert-name&amp;gt; -i &amp;lt;certificate.pem&amp;gt;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> -d sql:$HOME/.pki/nssdb specify database location
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> -A Add a certificate to the database. -D to delete
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> -t C Set the certificate trust attributes. C means trusted CA to issue server certs
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> -n &amp;lt;cert-name&amp;gt; Name of certificate to be used later with -D
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> -i &amp;lt;certificate.pem&amp;gt; Certificate file location
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Tea and Coffe Pick Two</title><link>http://sytranvn.dev/posts/tea-and-coffee/</link><pubDate>Thu, 09 May 2024 15:22:00 +0700</pubDate><guid>http://sytranvn.dev/posts/tea-and-coffee/</guid><description>&lt;p>Coffee. It&amp;rsquo;s the lifeblood of many mornings, the fuel for late-night work
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Tea and Coffe Pick Two</title><link>https://sytranvn.dev/posts/tea-and-coffee/</link><pubDate>Thu, 09 May 2024 15:22:00 +0700</pubDate><guid>https://sytranvn.dev/posts/tea-and-coffee/</guid><description>&lt;p>Coffee. It&amp;rsquo;s the lifeblood of many mornings, the fuel for late-night work
 sessions, and the warm hug in a mug that many of us crave. But for me, the love
 affair with coffee turned into a rollercoaster ride of energy crashes and
 sleepless nights.&lt;/p>
@@ -40,14 +40,14 @@ sleepless nights.&lt;/p>
 day, but it left me wired and jittery well past lunchtime. That midday slump
 was inevitable, forcing me to reach for another cup, perpetuating the cycle. By
 nightfall, my brain would still be buzzing, making restful sleep a distant
-dream.&lt;/p></description></item><item><title>Node and Memory Leak</title><link>http://sytranvn.dev/posts/node-and-memory-leak/</link><pubDate>Tue, 02 Apr 2024 21:01:05 +0700</pubDate><guid>http://sytranvn.dev/posts/node-and-memory-leak/</guid><description>&lt;p>Unlike other languages, a Node server keep running forever. If it happens to
+dream.&lt;/p></description></item><item><title>Node and Memory Leak</title><link>https://sytranvn.dev/posts/node-and-memory-leak/</link><pubDate>Tue, 02 Apr 2024 21:01:05 +0700</pubDate><guid>https://sytranvn.dev/posts/node-and-memory-leak/</guid><description>&lt;p>Unlike other languages, a Node server keep running forever. If it happens to
 have memory leak in your app, it will get worse until it blows up.
 This is how my server memory looks like after releasing new feature for a week.
 The memory keep going up and up.&lt;/p>
-&lt;p>&lt;img src="http://sytranvn.dev/posts/node-and-memory-leak/leak.png" alt="leak">&lt;/p>
+&lt;p>&lt;img src="https://sytranvn.dev/posts/node-and-memory-leak/leak.png" alt="leak">&lt;/p>
 &lt;p>It wasn&amp;rsquo;t obvious immediately because requests come in, the server needs to do
 its job, and need to allocate memory. We need to give it some time to see if
-the memory consumption become stable or it keep 🚀&lt;/p></description></item><item><title>How to access VNPT iGate Modem</title><link>http://sytranvn.dev/posts/vnpt-igate-modem/</link><pubDate>Thu, 28 Mar 2024 21:35:21 +0700</pubDate><guid>http://sytranvn.dev/posts/vnpt-igate-modem/</guid><description>&lt;p>When I try to access my gateway IP using Chrome, this error shows.&lt;/p>
+the memory consumption become stable or it keep 🚀&lt;/p></description></item><item><title>How to access VNPT iGate Modem</title><link>https://sytranvn.dev/posts/vnpt-igate-modem/</link><pubDate>Thu, 28 Mar 2024 21:35:21 +0700</pubDate><guid>https://sytranvn.dev/posts/vnpt-igate-modem/</guid><description>&lt;p>When I try to access my gateway IP using Chrome, this error shows.&lt;/p>
 &lt;blockquote>
 &lt;p>&lt;strong>This site can’t provide a secure connection&lt;/strong>
 192.168.1.1 uses an unsupported protocol.
@@ -57,7 +57,7 @@ The client and server don&amp;rsquo;t support a common SSL protocol version or c
 &lt;/blockquote>
 &lt;p>The full URL I got redirected to was &lt;code>https://192.168.1.1/cgi-bin/index.asp&lt;/code>. So this modem provides a HTTPS web interface
 but somehow that certificate is not a valid one. Normally, in case a certificate was self signed, we still have an advanced button
-to proceed. This time it wasn&amp;rsquo;t.&lt;/p></description></item><item><title>Modify Element in Zig 2D Array</title><link>http://sytranvn.dev/posts/modify-element-in-zig-array/</link><pubDate>Sat, 23 Mar 2024 11:11:12 +0700</pubDate><guid>http://sytranvn.dev/posts/modify-element-in-zig-array/</guid><description>&lt;p>So I&amp;rsquo;m learning Zig and trying to write a &lt;a href="https://vi.wikipedia.org/wiki/Arkanoid" class="external-link" target="_blank" rel="noopener">Arkanoid game&lt;/a> in Zig.&lt;br>
+to proceed. This time it wasn&amp;rsquo;t.&lt;/p></description></item><item><title>Modify Element in Zig 2D Array</title><link>https://sytranvn.dev/posts/modify-element-in-zig-array/</link><pubDate>Sat, 23 Mar 2024 11:11:12 +0700</pubDate><guid>https://sytranvn.dev/posts/modify-element-in-zig-array/</guid><description>&lt;p>So I&amp;rsquo;m learning Zig and trying to write a &lt;a href="https://vi.wikipedia.org/wiki/Arkanoid" class="external-link" target="_blank" rel="noopener">Arkanoid game&lt;/a> in Zig.&lt;br>
 I have to iterate through 2D array of bricks, check collision and update each brick status.
 This is easy to do with high level languages. With C++ vector, we can use range-based for loop like this.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-cpp" data-lang="cpp">&lt;span style="display:flex;">&lt;span>vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>vector&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">int&lt;/span>&lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span> items;
@@ -66,7 +66,7 @@ This is easy to do with high level languages. With C++ vector, we can use range-
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> item &lt;span style="color:#f92672">+=&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>;
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>With C, we have to do this old fashion way by accessing each brick by &lt;code>i&lt;/code> and &lt;code>j&lt;/code> indexes.&lt;/p></description></item><item><title>Stop Writing Bash for Loop</title><link>http://sytranvn.dev/posts/stop-writing-bash-for-loop/</link><pubDate>Wed, 24 Jan 2024 15:39:19 +0700</pubDate><guid>http://sytranvn.dev/posts/stop-writing-bash-for-loop/</guid><description>&lt;p>If you love CLI and run a lot of commands, write a lot of bash scripts, you
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>With C, we have to do this old fashion way by accessing each brick by &lt;code>i&lt;/code> and &lt;code>j&lt;/code> indexes.&lt;/p></description></item><item><title>Stop Writing Bash for Loop</title><link>https://sytranvn.dev/posts/stop-writing-bash-for-loop/</link><pubDate>Wed, 24 Jan 2024 15:39:19 +0700</pubDate><guid>https://sytranvn.dev/posts/stop-writing-bash-for-loop/</guid><description>&lt;p>If you love CLI and run a lot of commands, write a lot of bash scripts, you
 probably know bash for loop. For example to count from 1 to 10, we can write
 &lt;code>for i in {1..10}; do echo $i; done&lt;/code> . Or if we have an array of items, and
 want to iterate over it, we can write&lt;/p>
@@ -79,7 +79,7 @@ want to iterate over it, we can write&lt;/p>
 amount of time repeating the same command.&lt;br>
 But normally our command or commands does not finish immediately. Sometimes, they
 can take several minutes to complete, but one does not depend on the other. So we
-want to make them run in parallel or concurrently.&lt;/p></description></item><item><title>8 Terminal Movement Shortcuts You Should Know</title><link>http://sytranvn.dev/posts/8-terminal-movement-key-strokes-you-should-know/</link><pubDate>Fri, 27 Oct 2023 17:29:33 +0700</pubDate><guid>http://sytranvn.dev/posts/8-terminal-movement-key-strokes-you-should-know/</guid><description>&lt;h2 id="1-move-to-end">
+want to make them run in parallel or concurrently.&lt;/p></description></item><item><title>8 Terminal Movement Shortcuts You Should Know</title><link>https://sytranvn.dev/posts/8-terminal-movement-key-strokes-you-should-know/</link><pubDate>Fri, 27 Oct 2023 17:29:33 +0700</pubDate><guid>https://sytranvn.dev/posts/8-terminal-movement-key-strokes-you-should-know/</guid><description>&lt;h2 id="1-move-to-end">
  1. Move to end
  &lt;a class="heading-link" href="#1-move-to-end">
  &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
@@ -110,13 +110,13 @@ want to make them run in parallel or concurrently.&lt;/p></description></item><i
  &lt;/a>
 &lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>alt-f
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Example: From last position move cursor to after &lt;code>hello&lt;/code> position&lt;/p></description></item><item><title>First Time Make Pho</title><link>http://sytranvn.dev/posts/first-time-make-pho/</link><pubDate>Fri, 29 Sep 2023 19:27:02 +0700</pubDate><guid>http://sytranvn.dev/posts/first-time-make-pho/</guid><description>&lt;p>I really like cooking but unfortunately I am not a good cook. The only dishes I really know is Vietnamese
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Example: From last position move cursor to after &lt;code>hello&lt;/code> position&lt;/p></description></item><item><title>First Time Make Pho</title><link>https://sytranvn.dev/posts/first-time-make-pho/</link><pubDate>Fri, 29 Sep 2023 19:27:02 +0700</pubDate><guid>https://sytranvn.dev/posts/first-time-make-pho/</guid><description>&lt;p>I really like cooking but unfortunately I am not a good cook. The only dishes I really know is Vietnamese
 omelette egg with spring onion and boiled pork dip in fish sauce. I tried some other recipes before such as
 Dong vermicelli, or meat poached but I can&amp;rsquo;t recall their recipes. Maybe it&amp;rsquo;s because I don&amp;rsquo;t practice enough or the
 recipes are so complex.&lt;/p>
 &lt;p>Today I want to make Pho for my wife and daughter. They went visiting my parents in law 3 weeks ago. And
 they will fly tomorrow. My plan is making the broth first and keep it in fridge and boiling it again later.
-This is the video I watched to learn to make Pho.&lt;/p></description></item><item><title>Credit Calculator</title><link>http://sytranvn.dev/projects/credit-calculator/</link><pubDate>Fri, 01 Sep 2023 11:24:48 +0000</pubDate><guid>http://sytranvn.dev/projects/credit-calculator/</guid><description>&lt;p>Calculate courses credit&lt;/p></description></item><item><title>ESM for Production</title><link>http://sytranvn.dev/posts/esm-for-production/</link><pubDate>Fri, 01 Sep 2023 10:01:30 +0700</pubDate><guid>http://sytranvn.dev/posts/esm-for-production/</guid><description>&lt;p>The JavaScript ecosystem is quickly moving toward publishing ECMAScript (ES) modules (ESM) instead of CommonJS modules. To keep up with new JS changes, I often learn and play with the new ones in my side projects. But the real question is are they ready for production yet?&lt;/p>
+This is the video I watched to learn to make Pho.&lt;/p></description></item><item><title>Credit Calculator</title><link>https://sytranvn.dev/projects/credit-calculator/</link><pubDate>Fri, 01 Sep 2023 11:24:48 +0000</pubDate><guid>https://sytranvn.dev/projects/credit-calculator/</guid><description>&lt;p>Calculate courses credit&lt;/p></description></item><item><title>ESM for Production</title><link>https://sytranvn.dev/posts/esm-for-production/</link><pubDate>Fri, 01 Sep 2023 10:01:30 +0700</pubDate><guid>https://sytranvn.dev/posts/esm-for-production/</guid><description>&lt;p>The JavaScript ecosystem is quickly moving toward publishing ECMAScript (ES) modules (ESM) instead of CommonJS modules. To keep up with new JS changes, I often learn and play with the new ones in my side projects. But the real question is are they ready for production yet?&lt;/p>
 &lt;h2 id="about-my-last-big-production-ready-application">
  About my last big production ready application
  &lt;a class="heading-link" href="#about-my-last-big-production-ready-application">
@@ -125,7 +125,7 @@ This is the video I watched to learn to make Pho.&lt;/p></description></item><it
  &lt;/a>
 &lt;/h2>
 &lt;p>In my former company, I developed an application using NodeJS + GraphQL as backend for frontent (BFF) and use React
-for rendering UI. They are all written in Typescript. We built it from beginning but on top of a template which is defined awhile back by the org. It started as smooth as we hoped it to but the more we developed, the worse DX became.&lt;/p></description></item><item><title>Find Minor Determinants of Matrix</title><link>http://sytranvn.dev/math/find-minor-determinants-of-matrix/</link><pubDate>Mon, 21 Aug 2023 13:33:29 +0700</pubDate><guid>http://sytranvn.dev/math/find-minor-determinants-of-matrix/</guid><description>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-m" data-lang="m">&lt;span style="display:flex;">&lt;span>function [ d ] &lt;span style="color:#f92672">=&lt;/span> detMatrix(m)
+for rendering UI. They are all written in Typescript. We built it from beginning but on top of a template which is defined awhile back by the org. It started as smooth as we hoped it to but the more we developed, the worse DX became.&lt;/p></description></item><item><title>Find Minor Determinants of Matrix</title><link>https://sytranvn.dev/math/find-minor-determinants-of-matrix/</link><pubDate>Mon, 21 Aug 2023 13:33:29 +0700</pubDate><guid>https://sytranvn.dev/math/find-minor-determinants-of-matrix/</guid><description>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-m" data-lang="m">&lt;span style="display:flex;">&lt;span>function [ d ] &lt;span style="color:#f92672">=&lt;/span> detMatrix(m)
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	r &lt;span style="color:#f92672">=&lt;/span> rows(m);
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	c &lt;span style="color:#f92672">=&lt;/span> rows(m);
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	assert(r &lt;span style="color:#f92672">==&lt;/span> c, &lt;span style="color:#e6db74">&amp;#34;Not a square matrix&amp;#34;&lt;/span>);
@@ -139,7 +139,7 @@ for rendering UI. They are all written in Typescript. We built it from beginning
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>		end
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	end
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>end
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>The Way I Math With Hugo</title><link>http://sytranvn.dev/posts/the-way-i-math-with-hugo/</link><pubDate>Sat, 19 Aug 2023 12:49:01 +0700</pubDate><guid>http://sytranvn.dev/posts/the-way-i-math-with-hugo/</guid><description>&lt;p>Recently I have joined a course to relearn some linear algebra. What I didn&amp;rsquo;t have any intuition during college.
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>The Way I Math With Hugo</title><link>https://sytranvn.dev/posts/the-way-i-math-with-hugo/</link><pubDate>Sat, 19 Aug 2023 12:49:01 +0700</pubDate><guid>https://sytranvn.dev/posts/the-way-i-math-with-hugo/</guid><description>&lt;p>Recently I have joined a course to relearn some linear algebra. What I didn&amp;rsquo;t have any intuition during college.
 I want to do exercises and also add them to this site for content 😄
 I am using hugo-coder theme and it comes with katex support. When never I need to write some math, I just need to
 enable &lt;code>math&lt;/code> front matter in that post.&lt;/p>
@@ -151,9 +151,9 @@ rerendered by Katex.
 Sounds simple right? But it ain&amp;rsquo;t that easy.&lt;br>
 All Katex functions begin with a &lt;code>\&lt;/code> for example &lt;code>\frac{1}{2}&lt;/code> for $\frac{1}{2}$, &lt;code>\\&lt;/code> for line break. But because I was writing
 posts in markdown files, &lt;code>\\&lt;/code> is converted to &lt;code>\&lt;/code> when displayed on page.
-For example this is valid katex code, but is not rendered correctly.&lt;/p></description></item><item><title>Kitty PDF</title><link>http://sytranvn.dev/kittypdf/</link><pubDate>Sat, 19 Aug 2023 12:29:43 +0700</pubDate><guid>http://sytranvn.dev/kittypdf/</guid><description>&lt;p>Thanks for visiting. Kitty PDF is still in progress.&lt;br>
+For example this is valid katex code, but is not rendered correctly.&lt;/p></description></item><item><title>Kitty PDF</title><link>https://sytranvn.dev/kittypdf/</link><pubDate>Sat, 19 Aug 2023 12:29:43 +0700</pubDate><guid>https://sytranvn.dev/kittypdf/</guid><description>&lt;p>Thanks for visiting. Kitty PDF is still in progress.&lt;br>
 Current stage is: 🖌️ designing&lt;br>
-The repository will be public soon. Stay tune!&lt;/p></description></item><item><title>Discrete Mathematics</title><link>http://sytranvn.dev/math/discrete-math/logic/</link><pubDate>Sat, 22 Jul 2023 19:49:45 +0700</pubDate><guid>http://sytranvn.dev/math/discrete-math/logic/</guid><description>&lt;ol>
+The repository will be public soon. Stay tune!&lt;/p></description></item><item><title>Discrete Mathematics</title><link>https://sytranvn.dev/math/discrete-math/logic/</link><pubDate>Sat, 22 Jul 2023 19:49:45 +0700</pubDate><guid>https://sytranvn.dev/math/discrete-math/logic/</guid><description>&lt;ol>
 &lt;li>Xét các phát biểu sau&lt;br>
 i) p = “An học bài”,&lt;br>
 ii) q = “An xem tivi”,&lt;br>
@@ -312,7 +312,7 @@ $$
 
 $$&lt;/li>
 &lt;li>&lt;/li>
-&lt;/ol></description></item><item><title>Linear algebra excersises - Basic matrix</title><link>http://sytranvn.dev/math/linear-algebra/matrix/</link><pubDate>Sat, 22 Jul 2023 19:49:45 +0711</pubDate><guid>http://sytranvn.dev/math/linear-algebra/matrix/</guid><description>&lt;p>Online resources
+&lt;/ol></description></item><item><title>Linear algebra excersises - Basic matrix</title><link>https://sytranvn.dev/math/linear-algebra/matrix/</link><pubDate>Sat, 22 Jul 2023 19:49:45 +0711</pubDate><guid>https://sytranvn.dev/math/linear-algebra/matrix/</guid><description>&lt;p>Online resources
 &lt;a href="https://math.vanderbilt.edu/sapirmv/msapir/jan10.shtml" class="external-link" target="_blank" rel="noopener">https://math.vanderbilt.edu/sapirmv/msapir/jan10.shtml&lt;/a>&lt;/p>
 &lt;ol>
 &lt;li> 
@@ -1753,11 +1753,11 @@ $$
 $$&lt;/li>
 &lt;/ol>
 &lt;/li>
-&lt;/ol></description></item><item><title>Fixing Ubuntu 22.04 LTS Bluetooth Headphone Issue</title><link>http://sytranvn.dev/posts/fixing-ubuntu-22-04-bluetooth-headphone-issue/</link><pubDate>Mon, 17 Jul 2023 23:03:55 +0700</pubDate><guid>http://sytranvn.dev/posts/fixing-ubuntu-22-04-bluetooth-headphone-issue/</guid><description>&lt;p>Recently, I setup Ubuntu 22.04 on my new laptop. Everything work, except my bluetooth headphone.
+&lt;/ol></description></item><item><title>Fixing Ubuntu 22.04 LTS Bluetooth Headphone Issue</title><link>https://sytranvn.dev/posts/fixing-ubuntu-22-04-bluetooth-headphone-issue/</link><pubDate>Mon, 17 Jul 2023 23:03:55 +0700</pubDate><guid>https://sytranvn.dev/posts/fixing-ubuntu-22-04-bluetooth-headphone-issue/</guid><description>&lt;p>Recently, I setup Ubuntu 22.04 on my new laptop. Everything work, except my bluetooth headphone.
 I have struggled to play any sound on my Sony WF1000XM3 for weeks even though my other bluetooth speaker works just fine 😞&lt;/p>
-&lt;p>&lt;img src="http://sytranvn.dev/posts/fixing-ubuntu-22-04-bluetooth-headphone-issue/connected.png" alt="connected">&lt;/p>
+&lt;p>&lt;img src="https://sytranvn.dev/posts/fixing-ubuntu-22-04-bluetooth-headphone-issue/connected.png" alt="connected">&lt;/p>
 &lt;p>Anytime I try to connect to my headphone, it appears to be connected, but I cannot hear the notification from my headphone.
-And in Sound settings, output devices or Pavulcontrol, my headphone didn&amp;rsquo;t show up either.&lt;/p></description></item><item><title>k Dimension Tree</title><link>http://sytranvn.dev/projects/kd-tree/</link><pubDate>Fri, 14 Jul 2023 21:17:05 +0700</pubDate><guid>http://sytranvn.dev/projects/kd-tree/</guid><description>&lt;p>KD Tree structure and Nearest Neighbor Search algorithm.&lt;/p></description></item><item><title>Some More Limits</title><link>http://sytranvn.dev/math/some-more-limits/</link><pubDate>Mon, 05 Jun 2023 18:19:06 +0700</pubDate><guid>http://sytranvn.dev/math/some-more-limits/</guid><description>&lt;ol>
+And in Sound settings, output devices or Pavulcontrol, my headphone didn&amp;rsquo;t show up either.&lt;/p></description></item><item><title>k Dimension Tree</title><link>https://sytranvn.dev/projects/kd-tree/</link><pubDate>Fri, 14 Jul 2023 21:17:05 +0700</pubDate><guid>https://sytranvn.dev/projects/kd-tree/</guid><description>&lt;p>KD Tree structure and Nearest Neighbor Search algorithm.&lt;/p></description></item><item><title>Some More Limits</title><link>https://sytranvn.dev/math/some-more-limits/</link><pubDate>Mon, 05 Jun 2023 18:19:06 +0700</pubDate><guid>https://sytranvn.dev/math/some-more-limits/</guid><description>&lt;ol>
 &lt;li>&lt;/li>
 &lt;/ol>
 &lt;p>$$
@@ -1769,7 +1769,7 @@ And in Sound settings, output devices or Pavulcontrol, my headphone didn&amp;rsq
 = \lim_{x \to 0} \frac{ 0 }{ ( \sqrt[3]{0} - 1 ) ( \sqrt{0 + 1} + 1 )} \\
 = \lim_{x \to 0} \frac{ 0 }{ -2 } \\
 = 0^-
-$$&lt;/p></description></item><item><title>Configure kitty terminal on both Linux and MacOS</title><link>http://sytranvn.dev/posts/configure-kitty-terminal-cross-operating-systems/</link><pubDate>Sat, 03 Jun 2023 18:26:51 +0700</pubDate><guid>http://sytranvn.dev/posts/configure-kitty-terminal-cross-operating-systems/</guid><description>&lt;p>Kitty is cross platform and I use it on both Linux home PC and company Macbook. Sharing
+$$&lt;/p></description></item><item><title>Configure kitty terminal on both Linux and MacOS</title><link>https://sytranvn.dev/posts/configure-kitty-terminal-cross-operating-systems/</link><pubDate>Sat, 03 Jun 2023 18:26:51 +0700</pubDate><guid>https://sytranvn.dev/posts/configure-kitty-terminal-cross-operating-systems/</guid><description>&lt;p>Kitty is cross platform and I use it on both Linux home PC and company Macbook. Sharing
 the configuration and reuse it is crutial because Kitty is highly scriptable. And changing
 the configuration once should affect on both of my computers.&lt;/p>
 &lt;h2 id="sharing-the-configuration">
@@ -1782,12 +1782,12 @@ the configuration once should affect on both of my computers.&lt;/p>
 &lt;p>For this task, I use git to manage the &lt;code>~/.config&lt;/code> directory. Where most of tools configurations
 live. For example &lt;code>kitty&lt;/code>, &lt;code>neovim&lt;/code>, &lt;code>direnv&lt;/code>. The problem is &lt;code>~/.config&lt;/code> directory is also used
 by other applications. But I don&amp;rsquo;t want git to track everything. So I need to tell git to ignore
-everything but the ones I need.&lt;/p></description></item><item><title>Fix npm cannot install packages</title><link>http://sytranvn.dev/posts/fix-npm-cannot-install-packages/</link><pubDate>Mon, 29 May 2023 19:53:52 +0700</pubDate><guid>http://sytranvn.dev/posts/fix-npm-cannot-install-packages/</guid><description>&lt;p>Recently I experienced an issue with NPM, I couldn&amp;rsquo;t install any packages. I found some
+everything but the ones I need.&lt;/p></description></item><item><title>Fix npm cannot install packages</title><link>https://sytranvn.dev/posts/fix-npm-cannot-install-packages/</link><pubDate>Mon, 29 May 2023 19:53:52 +0700</pubDate><guid>https://sytranvn.dev/posts/fix-npm-cannot-install-packages/</guid><description>&lt;p>Recently I experienced an issue with NPM, I couldn&amp;rsquo;t install any packages. I found some
 suggestions on google to upgrade &lt;code>npm&lt;/code> but &lt;code>npm install -g npm&lt;/code> didn&amp;rsquo;t work either. After some
 debugging and searching on npm repo issues, I finally found a temporary solution.&lt;/p>
 &lt;p>If you need the solution, you can go straight to &lt;a href="#solution" >Solution&lt;/a> and come back to read my findings later while npm doing what
-it needs to do.&lt;/p></description></item><item><title>Product Manager</title><link>http://sytranvn.dev/projects/product-manager/</link><pubDate>Thu, 25 May 2023 21:36:01 +0700</pubDate><guid>http://sytranvn.dev/projects/product-manager/</guid><description>&lt;p>Learning C# project. In this project, I create a console application to manage products and categories.
-Using some basic features like &lt;code>struct&lt;/code>, &lt;code>List&lt;/code>, &lt;code>Console&lt;/code>.&lt;/p></description></item><item><title>Hugo PDF</title><link>http://sytranvn.dev/projects/hugo-pdf/</link><pubDate>Thu, 25 May 2023 21:17:05 +0700</pubDate><guid>http://sytranvn.dev/projects/hugo-pdf/</guid><description>&lt;p>Hugo shortcode allows you to add PDF file to your pages using browser native PDF renderer. Therefore, no additional Javascripts needed.&lt;/p></description></item><item><title>Debug flask app with Neovim</title><link>http://sytranvn.dev/posts/debug-flask-app-with-neovim/</link><pubDate>Fri, 14 Apr 2023 23:46:03 +0700</pubDate><guid>http://sytranvn.dev/posts/debug-flask-app-with-neovim/</guid><description>&lt;p>After installing Neovim and some plugins. Now I want to try debugging Python project.
+it needs to do.&lt;/p></description></item><item><title>Product Manager</title><link>https://sytranvn.dev/projects/product-manager/</link><pubDate>Thu, 25 May 2023 21:36:01 +0700</pubDate><guid>https://sytranvn.dev/projects/product-manager/</guid><description>&lt;p>Learning C# project. In this project, I create a console application to manage products and categories.
+Using some basic features like &lt;code>struct&lt;/code>, &lt;code>List&lt;/code>, &lt;code>Console&lt;/code>.&lt;/p></description></item><item><title>Hugo PDF</title><link>https://sytranvn.dev/projects/hugo-pdf/</link><pubDate>Thu, 25 May 2023 21:17:05 +0700</pubDate><guid>https://sytranvn.dev/projects/hugo-pdf/</guid><description>&lt;p>Hugo shortcode allows you to add PDF file to your pages using browser native PDF renderer. Therefore, no additional Javascripts needed.&lt;/p></description></item><item><title>Debug flask app with Neovim</title><link>https://sytranvn.dev/posts/debug-flask-app-with-neovim/</link><pubDate>Fri, 14 Apr 2023 23:46:03 +0700</pubDate><guid>https://sytranvn.dev/posts/debug-flask-app-with-neovim/</guid><description>&lt;p>After installing Neovim and some plugins. Now I want to try debugging Python project.
 I created a small Flask app from template with a few apis.
 And here&amp;rsquo;s the result. Amazing!&lt;/p>
 &lt;img src="debug.png" style="filter: unset;" />
@@ -1806,7 +1806,7 @@ And here&amp;rsquo;s the result. Amazing!&lt;/p>
  &lt;/a>
 &lt;/h2>
 &lt;p>I use &lt;a href="https://github.com/jainamoswal/Flask-Example" class="external-link" target="_blank" rel="noopener">this template&lt;/a> to generate a Flask app repo.&lt;/p>
-&lt;p>Then I clone my new repo and install the requirements.&lt;/p></description></item><item><title>Start using Neovim</title><link>http://sytranvn.dev/posts/start-using-neovim/</link><pubDate>Thu, 13 Apr 2023 23:29:48 +0700</pubDate><guid>http://sytranvn.dev/posts/start-using-neovim/</guid><description>&lt;h1 id="tldr">
+&lt;p>Then I clone my new repo and install the requirements.&lt;/p></description></item><item><title>Start using Neovim</title><link>https://sytranvn.dev/posts/start-using-neovim/</link><pubDate>Thu, 13 Apr 2023 23:29:48 +0700</pubDate><guid>https://sytranvn.dev/posts/start-using-neovim/</guid><description>&lt;h1 id="tldr">
  TLDR
  &lt;a class="heading-link" href="#tldr">
  &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
@@ -1823,7 +1823,7 @@ And here&amp;rsquo;s the result. Amazing!&lt;/p>
 &lt;/h1>
 &lt;p>I have tried to use Neovim but it was not working well with my vim configurations. And now I try it again with no configs.&lt;/p>
 &lt;p>First of all, even though I like using vim, but during development I still use VSCode more as main IDE. Setting up debuggers
-with VSCode is much easier and I need it to work for my daily job so I keep sticking with it.&lt;/p></description></item><item><title>Proof of some derivatives</title><link>http://sytranvn.dev/math/derivatives/</link><pubDate>Fri, 03 Mar 2023 00:00:00 +0000</pubDate><guid>http://sytranvn.dev/math/derivatives/</guid><description>&lt;p>$$
+with VSCode is much easier and I need it to work for my daily job so I keep sticking with it.&lt;/p></description></item><item><title>Proof of some derivatives</title><link>https://sytranvn.dev/math/derivatives/</link><pubDate>Fri, 03 Mar 2023 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/math/derivatives/</guid><description>&lt;p>$$
 \begin{aligned}
 f(x) &amp;amp;= tan x\\
 \rArr f&amp;rsquo;(x) &amp;amp;= \lim_{h \to 0}\frac{f(x+h) - f(x)}{h}\\
@@ -1837,7 +1837,7 @@ f(x) &amp;amp;= tan x\\
 &amp;amp;=1.\frac{1}{cos(x+0) . cos x}\\
 &amp;amp;= \frac{1}{cos^2{x}}
 \end{aligned}
-$$&lt;/p></description></item><item><title>Why you should use Javascripts for scripting</title><link>http://sytranvn.dev/posts/why-you-should-use-mjs-file-for-scripting/</link><pubDate>Fri, 10 Feb 2023 00:00:00 +0000</pubDate><guid>http://sytranvn.dev/posts/why-you-should-use-mjs-file-for-scripting/</guid><description>&lt;p>I like to write small scripts, but used to suggle when I want to use Javascript
+$$&lt;/p></description></item><item><title>Why you should use Javascripts for scripting</title><link>https://sytranvn.dev/posts/why-you-should-use-mjs-file-for-scripting/</link><pubDate>Fri, 10 Feb 2023 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/why-you-should-use-mjs-file-for-scripting/</guid><description>&lt;p>I like to write small scripts, but used to suggle when I want to use Javascript
 to fetch API data, or use some helper packages. Then I go with Python instead.
 But things have changed. With the supports of ES module and &lt;code>fetch&lt;/code> and
 &lt;code>node:module&lt;/code> API. It is much easier now since I feel more comfortable using JS.&lt;/p>
@@ -1854,14 +1854,14 @@ Javascripts if you don&amp;rsquo;t configurate it at latest version. I have suff
 many times that I can&amp;rsquo;t use &lt;code>...&lt;/code>, or &lt;code>Array.at&lt;/code> in my code just because my
 project configuration is so outdated, not to mention the over advertised
 Typescripts, migrating those tools just to use a natively supported feature is
-pain in the a&amp;hellip;&lt;/p></description></item><item><title>Latex cheat sheets</title><link>http://sytranvn.dev/math/intro_to_latex/</link><pubDate>Fri, 16 Dec 2022 00:00:00 +0000</pubDate><guid>http://sytranvn.dev/math/intro_to_latex/</guid><description>&lt;h1 id="introduction-to-latex">
+pain in the a&amp;hellip;&lt;/p></description></item><item><title>Latex cheat sheets</title><link>https://sytranvn.dev/math/intro_to_latex/</link><pubDate>Fri, 16 Dec 2022 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/math/intro_to_latex/</guid><description>&lt;h1 id="introduction-to-latex">
  Introduction to LaTeX
  &lt;a class="heading-link" href="#introduction-to-latex">
  &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
  &lt;span class="sr-only">Link to heading&lt;/span>
  &lt;/a>
 &lt;/h1>
-&lt;p>In this tutorial, you will learn some of the basics on how to use $\LaTeX$ to display equations in Jupyter notebooks. For looking up symbols you may need, you can use any of the many &lt;a href="http://users.dickinson.edu/~richesod/latex/latexcheatsheet.pdf" class="external-link" target="_blank" rel="noopener">cheat sheets&lt;/a> you can find by asking Google. I have provided a few that will come up often in this course at the &lt;a href="#Useful-LaTeX-symbols-for-BE/Bi-103" >end of this lesson&lt;/a>.&lt;/p></description></item><item><title>Limits</title><link>http://sytranvn.dev/math/limits/</link><pubDate>Fri, 16 Dec 2022 00:00:00 +0000</pubDate><guid>http://sytranvn.dev/math/limits/</guid><description>&lt;p>$$
+&lt;p>In this tutorial, you will learn some of the basics on how to use $\LaTeX$ to display equations in Jupyter notebooks. For looking up symbols you may need, you can use any of the many &lt;a href="http://users.dickinson.edu/~richesod/latex/latexcheatsheet.pdf" class="external-link" target="_blank" rel="noopener">cheat sheets&lt;/a> you can find by asking Google. I have provided a few that will come up often in this course at the &lt;a href="#Useful-LaTeX-symbols-for-BE/Bi-103" >end of this lesson&lt;/a>.&lt;/p></description></item><item><title>Limits</title><link>https://sytranvn.dev/math/limits/</link><pubDate>Fri, 16 Dec 2022 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/math/limits/</guid><description>&lt;p>$$
 \begin{aligned}
 \text{Tính: }&amp;amp; L = \lim_{x \to +\infty}\bigg(\frac{x+1}{x+3}\bigg)^{x}\\
 \text{Giải: } &amp;amp; \\
@@ -1883,7 +1883,7 @@ L &amp;amp;= \lim_{x \to +\infty}\bigg(1 + \frac{-2}{x+3}\bigg)^x \\
 &amp;amp;= e^{-2} \\
 &amp;amp;\text{Vậy } L = e^{-2} \square
 \end{aligned}
-$$&lt;/p></description></item><item><title>Deploy Tensoflow model on browser</title><link>http://sytranvn.dev/projects/mnist-js/</link><pubDate>Sun, 19 Jun 2022 00:00:00 +0000</pubDate><guid>http://sytranvn.dev/projects/mnist-js/</guid><description>For learning purpose, I deployed my trained model using Tensorflow trained on MNIST data set and deploy it on browser.</description></item><item><title>Deploy ML model to Javascripts</title><link>http://sytranvn.dev/posts/deploy-ml-model-to-javascripts/</link><pubDate>Sat, 18 Jun 2022 00:00:00 +0000</pubDate><guid>http://sytranvn.dev/posts/deploy-ml-model-to-javascripts/</guid><description>&lt;p>Deploy trained model using Octave or Tensorflow to JS application.&lt;/p>
+$$&lt;/p></description></item><item><title>Deploy Tensoflow model on browser</title><link>https://sytranvn.dev/projects/mnist-js/</link><pubDate>Sun, 19 Jun 2022 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/projects/mnist-js/</guid><description>For learning purpose, I deployed my trained model using Tensorflow trained on MNIST data set and deploy it on browser.</description></item><item><title>Deploy ML model to Javascripts</title><link>https://sytranvn.dev/posts/deploy-ml-model-to-javascripts/</link><pubDate>Sat, 18 Jun 2022 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/deploy-ml-model-to-javascripts/</guid><description>&lt;p>Deploy trained model using Octave or Tensorflow to JS application.&lt;/p>
 &lt;h2 id="the-idea">
  The idea
  &lt;a class="heading-link" href="#the-idea">
@@ -1924,7 +1924,7 @@ All predictions will be calculated by inputs and the weights.&lt;/p>
  &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
  &lt;span class="sr-only">Link to heading&lt;/span>
  &lt;/a>
-&lt;/h2></description></item><item><title>Accomplishments</title><link>http://sytranvn.dev/accomplishments/</link><pubDate>Sun, 22 May 2022 00:00:00 +0000</pubDate><guid>http://sytranvn.dev/accomplishments/</guid><description>&lt;div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="2d7b0753-485b-491e-af79-5707ffbc4874" data-share-badge-host="https://www.credly.com">&lt;/div>&lt;script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js">&lt;/script>
+&lt;/h2></description></item><item><title>Accomplishments</title><link>https://sytranvn.dev/accomplishments/</link><pubDate>Sun, 22 May 2022 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/accomplishments/</guid><description>&lt;div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="2d7b0753-485b-491e-af79-5707ffbc4874" data-share-badge-host="https://www.credly.com">&lt;/div>&lt;script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js">&lt;/script>
 &lt;div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="0c9bc108-ac27-413c-ab63-fad6d632d7bf" data-share-badge-host="https://www.credly.com">&lt;/div>&lt;script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js">&lt;/script>
 &lt;p>
 
@@ -2003,7 +2003,7 @@ All predictions will be calculated by inputs and the weights.&lt;/p>
 &lt;object
  data="Coursera-53J9PK39ENN8.pdf#view=Fit" width="100%" height="500px"type="application/pdf"
 >
- &lt;p>Unable to display PDF file. &lt;a href="Coursera-53J9PK39ENN8.pdf#view=Fit">Download&lt;/a> instead.&lt;/p></description></item><item><title>Turbo fan part 1</title><link>http://sytranvn.dev/posts/turbo-fan-1/</link><pubDate>Mon, 11 Apr 2022 00:00:00 +0000</pubDate><guid>http://sytranvn.dev/posts/turbo-fan-1/</guid><description>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-js" data-lang="js">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">Obj&lt;/span>(&lt;span style="color:#a6e22e">x&lt;/span>, &lt;span style="color:#a6e22e">y&lt;/span>) {
+ &lt;p>Unable to display PDF file. &lt;a href="Coursera-53J9PK39ENN8.pdf#view=Fit">Download&lt;/a> instead.&lt;/p></description></item><item><title>Turbo fan part 1</title><link>https://sytranvn.dev/posts/turbo-fan-1/</link><pubDate>Mon, 11 Apr 2022 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/turbo-fan-1/</guid><description>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-js" data-lang="js">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">Obj&lt;/span>(&lt;span style="color:#a6e22e">x&lt;/span>, &lt;span style="color:#a6e22e">y&lt;/span>) {
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">this&lt;/span>.&lt;span style="color:#a6e22e">x&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">x&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">this&lt;/span>.&lt;span style="color:#a6e22e">y&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">y&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
@@ -7853,7 +7853,7 @@ All predictions will be calculated by inputs and the weights.&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>0x10805d2cc runtime entry
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>0x10805d2e0 runtime entry
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>0x10805d2e4 constant pool (size 68)
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Bookmarks</title><link>http://sytranvn.dev/bookmarks/</link><pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate><guid>http://sytranvn.dev/bookmarks/</guid><description>&lt;h2 id="v8">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Bookmarks</title><link>https://sytranvn.dev/bookmarks/</link><pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/bookmarks/</guid><description>&lt;h2 id="v8">
  V8
  &lt;a class="heading-link" href="#v8">
  &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
@@ -7884,7 +7884,7 @@ All predictions will be calculated by inputs and the weights.&lt;/p>
 &lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="http://lafo.ssw.uni-linz.ac.at/c1visualizer/" class="external-link" target="_blank" rel="noopener">C1 Visualizer&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>Debug V8 part 2</title><link>http://sytranvn.dev/posts/debug-v8-part-2/</link><pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate><guid>http://sytranvn.dev/posts/debug-v8-part-2/</guid><description>&lt;p>In previous part, we have learnt how to debug &lt;code>d8&lt;/code> with &lt;code>lldb&lt;/code>. In this part
+&lt;/ul></description></item><item><title>Debug V8 part 2</title><link>https://sytranvn.dev/posts/debug-v8-part-2/</link><pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/debug-v8-part-2/</guid><description>&lt;p>In previous part, we have learnt how to debug &lt;code>d8&lt;/code> with &lt;code>lldb&lt;/code>. In this part
 we still use our &lt;code>debug.js&lt;/code> script. But we&amp;rsquo;ll add an other parameter to &lt;code>d8&lt;/code>
 before running process.&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>lldb -- d8 --parse-only debug.js
@@ -7903,7 +7903,7 @@ turn into lexical input elements.&lt;/p>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 4581	 bool success &lt;span style="color:#f92672">=&lt;/span> true;
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>At line 4578, we will loop through different isolate sources and execute them
 in threads. But as our &lt;code>options.num_isolates = 1&lt;/code>, we don&amp;rsquo;t need to worry about
-multi-threads at this point.&lt;/p></description></item><item><title>Debug V8 part 1</title><link>http://sytranvn.dev/posts/debug-v8-part-1/</link><pubDate>Sun, 06 Feb 2022 00:00:00 +0000</pubDate><guid>http://sytranvn.dev/posts/debug-v8-part-1/</guid><description>&lt;h2 id="3-things-to-do-before-debugging-v8">
+multi-threads at this point.&lt;/p></description></item><item><title>Debug V8 part 1</title><link>https://sytranvn.dev/posts/debug-v8-part-1/</link><pubDate>Sun, 06 Feb 2022 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/debug-v8-part-1/</guid><description>&lt;h2 id="3-things-to-do-before-debugging-v8">
  3 things to do before debugging V8
  &lt;a class="heading-link" href="#3-things-to-do-before-debugging-v8">
  &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
@@ -7923,12 +7923,12 @@ multi-threads at this point.&lt;/p></description></item><item><title>Debug V8 pa
  &lt;/a>
 &lt;/h3>
 &lt;p>If you haven&amp;rsquo;t tried building V8 before, take a look at my other blog on how to
-build V8 from source on &lt;a href="http://sytranvn.dev/posts/build-v8-from-source/" >Ubuntu&lt;/a> and
-&lt;a href="http://sytranvn.dev/posts/build-v8-from-source-on-apple-m1/" >Mac M1&lt;/a>. Now we just need to make sure the d8
+build V8 from source on &lt;a href="https://sytranvn.dev/posts/build-v8-from-source/" >Ubuntu&lt;/a> and
+&lt;a href="https://sytranvn.dev/posts/build-v8-from-source-on-apple-m1/" >Mac M1&lt;/a>. Now we just need to make sure the d8
 binary is built with &lt;code>debug&lt;/code> flag instead of &lt;code>release&lt;/code>.
 You can run this command &lt;code>gm.py arm64.debug.d8&lt;/code>. Or incase you have built a
 release version and don&amp;rsquo;t want to rebuild everything. Open
-&lt;code>out/release/args.gn&lt;/code> file and update following options.&lt;/p></description></item><item><title>Config</title><link>http://sytranvn.dev/dotfiles/</link><pubDate>Sat, 05 Feb 2022 00:00:00 +0000</pubDate><guid>http://sytranvn.dev/dotfiles/</guid><description>&lt;h1 id="iterm">
+&lt;code>out/release/args.gn&lt;/code> file and update following options.&lt;/p></description></item><item><title>Config</title><link>https://sytranvn.dev/dotfiles/</link><pubDate>Sat, 05 Feb 2022 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/dotfiles/</guid><description>&lt;h1 id="iterm">
  iTerm
  &lt;a class="heading-link" href="#iterm">
  &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
@@ -8082,7 +8082,7 @@ release version and don&amp;rsquo;t want to rebuild everything. Open
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">call&lt;/span> &lt;span style="color:#a6e22e">plug&lt;/span>#&lt;span style="color:#a6e22e">end&lt;/span>()
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>I ❤️ OSS</title><link>http://sytranvn.dev/i-heart-oss/</link><pubDate>Sat, 05 Feb 2022 00:00:00 +0000</pubDate><guid>http://sytranvn.dev/i-heart-oss/</guid><description>&lt;h2 id="i-pushed-a-few-lines-of-code-to-contribute-to-oss">
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>I ❤️ OSS</title><link>https://sytranvn.dev/i-heart-oss/</link><pubDate>Sat, 05 Feb 2022 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/i-heart-oss/</guid><description>&lt;h2 id="i-pushed-a-few-lines-of-code-to-contribute-to-oss">
  I pushed a few lines of code to contribute to OSS
  &lt;a class="heading-link" href="#i-pushed-a-few-lines-of-code-to-contribute-to-oss">
  &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
@@ -8111,7 +8111,7 @@ release version and don&amp;rsquo;t want to rebuild everything. Open
 &lt;li>&lt;a href="https://github.com/hummingbot/hummingbot/commit/45fb548e23fb4417716e2468caea60b61acde8b9" class="external-link" target="_blank" rel="noopener">31d0e36&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ul></description></item><item><title>Now</title><link>http://sytranvn.dev/now/</link><pubDate>Sat, 05 Feb 2022 00:00:00 +0000</pubDate><guid>http://sytranvn.dev/now/</guid><description>&lt;ul>
+&lt;/ul></description></item><item><title>Now</title><link>https://sytranvn.dev/now/</link><pubDate>Sat, 05 Feb 2022 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/now/</guid><description>&lt;ul>
 &lt;li>🌐 I&amp;rsquo;m wrting my &lt;a href="https://sytranvn.dev/posts" class="external-link" target="_blank" rel="noopener">blog&lt;/a> in free time&lt;/li>
 &lt;li>🌱 I’m working on a crypto trading platform, and learning flute&lt;/li>
 &lt;li>🔭 I always look for more challenges and never stop learning&lt;/li>
@@ -8141,7 +8141,7 @@ Here are some ideas to get you started:
  &lt;/a>
 &lt;/h2>
 &lt;p>Javascripts and Python are languages I use the most. I also like to practice LeetCode with C/C++.
-Besides that, I use Golang, PHP, Java for my job.&lt;/p></description></item><item><title>Allocation</title><link>http://sytranvn.dev/posts/allocation/</link><pubDate>Thu, 14 Oct 2021 00:00:00 +0000</pubDate><guid>http://sytranvn.dev/posts/allocation/</guid><description>&lt;h3 id="allocation-in-v8">
+Besides that, I use Golang, PHP, Java for my job.&lt;/p></description></item><item><title>Allocation</title><link>https://sytranvn.dev/posts/allocation/</link><pubDate>Thu, 14 Oct 2021 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/allocation/</guid><description>&lt;h3 id="allocation-in-v8">
  Allocation in V8
  &lt;a class="heading-link" href="#allocation-in-v8">
  &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
@@ -8161,29 +8161,29 @@ Besides that, I use Golang, PHP, Java for my job.&lt;/p></description></item><it
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> free(p);
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Besides of that, V8 defined a &lt;code>PreallocatedStorage&lt;/code> (double linked list) to manage allocated memorry.
-&lt;figure>&lt;img src="http://sytranvn.dev/posts/allocation/PreallocatedStorage-LinkTo.png">&lt;figcaption>
+&lt;figure>&lt;img src="https://sytranvn.dev/posts/allocation/PreallocatedStorage-LinkTo.png">&lt;figcaption>
  &lt;h4>link chunks&lt;/h4>
  &lt;/figcaption>
 &lt;/figure>
 &lt;/p>
-&lt;figure>&lt;img src="http://sytranvn.dev/posts/allocation/PreallocatedStorage-Unlink.png">&lt;figcaption>
+&lt;figure>&lt;img src="https://sytranvn.dev/posts/allocation/PreallocatedStorage-Unlink.png">&lt;figcaption>
  &lt;h4>unlink chunks&lt;/h4>
  &lt;/figcaption>
 &lt;/figure>
 
 &lt;p>When we need to allocate some memorry, first V8 will find available memorry chunk in &lt;code>free_list_&lt;/code> that fit before call &lt;code>Malloced::New()&lt;/code> to allocate new memorry. And when V8 done using a memorry chunk, it does not &lt;code>free&lt;/code> instantly. Instead, V8 just removes the chunk from &lt;code>in_use_list_&lt;/code> and move it to &lt;code>free_list_&lt;/code>.
-&lt;figure>&lt;img src="http://sytranvn.dev/posts/allocation/PreallocatedStorage-New-1.png">&lt;figcaption>
+&lt;figure>&lt;img src="https://sytranvn.dev/posts/allocation/PreallocatedStorage-New-1.png">&lt;figcaption>
  &lt;h4>find fit memorry chunk&lt;/h4>
  &lt;/figcaption>
 &lt;/figure>
 
 So when we need memorry to store something else, we just override data on allocated memory, it save us one free operation.
-&lt;figure>&lt;img src="http://sytranvn.dev/posts/allocation/PreallocatedStorage-New-2.png">&lt;figcaption>
+&lt;figure>&lt;img src="https://sytranvn.dev/posts/allocation/PreallocatedStorage-New-2.png">&lt;figcaption>
  &lt;h4>add free chunk to in used&lt;/h4>
  &lt;/figcaption>
 &lt;/figure>
 
-There is nothing much to be done in allocation since it just a wrapper to &lt;code>malloc&lt;/code> and &lt;code>free&lt;/code> memorry. But this is the heart of everything. In next posts, we will see how &lt;code>PreallocatedStorage&lt;/code> is used by V8 in specific scenarios.&lt;/p></description></item><item><title>Token</title><link>http://sytranvn.dev/posts/token/</link><pubDate>Wed, 06 Oct 2021 00:00:00 +0000</pubDate><guid>http://sytranvn.dev/posts/token/</guid><description>&lt;blockquote>
+There is nothing much to be done in allocation since it just a wrapper to &lt;code>malloc&lt;/code> and &lt;code>free&lt;/code> memorry. But this is the heart of everything. In next posts, we will see how &lt;code>PreallocatedStorage&lt;/code> is used by V8 in specific scenarios.&lt;/p></description></item><item><title>Token</title><link>https://sytranvn.dev/posts/token/</link><pubDate>Wed, 06 Oct 2021 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/token/</guid><description>&lt;blockquote>
 &lt;p>If you don&amp;rsquo;t know how it works, find out. If you&amp;rsquo;re not sure if it will work, try it. If it doesn&amp;rsquo;t make sense, play with it until it does. If it&amp;rsquo;s not broken, break it. If it might not be true, find out.&lt;/p>
 &lt;p>Seth Godin&lt;/p>
 &lt;/blockquote>
@@ -8195,7 +8195,7 @@ There is nothing much to be done in allocation since it just a wrapper to &lt;co
  &lt;/a>
 &lt;/h2>
 &lt;p>All tokens are defined by a macro &lt;code>TOKEN_LIST&lt;/code>. It takes a list of 3 macros M all of which satisfy the same signature M(name, string, precedence), where name is the symbolic token name, string is the corresponding syntactic symbol (or NULL, for literals), and precedence is the precedence (or 0).
-The parameters are invoked for token categories as follows:&lt;/p></description></item><item><title>Build v8 from source on Apple M1</title><link>http://sytranvn.dev/posts/build-v8-from-source-on-apple-m1/</link><pubDate>Mon, 19 Apr 2021 00:00:00 +0000</pubDate><guid>http://sytranvn.dev/posts/build-v8-from-source-on-apple-m1/</guid><description>&lt;p>Follow up &lt;a href="http://sytranvn.dev/posts/build-v8-from-source/" >Build v8 from source on Ubuntu 20.04&lt;/a>. Today we&amp;rsquo;re gonna build v8 source on an Apple M1 chip MacOS.&lt;/p>
+The parameters are invoked for token categories as follows:&lt;/p></description></item><item><title>Build v8 from source on Apple M1</title><link>https://sytranvn.dev/posts/build-v8-from-source-on-apple-m1/</link><pubDate>Mon, 19 Apr 2021 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/build-v8-from-source-on-apple-m1/</guid><description>&lt;p>Follow up &lt;a href="https://sytranvn.dev/posts/build-v8-from-source/" >Build v8 from source on Ubuntu 20.04&lt;/a>. Today we&amp;rsquo;re gonna build v8 source on an Apple M1 chip MacOS.&lt;/p>
 &lt;h2 id="required">
  Required
  &lt;a class="heading-link" href="#required">
@@ -8217,7 +8217,7 @@ The parameters are invoked for token categories as follows:&lt;/p></description>
  &lt;span class="sr-only">Link to heading&lt;/span>
  &lt;/a>
 &lt;/h2>
-&lt;p>First we need to get the depot tools bundle from google. It&amp;rsquo;s a package of scripts, to automate tasks to manage repositories &lt;a href="http://www.chromium.org/developers/how-tos/install-depot-tools" class="external-link" target="_blank" rel="noopener">http://www.chromium.org/developers/how-tos/install-depot-tools&lt;/a>&lt;/p></description></item><item><title>What I learned from reading reactjs tests</title><link>http://sytranvn.dev/posts/what-i-learned-from-reading-reactjs-tests/</link><pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate><guid>http://sytranvn.dev/posts/what-i-learned-from-reading-reactjs-tests/</guid><description>&lt;p>First of all, I think React DOM is one of the most interesting part in React code base. I&amp;rsquo;m not sure if it is correct but whatever, stop thinking and start diving.&lt;/p>
+&lt;p>First we need to get the depot tools bundle from google. It&amp;rsquo;s a package of scripts, to automate tasks to manage repositories &lt;a href="http://www.chromium.org/developers/how-tos/install-depot-tools" class="external-link" target="_blank" rel="noopener">http://www.chromium.org/developers/how-tos/install-depot-tools&lt;/a>&lt;/p></description></item><item><title>What I learned from reading reactjs tests</title><link>https://sytranvn.dev/posts/what-i-learned-from-reading-reactjs-tests/</link><pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/what-i-learned-from-reading-reactjs-tests/</guid><description>&lt;p>First of all, I think React DOM is one of the most interesting part in React code base. I&amp;rsquo;m not sure if it is correct but whatever, stop thinking and start diving.&lt;/p>
 &lt;p>This is the &lt;a href="https://github.com/facebook/react/blob/9d48779b362ef773da50fef95af6998b560c75c0/packages/react-dom/src/__tests__/ReactDOM-test.js" class="external-link" target="_blank" rel="noopener">React-DOM test file&lt;/a> at the time I&amp;rsquo;m writing this post. If you find latest version is different from what mentioned in this post please feel free to make a PR.&lt;/p>
 &lt;ul>
 &lt;li>&lt;code>ReactDOM&lt;/code>
@@ -8237,7 +8237,7 @@ I have known this beavior of React key before, but it&amp;rsquo;s interesting to
 &lt;li>&lt;/li>
 &lt;/ul>
 &lt;/li>
-&lt;/ul></description></item><item><title>Build v8 from source on Ubuntu 20.04</title><link>http://sytranvn.dev/posts/build-v8-from-source/</link><pubDate>Sat, 20 Feb 2021 00:00:00 +0000</pubDate><guid>http://sytranvn.dev/posts/build-v8-from-source/</guid><description>&lt;p>Have you ever asked what does V8 do? Here&amp;rsquo;s how to build a V8 of your own from source code. See what it can do and even have fun with it.&lt;/p>
+&lt;/ul></description></item><item><title>Build v8 from source on Ubuntu 20.04</title><link>https://sytranvn.dev/posts/build-v8-from-source/</link><pubDate>Sat, 20 Feb 2021 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/build-v8-from-source/</guid><description>&lt;p>Have you ever asked what does V8 do? Here&amp;rsquo;s how to build a V8 of your own from source code. See what it can do and even have fun with it.&lt;/p>
 &lt;h2 id="required">
  Required
  &lt;a class="heading-link" href="#required">
@@ -8257,7 +8257,7 @@ I have known this beavior of React key before, but it&amp;rsquo;s interesting to
  &lt;span class="sr-only">Link to heading&lt;/span>
  &lt;/a>
 &lt;/h2>
-&lt;p>We need to get the depot tools bundle from google. It&amp;rsquo;s a package of scripts, to automate tasks to manage repositories &lt;a href="http://www.chromium.org/developers/how-tos/install-depot-tools" class="external-link" target="_blank" rel="noopener">http://www.chromium.org/developers/how-tos/install-depot-tools&lt;/a>&lt;/p></description></item><item><title>Misc</title><link>http://sytranvn.dev/posts/misc/</link><pubDate>Thu, 28 Jan 2021 00:00:00 +0000</pubDate><guid>http://sytranvn.dev/posts/misc/</guid><description>&lt;p>Some tricks I found when dealing with V8 giant code base&lt;/p>
+&lt;p>We need to get the depot tools bundle from google. It&amp;rsquo;s a package of scripts, to automate tasks to manage repositories &lt;a href="http://www.chromium.org/developers/how-tos/install-depot-tools" class="external-link" target="_blank" rel="noopener">http://www.chromium.org/developers/how-tos/install-depot-tools&lt;/a>&lt;/p></description></item><item><title>Misc</title><link>https://sytranvn.dev/posts/misc/</link><pubDate>Thu, 28 Jan 2021 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/misc/</guid><description>&lt;p>Some tricks I found when dealing with V8 giant code base&lt;/p>
 &lt;h2 id="macros-macros-every-where">
  Macros, macros every where
  &lt;a class="heading-link" href="#macros-macros-every-where">
@@ -8310,7 +8310,7 @@ I have known this beavior of React key before, but it&amp;rsquo;s interesting to
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"> } \
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"> } while (false)
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Why &lt;code>do why (false)&lt;/code> ?
-Because if we define:&lt;/p></description></item><item><title>V8 adventure</title><link>http://sytranvn.dev/posts/v8-adventure/</link><pubDate>Thu, 01 Oct 2020 00:00:00 +0000</pubDate><guid>http://sytranvn.dev/posts/v8-adventure/</guid><description>&lt;p>Study the v8 source code from the beginning and more.&lt;/p>
+Because if we define:&lt;/p></description></item><item><title>V8 adventure</title><link>https://sytranvn.dev/posts/v8-adventure/</link><pubDate>Thu, 01 Oct 2020 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/v8-adventure/</guid><description>&lt;p>Study the v8 source code from the beginning and more.&lt;/p>
 &lt;h2 id="why-v8-and-why-from-the-beginning">
  Why V8 and why from the beginning?
  &lt;a class="heading-link" href="#why-v8-and-why-from-the-beginning">
@@ -8345,7 +8345,7 @@ can not digest right now.&lt;/li>
  &lt;span class="sr-only">Link to heading&lt;/span>
  &lt;/a>
 &lt;/h2>
-&lt;p>Good luck to us. I don&amp;rsquo;t know where this will lead us to. I hope we can take some thing out of the ancient V8 that still valid in most recent versions.&lt;/p></description></item><item><title/><link>http://sytranvn.dev/resume/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://sytranvn.dev/resume/</guid><description>&lt;html>
+&lt;p>Good luck to us. I don&amp;rsquo;t know where this will lead us to. I hope we can take some thing out of the ancient V8 that still valid in most recent versions.&lt;/p></description></item><item><title/><link>https://sytranvn.dev/resume/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/resume/</guid><description>&lt;html>
 &lt;head>
  &lt;link rel="stylesheet" type="text/css" href="./styles.css" />
  &lt;title>Sy Tran Dung: Resume&lt;/title>
@@ -8605,8 +8605,8 @@ can not digest right now.&lt;/li>
 &amp;lt;/section&amp;gt;
 &lt;/code>&lt;/pre>
 &lt;/body>
-&lt;/html></description></item><item><title/><link>http://sytranvn.dev/schedule/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://sytranvn.dev/schedule/</guid><description>&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-&lt;link type="text/css" rel="stylesheet" href="http://sytranvn.dev/css/sheet.css">
+&lt;/html></description></item><item><title/><link>https://sytranvn.dev/schedule/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/schedule/</guid><description>&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+&lt;link type="text/css" rel="stylesheet" href="https://sytranvn.dev/css/sheet.css">
 &lt;link type="text/css" rel="stylesheet" href="sheet.css">
 &lt;style type="text/css">
 	.ritz .waffle a {
@@ -9462,6 +9462,6 @@ can not digest right now.&lt;/li>
 	&lt;/table>
 &lt;/div>
 
-&lt;script src="sheet.js" type="module">&lt;/script></description></item><item><title>Whoops! Page not found</title><link>http://sytranvn.dev/404/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://sytranvn.dev/404/</guid><description>&lt;p>That page can&amp;rsquo;t be found.&lt;/p>
-&lt;p>Our latest content is &lt;a href="http://sytranvn.dev/" >on the homepage&lt;/a>.&lt;br>
-Or checkout my recent &lt;a href="http://sytranvn.dev/posts" >blogs&lt;/a>.&lt;/p></description></item></channel></rss>
+&lt;script src="sheet.js" type="module">&lt;/script></description></item><item><title>Whoops! Page not found</title><link>https://sytranvn.dev/404/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/404/</guid><description>&lt;p>That page can&amp;rsquo;t be found.&lt;/p>
+&lt;p>Our latest content is &lt;a href="https://sytranvn.dev/" >on the homepage&lt;/a>.&lt;br>
+Or checkout my recent &lt;a href="https://sytranvn.dev/posts" >blogs&lt;/a>.&lt;/p></description></item></channel></rss>

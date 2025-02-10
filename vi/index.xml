@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>sytranvn.dev</title><link>http://sytranvn.dev/vi/</link><description>Recent content on sytranvn.dev</description><generator>Hugo</generator><language>vi</language><lastBuildDate>Sat, 01 Feb 2025 01:05:27 +0700</lastBuildDate><atom:link href="http://sytranvn.dev/vi/index.xml" rel="self" type="application/rss+xml"/><item><title>Truy Cập Steam Từ Việt Nam</title><link>http://sytranvn.dev/vi/posts/truy-cap-steam-tu-viet-nam/</link><pubDate>Sat, 01 Feb 2025 01:05:27 +0700</pubDate><guid>http://sytranvn.dev/vi/posts/truy-cap-steam-tu-viet-nam/</guid><description>&lt;p>Đang dịp lễ tết rảnh rỗi tính làm vài cái nhiệm vụ Carven trong dota 2 cho xong
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>sytranvn.dev</title><link>https://sytranvn.dev/vi/</link><description>Recent content on sytranvn.dev</description><generator>Hugo</generator><language>vi</language><lastBuildDate>Sat, 01 Feb 2025 01:05:27 +0700</lastBuildDate><atom:link href="https://sytranvn.dev/vi/index.xml" rel="self" type="application/rss+xml"/><item><title>Truy Cập Steam Từ Việt Nam</title><link>https://sytranvn.dev/vi/posts/truy-cap-steam-tu-viet-nam/</link><pubDate>Sat, 01 Feb 2025 01:05:27 +0700</pubDate><guid>https://sytranvn.dev/vi/posts/truy-cap-steam-tu-viet-nam/</guid><description>&lt;p>Đang dịp lễ tết rảnh rỗi tính làm vài cái nhiệm vụ Carven trong dota 2 cho xong
 kiếm ít skin free mà hóa ra bữa giờ steam bị nhà mạng Việt Nam chặn. Lúc đầu có
 lúc chơi bình thường có lúc account lại offline rất ảo mình mới nghi nghi. Đi
 tìm kiếm trên &amp;ldquo;diễn đàn công nghệ hàng đầu Việt Nam&amp;rdquo; thì thấy các cụ chỉ sửa
 DNS server sang của google hay cloudflare để tránh nhưng có vẻ cách này đã cũ.
 Lúc đầu mình đã xài rồi mà không có được. Cố đọc vài bài thì không thấy có cách
-giải quyết &amp;hellip;&lt;/p></description></item><item><title>Cài đặt Zalo Trên Ubuntu</title><link>http://sytranvn.dev/vi/posts/zalo-tren-ubuntu/</link><pubDate>Sun, 27 Aug 2023 17:10:55 +0700</pubDate><guid>http://sytranvn.dev/vi/posts/zalo-tren-ubuntu/</guid><description>&lt;p>Sau đây mình sẽ hướng dẫn cách cài đặt Zalo trên Ubuntu và Steam Proton, tại thời điểm hiện tại, mình đang sử dụng bản là 23.8.4&lt;/p>
+giải quyết &amp;hellip;&lt;/p></description></item><item><title>Cài đặt Zalo Trên Ubuntu</title><link>https://sytranvn.dev/vi/posts/zalo-tren-ubuntu/</link><pubDate>Sun, 27 Aug 2023 17:10:55 +0700</pubDate><guid>https://sytranvn.dev/vi/posts/zalo-tren-ubuntu/</guid><description>&lt;p>Sau đây mình sẽ hướng dẫn cách cài đặt Zalo trên Ubuntu và Steam Proton, tại thời điểm hiện tại, mình đang sử dụng bản là 23.8.4&lt;/p>
 &lt;h2 id="yêu-cầu">
  Yêu cầu
  &lt;a class="heading-link" href="#y%c3%aau-c%e1%ba%a7u">
@@ -60,7 +60,7 @@ giải quyết &amp;hellip;&lt;/p></description></item><item><title>Cài đặt 
  &lt;/a>
 &lt;/h2>
 &lt;p>Steam cung cấp công cụ Proton, xây dựng trên WineHQ để hỗ trợ chạy các game thiết kế cho Windows có thể chạy trên Linux và Steam Play.
-Chúng ta sẽ tiến hành cài đặt như sau:&lt;/p></description></item><item><title>First Trip Aboard</title><link>http://sytranvn.dev/vi/posts/travels/first-trip-aboard/</link><pubDate>Tue, 27 Jun 2023 15:53:09 +0700</pubDate><guid>http://sytranvn.dev/vi/posts/travels/first-trip-aboard/</guid><description>&lt;p>Viết về chuyến đi đầu tiên ra nước ngoài. Lẽ dĩ nhiên những gì tận mắt tôi được chứng kiến đều khiến tôi bất ngờ,
+Chúng ta sẽ tiến hành cài đặt như sau:&lt;/p></description></item><item><title>First Trip Aboard</title><link>https://sytranvn.dev/vi/posts/travels/first-trip-aboard/</link><pubDate>Tue, 27 Jun 2023 15:53:09 +0700</pubDate><guid>https://sytranvn.dev/vi/posts/travels/first-trip-aboard/</guid><description>&lt;p>Viết về chuyến đi đầu tiên ra nước ngoài. Lẽ dĩ nhiên những gì tận mắt tôi được chứng kiến đều khiến tôi bất ngờ,
 vì mọi thứ thật khác với quê hương Việt Nam của tôi. Mặc dù tôi viết rất tệ, nhưng kỷ niệm thật khó quên này, tôi sẽ
 cố gắng để viết một cách đầy đủ nhất về những trải nghiệm của mình.&lt;/p>
 &lt;h2 id="chuẩn-bị">
@@ -77,7 +77,7 @@ Ngoài nhân viên thì công ty còn hỗ trợ cả người thân của nhân
 chuẩn bị có thêm làm hộ chiếu cho con gái tôi. Thông thường mọi người có thể làm hộ chiếu online, nhưng
 với trẻ em thì buộc phải nộp hồ sơ trực tiếp ở nơi thường trú nên chúng tôi phải về quê để nộp hồ sơ.
 Ngoài ra thì chuẩn bị thêm một số quần áo và vật dụng khác là đã đủ. Vì tôi mặc gì cũng đẹp nên không
-phải chuẩn bị gì nhiều về phần này.&lt;/p></description></item><item><title>Config</title><link>http://sytranvn.dev/vi/dotfiles/</link><pubDate>Sat, 05 Feb 2022 00:00:00 +0000</pubDate><guid>http://sytranvn.dev/vi/dotfiles/</guid><description>&lt;h2 id="zsh">
+phải chuẩn bị gì nhiều về phần này.&lt;/p></description></item><item><title>Config</title><link>https://sytranvn.dev/vi/dotfiles/</link><pubDate>Sat, 05 Feb 2022 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/vi/dotfiles/</guid><description>&lt;h2 id="zsh">
  &lt;code>zsh&lt;/code>
  &lt;a class="heading-link" href="#zsh">
  &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>

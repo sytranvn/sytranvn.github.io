@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Editor on sytranvn.dev</title><link>http://sytranvn.dev/tags/editor/</link><description>Recent content in Editor on sytranvn.dev</description><generator>Hugo</generator><language>en</language><lastBuildDate>Fri, 14 Apr 2023 23:46:03 +0700</lastBuildDate><atom:link href="http://sytranvn.dev/tags/editor/index.xml" rel="self" type="application/rss+xml"/><item><title>Debug flask app with Neovim</title><link>http://sytranvn.dev/posts/debug-flask-app-with-neovim/</link><pubDate>Fri, 14 Apr 2023 23:46:03 +0700</pubDate><guid>http://sytranvn.dev/posts/debug-flask-app-with-neovim/</guid><description>&lt;p>After installing Neovim and some plugins. Now I want to try debugging Python project.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Editor on sytranvn.dev</title><link>https://sytranvn.dev/tags/editor/</link><description>Recent content in Editor on sytranvn.dev</description><generator>Hugo</generator><language>en</language><lastBuildDate>Fri, 14 Apr 2023 23:46:03 +0700</lastBuildDate><atom:link href="https://sytranvn.dev/tags/editor/index.xml" rel="self" type="application/rss+xml"/><item><title>Debug flask app with Neovim</title><link>https://sytranvn.dev/posts/debug-flask-app-with-neovim/</link><pubDate>Fri, 14 Apr 2023 23:46:03 +0700</pubDate><guid>https://sytranvn.dev/posts/debug-flask-app-with-neovim/</guid><description>&lt;p>After installing Neovim and some plugins. Now I want to try debugging Python project.
 I created a small Flask app from template with a few apis.
 And here&amp;rsquo;s the result. Amazing!&lt;/p>
 &lt;img src="debug.png" style="filter: unset;" />
@@ -17,7 +17,7 @@ And here&amp;rsquo;s the result. Amazing!&lt;/p>
  &lt;/a>
 &lt;/h2>
 &lt;p>I use &lt;a href="https://github.com/jainamoswal/Flask-Example" class="external-link" target="_blank" rel="noopener">this template&lt;/a> to generate a Flask app repo.&lt;/p>
-&lt;p>Then I clone my new repo and install the requirements.&lt;/p></description></item><item><title>Start using Neovim</title><link>http://sytranvn.dev/posts/start-using-neovim/</link><pubDate>Thu, 13 Apr 2023 23:29:48 +0700</pubDate><guid>http://sytranvn.dev/posts/start-using-neovim/</guid><description>&lt;h1 id="tldr">
+&lt;p>Then I clone my new repo and install the requirements.&lt;/p></description></item><item><title>Start using Neovim</title><link>https://sytranvn.dev/posts/start-using-neovim/</link><pubDate>Thu, 13 Apr 2023 23:29:48 +0700</pubDate><guid>https://sytranvn.dev/posts/start-using-neovim/</guid><description>&lt;h1 id="tldr">
  TLDR
  &lt;a class="heading-link" href="#tldr">
  &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
