@@ -1,1 +1,226 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Blog của Trần Dũng Sỹ</title><link>http://sytranvn.dev/vi/</link><description>Recent content on Blog của Trần Dũng Sỹ</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 16 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="http://sytranvn.dev/vi/index.xml" rel="self" type="application/rss+xml"/><item><title>Latex cheat sheets</title><link>http://sytranvn.dev/vi/posts/math/intro_to_latex/</link><pubDate>Fri, 16 Dec 2022 00:00:00 +0000</pubDate><guid>http://sytranvn.dev/vi/posts/math/intro_to_latex/</guid><description>Giới thiệu về Latex Link to heading in this tutorial, you will learn some of the basics on how to use $\latex$ to display equations in jupyter notebooks. for looking up symbols you may need, you can use any of the many cheat sheets you can find by asking google. i have provided a few that will come up often in this course at the end of this lesson.</description></item><item><title>Limits</title><link>http://sytranvn.dev/vi/posts/math/limits/</link><pubDate>Fri, 16 Dec 2022 00:00:00 +0000</pubDate><guid>http://sytranvn.dev/vi/posts/math/limits/</guid><description>$$ \begin{aligned} \text{Tính: }&amp;amp; L = \lim_{x \to +\infty}\bigg(\frac{x+1}{x+3}\bigg)^{x}\\ \text{Giải: } &amp;amp; \\ \text{Ta có: }&amp;amp; \\ L&amp;amp;=\lim_{x \to +\infty}\bigg(\frac{x+1}{x+3}\bigg)^x \\ &amp;amp;= \lim_{x \to +\infty}\bigg(\frac{x+3-2}{x+3}\bigg)^x \\ &amp;amp;= \lim_{x \to +\infty}\bigg(1 + \frac{-2}{x+3}\bigg)^x \\ \text{Đặt: } u&amp;amp;=\frac{-2}{x+3} \\ &amp;amp;\Leftrightarrow x+3 = \frac{-2}{u} \\ &amp;amp;\Leftrightarrow x = \frac{-2}{u} - 3 \\ \text{Vì: } &amp;amp;\lim_{x \to +\infty}\bigg(\frac{-2}{x+3}\bigg) = 0 \Rightarrow \lim_{x \to +\infty}u = \lim_{u \to 0}u = 0 \\ \text{Do đó: } &amp;amp;\\ L &amp;amp;= \lim_{x \to +\infty}\bigg(1 + \frac{-2}{x+3}\bigg)^x \\ &amp;amp;= \lim_{u \to 0}\bigg(1+u\bigg)^{\frac{-2}{u} -3} \\ &amp;amp;= \lim_{u \to 0}\bigg(1+u\bigg)^{\frac{-2}{u}}.</description></item><item><title>Noop</title><link>http://sytranvn.dev/vi/projects/noop/</link><pubDate>Tue, 22 Feb 2022 00:51:44 +0700</pubDate><guid>http://sytranvn.dev/vi/projects/noop/</guid><description>Chưa có gì cho bạn xem cả&amp;hellip;. Bạn chờ nhé 😊</description></item><item><title>Config</title><link>http://sytranvn.dev/vi/dotfiles/</link><pubDate>Sat, 05 Feb 2022 00:00:00 +0000</pubDate><guid>http://sytranvn.dev/vi/dotfiles/</guid><description>zsh Link to heading # autoload -U compaudit compinit colors # compaudit &amp;amp;&amp;amp; compinit &amp;amp;&amp;amp; colors autoload -U colors &amp;amp;&amp;amp; colors export EDITOR=&amp;#39;vim&amp;#39; setopt HIST_IGNORE_ALL_DUPS setopt HIST_IGNORE_SPACE eval &amp;#34;$(/opt/homebrew/bin/brew shellenv)&amp;#34; export NVM_DIR=&amp;#34;$HOME/.nvm&amp;#34; [ -s &amp;#34;$NVM_DIR/nvm.sh&amp;#34; ] &amp;amp;&amp;amp; \. &amp;#34;$NVM_DIR/nvm.sh&amp;#34; # This loads nvm [ -s &amp;#34;$NVM_DIR/bash_completion&amp;#34; ] &amp;amp;&amp;amp; \. &amp;#34;$NVM_DIR/bash_completion&amp;#34; # This loads nvm bash_completion eval &amp;#34;$(direnv hook zsh)&amp;#34; source ~/.git-prompt.sh export GIT_PS1_SHOWDIRTYSTATE=true export GIT_PS1_SHOWUNTRACKEDFILES=true export GIT_PS1_SHOWUPSTREAM=&amp;#34;auto&amp;#34; export GIT_PS1_SHOWCOLORHINTS=true setopt PROMPT_SUBST export PS1=&amp;#39;%{$fg[red]%}%m%{$reset_color%}:%{$fg[green]%}%c$%{$reset_color%}%{$fg[cyan]%}$(py_ps1)%{$reset_color%}$(__git_ps1) %(!</description></item><item><title>Giới thiệu</title><link>http://sytranvn.dev/vi/about/</link><pubDate>Sat, 05 Feb 2022 00:00:00 +0000</pubDate><guid>http://sytranvn.dev/vi/about/</guid><description> About me, Link to heading 🌐 blog của tôi 🌱 Tôi đang nghiên cứu về V8, trí tuệ nhân tạo, và sáo trúc 🔭 Tôi đang làm việc với React ⚙️ Cài đặt của tôi Tôi biết một chút ít về Link to heading và thêm một chút nữa về Tôi đã đóng góp một vài dòng code cho cộng đồng Link to heading react 4e5d7fa ssh-chat owncast-admin 2e6456c chrome-extension-cli e2df8d5</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>sytranvn.dev</title><link>http://sytranvn.dev/vi/</link><description>Recent content on sytranvn.dev</description><generator>Hugo</generator><language>vi</language><lastBuildDate>Sat, 01 Feb 2025 01:05:27 +0700</lastBuildDate><atom:link href="http://sytranvn.dev/vi/index.xml" rel="self" type="application/rss+xml"/><item><title>Truy Cập Steam Từ Việt Nam</title><link>http://sytranvn.dev/vi/posts/truy-cap-steam-tu-viet-nam/</link><pubDate>Sat, 01 Feb 2025 01:05:27 +0700</pubDate><guid>http://sytranvn.dev/vi/posts/truy-cap-steam-tu-viet-nam/</guid><description>&lt;p>Đang dịp lễ tết rảnh rỗi tính làm vài cái nhiệm vụ Carven trong dota 2 cho xong
+kiếm ít skin free mà hóa ra bữa giờ steam bị nhà mạng Việt Nam chặn. Lúc đầu có
+lúc chơi bình thường có lúc account lại offline rất ảo mình mới nghi nghi. Đi
+tìm kiếm trên &amp;ldquo;diễn đàn công nghệ hàng đầu Việt Nam&amp;rdquo; thì thấy các cụ chỉ sửa
+DNS server sang của google hay cloudflare để tránh nhưng có vẻ cách này đã cũ.
+Lúc đầu mình đã xài rồi mà không có được. Cố đọc vài bài thì không thấy có cách
+giải quyết &amp;hellip;&lt;/p></description></item><item><title>Cài đặt Zalo Trên Ubuntu</title><link>http://sytranvn.dev/vi/posts/zalo-tren-ubuntu/</link><pubDate>Sun, 27 Aug 2023 17:10:55 +0700</pubDate><guid>http://sytranvn.dev/vi/posts/zalo-tren-ubuntu/</guid><description>&lt;p>Sau đây mình sẽ hướng dẫn cách cài đặt Zalo trên Ubuntu và Steam Proton, tại thời điểm hiện tại, mình đang sử dụng bản là 23.8.4&lt;/p>
+&lt;h2 id="yêu-cầu">
+ Yêu cầu
+ &lt;a class="heading-link" href="#y%c3%aau-c%e1%ba%a7u">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Bạn có cài đặt sẵn &lt;a href="https://store.steampowered.com/" class="external-link" target="_blank" rel="noopener">Steam&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="tải-file-cài-đặt-zalo">
+ Tải file cài đặt zalo
+ &lt;a class="heading-link" href="#t%e1%ba%a3i-file-c%c3%a0i-%c4%91%e1%ba%b7t-zalo">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>Dành cho cách bạn sử dụng trình duyệt Google Chrome
+&lt;ol>
+&lt;li>Các bạn hãy vào trang chủ &lt;a href="https://zalo.me" class="external-link" target="_blank" rel="noopener">https://zalo.me&lt;/a>&lt;/li>
+&lt;li>Click chuột phải ở vị trí bất kỳ và mở công cụ Inspect
+&lt;ol>
+&lt;li>Trong công cụ Inspect, chọn tab Network&lt;/li>
+&lt;li>Click vào biểu tượng 🛜 để tùy chỉnh thông tin gửi đi&lt;/li>
+&lt;li>Trong mục User agent, bỏ chọn trình duyệt mặc định, và chọn 1 trình duyệt của Windows, ví dụ Chrome - Windows
+&lt;img src="chrome.png" alt="">&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>Bạn hãy tải lại trang (lưu ý không đóng công cụ Inspect)&lt;/li>
+&lt;li>Nút Tải về sẽ hiện ra để bạn có thể tải về&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>Dành cho các bạn sử dụng trình duyệt Firefox
+&lt;ol>
+&lt;li>Các bạn vào &lt;code>about:config&lt;/code> , nếu có cảnh báo thì chấp nhận rủi ro và tiếp tục&lt;/li>
+&lt;li>Tìm &lt;code>general.useragent.override&lt;/code> và chọn String, thêm giá trị &lt;code>Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36&lt;/code> để đổi thành Chrome - Windows
+&lt;img src="firefox.png" alt="">&lt;/li>
+&lt;li>Truy cập &lt;a href="https://zalo.me" class="external-link" target="_blank" rel="noopener">https://zalo.me&lt;/a> và tải về&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>Dành cho các bạn sử dụng terminal
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>curl -L &lt;span style="color:#e6db74">&amp;#39;https://zalo.me/download/zalo-pc?utm=90000&amp;#39;&lt;/span> &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -H &lt;span style="color:#e6db74">&amp;#39;User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36&amp;#39;&lt;/span> &lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> -o ~/Downloads/zalosetup.exe
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ol>
+&lt;h2 id="cài-đặt-steam-chạy-phần-mềm-windows">
+ Cài đặt Steam chạy phần mềm Windows
+ &lt;a class="heading-link" href="#c%c3%a0i-%c4%91%e1%ba%b7t-steam-ch%e1%ba%a1y-ph%e1%ba%a7n-m%e1%bb%81m-windows">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;p>Steam cung cấp công cụ Proton, xây dựng trên WineHQ để hỗ trợ chạy các game thiết kế cho Windows có thể chạy trên Linux và Steam Play.
+Chúng ta sẽ tiến hành cài đặt như sau:&lt;/p></description></item><item><title>First Trip Aboard</title><link>http://sytranvn.dev/vi/posts/travels/first-trip-aboard/</link><pubDate>Tue, 27 Jun 2023 15:53:09 +0700</pubDate><guid>http://sytranvn.dev/vi/posts/travels/first-trip-aboard/</guid><description>&lt;p>Viết về chuyến đi đầu tiên ra nước ngoài. Lẽ dĩ nhiên những gì tận mắt tôi được chứng kiến đều khiến tôi bất ngờ,
+vì mọi thứ thật khác với quê hương Việt Nam của tôi. Mặc dù tôi viết rất tệ, nhưng kỷ niệm thật khó quên này, tôi sẽ
+cố gắng để viết một cách đầy đủ nhất về những trải nghiệm của mình.&lt;/p>
+&lt;h2 id="chuẩn-bị">
+ Chuẩn bị
+ &lt;a class="heading-link" href="#chu%e1%ba%a9n-b%e1%bb%8b">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;p>Đây là chuyến du lịch của công ty đến Thái Lan và tôi được tài trợ hoàn toàn chi phí, điều duy nhất tôi cần chuẩn bị là
+hộ chiếu công dân và một tâm hồn thật đẹp. Thật may tôi đã làm hộ chiếu từ nhiều năm trước, cuối cùng thì cũng được mang
+nó ra sử dụng một lần. Còn tâm hồn của tôi thì chắc chắn là rất đẹp rồi 😙
+Ngoài nhân viên thì công ty còn hỗ trợ cả người thân của nhân viên một phần chi phí. Vì thỉnh thoảng chúng tôi chỉ đi du lịch trong nước, nên nhân cơ hội này tôi muốn đưa vợ và con cùng đi. Vậy nên khâu
+chuẩn bị có thêm làm hộ chiếu cho con gái tôi. Thông thường mọi người có thể làm hộ chiếu online, nhưng
+với trẻ em thì buộc phải nộp hồ sơ trực tiếp ở nơi thường trú nên chúng tôi phải về quê để nộp hồ sơ.
+Ngoài ra thì chuẩn bị thêm một số quần áo và vật dụng khác là đã đủ. Vì tôi mặc gì cũng đẹp nên không
+phải chuẩn bị gì nhiều về phần này.&lt;/p></description></item><item><title>Config</title><link>http://sytranvn.dev/vi/dotfiles/</link><pubDate>Sat, 05 Feb 2022 00:00:00 +0000</pubDate><guid>http://sytranvn.dev/vi/dotfiles/</guid><description>&lt;h2 id="zsh">
+ &lt;code>zsh&lt;/code>
+ &lt;a class="heading-link" href="#zsh">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-zshrc" data-lang="zshrc">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># autoload -U compaudit compinit colors&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># compaudit &amp;amp;&amp;amp; compinit &amp;amp;&amp;amp; colors&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>autoload -U colors &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> colors
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>export EDITOR&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;vim&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>setopt HIST_IGNORE_ALL_DUPS
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>setopt HIST_IGNORE_SPACE
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>eval &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#66d9ef">$(&lt;/span>/opt/homebrew/bin/brew shellenv&lt;span style="color:#66d9ef">)&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>export NVM_DIR&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>$HOME&lt;span style="color:#e6db74">/.nvm&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span> -s &lt;span style="color:#e6db74">&amp;#34;&lt;/span>$NVM_DIR&lt;span style="color:#e6db74">/nvm.sh&amp;#34;&lt;/span> &lt;span style="color:#f92672">]&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> &lt;span style="color:#ae81ff">\.&lt;/span> &lt;span style="color:#e6db74">&amp;#34;&lt;/span>$NVM_DIR&lt;span style="color:#e6db74">/nvm.sh&amp;#34;&lt;/span> &lt;span style="color:#75715e"># This loads nvm&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span> -s &lt;span style="color:#e6db74">&amp;#34;&lt;/span>$NVM_DIR&lt;span style="color:#e6db74">/bash_completion&amp;#34;&lt;/span> &lt;span style="color:#f92672">]&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> &lt;span style="color:#ae81ff">\.&lt;/span> &lt;span style="color:#e6db74">&amp;#34;&lt;/span>$NVM_DIR&lt;span style="color:#e6db74">/bash_completion&amp;#34;&lt;/span> &lt;span style="color:#75715e"># This loads nvm bash_completion&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>eval &lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#66d9ef">$(&lt;/span>direnv hook zsh&lt;span style="color:#66d9ef">)&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>source ~/.git-prompt.sh
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>export GIT_PS1_SHOWDIRTYSTATE&lt;span style="color:#f92672">=&lt;/span>true
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>export GIT_PS1_SHOWUNTRACKEDFILES&lt;span style="color:#f92672">=&lt;/span>true
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>export GIT_PS1_SHOWUPSTREAM&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;auto&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>export GIT_PS1_SHOWCOLORHINTS&lt;span style="color:#f92672">=&lt;/span>true
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>setopt PROMPT_SUBST
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>export PS1&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;%{$fg[red]%}%m%{$reset_color%}:%{$fg[green]%}%c$%{$reset_color%}%{$fg[cyan]%}$(py_ps1)%{$reset_color%}$(__git_ps1) %(!.#.$) &amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>RPROMPT&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;$(date +%T)&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># aliases&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>alias zrc&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;vim ~/.zshrc&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>alias zrl&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;source ~/.zshrc&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>alias vrc&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;vim ~/.vimrc&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>alias ll&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#39;ls -lahG&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>path&lt;span style="color:#f92672">+=(&lt;/span>~/.bin&lt;span style="color:#f92672">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">[&lt;/span> -f ~/.fzf.zsh &lt;span style="color:#f92672">]&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> source ~/.fzf.zsh
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># &amp;gt;&amp;gt;&amp;gt; conda initialize &amp;gt;&amp;gt;&amp;gt;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># !! Contents within this block are managed by &amp;#39;conda init&amp;#39; !!&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>__conda_setup&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#66d9ef">$(&lt;/span>&lt;span style="color:#e6db74">&amp;#39;/Users/sytran/anaconda3/bin/conda&amp;#39;&lt;/span> &lt;span style="color:#e6db74">&amp;#39;shell.zsh&amp;#39;&lt;/span> &lt;span style="color:#e6db74">&amp;#39;hook&amp;#39;&lt;/span> 2&amp;gt; /dev/null&lt;span style="color:#66d9ef">)&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">if&lt;/span> &lt;span style="color:#f92672">[&lt;/span> $? -eq &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#f92672">]&lt;/span>; &lt;span style="color:#66d9ef">then&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> eval &lt;span style="color:#e6db74">&amp;#34;&lt;/span>$__conda_setup&lt;span style="color:#e6db74">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">else&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> &lt;span style="color:#f92672">[&lt;/span> -f &lt;span style="color:#e6db74">&amp;#34;/Users/sytran/anaconda3/etc/profile.d/conda.sh&amp;#34;&lt;/span> &lt;span style="color:#f92672">]&lt;/span>; &lt;span style="color:#66d9ef">then&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> . &lt;span style="color:#e6db74">&amp;#34;/Users/sytran/anaconda3/etc/profile.d/conda.sh&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">else&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> export PATH&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;/Users/sytran/anaconda3/bin:&lt;/span>$PATH&lt;span style="color:#e6db74">&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">fi&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">fi&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>unset __conda_setup
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># &amp;lt;&amp;lt;&amp;lt; conda initialize &amp;lt;&amp;lt;&amp;lt;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+&lt;h2 id="vim">
+ &lt;code>vim&lt;/code>
+ &lt;a class="heading-link" href="#vim">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-vimrc" data-lang="vimrc">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">set&lt;/span> &lt;span style="color:#a6e22e">nocompatible&lt;/span> &lt;span style="color:#75715e">&amp;#34; get rid of Vi compatibility mode. SET FIRST!&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">filetype&lt;/span> &lt;span style="color:#a6e22e">plugin&lt;/span> &lt;span style="color:#a6e22e">indent&lt;/span> &lt;span style="color:#a6e22e">on&lt;/span> &lt;span style="color:#75715e">&amp;#34; filetype detection[ON] plugin[ON] indent[ON]&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">set&lt;/span> &lt;span style="color:#a6e22e">t_Co&lt;/span>=&lt;span style="color:#ae81ff">256&lt;/span> &lt;span style="color:#75715e">&amp;#34; enable 256-color mode.&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">syntax&lt;/span> &lt;span style="color:#a6e22e">enable&lt;/span> &lt;span style="color:#75715e">&amp;#34; enable syntax highlighting (previously syntax on).&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">colorscheme&lt;/span> &lt;span style="color:#a6e22e">desert&lt;/span> &lt;span style="color:#75715e">&amp;#34; set colorscheme&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">set&lt;/span> &lt;span style="color:#a6e22e">number&lt;/span> &lt;span style="color:#75715e">&amp;#34; show line numbers&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">set&lt;/span> &lt;span style="color:#a6e22e">laststatus&lt;/span>=&lt;span style="color:#ae81ff">2&lt;/span> &lt;span style="color:#75715e">&amp;#34; last window always has a statusline&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">filetype&lt;/span> &lt;span style="color:#a6e22e">indent&lt;/span> &lt;span style="color:#a6e22e">on&lt;/span> &lt;span style="color:#75715e">&amp;#34; activates indenting for files&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">set&lt;/span> &lt;span style="color:#a6e22e">nohlsearch&lt;/span> &lt;span style="color:#75715e">&amp;#34; Don&amp;#39;t continue to highlight searched phrases.&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">set&lt;/span> &lt;span style="color:#a6e22e">incsearch&lt;/span> &lt;span style="color:#75715e">&amp;#34; But do highlight as you type your search.&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">set&lt;/span> &lt;span style="color:#a6e22e">ignorecase&lt;/span> &lt;span style="color:#75715e">&amp;#34; Make searches case-insensitive.&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">set&lt;/span> &lt;span style="color:#a6e22e">ruler&lt;/span> &lt;span style="color:#75715e">&amp;#34; Always show info along bottom.&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">set&lt;/span> &lt;span style="color:#a6e22e">autoindent&lt;/span> &lt;span style="color:#75715e">&amp;#34; auto-indent&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">set&lt;/span> &lt;span style="color:#a6e22e">tabstop&lt;/span>=&lt;span style="color:#ae81ff">4&lt;/span> &lt;span style="color:#75715e">&amp;#34; tab spacing&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">set&lt;/span> &lt;span style="color:#a6e22e">softtabstop&lt;/span>=&lt;span style="color:#ae81ff">4&lt;/span> &lt;span style="color:#75715e">&amp;#34; unify&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">set&lt;/span> &lt;span style="color:#a6e22e">shiftwidth&lt;/span>=&lt;span style="color:#ae81ff">4&lt;/span> &lt;span style="color:#75715e">&amp;#34; indent/outdent by 4 columns&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">set&lt;/span> &lt;span style="color:#a6e22e">shiftround&lt;/span> &lt;span style="color:#75715e">&amp;#34; always indent/outdent to the nearest tabstop&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">set&lt;/span> &lt;span style="color:#a6e22e">expandtab&lt;/span> &lt;span style="color:#75715e">&amp;#34; use spaces instead of tabs&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">set&lt;/span> &lt;span style="color:#a6e22e">smarttab&lt;/span> &lt;span style="color:#75715e">&amp;#34; use tabs at the start of a line, spaces elsewhere&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">autocmd&lt;/span> &lt;span style="color:#a6e22e">Filetype&lt;/span> &lt;span style="color:#a6e22e">javascript&lt;/span> &lt;span style="color:#a6e22e">setlocal&lt;/span> &lt;span style="color:#a6e22e">ts&lt;/span>=&lt;span style="color:#ae81ff">2&lt;/span> &lt;span style="color:#a6e22e">sw&lt;/span>=&lt;span style="color:#ae81ff">2&lt;/span> &lt;span style="color:#a6e22e">sts&lt;/span>=&lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#a6e22e">expandtab&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">set&lt;/span> &lt;span style="color:#a6e22e">nowrap&lt;/span> &lt;span style="color:#75715e">&amp;#34; don&amp;#39;t wrap text&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&amp;#34; make backspaces more powerfull&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">set&lt;/span> &lt;span style="color:#a6e22e">backspace&lt;/span>=&lt;span style="color:#a6e22e">indent&lt;/span>,&lt;span style="color:#a6e22e">eol&lt;/span>,&lt;span style="color:#a6e22e">start&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">set&lt;/span> &lt;span style="color:#a6e22e">showcmd&lt;/span> &lt;span style="color:#75715e">&amp;#34; show (partial) command in status line&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">set&lt;/span> &lt;span style="color:#a6e22e">noswapfile&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">set&lt;/span> &lt;span style="color:#a6e22e">splitright&lt;/span> &lt;span style="color:#75715e">&amp;#34; show split window to the right&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">set&lt;/span> &lt;span style="color:#a6e22e">nu&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">set&lt;/span> &lt;span style="color:#a6e22e">list&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">set&lt;/span> &lt;span style="color:#a6e22e">listchars&lt;/span>=&lt;span style="color:#a6e22e">tab&lt;/span>:┆\ 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">set&lt;/span> &lt;span style="color:#a6e22e">colorcolumn&lt;/span>=&lt;span style="color:#ae81ff">80&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">set&lt;/span> &lt;span style="color:#a6e22e">tags&lt;/span>=&lt;span style="color:#a6e22e">tags&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">g&lt;/span>:&lt;span style="color:#a6e22e">netrw_liststyle&lt;/span> = &lt;span style="color:#ae81ff">3&lt;/span> &lt;span style="color:#75715e">&amp;#34; tree explorer expandable&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">g&lt;/span>:&lt;span style="color:#a6e22e">netrw_banner&lt;/span> = &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#75715e">&amp;#34; hide banner&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">g&lt;/span>:&lt;span style="color:#a6e22e">netrw_browse_split&lt;/span> = &lt;span style="color:#ae81ff">4&lt;/span> &lt;span style="color:#75715e">&amp;#34; open file in previous window&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">g&lt;/span>:&lt;span style="color:#a6e22e">netrw_winsize&lt;/span> = &lt;span style="color:#ae81ff">20&lt;/span> &lt;span style="color:#75715e">&amp;#34; default size&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">command&lt;/span> &lt;span style="color:#a6e22e">Vrc&lt;/span> :&lt;span style="color:#a6e22e">tabedit&lt;/span> ~/.&lt;span style="color:#a6e22e">vimrc&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">command&lt;/span> &lt;span style="color:#a6e22e">Vrl&lt;/span> :&lt;span style="color:#a6e22e">source&lt;/span> ~/.&lt;span style="color:#a6e22e">vimrc&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">call&lt;/span> &lt;span style="color:#a6e22e">plug&lt;/span>#&lt;span style="color:#a6e22e">begin&lt;/span>()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&amp;#34; Multiple Plug commands can be written in a single line using | separators&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">Plug&lt;/span> &lt;span style="color:#e6db74">&amp;#39;SirVer/ultisnips&amp;#39;&lt;/span> | &lt;span style="color:#a6e22e">Plug&lt;/span> &lt;span style="color:#e6db74">&amp;#39;honza/vim-snippets&amp;#39;&lt;/span> | &lt;span style="color:#a6e22e">Plug&lt;/span> &lt;span style="color:#e6db74">&amp;#39;~/.vim/plugged/myvim&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">g&lt;/span>:&lt;span style="color:#a6e22e">UltiSnipsExpandTrigger&lt;/span>=&lt;span style="color:#e6db74">&amp;#34;&amp;lt;tab&amp;gt;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">g&lt;/span>:&lt;span style="color:#a6e22e">UltiSnipsJumpForwardTrigger&lt;/span>=&lt;span style="color:#e6db74">&amp;#34;&amp;lt;tab&amp;gt;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">let&lt;/span> &lt;span style="color:#a6e22e">g&lt;/span>:&lt;span style="color:#a6e22e">UltiSnipsJumpBackwardTrigger&lt;/span>=&lt;span style="color:#e6db74">&amp;#34;&amp;lt;c-b&amp;gt;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&amp;#34; post install (yarn install | npm install) then load plugin only for editing supported files&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">Plug&lt;/span> &lt;span style="color:#e6db74">&amp;#39;prettier/vim-prettier&amp;#39;&lt;/span>, {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> \ &lt;span style="color:#e6db74">&amp;#39;do&amp;#39;&lt;/span>: &lt;span style="color:#e6db74">&amp;#39;yarn install --frozen-lockfile --production&amp;#39;&lt;/span>,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> \ &lt;span style="color:#e6db74">&amp;#39;for&amp;#39;&lt;/span>: [&lt;span style="color:#e6db74">&amp;#39;javascript&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;typescript&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;css&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;less&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;scss&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;json&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;graphql&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;markdown&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;vue&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;svelte&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;yaml&amp;#39;&lt;/span>, &lt;span style="color:#e6db74">&amp;#39;html&amp;#39;&lt;/span>] }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">Plug&lt;/span> &lt;span style="color:#e6db74">&amp;#39;ludovicchabant/vim-gutentags&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">Plug&lt;/span> &lt;span style="color:#e6db74">&amp;#39;preservim/tagbar&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">nmap&lt;/span> &amp;lt;&lt;span style="color:#a6e22e">F8&lt;/span>&amp;gt; :&lt;span style="color:#a6e22e">TagbarToggle&lt;/span>&amp;lt;&lt;span style="color:#a6e22e">CR&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">autocmd&lt;/span> &lt;span style="color:#a6e22e">FileType&lt;/span> &lt;span style="color:#a6e22e">python&lt;/span>,&lt;span style="color:#a6e22e">c&lt;/span>,&lt;span style="color:#a6e22e">cpp&lt;/span>,&lt;span style="color:#a6e22e">js&lt;/span> &lt;span style="color:#a6e22e">TagbarOpen&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">Plug&lt;/span> &lt;span style="color:#e6db74">&amp;#39;junegunn/fzf&amp;#39;&lt;/span>, { &lt;span style="color:#e6db74">&amp;#39;do&amp;#39;&lt;/span>: { -&amp;gt; &lt;span style="color:#a6e22e">fzf&lt;/span>#&lt;span style="color:#a6e22e">install&lt;/span>() } }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">Plug&lt;/span> &lt;span style="color:#e6db74">&amp;#39;junegunn/fzf.vim&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">map&lt;/span> &amp;lt;&lt;span style="color:#a6e22e">C&lt;/span>-&lt;span style="color:#a6e22e">O&lt;/span>&amp;gt; :&lt;span style="color:#a6e22e">Files&lt;/span> &amp;lt;&lt;span style="color:#a6e22e">CR&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">map&lt;/span> &amp;lt;&lt;span style="color:#a6e22e">C&lt;/span>-&lt;span style="color:#a6e22e">F&lt;/span>&amp;gt; :&lt;span style="color:#a6e22e">Lines&lt;/span> &amp;lt;&lt;span style="color:#a6e22e">CR&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">map&lt;/span> &amp;lt;&lt;span style="color:#a6e22e">CS&lt;/span>-&lt;span style="color:#a6e22e">F&lt;/span>&amp;gt; :&lt;span style="color:#a6e22e">Rg&lt;/span>&amp;lt;&lt;span style="color:#a6e22e">CR&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">Plug&lt;/span> &lt;span style="color:#e6db74">&amp;#39;ap/vim-buftabline&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">set&lt;/span> &lt;span style="color:#a6e22e">hidden&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">nnoremap&lt;/span> &amp;lt;&lt;span style="color:#a6e22e">C&lt;/span>-&lt;span style="color:#a6e22e">n&lt;/span>&amp;gt; :&lt;span style="color:#a6e22e">bnext&lt;/span>&amp;lt;&lt;span style="color:#a6e22e">CR&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">nnoremap&lt;/span> &amp;lt;&lt;span style="color:#a6e22e">C&lt;/span>-&lt;span style="color:#a6e22e">p&lt;/span>&amp;gt; :&lt;span style="color:#a6e22e">bprev&lt;/span>&amp;lt;&lt;span style="color:#a6e22e">CR&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">Plug&lt;/span> &lt;span style="color:#e6db74">&amp;#39;bfrg/vim-cpp-modern&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&amp;#34; Local plugin&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">Plug&lt;/span> &lt;span style="color:#e6db74">&amp;#39;~/.vim/plugged/vim-torque&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">call&lt;/span> &lt;span style="color:#a6e22e">plug&lt;/span>#&lt;span style="color:#a6e22e">end&lt;/span>()
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
