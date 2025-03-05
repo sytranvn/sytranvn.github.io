@@ -1,3 +1,42 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Machine Learning on sytranvn.dev</title><link>https://sytranvn.dev/tags/machine-learning/</link><description>Recent content in Machine Learning on sytranvn.dev</description><generator>Hugo</generator><language>en</language><lastBuildDate>Sat, 18 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://sytranvn.dev/tags/machine-learning/index.xml" rel="self" type="application/rss+xml"/><item><title>Deploy ML model to Javascripts</title><link>https://sytranvn.dev/posts/deploy-ml-model-to-javascripts/</link><pubDate>Sat, 18 Jun 2022 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/deploy-ml-model-to-javascripts/</guid><description>Deploy trained model using Octave or Tensorflow to JS application.
-The idea Link to heading When we train a model, the outcome is ussually the weights of hidden layers. All predictions will be calculated by inputs and the weights.
--&amp;gt; train model with training set -&amp;gt; export model&amp;#39;s weights -&amp;gt; load exported weights to JS -&amp;gt; normalize input data and predict Octave model to csv Link to heading Setup a model with tensorflow Link to heading Save weights Link to heading Save entire model Link to heading</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Machine Learning on sytranvn.dev</title><link>https://sytranvn.dev/tags/machine-learning/</link><description>Recent content in Machine Learning on sytranvn.dev</description><generator>Hugo</generator><language>en</language><lastBuildDate>Sat, 18 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://sytranvn.dev/tags/machine-learning/index.xml" rel="self" type="application/rss+xml"/><item><title>Deploy ML model to Javascripts</title><link>https://sytranvn.dev/posts/deploy-ml-model-to-javascripts/</link><pubDate>Sat, 18 Jun 2022 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/deploy-ml-model-to-javascripts/</guid><description>&lt;p>Deploy trained model using Octave or Tensorflow to JS application.&lt;/p>
+&lt;h2 id="the-idea">
+ The idea
+ &lt;a class="heading-link" href="#the-idea">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;p>When we train a model, the outcome is ussually the weights of hidden layers.
+All predictions will be calculated by inputs and the weights.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-gdscript3" data-lang="gdscript3">&lt;span class="line">&lt;span class="cl">&lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">train&lt;/span> &lt;span class="n">model&lt;/span> &lt;span class="n">with&lt;/span> &lt;span class="n">training&lt;/span> &lt;span class="n">set&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="k">export&lt;/span> &lt;span class="n">model&lt;/span>&lt;span class="s1">&amp;#39;s weights&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="nb">load&lt;/span> &lt;span class="n">exported&lt;/span> &lt;span class="n">weights&lt;/span> &lt;span class="n">to&lt;/span> &lt;span class="n">JS&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">normalize&lt;/span> &lt;span class="n">input&lt;/span> &lt;span class="n">data&lt;/span> &lt;span class="ow">and&lt;/span> &lt;span class="n">predict&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="octave-model-to-csv">
+ Octave model to csv
+ &lt;a class="heading-link" href="#octave-model-to-csv">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;h2 id="setup-a-model-with-tensorflow">
+ Setup a model with tensorflow
+ &lt;a class="heading-link" href="#setup-a-model-with-tensorflow">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;h2 id="save-weights">
+ Save weights
+ &lt;a class="heading-link" href="#save-weights">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;h2 id="save-entire-model">
+ Save entire model
+ &lt;a class="heading-link" href="#save-entire-model">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h2></description></item></channel></rss>
