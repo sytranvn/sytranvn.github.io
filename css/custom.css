@@ -1,8 +1,6 @@
 
 .badge {
     max-height: 100px;
-    border-radius: 50%;
-    border: white solid 4px;
 }
 
 .badge.square {
@@ -10,4 +8,9 @@
 }
 ol ol {
     list-style: lower-alpha;
+}
+
+.list ul li .title .description {
+    font-size: 0.9em;
+    font-weight: 400;
 }

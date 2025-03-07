@@ -249,8 +249,14 @@ public:
 
 
 
-<body class="preload-transitions colorscheme-dark">
+<body class="preload-transitions colorscheme-auto">
   
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
 
   <main class="wrapper">
     <nav class="navigation">
@@ -294,6 +300,24 @@ public:
           
         
         
+          
+          
+          
+            
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/vi/"> 🇻🇳</a>
+              </li>
+            
+          
+        
       </ul>
     
   </section>
@@ -328,7 +352,9 @@ public:
         
         <div class="categories">
   <i class="fa-solid fa-folder" aria-hidden="true"></i>
-    <a href="/categories/tbd/">TBD</a></div>
+    <a href="/categories/dsa/">DSA</a>
+      <span class="separator">•</span>
+    <a href="/categories/data-structure-and-algorithm/">Data Structure and Algorithm</a></div>
 
         <div class="tags">
   <i class="fa-solid fa-tag" aria-hidden="true"></i>
@@ -337,6 +363,15 @@ public:
     </span></div>
 
       </div>
+
+      <script id="diffblog-plugin-script" async="false" src="https://diff.blog/static/js/diffblog_plugin_v1.js"></script> 
+      <script>
+              document.getElementById("diffblog-plugin-script").addEventListener("load", function () {
+                  DiffBlog(
+                      "4at5qx7n0j5yhd86rqu6gyotkgn4o17hu8wn6xis54lwd692ez"
+                  );
+              });
+      </script>
     </header>
 
     <div class="post-content">
@@ -349,81 +384,81 @@ public:
     <span class="sr-only">Link to heading</span>
   </a>
 </h1>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> {
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">P</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> y;
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> x;
-</span></span><span style="display:flex;"><span>    };
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">BfsRunner</span> {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> end;
-</span></span><span style="display:flex;"><span>        vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;&amp;</span> grid;
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> mark;
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> other;
-</span></span><span style="display:flex;"><span>        queue<span style="color:#f92672">&lt;</span>P<span style="color:#f92672">&gt;</span> queue;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        BfsRunner(vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;&amp;</span> grid, <span style="color:#66d9ef">int</span> y, <span style="color:#66d9ef">int</span> x, <span style="color:#66d9ef">int</span> mark, <span style="color:#66d9ef">int</span> other)<span style="color:#f92672">:</span> grid(grid), end(grid.size() <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>), mark(mark), other(other), queue() {
-</span></span><span style="display:flex;"><span>            queue.push({ y, x });
-</span></span><span style="display:flex;"><span>            grid[y][x] <span style="color:#f92672">=</span> mark;
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">step</span>() {
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> c <span style="color:#f92672">=</span> queue.size(); c <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>; <span style="color:#f92672">--</span>c) {
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">auto</span> p <span style="color:#f92672">=</span> queue.front();
-</span></span><span style="display:flex;"><span>                queue.pop();
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> yMin <span style="color:#f92672">=</span> max(<span style="color:#ae81ff">0</span>, p.y <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>), yMax <span style="color:#f92672">=</span> min(end, p.y <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>),
-</span></span><span style="display:flex;"><span>                        xMin <span style="color:#f92672">=</span> max(<span style="color:#ae81ff">0</span>, p.x <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>), xMax <span style="color:#f92672">=</span> min(end, p.x <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>);
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> y <span style="color:#f92672">=</span> yMin; y <span style="color:#f92672">&lt;=</span> yMax; <span style="color:#f92672">++</span>y) {
-</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> x <span style="color:#f92672">=</span> xMin; x <span style="color:#f92672">&lt;=</span> xMax; <span style="color:#f92672">++</span>x) {
-</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">if</span> (grid[y][x] <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>) {
-</span></span><span style="display:flex;"><span>                            <span style="color:#66d9ef">if</span> (grid[y][x] <span style="color:#f92672">==</span> other) {
-</span></span><span style="display:flex;"><span>                                <span style="color:#66d9ef">return</span> true;
-</span></span><span style="display:flex;"><span>                            }
-</span></span><span style="display:flex;"><span>                            <span style="color:#66d9ef">continue</span>;
-</span></span><span style="display:flex;"><span>                        }
-</span></span><span style="display:flex;"><span>                        queue.push({ y, x });
-</span></span><span style="display:flex;"><span>                        grid[y][x] <span style="color:#f92672">=</span> mark;
-</span></span><span style="display:flex;"><span>                    }
-</span></span><span style="display:flex;"><span>                }
-</span></span><span style="display:flex;"><span>            }
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> false;
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">isRunning</span>() {
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#f92672">!</span>queue.empty();
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    };
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">bfs</span>(vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;&amp;</span> grid) {
-</span></span><span style="display:flex;"><span>        vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">char</span><span style="color:#f92672">&gt;&gt;</span> visited(grid.size(), vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">char</span><span style="color:#f92672">&gt;</span>(grid.size(), <span style="color:#ae81ff">0</span>));
-</span></span><span style="display:flex;"><span>        BfsRunner fromStart(grid, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>);
-</span></span><span style="display:flex;"><span>        BfsRunner fromEnd(grid, grid.size() <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>, grid.size() <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">2</span>);
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> steps <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span> (fromStart.isRunning() <span style="color:#f92672">&amp;&amp;</span> fromEnd.isRunning()) {
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">++</span>steps;
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (fromStart.step()) {
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> steps;
-</span></span><span style="display:flex;"><span>            }
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">++</span>steps;
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> (fromEnd.step()) {
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> steps;
-</span></span><span style="display:flex;"><span>            }
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> shortestPathBinaryMatrix(vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;&amp;</span> grid) {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (grid[<span style="color:#ae81ff">0</span>][<span style="color:#ae81ff">0</span>] <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">||</span> grid[grid.size() <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>][grid.size() <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">!=</span> <span style="color:#ae81ff">0</span>) {
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (grid.size() <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>) {
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>;
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">bfs</span>(grid);
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>};
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">private</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">struct</span> <span class="nc">P</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">y</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">struct</span> <span class="nc">BfsRunner</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">const</span> <span class="kt">int</span> <span class="n">end</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;&amp;</span> <span class="n">grid</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">const</span> <span class="kt">int</span> <span class="n">mark</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">const</span> <span class="kt">int</span> <span class="n">other</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">queue</span><span class="o">&lt;</span><span class="n">P</span><span class="o">&gt;</span> <span class="n">queue</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="n">BfsRunner</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;&amp;</span> <span class="n">grid</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">,</span> <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">mark</span><span class="p">,</span> <span class="kt">int</span> <span class="n">other</span><span class="p">)</span><span class="o">:</span> <span class="n">grid</span><span class="p">(</span><span class="n">grid</span><span class="p">),</span> <span class="n">end</span><span class="p">(</span><span class="n">grid</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="n">mark</span><span class="p">(</span><span class="n">mark</span><span class="p">),</span> <span class="n">other</span><span class="p">(</span><span class="n">other</span><span class="p">),</span> <span class="n">queue</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">queue</span><span class="p">.</span><span class="n">push</span><span class="p">({</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">            <span class="n">grid</span><span class="p">[</span><span class="n">y</span><span class="p">][</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">mark</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kt">bool</span> <span class="nf">step</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">c</span> <span class="o">=</span> <span class="n">queue</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">c</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">;</span> <span class="o">--</span><span class="n">c</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">const</span> <span class="k">auto</span> <span class="n">p</span> <span class="o">=</span> <span class="n">queue</span><span class="p">.</span><span class="n">front</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">                <span class="n">queue</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">                <span class="k">const</span> <span class="kt">int</span> <span class="n">yMin</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">p</span><span class="p">.</span><span class="n">y</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="n">yMax</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">end</span><span class="p">,</span> <span class="n">p</span><span class="p">.</span><span class="n">y</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">xMin</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">p</span><span class="p">.</span><span class="n">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="n">xMax</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">end</span><span class="p">,</span> <span class="n">p</span><span class="p">.</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="n">yMin</span><span class="p">;</span> <span class="n">y</span> <span class="o">&lt;=</span> <span class="n">yMax</span><span class="p">;</span> <span class="o">++</span><span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="n">xMin</span><span class="p">;</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">xMax</span><span class="p">;</span> <span class="o">++</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                        <span class="k">if</span> <span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="n">y</span><span class="p">][</span><span class="n">x</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                            <span class="k">if</span> <span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="n">y</span><span class="p">][</span><span class="n">x</span><span class="p">]</span> <span class="o">==</span> <span class="n">other</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                                <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                            <span class="k">continue</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">queue</span><span class="p">.</span><span class="n">push</span><span class="p">({</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">                        <span class="n">grid</span><span class="p">[</span><span class="n">y</span><span class="p">][</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">mark</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">                    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">                <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">        <span class="kt">bool</span> <span class="nf">isRunning</span><span class="p">()</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="o">!</span><span class="n">queue</span><span class="p">.</span><span class="n">empty</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">static</span> <span class="kt">int</span> <span class="nf">bfs</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;&amp;</span> <span class="n">grid</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;&gt;</span> <span class="n">visited</span><span class="p">(</span><span class="n">grid</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span><span class="p">(</span><span class="n">grid</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span> <span class="mi">0</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">        <span class="n">BfsRunner</span> <span class="n">fromStart</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">BfsRunner</span> <span class="n">fromEnd</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">grid</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">grid</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">steps</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span> <span class="p">(</span><span class="n">fromStart</span><span class="p">.</span><span class="n">isRunning</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">fromEnd</span><span class="p">.</span><span class="n">isRunning</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="o">++</span><span class="n">steps</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">fromStart</span><span class="p">.</span><span class="n">step</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="n">steps</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">            <span class="o">++</span><span class="n">steps</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">fromEnd</span><span class="p">.</span><span class="n">step</span><span class="p">())</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="n">steps</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">shortestPathBinaryMatrix</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;&amp;</span> <span class="n">grid</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">grid</span><span class="p">[</span><span class="n">grid</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">grid</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">grid</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="nf">bfs</span><span class="p">(</span><span class="n">grid</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
 </span></span></code></pre></div><h1 id="fastest-38ms">
   Fastest 38ms
   <a class="heading-link" href="#fastest-38ms">
@@ -431,70 +466,70 @@ public:
     <span class="sr-only">Link to heading</span>
   </a>
 </h1>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">#pragma GCC optimize(&#34;Ofast&#34;,&#34;inline&#34;,&#34;-ffast-math&#34;)
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#pragma GCC target(&#34;avx,mmx,sse2,sse3,sse4&#34;)
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> sz;
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Co</span>{
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int8_t</span> x;
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int8_t</span> y;
-</span></span><span style="display:flex;"><span>        Co <span style="color:#66d9ef">operator</span><span style="color:#f92672">+</span>(<span style="color:#66d9ef">const</span> Co<span style="color:#f92672">&amp;</span> other){
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> Co{<span style="color:#66d9ef">int8_t</span>(x<span style="color:#f92672">+</span>other.x),<span style="color:#66d9ef">int8_t</span>(y<span style="color:#f92672">+</span>other.y)};
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    };
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">checkCo</span>(Co co,<span style="color:#66d9ef">const</span> vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;&amp;</span> grid){
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span>(co.x<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">0</span><span style="color:#f92672">||</span>co.x<span style="color:#f92672">&gt;=</span>sz<span style="color:#f92672">||</span>co.y<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">0</span><span style="color:#f92672">||</span>co.y<span style="color:#f92672">&gt;=</span>sz) <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>;
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">return</span> grid[co.x][co.y];
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> Co dir[<span style="color:#ae81ff">8</span>]<span style="color:#f92672">=</span>{{<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>},{<span style="color:#ae81ff">0</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>},{<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">0</span>},{<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">0</span>},{<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>},{<span style="color:#ae81ff">1</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>},{<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>},{<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>,<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>}};
-</span></span><span style="display:flex;"><span>    queue<span style="color:#f92672">&lt;</span>Co<span style="color:#f92672">&gt;</span> q1,q2;
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> l1,l2;
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">processQ1</span>(queue<span style="color:#f92672">&lt;</span>Co<span style="color:#f92672">&gt;&amp;</span> q,vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;&amp;</span> grid){
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> qsz<span style="color:#f92672">=</span>q.size();
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span>(qsz<span style="color:#f92672">--</span>){
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">auto</span> cur<span style="color:#f92672">=</span>q.front();
-</span></span><span style="display:flex;"><span>            q.pop();
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;i<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">8</span>;<span style="color:#f92672">++</span>i){
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">auto</span> nxt<span style="color:#f92672">=</span>cur<span style="color:#f92672">+</span>dir[i];
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">auto</span> v<span style="color:#f92672">=</span>checkCo(nxt,grid);
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span>(v<span style="color:#f92672">&gt;</span><span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span>l1<span style="color:#f92672">+</span>v<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span>;<span style="color:#75715e">//change in Q2
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#66d9ef">if</span>(v<span style="color:#f92672">==</span><span style="color:#ae81ff">0</span>){q.emplace(nxt);grid[nxt.x][nxt.y]<span style="color:#f92672">=</span>l1;}<span style="color:#75715e">//change in Q2
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            }
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>        l1<span style="color:#f92672">--</span>;<span style="color:#75715e">//change in Q2
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">processQ2</span>(queue<span style="color:#f92672">&lt;</span>Co<span style="color:#f92672">&gt;&amp;</span> q,vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;&amp;</span> grid){
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">int</span> qsz<span style="color:#f92672">=</span>q.size();
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span>(qsz<span style="color:#f92672">--</span>){
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">auto</span> cur<span style="color:#f92672">=</span>q.front();
-</span></span><span style="display:flex;"><span>            q.pop();
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;i<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">8</span>;<span style="color:#f92672">++</span>i){
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">auto</span> nxt<span style="color:#f92672">=</span>cur<span style="color:#f92672">+</span>dir[i];
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">auto</span> v<span style="color:#f92672">=</span>checkCo(nxt,grid);
-</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span>(v<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">return</span> l2<span style="color:#f92672">-</span><span style="color:#ae81ff">2</span><span style="color:#f92672">-</span>v;<span style="color:#75715e">//change in Q2
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>                <span style="color:#66d9ef">if</span>(v<span style="color:#f92672">==</span><span style="color:#ae81ff">0</span>){q.emplace(nxt);grid[nxt.x][nxt.y]<span style="color:#f92672">=</span>l2;}<span style="color:#75715e">//change in Q2
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>            }
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>        l2<span style="color:#f92672">++</span>;<span style="color:#75715e">//change in Q2
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> shortestPathBinaryMatrix(vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;&amp;</span> grid) {
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">auto</span> _<span style="color:#f92672">=</span>[](){ios_base<span style="color:#f92672">::</span>sync_with_stdio(false);cin.tie(<span style="color:#ae81ff">0</span>);cout.tie(<span style="color:#ae81ff">0</span>);<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;}();
-</span></span><span style="display:flex;"><span>        sz<span style="color:#f92672">=</span>grid.size();
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span>(grid[<span style="color:#ae81ff">0</span>][<span style="color:#ae81ff">0</span>]<span style="color:#f92672">||</span>grid[sz<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>][sz<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]) <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span>(sz<span style="color:#f92672">==</span><span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span>;
-</span></span><span style="display:flex;"><span>        grid[<span style="color:#ae81ff">0</span>][<span style="color:#ae81ff">0</span>]<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span>;grid[sz<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>][sz<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>;
-</span></span><span style="display:flex;"><span>        l1<span style="color:#f92672">=-</span><span style="color:#ae81ff">2</span>;l2<span style="color:#f92672">=</span><span style="color:#ae81ff">3</span>;
-</span></span><span style="display:flex;"><span>        q1.emplace(Co{<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>});q2.emplace(Co{<span style="color:#66d9ef">int8_t</span>(sz<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>),<span style="color:#66d9ef">int8_t</span>(sz<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)});
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">while</span>(q1.size()<span style="color:#f92672">&amp;&amp;</span>q2.size()){
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">int</span> r<span style="color:#f92672">=</span>q1.size()<span style="color:#f92672">&lt;</span>q2.size()<span style="color:#f92672">?</span>processQ1(q1,grid)<span style="color:#f92672">:</span>processQ2(q2,grid);
-</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span>(r) <span style="color:#66d9ef">return</span> r;
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>};
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#pragma GCC optimize(&#34;Ofast&#34;,&#34;inline&#34;,&#34;-ffast-math&#34;)
+</span></span></span><span class="line"><span class="cl"><span class="cp">#pragma GCC target(&#34;avx,mmx,sse2,sse3,sse4&#34;)
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">sz</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">struct</span> <span class="nc">Co</span><span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int8_t</span> <span class="n">x</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int8_t</span> <span class="n">y</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Co</span> <span class="k">operator</span><span class="o">+</span><span class="p">(</span><span class="k">const</span> <span class="n">Co</span><span class="o">&amp;</span> <span class="n">other</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="k">return</span> <span class="n">Co</span><span class="p">{</span><span class="kt">int8_t</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">other</span><span class="p">.</span><span class="n">x</span><span class="p">),</span><span class="kt">int8_t</span><span class="p">(</span><span class="n">y</span><span class="o">+</span><span class="n">other</span><span class="p">.</span><span class="n">y</span><span class="p">)};</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">};</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="nf">checkCo</span><span class="p">(</span><span class="n">Co</span> <span class="n">co</span><span class="p">,</span><span class="k">const</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;&amp;</span> <span class="n">grid</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">co</span><span class="p">.</span><span class="n">x</span><span class="o">&lt;</span><span class="mi">0</span><span class="o">||</span><span class="n">co</span><span class="p">.</span><span class="n">x</span><span class="o">&gt;=</span><span class="n">sz</span><span class="o">||</span><span class="n">co</span><span class="p">.</span><span class="n">y</span><span class="o">&lt;</span><span class="mi">0</span><span class="o">||</span><span class="n">co</span><span class="p">.</span><span class="n">y</span><span class="o">&gt;=</span><span class="n">sz</span><span class="p">)</span> <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span> <span class="k">return</span> <span class="n">grid</span><span class="p">[</span><span class="n">co</span><span class="p">.</span><span class="n">x</span><span class="p">][</span><span class="n">co</span><span class="p">.</span><span class="n">y</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="n">Co</span> <span class="n">dir</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span><span class="o">=</span><span class="p">{{</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">},{</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">},{</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">},{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">},{</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">},{</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">},{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">},{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">}};</span>
+</span></span><span class="line"><span class="cl">    <span class="n">queue</span><span class="o">&lt;</span><span class="n">Co</span><span class="o">&gt;</span> <span class="n">q1</span><span class="p">,</span><span class="n">q2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">l1</span><span class="p">,</span><span class="n">l2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="nf">processQ1</span><span class="p">(</span><span class="n">queue</span><span class="o">&lt;</span><span class="n">Co</span><span class="o">&gt;&amp;</span> <span class="n">q</span><span class="p">,</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;&amp;</span> <span class="n">grid</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">qsz</span><span class="o">=</span><span class="n">q</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span><span class="p">(</span><span class="n">qsz</span><span class="o">--</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="k">auto</span> <span class="n">cur</span><span class="o">=</span><span class="n">q</span><span class="p">.</span><span class="n">front</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">            <span class="n">q</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">8</span><span class="p">;</span><span class="o">++</span><span class="n">i</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                <span class="k">auto</span> <span class="n">nxt</span><span class="o">=</span><span class="n">cur</span><span class="o">+</span><span class="n">dir</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                <span class="k">auto</span> <span class="n">v</span><span class="o">=</span><span class="n">checkCo</span><span class="p">(</span><span class="n">nxt</span><span class="p">,</span><span class="n">grid</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span><span class="p">(</span><span class="n">v</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">)</span> <span class="k">return</span> <span class="o">-</span><span class="n">l1</span><span class="o">+</span><span class="n">v</span><span class="o">-</span><span class="mi">2</span><span class="p">;</span><span class="c1">//change in Q2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="k">if</span><span class="p">(</span><span class="n">v</span><span class="o">==</span><span class="mi">0</span><span class="p">){</span><span class="n">q</span><span class="p">.</span><span class="n">emplace</span><span class="p">(</span><span class="n">nxt</span><span class="p">);</span><span class="n">grid</span><span class="p">[</span><span class="n">nxt</span><span class="p">.</span><span class="n">x</span><span class="p">][</span><span class="n">nxt</span><span class="p">.</span><span class="n">y</span><span class="p">]</span><span class="o">=</span><span class="n">l1</span><span class="p">;}</span><span class="c1">//change in Q2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">l1</span><span class="o">--</span><span class="p">;</span><span class="c1">//change in Q2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="nf">processQ2</span><span class="p">(</span><span class="n">queue</span><span class="o">&lt;</span><span class="n">Co</span><span class="o">&gt;&amp;</span> <span class="n">q</span><span class="p">,</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;&amp;</span> <span class="n">grid</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">qsz</span><span class="o">=</span><span class="n">q</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span><span class="p">(</span><span class="n">qsz</span><span class="o">--</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">            <span class="k">auto</span> <span class="n">cur</span><span class="o">=</span><span class="n">q</span><span class="p">.</span><span class="n">front</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">            <span class="n">q</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">8</span><span class="p">;</span><span class="o">++</span><span class="n">i</span><span class="p">){</span>
+</span></span><span class="line"><span class="cl">                <span class="k">auto</span> <span class="n">nxt</span><span class="o">=</span><span class="n">cur</span><span class="o">+</span><span class="n">dir</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">                <span class="k">auto</span> <span class="n">v</span><span class="o">=</span><span class="n">checkCo</span><span class="p">(</span><span class="n">nxt</span><span class="p">,</span><span class="n">grid</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span><span class="p">(</span><span class="n">v</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="n">l2</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="n">v</span><span class="p">;</span><span class="c1">//change in Q2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>                <span class="k">if</span><span class="p">(</span><span class="n">v</span><span class="o">==</span><span class="mi">0</span><span class="p">){</span><span class="n">q</span><span class="p">.</span><span class="n">emplace</span><span class="p">(</span><span class="n">nxt</span><span class="p">);</span><span class="n">grid</span><span class="p">[</span><span class="n">nxt</span><span class="p">.</span><span class="n">x</span><span class="p">][</span><span class="n">nxt</span><span class="p">.</span><span class="n">y</span><span class="p">]</span><span class="o">=</span><span class="n">l2</span><span class="p">;}</span><span class="c1">//change in Q2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="n">l2</span><span class="o">++</span><span class="p">;</span><span class="c1">//change in Q2
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="k">public</span><span class="o">:</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">shortestPathBinaryMatrix</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;&amp;</span> <span class="n">grid</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="k">static</span> <span class="k">auto</span> <span class="n">_</span><span class="o">=</span><span class="p">[](){</span><span class="n">ios_base</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span><span class="n">cin</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="n">cout</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="k">return</span> <span class="mi">0</span><span class="p">;}();</span>
+</span></span><span class="line"><span class="cl">        <span class="n">sz</span><span class="o">=</span><span class="n">grid</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">||</span><span class="n">grid</span><span class="p">[</span><span class="n">sz</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">sz</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span><span class="p">(</span><span class="n">sz</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span> <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">=-</span><span class="mi">1</span><span class="p">;</span><span class="n">grid</span><span class="p">[</span><span class="n">sz</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">sz</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">l1</span><span class="o">=-</span><span class="mi">2</span><span class="p">;</span><span class="n">l2</span><span class="o">=</span><span class="mi">3</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">q1</span><span class="p">.</span><span class="n">emplace</span><span class="p">(</span><span class="n">Co</span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">});</span><span class="n">q2</span><span class="p">.</span><span class="n">emplace</span><span class="p">(</span><span class="n">Co</span><span class="p">{</span><span class="kt">int8_t</span><span class="p">(</span><span class="n">sz</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="kt">int8_t</span><span class="p">(</span><span class="n">sz</span><span class="o">-</span><span class="mi">1</span><span class="p">)});</span>
+</span></span><span class="line"><span class="cl">        <span class="k">while</span><span class="p">(</span><span class="n">q1</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="o">&amp;&amp;</span><span class="n">q2</span><span class="p">.</span><span class="n">size</span><span class="p">()){</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">int</span> <span class="n">r</span><span class="o">=</span><span class="n">q1</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="o">&lt;</span><span class="n">q2</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="o">?</span><span class="n">processQ1</span><span class="p">(</span><span class="n">q1</span><span class="p">,</span><span class="n">grid</span><span class="p">)</span><span class="o">:</span><span class="n">processQ2</span><span class="p">(</span><span class="n">q2</span><span class="p">,</span><span class="n">grid</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="k">return</span> <span class="n">r</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
 </span></span></code></pre></div>
     </div>
 
@@ -588,5 +623,4 @@ public:
 
   
 </body>
-
 </html>

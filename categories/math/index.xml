@@ -1598,7 +1598,19 @@ $$
 $$&lt;/li>
 &lt;/ol>
 &lt;/li>
-&lt;/ol></description></item><item><title>Latex cheat sheets</title><link>https://sytranvn.dev/math/intro_to_latex/</link><pubDate>Fri, 16 Dec 2022 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/math/intro_to_latex/</guid><description>&lt;h1 id="introduction-to-latex">
+&lt;/ol></description></item><item><title>Some More Limits</title><link>https://sytranvn.dev/math/some-more-limits/</link><pubDate>Mon, 05 Jun 2023 18:19:06 +0700</pubDate><guid>https://sytranvn.dev/math/some-more-limits/</guid><description>&lt;ol>
+&lt;li>&lt;/li>
+&lt;/ol>
+&lt;p>$$
+\lim_{x \to 0} \frac{ \sqrt{x + 1} - 1 }{ \sqrt[3]{x} - 1 } \\
+= \lim_{x \to 0} \frac{ ( \sqrt{x + 1} - 1 )( \sqrt{x + 1} + 1 ) }{ ( \sqrt[3]{x} - 1 ) ( \sqrt{x + 1} + 1 )} \\
+= \lim_{x \to 0} \frac{ ( \sqrt{x + 1} )^2 - 1^2 }{ ( \sqrt[3]{x} - 1 ) ( \sqrt{x + 1} + 1 )} \\
+= \lim_{x \to 0} \frac{ x + 1- 1 }{ ( \sqrt[3]{x} - 1 ) ( \sqrt{x + 1} + 1 )} \\
+= \lim_{x \to 0} \frac{ x }{ ( \sqrt[3]{x} - 1 ) ( \sqrt{x + 1} + 1 )} \\
+= \lim_{x \to 0} \frac{ 0 }{ ( \sqrt[3]{0} - 1 ) ( \sqrt{0 + 1} + 1 )} \\
+= \lim_{x \to 0} \frac{ 0 }{ -2 } \\
+= 0^-
+$$&lt;/p></description></item><item><title>Latex cheat sheets</title><link>https://sytranvn.dev/math/intro_to_latex/</link><pubDate>Fri, 16 Dec 2022 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/math/intro_to_latex/</guid><description>&lt;h1 id="introduction-to-latex">
  Introduction to LaTeX
  &lt;a class="heading-link" href="#introduction-to-latex">
  &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
