@@ -14,3 +14,15 @@ ol ol {
     font-size: 0.9em;
     font-weight: 400;
 }
+
+.mermaid {
+    background: white;
+}
+
+.colorscheme-dark .mermaid {
+    background: black;
+}
+.mermaid-container .controls,.mermaid-container .reset {
+    position: relative;
+    z-index: 999;
+}

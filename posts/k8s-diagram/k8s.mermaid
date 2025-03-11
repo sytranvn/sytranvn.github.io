@@ -1,0 +1,164 @@
+---
+config:
+  class:
+    hideEmptyMembersBox: true
+  layout: elk
+---
+classDiagram
+direction LR
+    class Cluster {
+    }
+    class ControlPlane {
+    }
+    class ControlPlaneNode {
+    }
+    Node <|-- ControlPlaneNode
+    class WorkerNode {
+    }
+    Node <|-- WorkerNode
+    class APIServer {
+    }
+    class Scheduler {
+    }
+    class ControllerManager {
+    }
+    class KeyValueStore {
+    }
+    class NodeComponent {
+    }
+    class ContainerRuntime {
+    }
+    class Kubelet {
+    }
+    class KubeProxy {
+    }
+    class AddOn {
+    }
+    class Logging {
+    }
+    class Monitoring {
+    }
+    class NodeAgent {
+    }
+    class Namespace {
+    }
+    class Pod {
+	    template
+    }
+    class Container {
+	    name: str
+	    image: str
+	    port: number
+    }
+    class Label {
+	    key
+	    value?
+    }
+    class ReplicaSet {
+	    replicas: number
+	    template: pod
+    }
+    class Deployment {
+	    replicas: number
+	    template: pod
+    }
+    class Port {
+	    port: number
+	    targetPort: number
+	    protocol: str = TCP
+    }
+    class AutoScaler {
+    }
+    class RollingUpdate {
+    }
+    class DaemonSet {
+    }
+    class Service {
+	    name: str
+	    selector: Label[]
+	    ports: Port[]
+	    type: ServiceType = ClusterIP
+    }
+    class ServiceType {
+    }
+    class ClusterIP {
+    }
+    class NodePort {
+    }
+    class LoadBalancer {
+    }
+    class ExternalIP {
+    }
+    class ExternalName {
+    }
+    class Object {
+    }
+    class Node {
+    }
+	<<interface>> NodeComponent
+	<<interface>> ServiceType
+	<<interface>> Object
+	note for ContainerRuntime "eg: Dockerengine, containerd"
+	note for KeyValueStore "etcd, can run on node or external etcd cluster"
+	note for Service "ports referred to as service endpoints"
+	note for ClusterIP "A Service receives a Virtual IP address<br/> accessible only from within the cluster."
+	note for NodePort "A Service includes a ClusterIP and a high-port, <br/> dynamically picked from the default range 30000-32767,<br/> is mapped to the respective Service, from all the worker nodes."
+	note for LoadBalancer "NodePort and ClusterIP are automatically created,<br/> and the external load balancer will route to them<br>The Service is exposed at a static port on each worker node.<br>The Service is exposed externally using the underlying cloud<br>provider's load balancer feature."
+	note for ExternalIP "A Service can be mapped to an external IP address not managed by K8s"
+	note for ExternalName "When accessed within the cluster, <br>it returns a CNAME record of <br>an externally configured Service."
+    AddOn <|-- Logging
+    AddOn <|-- Monitoring
+    Service "1" --> "1" ServiceType : is
+    ServiceType <|-- ClusterIP
+    ServiceType <|-- NodePort
+    ServiceType <|-- LoadBalancer
+    ServiceType <|-- ExternalIP
+    ServiceType <|-- ExternalName
+    Cluster "1" --> "1..*" ControlPlane : has
+    Cluster "1" --> "1..*" Node : has
+    Cluster "1" --> "1..*" Namespace : patitions
+    Namespace "1" --> "0..*" Object : contains
+    Object <|-- Node
+    Object <|-- Pod
+    Object <|-- ReplicaSet
+    Object <|-- DaemonSet
+    Object <|-- Deployment
+    Object <|-- Service
+    ControlPlaneNode "1" --> "*" NodeComponent: runs
+    NodeComponent <|-- APIServer
+    NodeComponent <|-- Scheduler
+    NodeComponent <|-- ControllerManager
+    NodeComponent <|-- KeyValueStore
+    NodeComponent <|-- ContainerRuntime
+    NodeComponent <|-- AddOn
+    ControlPlaneNode --> "0..*" NodeAgent: runs
+    NodeAgent <|-- Kubelet
+    NodeAgent <|-- KubeProxy
+    WorkerNode --> "0..*" NodeAgent: runs
+    WorkerNode --> "0..1" NodeComponent: runs
+    Pod "1" --> "1..*" Container : has
+    ContainerRuntime "1" --> "0..*" Container : handles_and_runs
+    Kubelet "1" --> "0..*" Pod : monitors
+    Pod "1" --> "0..*" Label : has
+    ReplicaSet "0..1" --> "1..*" Pod : controls
+    ReplicaSet "0..1" --> "0..1" AutoScaler : has
+    AutoScaler "0..1" --> "1..*" Pod : scales
+    Deployment "0..1" --> "1" ReplicaSet : manages
+    Deployment "1" --> "1..*" RollingUpdate : rollouts
+    Deployment "1" --> "0..*" RollingUpdate : rollbacks
+    DaemonSet "0..1" --> "0..*" NodeAgent : manages
+    Service "0..1" --> "1" Pod : exposes
+    Service "0..1" --> "1" ReplicaSet : exposes
+    Service "0..1" --> "1" Deployment : exposes
+	class Cluster:::Pine
+	class Cluster:::Aqua
+	class Namespace:::Rose
+	class Pod:::Rose
+	class Container:::Rose
+	class ReplicaSet:::Rose
+	class Deployment:::Rose
+	class Port:::Rose
+	class Service:::Rose
+	classDef Rose :, stroke-width:1px, stroke-dasharray:none, stroke:#FF5978, fill:#FFDFE5, color:#8E2236
+	classDef Pine :, stroke-width:1px, stroke-dasharray:none, stroke:#254336, fill:#27654A, color:#FFFFFF
+	classDef Aqua :,stroke-width:1px, stroke-dasharray:none, stroke:#46EDC8, fill:#DEFFF8, color:#378E7A
