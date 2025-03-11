@@ -1,21 +1,26 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Vim on sytranvn.dev</title><link>https://sytranvn.dev/tags/vim/</link><description>Recent content in Vim on sytranvn.dev</description><generator>Hugo</generator><language>en</language><lastBuildDate>Tue, 14 Jan 2025 11:25:29 +0700</lastBuildDate><atom:link href="https://sytranvn.dev/tags/vim/index.xml" rel="self" type="application/rss+xml"/><item><title>Vi Everything</title><link>https://sytranvn.dev/posts/vi-everything/</link><pubDate>Tue, 14 Jan 2025 11:25:29 +0700</pubDate><guid>https://sytranvn.dev/posts/vi-everything/</guid><description>&lt;p>Here&amp;rsquo;s the list of couple places that I enable &lt;code>vi&lt;/code> mode.&lt;/p>
-&lt;ol>
-&lt;li>
-&lt;p>Bash shell
-&lt;code>set -o vi&lt;/code> I always enable bash movement mode in my &lt;code>.bashrc&lt;/code> file.
-With it set, I can switch between normal mode and edit mode by pressing &lt;code>ESC&lt;/code>.
-Editing works as any normal shell, but when switching to normal mode, I can
-use &lt;code>vi&lt;/code> movement keys like &lt;code>j, k, h, l, w, b, e, $, ^&lt;/code>, editing current
-line is also faster by using selectors such as &lt;code>cw, dw, C, D...&lt;/code>. One important
-note is that we are using &lt;code>vi&lt;/code> mode, not &lt;code>vim&lt;/code>, so selectors like &lt;code>ciw, caw, ci(&lt;/code> does not work.&lt;/p></description></item><item><title>Nvim External Commands</title><link>https://sytranvn.dev/posts/nvim-external-commands/</link><pubDate>Fri, 12 Jul 2024 11:07:52 +0700</pubDate><guid>https://sytranvn.dev/posts/nvim-external-commands/</guid><description>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">:!{cmd}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Execute &lt;code>cmd&lt;/code>, display output&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">:r !{cmd}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Execute &lt;code>cmd&lt;/code>, insert output to current current cursor position&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">:w !{cmd}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Pipe current buffer to &lt;code>cmd&lt;/code>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">:.!{cmd}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Execute &lt;code>cmd&lt;/code>, replace current line with output&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">:%!{cmd}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Execute &lt;code>cmd&lt;/code>, replace entire buffer with output&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">:&amp;lt;&amp;#39;,&amp;#39;&amp;gt;!{cmd}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Execute &lt;code>cmd&lt;/code>, replace current selection output&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vim on sytranvn.dev</title>
+    <link>https://sytranvn.dev/tags/vim/</link>
+    <description>Recent content in Vim on sytranvn.dev</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 14 Jan 2025 11:25:29 +0700</lastBuildDate>
+    <atom:link href="https://sytranvn.dev/tags/vim/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vi Everything</title>
+      <link>https://sytranvn.dev/posts/vi-everything/</link>
+      <pubDate>Tue, 14 Jan 2025 11:25:29 +0700</pubDate>
+      <guid>https://sytranvn.dev/posts/vi-everything/</guid>
+      <description>&lt;p&gt;Here&amp;rsquo;s the list of couple places that I enable &lt;code&gt;vi&lt;/code&gt; mode.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Bash shell&#xA;&lt;code&gt;set -o vi&lt;/code&gt; I always enable bash movement mode in my &lt;code&gt;.bashrc&lt;/code&gt; file.&#xA;With it set, I can switch between normal mode and edit mode by pressing &lt;code&gt;ESC&lt;/code&gt;.&#xA;Editing works as any normal shell, but when switching to normal mode, I can&#xA;use &lt;code&gt;vi&lt;/code&gt; movement keys like &lt;code&gt;j, k, h, l, w, b, e, $, ^&lt;/code&gt;, editing current&#xA;line is also faster by using selectors such as &lt;code&gt;cw, dw, C, D...&lt;/code&gt;. One important&#xA;note is that we are using &lt;code&gt;vi&lt;/code&gt; mode, not &lt;code&gt;vim&lt;/code&gt;, so selectors like &lt;code&gt;ciw, caw, ci(&lt;/code&gt; does not work.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Nvim External Commands</title>
+      <link>https://sytranvn.dev/posts/nvim-external-commands/</link>
+      <pubDate>Fri, 12 Jul 2024 11:07:52 +0700</pubDate>
+      <guid>https://sytranvn.dev/posts/nvim-external-commands/</guid>
+      <description>&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;:!{cmd}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Execute &lt;code&gt;cmd&lt;/code&gt;, display output&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;:r !{cmd}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Execute &lt;code&gt;cmd&lt;/code&gt;, insert output to current current cursor position&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;:w !{cmd}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Pipe current buffer to &lt;code&gt;cmd&lt;/code&gt;&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;:.!{cmd}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Execute &lt;code&gt;cmd&lt;/code&gt;, replace current line with output&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;:%!{cmd}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Execute &lt;code&gt;cmd&lt;/code&gt;, replace entire buffer with output&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;:&amp;lt;&amp;#39;,&amp;#39;&amp;gt;!{cmd}&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Execute &lt;code&gt;cmd&lt;/code&gt;, replace current selection output&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,42 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tensorflow on sytranvn.dev</title><link>https://sytranvn.dev/tags/tensorflow/</link><description>Recent content in Tensorflow on sytranvn.dev</description><generator>Hugo</generator><language>en</language><lastBuildDate>Sat, 18 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://sytranvn.dev/tags/tensorflow/index.xml" rel="self" type="application/rss+xml"/><item><title>Deploy ML model to Javascripts</title><link>https://sytranvn.dev/posts/deploy-ml-model-to-javascripts/</link><pubDate>Sat, 18 Jun 2022 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/deploy-ml-model-to-javascripts/</guid><description>&lt;p>Deploy trained model using Octave or Tensorflow to JS application.&lt;/p>
-&lt;h2 id="the-idea">
- The idea
- &lt;a class="heading-link" href="#the-idea">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h2>
-&lt;p>When we train a model, the outcome is ussually the weights of hidden layers.
-All predictions will be calculated by inputs and the weights.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-gdscript3" data-lang="gdscript3">&lt;span class="line">&lt;span class="cl">&lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">train&lt;/span> &lt;span class="n">model&lt;/span> &lt;span class="n">with&lt;/span> &lt;span class="n">training&lt;/span> &lt;span class="n">set&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="k">export&lt;/span> &lt;span class="n">model&lt;/span>&lt;span class="s1">&amp;#39;s weights&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="nb">load&lt;/span> &lt;span class="n">exported&lt;/span> &lt;span class="n">weights&lt;/span> &lt;span class="n">to&lt;/span> &lt;span class="n">JS&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">normalize&lt;/span> &lt;span class="n">input&lt;/span> &lt;span class="n">data&lt;/span> &lt;span class="ow">and&lt;/span> &lt;span class="n">predict&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="octave-model-to-csv">
- Octave model to csv
- &lt;a class="heading-link" href="#octave-model-to-csv">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h2>
-&lt;h2 id="setup-a-model-with-tensorflow">
- Setup a model with tensorflow
- &lt;a class="heading-link" href="#setup-a-model-with-tensorflow">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h2>
-&lt;h2 id="save-weights">
- Save weights
- &lt;a class="heading-link" href="#save-weights">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h2>
-&lt;h2 id="save-entire-model">
- Save entire model
- &lt;a class="heading-link" href="#save-entire-model">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h2></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tensorflow on sytranvn.dev</title>
+    <link>https://sytranvn.dev/tags/tensorflow/</link>
+    <description>Recent content in Tensorflow on sytranvn.dev</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 18 Jun 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://sytranvn.dev/tags/tensorflow/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Deploy ML model to Javascripts</title>
+      <link>https://sytranvn.dev/posts/deploy-ml-model-to-javascripts/</link>
+      <pubDate>Sat, 18 Jun 2022 00:00:00 +0000</pubDate>
+      <guid>https://sytranvn.dev/posts/deploy-ml-model-to-javascripts/</guid>
+      <description>&lt;p&gt;Deploy trained model using Octave or Tensorflow to JS application.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-idea&#34;&gt;&#xA;  The idea&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#the-idea&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;When we train a model, the outcome is ussually the weights of hidden layers.&#xA;All predictions will be calculated by inputs and the weights.&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-gdscript3&#34; data-lang=&#34;gdscript3&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;train&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;model&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;with&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;training&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;set&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;model&lt;/span&gt;&lt;span class=&#34;s1&#34;&gt;&amp;#39;s weights&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;load&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;exported&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;weights&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;to&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;JS&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;normalize&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;input&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;data&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;and&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;predict&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;octave-model-to-csv&#34;&gt;&#xA;  Octave model to csv&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#octave-model-to-csv&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;h2 id=&#34;setup-a-model-with-tensorflow&#34;&gt;&#xA;  Setup a model with tensorflow&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#setup-a-model-with-tensorflow&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;h2 id=&#34;save-weights&#34;&gt;&#xA;  Save weights&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#save-weights&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;h2 id=&#34;save-entire-model&#34;&gt;&#xA;  Save entire model&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#save-entire-model&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;</description>
+    </item>
+  </channel>
+</rss>

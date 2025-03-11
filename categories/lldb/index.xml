@@ -1,45 +1,26 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Lldb on sytranvn.dev</title><link>https://sytranvn.dev/categories/lldb/</link><description>Recent content in Lldb on sytranvn.dev</description><generator>Hugo</generator><language>en</language><lastBuildDate>Thu, 10 Feb 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://sytranvn.dev/categories/lldb/index.xml" rel="self" type="application/rss+xml"/><item><title>Debug V8 part 2</title><link>https://sytranvn.dev/posts/debug-v8-part-2/</link><pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/debug-v8-part-2/</guid><description>&lt;p>In previous part, we have learnt how to debug &lt;code>d8&lt;/code> with &lt;code>lldb&lt;/code>. In this part
-we still use our &lt;code>debug.js&lt;/code> script. But we&amp;rsquo;ll add an other parameter to &lt;code>d8&lt;/code>
-before running process.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">lldb -- d8 --parse-only debug.js
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>With &lt;code>parse-only&lt;/code> flag, we will forcus on how &lt;code>d8&lt;/code> parse source content and
-turn into lexical input elements.&lt;/p>
-&lt;p>Let&amp;rsquo;s add a breakpoint in &lt;code>v8::Shell::RunMain&lt;/code> function and jump to it.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">&lt;span class="o">(&lt;/span>lldb&lt;span class="o">)&lt;/span> b v8::Shell::RunMain
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">(&lt;/span>lldb&lt;span class="o">)&lt;/span> run
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">frame &lt;span class="c1">#0: 0x000000010004ba68 d8`v8::Shell::RunMain(isolate=0x0000000118110000, last_run=true) at d8.cc:4578:12&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 4575	&lt;span class="o">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="m">4576&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 4577	int Shell::RunMain&lt;span class="o">(&lt;/span>Isolate* isolate, bool last_run&lt;span class="o">)&lt;/span> &lt;span class="o">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line hl">&lt;span class="cl">-&amp;gt; 4578	 &lt;span class="k">for&lt;/span> &lt;span class="o">(&lt;/span>int &lt;span class="nv">i&lt;/span> &lt;span class="o">=&lt;/span> 1&lt;span class="p">;&lt;/span> i &amp;lt; options.num_isolates&lt;span class="p">;&lt;/span> ++i&lt;span class="o">)&lt;/span> &lt;span class="o">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 4579	 options.isolate_sources&lt;span class="o">[&lt;/span>i&lt;span class="o">]&lt;/span>.StartExecuteInThread&lt;span class="o">()&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 4580	 &lt;span class="o">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 4581	 bool &lt;span class="nv">success&lt;/span> &lt;span class="o">=&lt;/span> true&lt;span class="p">;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>At line 4578, we will loop through different isolate sources and execute them
-in threads. But as our &lt;code>options.num_isolates = 1&lt;/code>, we don&amp;rsquo;t need to worry about
-multi-threads at this point.&lt;/p></description></item><item><title>Debug V8 part 1</title><link>https://sytranvn.dev/posts/debug-v8-part-1/</link><pubDate>Sun, 06 Feb 2022 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/debug-v8-part-1/</guid><description>&lt;h2 id="3-things-to-do-before-debugging-v8">
- 3 things to do before debugging V8
- &lt;a class="heading-link" href="#3-things-to-do-before-debugging-v8">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h2>
-&lt;ol>
-&lt;li>&lt;a href="#build-d8-with-debug-flags-from-v8-source" >Build d8 with debug flags from V8 source&lt;/a>&lt;/li>
-&lt;li>&lt;a href="#install-lldb" >Install lldb&lt;/a>&lt;/li>
-&lt;li>&lt;a href="#create-a-js-file" >A javascript file&lt;/a>&lt;/li>
-&lt;/ol>
-&lt;h3 id="build-d8-with-debug-flags-from-v8-source">
- Build d8 with debug flags from V8 source
- &lt;a class="heading-link" href="#build-d8-with-debug-flags-from-v8-source">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h3>
-&lt;p>If you haven&amp;rsquo;t tried building V8 before, take a look at my other blog on how to
-build V8 from source on &lt;a href="https://sytranvn.dev/posts/build-v8-from-source/" >Ubuntu&lt;/a> and
-&lt;a href="https://sytranvn.dev/posts/build-v8-from-source-on-apple-m1/" >Mac M1&lt;/a>. Now we just need to make sure the d8
-binary is built with &lt;code>debug&lt;/code> flag instead of &lt;code>release&lt;/code>.
-You can run this command &lt;code>gm.py arm64.debug.d8&lt;/code>. Or incase you have built a
-release version and don&amp;rsquo;t want to rebuild everything. Open
-&lt;code>out/release/args.gn&lt;/code> file and update following options.&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lldb on sytranvn.dev</title>
+    <link>https://sytranvn.dev/categories/lldb/</link>
+    <description>Recent content in Lldb on sytranvn.dev</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 10 Feb 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://sytranvn.dev/categories/lldb/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Debug V8 part 2</title>
+      <link>https://sytranvn.dev/posts/debug-v8-part-2/</link>
+      <pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate>
+      <guid>https://sytranvn.dev/posts/debug-v8-part-2/</guid>
+      <description>&lt;p&gt;In previous part, we have learnt how to debug &lt;code&gt;d8&lt;/code&gt; with &lt;code&gt;lldb&lt;/code&gt;. In this part&#xA;we still use our &lt;code&gt;debug.js&lt;/code&gt; script. But we&amp;rsquo;ll add an other parameter to &lt;code&gt;d8&lt;/code&gt;&#xA;before running process.&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;lldb -- d8 --parse-only debug.js&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;With &lt;code&gt;parse-only&lt;/code&gt; flag, we will forcus on how &lt;code&gt;d8&lt;/code&gt; parse source content and&#xA;turn into lexical input elements.&lt;/p&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s add a breakpoint in &lt;code&gt;v8::Shell::RunMain&lt;/code&gt; function and jump to it.&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;lldb&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; b v8::Shell::RunMain&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;lldb&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; run&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;frame &lt;span class=&#34;c1&#34;&gt;#0: 0x000000010004ba68 d8`v8::Shell::RunMain(isolate=0x0000000118110000, last_run=true) at d8.cc:4578:12&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   4575&#x9;&lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   &lt;span class=&#34;m&#34;&gt;4576&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   4577&#x9;int Shell::RunMain&lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;Isolate* isolate, bool last_run&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line hl&#34;&gt;&lt;span class=&#34;cl&#34;&gt;-&amp;gt; 4578&#x9;  &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;(&lt;/span&gt;int &lt;span class=&#34;nv&#34;&gt;i&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; 1&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; i &amp;lt; options.num_isolates&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; ++i&lt;span class=&#34;o&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;{&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   4579&#x9;    options.isolate_sources&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;i&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;.StartExecuteInThread&lt;span class=&#34;o&#34;&gt;()&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   4580&#x9;  &lt;span class=&#34;o&#34;&gt;}&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;   4581&#x9;  bool &lt;span class=&#34;nv&#34;&gt;success&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; true&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;At line 4578, we will loop through different isolate sources and execute them&#xA;in threads. But as our &lt;code&gt;options.num_isolates = 1&lt;/code&gt;, we don&amp;rsquo;t need to worry about&#xA;multi-threads at this point.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Debug V8 part 1</title>
+      <link>https://sytranvn.dev/posts/debug-v8-part-1/</link>
+      <pubDate>Sun, 06 Feb 2022 00:00:00 +0000</pubDate>
+      <guid>https://sytranvn.dev/posts/debug-v8-part-1/</guid>
+      <description>&lt;h2 id=&#34;3-things-to-do-before-debugging-v8&#34;&gt;&#xA;  3 things to do before debugging V8&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#3-things-to-do-before-debugging-v8&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#build-d8-with-debug-flags-from-v8-source&#34; &gt;Build d8 with debug flags from V8 source&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#install-lldb&#34; &gt;Install lldb&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;#create-a-js-file&#34; &gt;A javascript file&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h3 id=&#34;build-d8-with-debug-flags-from-v8-source&#34;&gt;&#xA;  Build d8 with debug flags from V8 source&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#build-d8-with-debug-flags-from-v8-source&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;If you haven&amp;rsquo;t tried building V8 before, take a look at my other blog on how to&#xA;build V8 from source on &lt;a href=&#34;https://sytranvn.dev/posts/build-v8-from-source/&#34; &gt;Ubuntu&lt;/a&gt; and&#xA;&lt;a href=&#34;https://sytranvn.dev/posts/build-v8-from-source-on-apple-m1/&#34; &gt;Mac M1&lt;/a&gt;. Now we just need to make sure the d8&#xA;binary is built with &lt;code&gt;debug&lt;/code&gt; flag instead of &lt;code&gt;release&lt;/code&gt;.&#xA;You can run this command &lt;code&gt;gm.py arm64.debug.d8&lt;/code&gt;. Or incase you have built a&#xA;release version and don&amp;rsquo;t want to rebuild everything. Open&#xA;&lt;code&gt;out/release/args.gn&lt;/code&gt; file and update following options.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

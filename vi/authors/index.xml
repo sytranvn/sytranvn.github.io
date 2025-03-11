@@ -1,1 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Authors on sytranvn.dev</title><link>https://sytranvn.dev/vi/authors/</link><description>Recent content in Authors on sytranvn.dev</description><generator>Hugo</generator><language>vi</language><atom:link href="https://sytranvn.dev/vi/authors/index.xml" rel="self" type="application/rss+xml"/></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Authors on sytranvn.dev</title>
+    <link>https://sytranvn.dev/vi/authors/</link>
+    <description>Recent content in Authors on sytranvn.dev</description>
+    <generator>Hugo</generator>
+    <language>vi</language>
+    <atom:link href="https://sytranvn.dev/vi/authors/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

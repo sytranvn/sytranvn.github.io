@@ -1,8 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Latex on sytranvn.dev</title><link>https://sytranvn.dev/tags/latex/</link><description>Recent content in Latex on sytranvn.dev</description><generator>Hugo</generator><language>en</language><lastBuildDate>Fri, 16 Dec 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://sytranvn.dev/tags/latex/index.xml" rel="self" type="application/rss+xml"/><item><title>Latex cheat sheets</title><link>https://sytranvn.dev/math/intro_to_latex/</link><pubDate>Fri, 16 Dec 2022 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/math/intro_to_latex/</guid><description>&lt;h1 id="introduction-to-latex">
- Introduction to LaTeX
- &lt;a class="heading-link" href="#introduction-to-latex">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h1>
-&lt;p>In this tutorial, you will learn some of the basics on how to use $\LaTeX$ to display equations in Jupyter notebooks. For looking up symbols you may need, you can use any of the many &lt;a href="http://users.dickinson.edu/~richesod/latex/latexcheatsheet.pdf" class="external-link" target="_blank" rel="noopener">cheat sheets&lt;/a> you can find by asking Google. I have provided a few that will come up often in this course at the &lt;a href="#Useful-LaTeX-symbols-for-BE/Bi-103" >end of this lesson&lt;/a>.&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Latex on sytranvn.dev</title>
+    <link>https://sytranvn.dev/tags/latex/</link>
+    <description>Recent content in Latex on sytranvn.dev</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 16 Dec 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://sytranvn.dev/tags/latex/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Latex cheat sheets</title>
+      <link>https://sytranvn.dev/math/intro_to_latex/</link>
+      <pubDate>Fri, 16 Dec 2022 00:00:00 +0000</pubDate>
+      <guid>https://sytranvn.dev/math/intro_to_latex/</guid>
+      <description>&lt;h1 id=&#34;introduction-to-latex&#34;&gt;&#xA;  Introduction to LaTeX&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#introduction-to-latex&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;In this tutorial, you will learn some of the basics on how to use $\LaTeX$ to display equations in Jupyter notebooks. For looking up symbols you may need, you can use any of the many &lt;a href=&#34;http://users.dickinson.edu/~richesod/latex/latexcheatsheet.pdf&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;cheat sheets&lt;/a&gt; you can find by asking Google. I have provided a few that will come up often in this course at the &lt;a href=&#34;#Useful-LaTeX-symbols-for-BE/Bi-103&#34; &gt;end of this lesson&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

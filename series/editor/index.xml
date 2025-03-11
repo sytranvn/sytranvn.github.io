@@ -1,20 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Editor on sytranvn.dev</title><link>https://sytranvn.dev/series/editor/</link><description>Recent content in Editor on sytranvn.dev</description><generator>Hugo</generator><language>en</language><lastBuildDate>Fri, 14 Apr 2023 23:46:03 +0700</lastBuildDate><atom:link href="https://sytranvn.dev/series/editor/index.xml" rel="self" type="application/rss+xml"/><item><title>Debug flask app with Neovim</title><link>https://sytranvn.dev/posts/debug-flask-app-with-neovim/</link><pubDate>Fri, 14 Apr 2023 23:46:03 +0700</pubDate><guid>https://sytranvn.dev/posts/debug-flask-app-with-neovim/</guid><description>&lt;p>After installing Neovim and some plugins. Now I want to try debugging Python project.
-I created a small Flask app from template with a few apis.
-And here&amp;rsquo;s the result. Amazing!&lt;/p>
-&lt;img src="debug.png" style="filter: unset;" />
-&lt;h1 id="heres-how-to">
- Here&amp;rsquo;s how to
- &lt;a class="heading-link" href="#heres-how-to">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h1>
-&lt;h2 id="prepare-a-flask-app">
- Prepare a Flask app
- &lt;a class="heading-link" href="#prepare-a-flask-app">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h2>
-&lt;p>I use &lt;a href="https://github.com/jainamoswal/Flask-Example" class="external-link" target="_blank" rel="noopener">this template&lt;/a> to generate a Flask app repo.&lt;/p>
-&lt;p>Then I clone my new repo and install the requirements.&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Editor on sytranvn.dev</title>
+    <link>https://sytranvn.dev/series/editor/</link>
+    <description>Recent content in Editor on sytranvn.dev</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 14 Apr 2023 23:46:03 +0700</lastBuildDate>
+    <atom:link href="https://sytranvn.dev/series/editor/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Debug flask app with Neovim</title>
+      <link>https://sytranvn.dev/posts/debug-flask-app-with-neovim/</link>
+      <pubDate>Fri, 14 Apr 2023 23:46:03 +0700</pubDate>
+      <guid>https://sytranvn.dev/posts/debug-flask-app-with-neovim/</guid>
+      <description>&lt;p&gt;After installing Neovim and some plugins. Now I want to try debugging Python project.&#xA;I created a small Flask app from template with a few apis.&#xA;And here&amp;rsquo;s the result. Amazing!&lt;/p&gt;&#xA;&lt;img src=&#34;debug.png&#34; style=&#34;filter: unset;&#34; /&gt;&#xA;&lt;h1 id=&#34;heres-how-to&#34;&gt;&#xA;  Here&amp;rsquo;s how to&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#heres-how-to&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;h2 id=&#34;prepare-a-flask-app&#34;&gt;&#xA;  Prepare a Flask app&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#prepare-a-flask-app&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;I use &lt;a href=&#34;https://github.com/jainamoswal/Flask-Example&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;this template&lt;/a&gt; to generate a Flask app repo.&lt;/p&gt;&#xA;&lt;p&gt;Then I clone my new repo and install the requirements.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

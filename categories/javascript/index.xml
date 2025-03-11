@@ -1,22 +1,26 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Javascript on sytranvn.dev</title><link>https://sytranvn.dev/categories/javascript/</link><description>Recent content in Javascript on sytranvn.dev</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 29 May 2023 19:53:52 +0700</lastBuildDate><atom:link href="https://sytranvn.dev/categories/javascript/index.xml" rel="self" type="application/rss+xml"/><item><title>Fix npm cannot install packages</title><link>https://sytranvn.dev/posts/fix-npm-cannot-install-packages/</link><pubDate>Mon, 29 May 2023 19:53:52 +0700</pubDate><guid>https://sytranvn.dev/posts/fix-npm-cannot-install-packages/</guid><description>&lt;p>Recently I experienced an issue with NPM, I couldn&amp;rsquo;t install any packages. I found some
-suggestions on google to upgrade &lt;code>npm&lt;/code> but &lt;code>npm install -g npm&lt;/code> didn&amp;rsquo;t work either. After some
-debugging and searching on npm repo issues, I finally found a temporary solution.&lt;/p>
-&lt;p>If you need the solution, you can go straight to &lt;a href="#solution" >Solution&lt;/a> and come back to read my findings later while npm doing what
-it needs to do.&lt;/p></description></item><item><title>Why you should use Javascripts for scripting</title><link>https://sytranvn.dev/posts/why-you-should-use-mjs-file-for-scripting/</link><pubDate>Fri, 10 Feb 2023 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/why-you-should-use-mjs-file-for-scripting/</guid><description>&lt;p>I like to write small scripts, but used to suggle when I want to use Javascript
-to fetch API data, or use some helper packages. Then I go with Python instead.
-But things have changed. With the supports of ES module and &lt;code>fetch&lt;/code> and
-&lt;code>node:module&lt;/code> API. It is much easier now since I feel more comfortable using JS.&lt;/p>
-&lt;p>Unlike normal &lt;code>js&lt;/code> files, node treats &lt;code>mjs&lt;/code> files as ECMAScript modules. So
-it means you can use any supported ES-next features w/o a transpiler like Babel.
-In the past, to be able to use ES features, we had to set up build and compilation
-tools like Webpack and Babel (due to conflicts between common JS &lt;code>require&lt;/code> is
-synchronous but &lt;code>import&lt;/code> is asynchronous, NodeJS didn&amp;rsquo;t support import/export
-natively until node 13). Webpack and Babel are not ment to do the jobs of Node.
-anymore. We should use them now when we need code bundling and compile some
-other language to JS such as JSX or new ES proposals still in staging. And even
-worse, sometimes they can even hold you back from using new features added to
-Javascripts if you don&amp;rsquo;t configurate it at latest version. I have suffered so
-many times that I can&amp;rsquo;t use &lt;code>...&lt;/code>, or &lt;code>Array.at&lt;/code> in my code just because my
-project configuration is so outdated, not to mention the over advertised
-Typescripts, migrating those tools just to use a natively supported feature is
-pain in the a&amp;hellip;&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Javascript on sytranvn.dev</title>
+    <link>https://sytranvn.dev/categories/javascript/</link>
+    <description>Recent content in Javascript on sytranvn.dev</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 29 May 2023 19:53:52 +0700</lastBuildDate>
+    <atom:link href="https://sytranvn.dev/categories/javascript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fix npm cannot install packages</title>
+      <link>https://sytranvn.dev/posts/fix-npm-cannot-install-packages/</link>
+      <pubDate>Mon, 29 May 2023 19:53:52 +0700</pubDate>
+      <guid>https://sytranvn.dev/posts/fix-npm-cannot-install-packages/</guid>
+      <description>&lt;p&gt;Recently I experienced an issue with NPM, I couldn&amp;rsquo;t install any packages. I found some&#xA;suggestions on google to upgrade &lt;code&gt;npm&lt;/code&gt; but &lt;code&gt;npm install -g npm&lt;/code&gt; didn&amp;rsquo;t work either. After some&#xA;debugging and searching on npm repo issues, I finally found a temporary solution.&lt;/p&gt;&#xA;&lt;p&gt;If you need the solution, you can go straight to &lt;a href=&#34;#solution&#34; &gt;Solution&lt;/a&gt; and come back to read my findings later while npm doing what&#xA;it needs to do.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Why you should use Javascripts for scripting</title>
+      <link>https://sytranvn.dev/posts/why-you-should-use-mjs-file-for-scripting/</link>
+      <pubDate>Fri, 10 Feb 2023 00:00:00 +0000</pubDate>
+      <guid>https://sytranvn.dev/posts/why-you-should-use-mjs-file-for-scripting/</guid>
+      <description>&lt;p&gt;I like to write small scripts, but used to suggle when I want to use Javascript&#xA;to fetch API data, or use some helper packages. Then I go with Python instead.&#xA;But things have changed. With the supports of ES module and &lt;code&gt;fetch&lt;/code&gt; and&#xA;&lt;code&gt;node:module&lt;/code&gt; API. It is much easier now since I feel more comfortable using JS.&lt;/p&gt;&#xA;&lt;p&gt;Unlike normal &lt;code&gt;js&lt;/code&gt; files, node treats &lt;code&gt;mjs&lt;/code&gt; files  as ECMAScript modules. So&#xA;it means you can use any supported ES-next features w/o a transpiler like Babel.&#xA;In the past, to be able to use ES features, we had to set up build and compilation&#xA;tools like Webpack and Babel (due to conflicts between common JS &lt;code&gt;require&lt;/code&gt; is&#xA;synchronous but &lt;code&gt;import&lt;/code&gt; is asynchronous, NodeJS didn&amp;rsquo;t support import/export&#xA;natively until node 13). Webpack and Babel are not ment to do the jobs of Node.&#xA;anymore. We should use them now when we need code bundling and compile some&#xA;other language to JS such as JSX or new ES proposals still in staging. And even&#xA;worse, sometimes they can even hold you back from using new features added to&#xA;Javascripts if you don&amp;rsquo;t configurate it at latest version. I have suffered so&#xA;many times that I can&amp;rsquo;t use &lt;code&gt;...&lt;/code&gt;, or &lt;code&gt;Array.at&lt;/code&gt; in my code just because my&#xA;project configuration is so outdated, not to mention the over advertised&#xA;Typescripts, migrating those tools just to use a natively supported feature is&#xA;pain in the a&amp;hellip;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

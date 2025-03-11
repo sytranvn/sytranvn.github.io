@@ -1,104 +1,411 @@
-<!doctype html><html lang=en><head><title>How to access VNPT iGate Modem · sytranvn.dev
-</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=color-scheme content="light dark"><meta name=author content="Sy Tran"><meta name=description content="VNPT has weird modems because they don't let me access with normal browser. Once the support told me to install a brower app on my phone to be able to access modem settings. But I uninstalled after and forgot it. So as susual I have to figure out why and how to fix it consistently."><meta name=keywords content="blog,developer,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="How to access VNPT iGate Modem"><meta name=twitter:description content="VNPT has weird modems because they don't let me access with normal browser. Once the support told me to install a brower app on my phone to be able to access modem settings. But I uninstalled after and forgot it. So as susual I have to figure out why and how to fix it consistently."><meta property="og:url" content="https://sytranvn.dev/posts/vnpt-igate-modem/"><meta property="og:site_name" content="sytranvn.dev"><meta property="og:title" content="How to access VNPT iGate Modem"><meta property="og:description" content="VNPT has weird modems because they don't let me access with normal browser. Once the support told me to install a brower app on my phone to be able to access modem settings. But I uninstalled after and forgot it. So as susual I have to figure out why and how to fix it consistently."><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2024-03-28T21:35:21+07:00"><meta property="article:modified_time" content="2024-03-28T21:35:21+07:00"><link rel=canonical href=https://sytranvn.dev/posts/vnpt-igate-modem/><link rel=preload href=/fonts/fa-brands-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/fa-regular-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/fa-solid-900.woff2 as=font type=font/woff2 crossorigin><link rel=stylesheet href=/css/coder.min.7763f8bc6341ecf82378e867c285e1549abb063a899be313ccd25dbfcd24fa7d.css integrity="sha256-d2P4vGNB7PgjeOhnwoXhVJq7BjqJm+MTzNJdv80k+n0=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/custom.min.14b400827539da755b0d46f2e69147089c47acc5e169eaa464caf99e0bc9fd38.css integrity="sha256-FLQAgnU52nVbDUby5pFHCJxHrMXhaeqkZMr5ngvJ/Tg=" crossorigin=anonymous media=screen><link rel=icon type=image/svg+xml href=/images/favicon.svg sizes=any><link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16><link rel=apple-touch-icon href=/images/apple-touch-icon.png><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/images/safari-pinned-tab.svg color=#5bbad5></head><body class="preload-transitions colorscheme-auto"><div class=float-container><a id=dark-mode-toggle class=colorscheme-toggle><i class="fa-solid fa-adjust fa-fw" aria-hidden=true></i></a></div><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=https://sytranvn.dev/>sytranvn.dev
-</a><input type=checkbox id=menu-toggle>
-<label class="menu-button float-right" for=menu-toggle><i class="fa-solid fa-bars fa-fw" aria-hidden=true></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=/now/>Now</a></li><li class=navigation-item><a class=navigation-link href=/posts/>Blog</a></li><li class=navigation-item><a class=navigation-link href=/projects/>Projects</a></li><li class=navigation-item><a class=navigation-link href=/i-heart-oss/>I ❤️ OSS</a></li><li class=navigation-item><a class=navigation-link href=/accomplishments/>Accomplishments</a></li><li class=navigation-item><a class=navigation-link href=/resume.pdf>Resume</a></li><li class="navigation-item menu-separator"><span>|</span></li><li class=navigation-item><a href=/vi/>🇻🇳</a></li></ul></section></nav><div class=content><section class="container post"><article><header><div class=post-title><h1 class=title><a class=title-link href=https://sytranvn.dev/posts/vnpt-igate-modem/>How to access VNPT iGate Modem</a></h1></div><div class=post-meta><div class=date><span class=posted-on><i class="fa-solid fa-calendar" aria-hidden=true></i>
-<time datetime=2024-03-28T21:35:21+07:00>March 28, 2024
-</time></span><span class=reading-time><i class="fa-solid fa-clock" aria-hidden=true></i>
-4-minute read</span></div></div><script id=diffblog-plugin-script async src=https://diff.blog/static/js/diffblog_plugin_v1.js></script><script>document.getElementById("diffblog-plugin-script").addEventListener("load",function(){DiffBlog("4at5qx7n0j5yhd86rqu6gyotkgn4o17hu8wn6xis54lwd692ez")})</script></header><div class=post-content>VNPT has weird modems because they don't let me access with normal browser. Once the support told me to install a brower app on my phone to be able to access modem settings. But I uninstalled after and forgot it. So as susual I have to figure out why and how to fix it consistently.<p>When I try to access my gateway IP using Chrome, this error shows.</p><blockquote><p><strong>This site can’t provide a secure connection</strong>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>
+How to access VNPT iGate Modem · sytranvn.dev
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+
+
+<meta name="author" content="Sy Tran">
+<meta name="description" content="VNPT has weird modems because they don&#39;t let me access with normal browser. Once the support told me to install a brower app on my phone to be able to access modem settings. But I uninstalled after and forgot it. So as susual I have to figure out why and how to fix it consistently.">
+<meta name="keywords" content="blog,developer,personal">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="How to access VNPT iGate Modem">
+  <meta name="twitter:description" content="VNPT has weird modems because they don&#39;t let me access with normal browser. Once the support told me to install a brower app on my phone to be able to access modem settings. But I uninstalled after and forgot it. So as susual I have to figure out why and how to fix it consistently.">
+
+<meta property="og:url" content="https://sytranvn.dev/posts/vnpt-igate-modem/">
+  <meta property="og:site_name" content="sytranvn.dev">
+  <meta property="og:title" content="How to access VNPT iGate Modem">
+  <meta property="og:description" content="VNPT has weird modems because they don&#39;t let me access with normal browser. Once the support told me to install a brower app on my phone to be able to access modem settings. But I uninstalled after and forgot it. So as susual I have to figure out why and how to fix it consistently.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2024-03-28T21:35:21+07:00">
+    <meta property="article:modified_time" content="2024-03-28T21:35:21+07:00">
+
+
+
+
+<link rel="canonical" href="https://sytranvn.dev/posts/vnpt-igate-modem/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/css/coder.min.7763f8bc6341ecf82378e867c285e1549abb063a899be313ccd25dbfcd24fa7d.css" integrity="sha256-d2P4vGNB7PgjeOhnwoXhVJq7BjqJm&#43;MTzNJdv80k&#43;n0=" crossorigin="anonymous" media="screen" />
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css" integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin="anonymous" media="screen" />
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/css/custom.min.14b400827539da755b0d46f2e69147089c47acc5e169eaa464caf99e0bc9fd38.css" integrity="sha256-FLQAgnU52nVbDUby5pFHCJxHrMXhaeqkZMr5ngvJ/Tg=" crossorigin="anonymous" media="screen" />
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="https://sytranvn.dev/">
+      sytranvn.dev
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/now/">Now</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/projects/">Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/i-heart-oss/">I ❤️ OSS</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/accomplishments/">Accomplishments</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/resume.pdf">Resume</a>
+            </li>
+          
+        
+        
+          
+          
+          
+            
+          
+            
+              
+                <li class="navigation-item menu-separator">
+                  <span>|</span>
+                </li>
+                
+              
+              <li class="navigation-item">
+                <a href="/vi/"> 🇻🇳</a>
+              </li>
+            
+          
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+<section class="container post">
+  <article>
+    <header>
+      <div class="post-title">
+        <h1 class="title">
+          <a class="title-link" href="https://sytranvn.dev/posts/vnpt-igate-modem/">
+            How to access VNPT iGate Modem
+          </a>
+        </h1>
+      </div>
+      <div class="post-meta">
+        <div class="date">
+          <span class="posted-on">
+            <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+            <time datetime=" 2024-03-28T21:35:21&#43;07:00">
+              March 28, 2024
+            </time>
+          </span>
+          <span class="reading-time">
+            <i class="fa-solid fa-clock" aria-hidden="true"></i>
+            4-minute read
+          </span>
+        </div>
+        
+        
+        
+      </div>
+
+      <script id="diffblog-plugin-script" async="false" src="https://diff.blog/static/js/diffblog_plugin_v1.js"></script> 
+      <script>
+              document.getElementById("diffblog-plugin-script").addEventListener("load", function () {
+                  DiffBlog(
+                      "4at5qx7n0j5yhd86rqu6gyotkgn4o17hu8wn6xis54lwd692ez"
+                  );
+              });
+      </script>
+    </header>
+
+    <div class="post-content">
+      
+      VNPT has weird modems because they don&#39;t let me access with normal browser. Once the support told me to install a brower app on my phone to be able to access modem settings. But I uninstalled after and forgot it. So as susual I have to figure out why and how to fix it consistently.
+      
+      
+      <p>When I try to access my gateway IP using Chrome, this error shows.</p>
+<blockquote>
+<p><strong>This site can’t provide a secure connection</strong>
 192.168.1.1 uses an unsupported protocol.
 ERR_SSL_VERSION_OR_CIPHER_MISMATCH
 <strong>Unsupported protocol</strong>
-The client and server don&rsquo;t support a common SSL protocol version or cipher suite.</p></blockquote><p>The full URL I got redirected to was <code>https://192.168.1.1/cgi-bin/index.asp</code>. So this modem provides a HTTPS web interface
+The client and server don&rsquo;t support a common SSL protocol version or cipher suite.</p>
+</blockquote>
+<p>The full URL I got redirected to was <code>https://192.168.1.1/cgi-bin/index.asp</code>. So this modem provides a HTTPS web interface
 but somehow that certificate is not a valid one. Normally, in case a certificate was self signed, we still have an advanced button
-to proceed. This time it wasn&rsquo;t.</p><p>So I decided to use <code>openssl</code> to debug the provided TLS certificate. Of course I&rsquo;m an absolute <code>openssl</code> noob so I had
-to Google how to check certificate sub command.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>openssl s_client  -cipher -connect 192.168.1.1:443
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-txt data-lang=txt><span class=line><span class=cl>Call to SSL_CONF_cmd(-cipher, -connect) failed
-</span></span><span class=line><span class=cl>40676F97C47C0000:error:0A0000B9:SSL routines:SSL_CTX_set_cipher_list:no cipher match:../ssl/ssl_lib.c:2745:
+to proceed. This time it wasn&rsquo;t.</p>
+<p>So I decided to use <code>openssl</code> to debug the provided TLS certificate. Of course I&rsquo;m an absolute <code>openssl</code> noob so I had
+to Google how to check certificate sub command.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">openssl s_client  -cipher -connect 192.168.1.1:443
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">Call to SSL_CONF_cmd(-cipher, -connect) failed
+</span></span><span class="line"><span class="cl">40676F97C47C0000:error:0A0000B9:SSL routines:SSL_CTX_set_cipher_list:no cipher match:../ssl/ssl_lib.c:2745:
 </span></span></code></pre></div><p>It failed, with weirder error, but I guess it might use some TLS standard that not allowed in browsers like Chrome. Maybe
-it&rsquo;s just less secure. Google a bit more I found an option to allow less secure TLS standard.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>openssl s_client -cipher DEFAULT@SECLEVEL<span class=o>=</span><span class=m>1</span>  -connect 192.168.1.1:443
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-txt data-lang=txt><span class=line><span class=cl>CONNECTED(00000003)
-</span></span><span class=line><span class=cl>Can&#39;t use SSL_get_servername
-</span></span><span class=line><span class=cl>depth=0 C = VN, ST = Hanoi, L = Hanoi, CN = VNPTT
-</span></span><span class=line><span class=cl>verify error:num=18:self-signed certificate
-</span></span><span class=line><span class=cl>verify return:1
-</span></span><span class=line><span class=cl>depth=0 C = VN, ST = Hanoi, L = Hanoi, CN = VNPTT
-</span></span><span class=line><span class=cl>verify return:1
-</span></span><span class=line><span class=cl>---
-</span></span><span class=line><span class=cl>Certificate chain
-</span></span><span class=line><span class=cl> 0 s:C = VN, ST = Hanoi, L = Hanoi, CN = VNPTT
-</span></span><span class=line><span class=cl>   i:C = VN, ST = Hanoi, L = Hanoi, CN = VNPTT
-</span></span><span class=line><span class=cl>   a:PKEY: rsaEncryption, 2048 (bit); sigalg: RSA-SHA1
-</span></span><span class=line><span class=cl>   v:NotBefore: Oct 20 04:11:52 2018 GMT; NotAfter: Oct 17 04:11:52 2028 GMT
-</span></span><span class=line><span class=cl>---
-</span></span><span class=line><span class=cl>Server certificate
-</span></span><span class=line><span class=cl>-----BEGIN CERTIFICATE-----
-</span></span><span class=line><span class=cl>MIIDTTCCAjWgAwIBAgIJAPghsnArIG0GMA0GCSqGSIb3DQEBBQUAMD0xCzAJBgNV
-</span></span><span class=line><span class=cl>BAYTAlZOMQ4wDAYDVQQIDAVIYW5vaTEOMAwGA1UEBwwFSGFub2kxDjAMBgNVBAMM
-</span></span><span class=line><span class=cl>BVZOUFRUMB4XDTE4MTAyMDA0MTE1MloXDTI4MTAxNzA0MTE1MlowPTELMAkGA1UE
-</span></span><span class=line><span class=cl>BhMCVk4xDjAMBgNVBAgMBUhhbm9pMQ4wDAYDVQQHDAVIYW5vaTEOMAwGA1UEAwwF
-</span></span><span class=line><span class=cl>Vk5QVFQwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDZtfZQeDi5Ngz9
-</span></span><span class=line><span class=cl>zetnwEQHk0wQOON4IgiWNgj262v1LTcQwoS5ZoYPQ37vNRrqf1AjeITTGU8KaVOn
-</span></span><span class=line><span class=cl>ebmnnuUX1+AjbZ7VS4LzkkQf4DnuIe/NEhTc47jrggQJgP8JNQGMZVgLhyI0JnVC
-</span></span><span class=line><span class=cl>+M60GjjvscBL1CxvmCp2LiVgoAcsMxK2FFWuVhNuH774Q0v/FIyIv0p/JNAMxWvH
-</span></span><span class=line><span class=cl>SZMdqzm6BIeUD6YRm8uF2rt6/Fxoj1e1If8/BrEvS/4WE+1+cl88KxgMmHfftfqp
-</span></span><span class=line><span class=cl>6/cTxfr+diUi+/7UTicnAIbckQQFy2J4/FJG54YXtEWbhA1my0hr0VI7QhJVpR10
-</span></span><span class=line><span class=cl>39ENWcpTAgMBAAGjUDBOMB0GA1UdDgQWBBRbguNno7qjN3KrDegpAq9A73lSNTAf
-</span></span><span class=line><span class=cl>BgNVHSMEGDAWgBRbguNno7qjN3KrDegpAq9A73lSNTAMBgNVHRMEBTADAQH/MA0G
-</span></span><span class=line><span class=cl>CSqGSIb3DQEBBQUAA4IBAQAUoRcYL5vvV9JeuVksPfdd/uL/TkhLHELl3CJcBZcM
-</span></span><span class=line><span class=cl>jIoZDyeq3TxZmd/mARIfCfmOrS6ugXxCu+LfyLmE7rsXqd6Bt6W6qcSSzkeDcNZF
-</span></span><span class=line><span class=cl>PqJav40UpQqrfTOrQXGAWW9yDL9fJmWs2XWYwb3iGwQWsvzEHSjeiy7k9ihycTFx
-</span></span><span class=line><span class=cl>t2V6IzYDzLs7bg4w3PgmtLRBx5p28o2FSVuc4/EfWEmk2wasQHLQ8mqQMiAItaR7
-</span></span><span class=line><span class=cl>SmLOrZtjzfbdawgWSghjxLbO8eul1Bcrra9zjF6WHplKfX0PEYovo9JzFQ3jc6U6
-</span></span><span class=line><span class=cl>EEeJ+GZcZestmR4D+eNkSTRz77x95lNPI79f8SpwtfeZ
-</span></span><span class=line><span class=cl>-----END CERTIFICATE-----
-</span></span><span class=line><span class=cl>subject=C = VN, ST = Hanoi, L = Hanoi, CN = VNPTT
-</span></span><span class=line><span class=cl>issuer=C = VN, ST = Hanoi, L = Hanoi, CN = VNPTT
-</span></span><span class=line><span class=cl>---
-</span></span><span class=line><span class=cl>No client certificate CA names sent
-</span></span><span class=line><span class=cl>---
-</span></span><span class=line><span class=cl>SSL handshake has read 1165 bytes and written 623 bytes
-</span></span><span class=line><span class=cl>Verification error: self-signed certificate
-</span></span><span class=line><span class=cl>---
-</span></span><span class=line><span class=cl>New, SSLv3, Cipher is AES256-SHA
-</span></span><span class=line><span class=cl>Server public key is 2048 bit
-</span></span><span class=line><span class=cl>Secure Renegotiation IS supported
-</span></span><span class=line><span class=cl>Compression: NONE
-</span></span><span class=line><span class=cl>Expansion: NONE
-</span></span><span class=line><span class=cl>No ALPN negotiated
-</span></span><span class=line><span class=cl>SSL-Session:
-</span></span><span class=line><span class=cl>    Protocol  : TLSv1
-</span></span><span class=line><span class=cl>    Cipher    : AES256-SHA
-</span></span><span class=line><span class=cl>    Session-ID: 819B5BD98708AACDDB26ED1A8A539410A88628C954F19C1564B4D8713286A30D
-</span></span><span class=line><span class=cl>    Session-ID-ctx: 
-</span></span><span class=line><span class=cl>    Master-Key: 07126DE33EB0AF3441EE3943C4D5F5EF7C0D34E8F1838D23C5681FA3FC9EC11035B3653553107500DCB65BA5F507ECD7
-</span></span><span class=line><span class=cl>    PSK identity: None
-</span></span><span class=line><span class=cl>    PSK identity hint: None
-</span></span><span class=line><span class=cl>    SRP username: None
-</span></span><span class=line><span class=cl>    TLS session ticket lifetime hint: 7200 (seconds)
-</span></span><span class=line><span class=cl>    TLS session ticket:
-</span></span><span class=line><span class=cl>    0000 - 45 66 da 1d cd 13 9d 77-b6 2a a1 6b a7 aa 53 9d   Ef.....w.*.k..S.
-</span></span><span class=line><span class=cl>    0010 - 6e 10 b8 7e 79 c8 34 32-f2 83 05 87 b1 a2 98 b0   n..~y.42........
-</span></span><span class=line><span class=cl>    0020 - 36 38 34 d5 a5 41 a3 e6-b7 70 48 78 48 58 23 b4   684..A...pHxHX#.
-</span></span><span class=line><span class=cl>    0030 - 05 32 93 e3 f1 7f 9e 34-78 54 e5 fc d8 d7 96 16   .2.....4xT......
-</span></span><span class=line><span class=cl>    0040 - db e0 f0 44 88 80 c6 36-a6 9e 0e 46 94 36 c9 d3   ...D...6...F.6..
-</span></span><span class=line><span class=cl>    0050 - ae 93 85 16 74 d2 5c dc-26 78 0f 5a 91 7c 1b 65   ....t.\.&amp;x.Z.|.e
-</span></span><span class=line><span class=cl>    0060 - e2 4f 46 ea df b4 23 fa-df d9 14 79 6b 3c 9b 44   .OF...#....yk&lt;.D
-</span></span><span class=line><span class=cl>    0070 - 79 3b 30 cf 55 d2 ed 5d-bf 16 4f 8b c3 2e 8e 67   y;0.U..]..O....g
-</span></span><span class=line><span class=cl>    0080 - 96 a4 40 1d cb 74 4c 2b-5a 37 06 02 ec 2f 91 8b   ..@..tL+Z7.../..
-</span></span><span class=line><span class=cl>    0090 - 9e 3b 55 ee 24 19 58 d4-96 1b d5 14 e1 58 41 ba   .;U.$.X......XA.
-</span></span><span class=line><span class=cl>
-</span></span><span class=line><span class=cl>    Start Time: 1711637744
-</span></span><span class=line><span class=cl>    Timeout   : 7200 (sec)
-</span></span><span class=line><span class=cl>    Verify return code: 18 (self-signed certificate)
-</span></span><span class=line><span class=cl>    Extended master secret: no
-</span></span><span class=line><span class=cl>---
-</span></span></code></pre></div><p>I only care about this part, it is TLSv1 and Chrome doesn&rsquo;t support it.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-txt data-lang=txt><span class=line><span class=cl>SSL-Session:
-</span></span><span class=line><span class=cl>    Protocol  : TLSv1
-</span></span></code></pre></div><p>I tried finding an option in <code>chrome://flags</code> to turn it off (or on) but there isn&rsquo;t option related to TLSv1, only 1_3.<br>At this point I think I have no way to connect to my modem. But suddenly, I remember Firefox, the one I opened to download
-Chrome (or maybe Zalo) and never touch again.</p><p>And yes, there&rsquo;s a configuration <code>security.tls.version.enable-deprecated</code> in <code>about:config</code> . After turning it on, I can access
-the modem settings successfully.</p><p>The lesson is, don&rsquo;t uninstall Firefox. You will need it one day, it is the best browser we have but we don&rsquo;t deserve.</p></div><footer></footer></article></section></div><footer class=footer><section class=container>©
-2021 -
-2025
-Sy Tran
-·
-Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.</section></footer></main><script src=/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script></body></html>
+it&rsquo;s just less secure. Google a bit more I found an option to allow less secure TLS standard.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">openssl s_client -cipher DEFAULT@SECLEVEL<span class="o">=</span><span class="m">1</span>  -connect 192.168.1.1:443
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">CONNECTED(00000003)
+</span></span><span class="line"><span class="cl">Can&#39;t use SSL_get_servername
+</span></span><span class="line"><span class="cl">depth=0 C = VN, ST = Hanoi, L = Hanoi, CN = VNPTT
+</span></span><span class="line"><span class="cl">verify error:num=18:self-signed certificate
+</span></span><span class="line"><span class="cl">verify return:1
+</span></span><span class="line"><span class="cl">depth=0 C = VN, ST = Hanoi, L = Hanoi, CN = VNPTT
+</span></span><span class="line"><span class="cl">verify return:1
+</span></span><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">Certificate chain
+</span></span><span class="line"><span class="cl"> 0 s:C = VN, ST = Hanoi, L = Hanoi, CN = VNPTT
+</span></span><span class="line"><span class="cl">   i:C = VN, ST = Hanoi, L = Hanoi, CN = VNPTT
+</span></span><span class="line"><span class="cl">   a:PKEY: rsaEncryption, 2048 (bit); sigalg: RSA-SHA1
+</span></span><span class="line"><span class="cl">   v:NotBefore: Oct 20 04:11:52 2018 GMT; NotAfter: Oct 17 04:11:52 2028 GMT
+</span></span><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">Server certificate
+</span></span><span class="line"><span class="cl">-----BEGIN CERTIFICATE-----
+</span></span><span class="line"><span class="cl">MIIDTTCCAjWgAwIBAgIJAPghsnArIG0GMA0GCSqGSIb3DQEBBQUAMD0xCzAJBgNV
+</span></span><span class="line"><span class="cl">BAYTAlZOMQ4wDAYDVQQIDAVIYW5vaTEOMAwGA1UEBwwFSGFub2kxDjAMBgNVBAMM
+</span></span><span class="line"><span class="cl">BVZOUFRUMB4XDTE4MTAyMDA0MTE1MloXDTI4MTAxNzA0MTE1MlowPTELMAkGA1UE
+</span></span><span class="line"><span class="cl">BhMCVk4xDjAMBgNVBAgMBUhhbm9pMQ4wDAYDVQQHDAVIYW5vaTEOMAwGA1UEAwwF
+</span></span><span class="line"><span class="cl">Vk5QVFQwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDZtfZQeDi5Ngz9
+</span></span><span class="line"><span class="cl">zetnwEQHk0wQOON4IgiWNgj262v1LTcQwoS5ZoYPQ37vNRrqf1AjeITTGU8KaVOn
+</span></span><span class="line"><span class="cl">ebmnnuUX1+AjbZ7VS4LzkkQf4DnuIe/NEhTc47jrggQJgP8JNQGMZVgLhyI0JnVC
+</span></span><span class="line"><span class="cl">+M60GjjvscBL1CxvmCp2LiVgoAcsMxK2FFWuVhNuH774Q0v/FIyIv0p/JNAMxWvH
+</span></span><span class="line"><span class="cl">SZMdqzm6BIeUD6YRm8uF2rt6/Fxoj1e1If8/BrEvS/4WE+1+cl88KxgMmHfftfqp
+</span></span><span class="line"><span class="cl">6/cTxfr+diUi+/7UTicnAIbckQQFy2J4/FJG54YXtEWbhA1my0hr0VI7QhJVpR10
+</span></span><span class="line"><span class="cl">39ENWcpTAgMBAAGjUDBOMB0GA1UdDgQWBBRbguNno7qjN3KrDegpAq9A73lSNTAf
+</span></span><span class="line"><span class="cl">BgNVHSMEGDAWgBRbguNno7qjN3KrDegpAq9A73lSNTAMBgNVHRMEBTADAQH/MA0G
+</span></span><span class="line"><span class="cl">CSqGSIb3DQEBBQUAA4IBAQAUoRcYL5vvV9JeuVksPfdd/uL/TkhLHELl3CJcBZcM
+</span></span><span class="line"><span class="cl">jIoZDyeq3TxZmd/mARIfCfmOrS6ugXxCu+LfyLmE7rsXqd6Bt6W6qcSSzkeDcNZF
+</span></span><span class="line"><span class="cl">PqJav40UpQqrfTOrQXGAWW9yDL9fJmWs2XWYwb3iGwQWsvzEHSjeiy7k9ihycTFx
+</span></span><span class="line"><span class="cl">t2V6IzYDzLs7bg4w3PgmtLRBx5p28o2FSVuc4/EfWEmk2wasQHLQ8mqQMiAItaR7
+</span></span><span class="line"><span class="cl">SmLOrZtjzfbdawgWSghjxLbO8eul1Bcrra9zjF6WHplKfX0PEYovo9JzFQ3jc6U6
+</span></span><span class="line"><span class="cl">EEeJ+GZcZestmR4D+eNkSTRz77x95lNPI79f8SpwtfeZ
+</span></span><span class="line"><span class="cl">-----END CERTIFICATE-----
+</span></span><span class="line"><span class="cl">subject=C = VN, ST = Hanoi, L = Hanoi, CN = VNPTT
+</span></span><span class="line"><span class="cl">issuer=C = VN, ST = Hanoi, L = Hanoi, CN = VNPTT
+</span></span><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">No client certificate CA names sent
+</span></span><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">SSL handshake has read 1165 bytes and written 623 bytes
+</span></span><span class="line"><span class="cl">Verification error: self-signed certificate
+</span></span><span class="line"><span class="cl">---
+</span></span><span class="line"><span class="cl">New, SSLv3, Cipher is AES256-SHA
+</span></span><span class="line"><span class="cl">Server public key is 2048 bit
+</span></span><span class="line"><span class="cl">Secure Renegotiation IS supported
+</span></span><span class="line"><span class="cl">Compression: NONE
+</span></span><span class="line"><span class="cl">Expansion: NONE
+</span></span><span class="line"><span class="cl">No ALPN negotiated
+</span></span><span class="line"><span class="cl">SSL-Session:
+</span></span><span class="line"><span class="cl">    Protocol  : TLSv1
+</span></span><span class="line"><span class="cl">    Cipher    : AES256-SHA
+</span></span><span class="line"><span class="cl">    Session-ID: 819B5BD98708AACDDB26ED1A8A539410A88628C954F19C1564B4D8713286A30D
+</span></span><span class="line"><span class="cl">    Session-ID-ctx: 
+</span></span><span class="line"><span class="cl">    Master-Key: 07126DE33EB0AF3441EE3943C4D5F5EF7C0D34E8F1838D23C5681FA3FC9EC11035B3653553107500DCB65BA5F507ECD7
+</span></span><span class="line"><span class="cl">    PSK identity: None
+</span></span><span class="line"><span class="cl">    PSK identity hint: None
+</span></span><span class="line"><span class="cl">    SRP username: None
+</span></span><span class="line"><span class="cl">    TLS session ticket lifetime hint: 7200 (seconds)
+</span></span><span class="line"><span class="cl">    TLS session ticket:
+</span></span><span class="line"><span class="cl">    0000 - 45 66 da 1d cd 13 9d 77-b6 2a a1 6b a7 aa 53 9d   Ef.....w.*.k..S.
+</span></span><span class="line"><span class="cl">    0010 - 6e 10 b8 7e 79 c8 34 32-f2 83 05 87 b1 a2 98 b0   n..~y.42........
+</span></span><span class="line"><span class="cl">    0020 - 36 38 34 d5 a5 41 a3 e6-b7 70 48 78 48 58 23 b4   684..A...pHxHX#.
+</span></span><span class="line"><span class="cl">    0030 - 05 32 93 e3 f1 7f 9e 34-78 54 e5 fc d8 d7 96 16   .2.....4xT......
+</span></span><span class="line"><span class="cl">    0040 - db e0 f0 44 88 80 c6 36-a6 9e 0e 46 94 36 c9 d3   ...D...6...F.6..
+</span></span><span class="line"><span class="cl">    0050 - ae 93 85 16 74 d2 5c dc-26 78 0f 5a 91 7c 1b 65   ....t.\.&amp;x.Z.|.e
+</span></span><span class="line"><span class="cl">    0060 - e2 4f 46 ea df b4 23 fa-df d9 14 79 6b 3c 9b 44   .OF...#....yk&lt;.D
+</span></span><span class="line"><span class="cl">    0070 - 79 3b 30 cf 55 d2 ed 5d-bf 16 4f 8b c3 2e 8e 67   y;0.U..]..O....g
+</span></span><span class="line"><span class="cl">    0080 - 96 a4 40 1d cb 74 4c 2b-5a 37 06 02 ec 2f 91 8b   ..@..tL+Z7.../..
+</span></span><span class="line"><span class="cl">    0090 - 9e 3b 55 ee 24 19 58 d4-96 1b d5 14 e1 58 41 ba   .;U.$.X......XA.
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    Start Time: 1711637744
+</span></span><span class="line"><span class="cl">    Timeout   : 7200 (sec)
+</span></span><span class="line"><span class="cl">    Verify return code: 18 (self-signed certificate)
+</span></span><span class="line"><span class="cl">    Extended master secret: no
+</span></span><span class="line"><span class="cl">---
+</span></span></code></pre></div><p>I only care about this part, it is TLSv1 and Chrome doesn&rsquo;t support it.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-txt" data-lang="txt"><span class="line"><span class="cl">SSL-Session:
+</span></span><span class="line"><span class="cl">    Protocol  : TLSv1
+</span></span></code></pre></div><p>I tried finding an option in <code>chrome://flags</code> to turn it off (or on) but there isn&rsquo;t option related to TLSv1, only 1_3.<br>
+At this point I think I have no way to connect to my modem. But suddenly, I remember Firefox, the one I opened to download
+Chrome (or maybe Zalo) and never touch again.</p>
+<p>And yes, there&rsquo;s a configuration <code>security.tls.version.enable-deprecated</code> in <code>about:config</code> . After turning it on, I can access
+the modem settings successfully.</p>
+<p>The lesson is, don&rsquo;t uninstall Firefox. You will need it one day, it is the best browser we have but we don&rsquo;t deserve.</p>
+
+    </div>
+
+    <footer>
+      
+
+
+      
+      
+      
+      
+      
+    </footer>
+  </article>
+
+  
+</section>
+
+    </div>
+
+    <footer class="footer">
+  
+  <section class="container">
+    ©
+    
+    2021 -
+    
+    2025
+     Sy Tran 
+    ·
+    
+    Powered by <a href="https://gohugo.io/">Hugo</a> & <a
+      href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+
+
+  
+  
+  <script src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
+  
+
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

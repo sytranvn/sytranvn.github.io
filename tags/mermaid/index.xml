@@ -1,8 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Mermaid on sytranvn.dev</title><link>https://sytranvn.dev/tags/mermaid/</link><description>Recent content in Mermaid on sytranvn.dev</description><generator>Hugo</generator><language>en</language><lastBuildDate>Thu, 06 Mar 2025 17:01:48 +0700</lastBuildDate><atom:link href="https://sytranvn.dev/tags/mermaid/index.xml" rel="self" type="application/rss+xml"/><item><title>I try to draw a K8s Diagram</title><link>https://sytranvn.dev/posts/k8s-diagram/</link><pubDate>Thu, 06 Mar 2025 17:01:48 +0700</pubDate><guid>https://sytranvn.dev/posts/k8s-diagram/</guid><description>&lt;p>I found it overwhelming when start working with K8s. Event
-when I have used Docker for years. K8s has bunch of object types
-and many many configuration to know and remember but you just
-can&amp;rsquo;t learn them by heart. Therefore I decided to organize
-my understanding of K8s into something, anything. Only
-by trying to visualize it, my brain can start linking all
-the documents I have read so far into a bigger picture.&lt;br>
-And here&amp;rsquo;s the result.&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mermaid on sytranvn.dev</title>
+    <link>https://sytranvn.dev/tags/mermaid/</link>
+    <description>Recent content in Mermaid on sytranvn.dev</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 06 Mar 2025 17:01:48 +0700</lastBuildDate>
+    <atom:link href="https://sytranvn.dev/tags/mermaid/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>I try to draw a K8s Diagram</title>
+      <link>https://sytranvn.dev/posts/k8s-diagram/</link>
+      <pubDate>Thu, 06 Mar 2025 17:01:48 +0700</pubDate>
+      <guid>https://sytranvn.dev/posts/k8s-diagram/</guid>
+      <description>&lt;p&gt;I found it overwhelming when start working with K8s. Event&#xA;when I have used Docker for years. K8s has bunch of object types&#xA;and many many configuration to know and remember but you just&#xA;can&amp;rsquo;t learn them by heart. Therefore I decided to organize&#xA;my understanding of K8s into something, anything. Only&#xA;by trying to visualize it, my brain can start linking all&#xA;the documents I have read so far into a bigger picture.&lt;br&gt;&#xA;And here&amp;rsquo;s the result.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

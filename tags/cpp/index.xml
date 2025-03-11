@@ -1,128 +1,40 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cpp on sytranvn.dev</title><link>https://sytranvn.dev/tags/cpp/</link><description>Recent content in Cpp on sytranvn.dev</description><generator>Hugo</generator><language>en</language><lastBuildDate>Thu, 14 Oct 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://sytranvn.dev/tags/cpp/index.xml" rel="self" type="application/rss+xml"/><item><title>Allocation</title><link>https://sytranvn.dev/posts/allocation/</link><pubDate>Thu, 14 Oct 2021 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/allocation/</guid><description>&lt;h3 id="allocation-in-v8">
- Allocation in V8
- &lt;a class="heading-link" href="#allocation-in-v8">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h3>
-&lt;p>V8 allocate C free store using malloc and free.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-cpp" data-lang="cpp">&lt;span class="line">&lt;span class="cl">&lt;span class="kt">void&lt;/span>&lt;span class="o">*&lt;/span> &lt;span class="n">Malloced&lt;/span>&lt;span class="o">::&lt;/span>&lt;span class="n">New&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">size_t&lt;/span> &lt;span class="n">size&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">ASSERT&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">NativeAllocationChecker&lt;/span>&lt;span class="o">::&lt;/span>&lt;span class="n">allocation_allowed&lt;/span>&lt;span class="p">());&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kt">void&lt;/span>&lt;span class="o">*&lt;/span> &lt;span class="n">result&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">malloc&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">size&lt;/span>&lt;span class="p">);&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">result&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="nb">NULL&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="n">V8&lt;/span>&lt;span class="o">::&lt;/span>&lt;span class="n">FatalProcessOutOfMemory&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Malloced operator new&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="n">result&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kt">void&lt;/span> &lt;span class="n">Malloced&lt;/span>&lt;span class="o">::&lt;/span>&lt;span class="n">Delete&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kt">void&lt;/span>&lt;span class="o">*&lt;/span> &lt;span class="n">p&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">free&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">p&lt;/span>&lt;span class="p">);&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Besides of that, V8 defined a &lt;code>PreallocatedStorage&lt;/code> (double linked list) to manage allocated memorry.
-&lt;figure>&lt;img src="https://sytranvn.dev/posts/allocation/PreallocatedStorage-LinkTo.png">&lt;figcaption>
- &lt;h4>link chunks&lt;/h4>
- &lt;/figcaption>
-&lt;/figure>
-&lt;/p>
-&lt;figure>&lt;img src="https://sytranvn.dev/posts/allocation/PreallocatedStorage-Unlink.png">&lt;figcaption>
- &lt;h4>unlink chunks&lt;/h4>
- &lt;/figcaption>
-&lt;/figure>
-
-&lt;p>When we need to allocate some memorry, first V8 will find available memorry chunk in &lt;code>free_list_&lt;/code> that fit before call &lt;code>Malloced::New()&lt;/code> to allocate new memorry. And when V8 done using a memorry chunk, it does not &lt;code>free&lt;/code> instantly. Instead, V8 just removes the chunk from &lt;code>in_use_list_&lt;/code> and move it to &lt;code>free_list_&lt;/code>.
-&lt;figure>&lt;img src="https://sytranvn.dev/posts/allocation/PreallocatedStorage-New-1.png">&lt;figcaption>
- &lt;h4>find fit memorry chunk&lt;/h4>
- &lt;/figcaption>
-&lt;/figure>
-
-So when we need memorry to store something else, we just override data on allocated memory, it save us one free operation.
-&lt;figure>&lt;img src="https://sytranvn.dev/posts/allocation/PreallocatedStorage-New-2.png">&lt;figcaption>
- &lt;h4>add free chunk to in used&lt;/h4>
- &lt;/figcaption>
-&lt;/figure>
-
-There is nothing much to be done in allocation since it just a wrapper to &lt;code>malloc&lt;/code> and &lt;code>free&lt;/code> memorry. But this is the heart of everything. In next posts, we will see how &lt;code>PreallocatedStorage&lt;/code> is used by V8 in specific scenarios.&lt;/p></description></item><item><title>Token</title><link>https://sytranvn.dev/posts/token/</link><pubDate>Wed, 06 Oct 2021 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/token/</guid><description>&lt;blockquote>
-&lt;p>If you don&amp;rsquo;t know how it works, find out. If you&amp;rsquo;re not sure if it will work, try it. If it doesn&amp;rsquo;t make sense, play with it until it does. If it&amp;rsquo;s not broken, break it. If it might not be true, find out.&lt;/p>
-&lt;p>Seth Godin&lt;/p>
-&lt;/blockquote>
-&lt;h2 id="token">
- Token
- &lt;a class="heading-link" href="#token">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h2>
-&lt;p>All tokens are defined by a macro &lt;code>TOKEN_LIST&lt;/code>. It takes a list of 3 macros M all of which satisfy the same signature M(name, string, precedence), where name is the symbolic token name, string is the corresponding syntactic symbol (or NULL, for literals), and precedence is the precedence (or 0).
-The parameters are invoked for token categories as follows:&lt;/p></description></item><item><title>Build v8 from source on Ubuntu 20.04</title><link>https://sytranvn.dev/posts/build-v8-from-source/</link><pubDate>Sat, 20 Feb 2021 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/build-v8-from-source/</guid><description>&lt;p>Have you ever asked what does V8 do? Here&amp;rsquo;s how to build a V8 of your own from source code. See what it can do and even have fun with it.&lt;/p>
-&lt;h2 id="required">
- Required
- &lt;a class="heading-link" href="#required">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h2>
-&lt;ul>
-&lt;li>bash shell&lt;/li>
-&lt;li>git&lt;/li>
-&lt;/ul>
-&lt;p>I set up the V8 source code inside &lt;code>~/Code/&lt;/code> folder and use it throughout this article. You can change it to your desired folder.&lt;/p>
-&lt;h2 id="prepare-the-tools-and-source-code">
- Prepare the tools and source code
- &lt;a class="heading-link" href="#prepare-the-tools-and-source-code">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h2>
-&lt;p>We need to get the depot tools bundle from google. It&amp;rsquo;s a package of scripts, to automate tasks to manage repositories &lt;a href="http://www.chromium.org/developers/how-tos/install-depot-tools" class="external-link" target="_blank" rel="noopener">http://www.chromium.org/developers/how-tos/install-depot-tools&lt;/a>&lt;/p></description></item><item><title>Misc</title><link>https://sytranvn.dev/posts/misc/</link><pubDate>Thu, 28 Jan 2021 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/misc/</guid><description>&lt;p>Some tricks I found when dealing with V8 giant code base&lt;/p>
-&lt;h2 id="macros-macros-every-where">
- Macros, macros every where
- &lt;a class="heading-link" href="#macros-macros-every-where">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h2>
-&lt;ul>
-&lt;li>Having problem understanding v8 macros?
-&lt;ul>
-&lt;li>Add this where ever you want
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-cpp" data-lang="cpp">&lt;span class="line">&lt;span class="cl">&lt;span class="k">static&lt;/span> &lt;span class="k">const&lt;/span> &lt;span class="kt">int&lt;/span> &lt;span class="n">IAmHere&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;li>And run
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">g++ -g -Wall -I. -Iinclude -I... header.h -E -D DEBUG &amp;gt; header.h.o
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;li>Search for &lt;code>IAmHere&lt;/code> in &lt;code>header.h.o file&lt;/code> generated&lt;/li>
-&lt;li>Have fun&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>To be continued&lt;/li>
-&lt;/ul>
-&lt;h2 id="the-do-while-false-macro">
- The &lt;code>do while (false)&lt;/code> macro
- &lt;a class="heading-link" href="#the-do-while-false-macro">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-cpp" data-lang="cpp">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">#define ASSEMBLE_BINOP(asm_instr) \
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp"> do { \
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp"> if (HasAddressingMode(instr)) { \
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp"> size_t index = 1; \
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp"> Operand right = i.MemoryOperand(&amp;amp;index); \
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp"> __ asm_instr(i.InputRegister(0), right); \
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp"> } else { \
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp"> if (HasImmediateInput(instr, 1)) { \
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp"> if (HasRegisterInput(instr, 0)) { \
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp"> __ asm_instr(i.InputRegister(0), i.InputImmediate(1)); \
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp"> } else { \
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp"> __ asm_instr(i.InputOperand(0), i.InputImmediate(1)); \
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp"> } \
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp"> } else { \
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp"> if (HasRegisterInput(instr, 1)) { \
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp"> __ asm_instr(i.InputRegister(0), i.InputRegister(1)); \
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp"> } else { \
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp"> __ asm_instr(i.InputRegister(0), i.InputOperand(1)); \
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp"> } \
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp"> } \
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp"> } \
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp"> } while (false)
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Why &lt;code>do why (false)&lt;/code> ?
-Because if we define:&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cpp on sytranvn.dev</title>
+    <link>https://sytranvn.dev/tags/cpp/</link>
+    <description>Recent content in Cpp on sytranvn.dev</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 14 Oct 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://sytranvn.dev/tags/cpp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Allocation</title>
+      <link>https://sytranvn.dev/posts/allocation/</link>
+      <pubDate>Thu, 14 Oct 2021 00:00:00 +0000</pubDate>
+      <guid>https://sytranvn.dev/posts/allocation/</guid>
+      <description>&lt;h3 id=&#34;allocation-in-v8&#34;&gt;&#xA;  Allocation in V8&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#allocation-in-v8&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;V8 allocate C free store using malloc and free.&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Malloced&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;New&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;size_t&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;size&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;n&#34;&gt;ASSERT&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;NativeAllocationChecker&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;allocation_allowed&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;());&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;result&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;malloc&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;size&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;result&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;NULL&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;V8&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;FatalProcessOutOfMemory&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Malloced operator new&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;result&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Malloced&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;Delete&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;void&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;*&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;  &lt;span class=&#34;n&#34;&gt;free&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Besides of that, V8 defined a &lt;code&gt;PreallocatedStorage&lt;/code&gt; (double linked list) to manage allocated memorry.&#xA;&lt;figure&gt;&lt;img src=&#34;https://sytranvn.dev/posts/allocation/PreallocatedStorage-LinkTo.png&#34;&gt;&lt;figcaption&gt;&#xA;      &lt;h4&gt;link chunks&lt;/h4&gt;&#xA;    &lt;/figcaption&gt;&#xA;&lt;/figure&gt;&#xA;&lt;/p&gt;&#xA;&lt;figure&gt;&lt;img src=&#34;https://sytranvn.dev/posts/allocation/PreallocatedStorage-Unlink.png&#34;&gt;&lt;figcaption&gt;&#xA;      &lt;h4&gt;unlink chunks&lt;/h4&gt;&#xA;    &lt;/figcaption&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;&lt;p&gt;When we need to allocate some memorry, first V8 will find available memorry chunk in &lt;code&gt;free_list_&lt;/code&gt; that fit before call &lt;code&gt;Malloced::New()&lt;/code&gt; to allocate new memorry. And when V8 done using a memorry chunk, it does not &lt;code&gt;free&lt;/code&gt; instantly. Instead, V8 just removes the chunk from &lt;code&gt;in_use_list_&lt;/code&gt; and move it to &lt;code&gt;free_list_&lt;/code&gt;.&#xA;&lt;figure&gt;&lt;img src=&#34;https://sytranvn.dev/posts/allocation/PreallocatedStorage-New-1.png&#34;&gt;&lt;figcaption&gt;&#xA;      &lt;h4&gt;find fit memorry chunk&lt;/h4&gt;&#xA;    &lt;/figcaption&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;So when we need memorry to store something else, we just override data on allocated memory, it save us one free operation.&#xA;&lt;figure&gt;&lt;img src=&#34;https://sytranvn.dev/posts/allocation/PreallocatedStorage-New-2.png&#34;&gt;&lt;figcaption&gt;&#xA;      &lt;h4&gt;add free chunk to in used&lt;/h4&gt;&#xA;    &lt;/figcaption&gt;&#xA;&lt;/figure&gt;&#xA;&#xA;There is nothing much to be done in allocation since it just a wrapper to &lt;code&gt;malloc&lt;/code&gt; and &lt;code&gt;free&lt;/code&gt; memorry. But this is the heart of everything. In next posts, we will see how &lt;code&gt;PreallocatedStorage&lt;/code&gt; is used by V8 in specific scenarios.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Token</title>
+      <link>https://sytranvn.dev/posts/token/</link>
+      <pubDate>Wed, 06 Oct 2021 00:00:00 +0000</pubDate>
+      <guid>https://sytranvn.dev/posts/token/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;If you don&amp;rsquo;t know how it works, find out. If you&amp;rsquo;re not sure if it will work, try it. If it doesn&amp;rsquo;t make sense, play with it until it does. If it&amp;rsquo;s not broken, break it. If it might not be true, find out.&lt;/p&gt;&#xA;&lt;p&gt;Seth Godin&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;token&#34;&gt;&#xA;  Token&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#token&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;All tokens are defined by a macro &lt;code&gt;TOKEN_LIST&lt;/code&gt;. It takes a list of 3 macros M all of which satisfy the same signature M(name, string, precedence), where name is the symbolic token name, string is the corresponding syntactic symbol (or NULL, for literals), and precedence is the precedence (or 0).&#xA;The parameters are invoked for token categories as follows:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Build v8 from source on Ubuntu 20.04</title>
+      <link>https://sytranvn.dev/posts/build-v8-from-source/</link>
+      <pubDate>Sat, 20 Feb 2021 00:00:00 +0000</pubDate>
+      <guid>https://sytranvn.dev/posts/build-v8-from-source/</guid>
+      <description>&lt;p&gt;Have you ever asked what does V8 do? Here&amp;rsquo;s how to build a V8 of your own from source code. See what it can do and even have fun with it.&lt;/p&gt;&#xA;&lt;h2 id=&#34;required&#34;&gt;&#xA;  Required&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#required&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;bash shell&lt;/li&gt;&#xA;&lt;li&gt;git&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;I  set up the V8 source code inside &lt;code&gt;~/Code/&lt;/code&gt; folder and use it throughout this article. You can change it to your desired folder.&lt;/p&gt;&#xA;&lt;h2 id=&#34;prepare-the-tools-and-source-code&#34;&gt;&#xA;  Prepare the tools and source code&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#prepare-the-tools-and-source-code&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;We need to get the depot tools bundle from google. It&amp;rsquo;s a package of scripts, to automate tasks to manage repositories &lt;a href=&#34;http://www.chromium.org/developers/how-tos/install-depot-tools&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;http://www.chromium.org/developers/how-tos/install-depot-tools&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Misc</title>
+      <link>https://sytranvn.dev/posts/misc/</link>
+      <pubDate>Thu, 28 Jan 2021 00:00:00 +0000</pubDate>
+      <guid>https://sytranvn.dev/posts/misc/</guid>
+      <description>&lt;p&gt;Some tricks I found when dealing with V8 giant code base&lt;/p&gt;&#xA;&lt;h2 id=&#34;macros-macros-every-where&#34;&gt;&#xA;  Macros, macros every where&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#macros-macros-every-where&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Having problem understanding v8 macros?&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Add this where ever you want&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;static&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;const&lt;/span&gt; &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;IAmHere&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;&#xA;&lt;li&gt;And run&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;g++ -g -Wall -I.  -Iinclude -I... header.h   -E -D DEBUG &amp;gt; header.h.o&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;&#xA;&lt;li&gt;Search for &lt;code&gt;IAmHere&lt;/code&gt; in &lt;code&gt;header.h.o file&lt;/code&gt; generated&lt;/li&gt;&#xA;&lt;li&gt;Have fun&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;To be continued&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;the-do-while-false-macro&#34;&gt;&#xA;  The &lt;code&gt;do while (false)&lt;/code&gt; macro&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#the-do-while-false-macro&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-cpp&#34; data-lang=&#34;cpp&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#define ASSEMBLE_BINOP(asm_instr)                                \&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;  do {                                                           \&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;    if (HasAddressingMode(instr)) {                              \&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;      size_t index = 1;                                          \&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;      Operand right = i.MemoryOperand(&amp;amp;index);                   \&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;      __ asm_instr(i.InputRegister(0), right);                   \&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;    } else {                                                     \&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;      if (HasImmediateInput(instr, 1)) {                         \&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;        if (HasRegisterInput(instr, 0)) {                        \&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;          __ asm_instr(i.InputRegister(0), i.InputImmediate(1)); \&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;        } else {                                                 \&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;          __ asm_instr(i.InputOperand(0), i.InputImmediate(1));  \&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;        }                                                        \&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;      } else {                                                   \&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;        if (HasRegisterInput(instr, 1)) {                        \&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;          __ asm_instr(i.InputRegister(0), i.InputRegister(1));  \&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;        } else {                                                 \&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;          __ asm_instr(i.InputRegister(0), i.InputOperand(1));   \&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;        }                                                        \&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;      }                                                          \&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;    }                                                            \&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;cp&#34;&gt;  } while (false)&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Why &lt;code&gt;do why (false)&lt;/code&gt; ?&#xA;Because if we define:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
