@@ -1,19 +1,10 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Sytranvn on sytranvn.dev</title>
-    <link>https://sytranvn.dev/authors/sytranvn/</link>
-    <description>Recent content in Sytranvn on sytranvn.dev</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Tue, 14 Jan 2025 11:25:29 +0700</lastBuildDate>
-    <atom:link href="https://sytranvn.dev/authors/sytranvn/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Vi Everything</title>
-      <link>https://sytranvn.dev/posts/vi-everything/</link>
-      <pubDate>Tue, 14 Jan 2025 11:25:29 +0700</pubDate>
-      <guid>https://sytranvn.dev/posts/vi-everything/</guid>
-      <description>&lt;p&gt;Here&amp;rsquo;s the list of couple places that I enable &lt;code&gt;vi&lt;/code&gt; mode.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Bash shell&#xA;&lt;code&gt;set -o vi&lt;/code&gt; I always enable bash movement mode in my &lt;code&gt;.bashrc&lt;/code&gt; file.&#xA;With it set, I can switch between normal mode and edit mode by pressing &lt;code&gt;ESC&lt;/code&gt;.&#xA;Editing works as any normal shell, but when switching to normal mode, I can&#xA;use &lt;code&gt;vi&lt;/code&gt; movement keys like &lt;code&gt;j, k, h, l, w, b, e, $, ^&lt;/code&gt;, editing current&#xA;line is also faster by using selectors such as &lt;code&gt;cw, dw, C, D...&lt;/code&gt;. One important&#xA;note is that we are using &lt;code&gt;vi&lt;/code&gt; mode, not &lt;code&gt;vim&lt;/code&gt;, so selectors like &lt;code&gt;ciw, caw, ci(&lt;/code&gt; does not work.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Sytranvn on sytranvn.dev</title><link>https://sytranvn.dev/authors/sytranvn/</link><description>Recent content in Sytranvn on sytranvn.dev</description><generator>Hugo</generator><language>en</language><lastBuildDate>Tue, 14 Jan 2025 11:25:29 +0700</lastBuildDate><atom:link href="https://sytranvn.dev/authors/sytranvn/index.xml" rel="self" type="application/rss+xml"/><item><title>Vi Everything</title><link>https://sytranvn.dev/posts/vi-everything/</link><pubDate>Tue, 14 Jan 2025 11:25:29 +0700</pubDate><guid>https://sytranvn.dev/posts/vi-everything/</guid><description>&lt;p>Here&amp;rsquo;s the list of couple places that I enable &lt;code>vi&lt;/code> mode.&lt;/p>
+&lt;ol>
+&lt;li>
+&lt;p>Bash shell
+&lt;code>set -o vi&lt;/code> I always enable bash movement mode in my &lt;code>.bashrc&lt;/code> file.
+With it set, I can switch between normal mode and edit mode by pressing &lt;code>ESC&lt;/code>.
+Editing works as any normal shell, but when switching to normal mode, I can
+use &lt;code>vi&lt;/code> movement keys like &lt;code>j, k, h, l, w, b, e, $, ^&lt;/code>, editing current
+line is also faster by using selectors such as &lt;code>cw, dw, C, D...&lt;/code>. One important
+note is that we are using &lt;code>vi&lt;/code> mode, not &lt;code>vim&lt;/code>, so selectors like &lt;code>ciw, caw, ci(&lt;/code> does not work.&lt;/p></description></item></channel></rss>

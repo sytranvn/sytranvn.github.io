@@ -1,19 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Reactjs on sytranvn.dev</title>
-    <link>https://sytranvn.dev/tags/reactjs/</link>
-    <description>Recent content in Reactjs on sytranvn.dev</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Mon, 12 Apr 2021 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://sytranvn.dev/tags/reactjs/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>What I learned from reading reactjs tests</title>
-      <link>https://sytranvn.dev/posts/what-i-learned-from-reading-reactjs-tests/</link>
-      <pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate>
-      <guid>https://sytranvn.dev/posts/what-i-learned-from-reading-reactjs-tests/</guid>
-      <description>&lt;p&gt;First of all, I think React DOM is one of the most interesting part in React code base. I&amp;rsquo;m not sure if it is correct but whatever, stop thinking and start diving.&lt;/p&gt;&#xA;&lt;p&gt;This is the &lt;a href=&#34;https://github.com/facebook/react/blob/9d48779b362ef773da50fef95af6998b560c75c0/packages/react-dom/src/__tests__/ReactDOM-test.js&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;React-DOM test file&lt;/a&gt; at the time I&amp;rsquo;m writing this post. If you find latest version is different from what mentioned in this post please feel free to make a PR.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;ReactDOM&lt;/code&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;should bubble onSubmit&lt;/code&gt;&lt;br&gt;&#xA;So we can listen an &lt;code&gt;onsubmit&lt;/code&gt; event on a &lt;code&gt;div&lt;/code&gt;. That&amp;rsquo;s crazy right? Most of the time we only listen this event on a &lt;code&gt;form&lt;/code&gt; but in fact any tag can listen to this event if it has a form children.&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;should overwrite props.children with children argument&lt;/code&gt;&lt;br&gt;&#xA;So for example if we have &lt;code&gt;&amp;lt;Component children={&#39;real&#39;}&amp;gt;fake&amp;lt;/Component&amp;gt;&lt;/code&gt;. We will get &lt;code&gt;fake&lt;/code&gt; as result.&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;throws in render() if the update callback is not a function&lt;/code&gt;&lt;br&gt;&#xA;&lt;code&gt;ReactDOM.render&lt;/code&gt; supports an optional &lt;code&gt;callback&lt;/code&gt; parameters to be called after component is mounted into container. I look for &lt;a href=&#34;https://github.com/facebook/react/blob/dd8552ae0d82afed66fec649ee5c044c69c65e92/packages/react-dom/src/client/ReactDOMLegacy.js#L198-L204&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;actual implementation&lt;/a&gt; and find it callback &lt;code&gt;fiberRoot&lt;/code&gt; instance as &lt;code&gt;this&lt;/code&gt;. So you can &lt;code&gt;console.log(this.nodeName)&lt;/code&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;ReactMount&lt;/code&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;should unmount and remount if the key changes&lt;/code&gt;&lt;br&gt;&#xA;I have known this beavior of React key before, but it&amp;rsquo;s interesting to see it actually documented in the test.&lt;/li&gt;&#xA;&lt;li&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Reactjs on sytranvn.dev</title><link>https://sytranvn.dev/tags/reactjs/</link><description>Recent content in Reactjs on sytranvn.dev</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 12 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://sytranvn.dev/tags/reactjs/index.xml" rel="self" type="application/rss+xml"/><item><title>What I learned from reading reactjs tests</title><link>https://sytranvn.dev/posts/what-i-learned-from-reading-reactjs-tests/</link><pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/what-i-learned-from-reading-reactjs-tests/</guid><description>&lt;p>First of all, I think React DOM is one of the most interesting part in React code base. I&amp;rsquo;m not sure if it is correct but whatever, stop thinking and start diving.&lt;/p>
+&lt;p>This is the &lt;a href="https://github.com/facebook/react/blob/9d48779b362ef773da50fef95af6998b560c75c0/packages/react-dom/src/__tests__/ReactDOM-test.js" class="external-link" target="_blank" rel="noopener">React-DOM test file&lt;/a> at the time I&amp;rsquo;m writing this post. If you find latest version is different from what mentioned in this post please feel free to make a PR.&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>ReactDOM&lt;/code>
+&lt;ul>
+&lt;li>&lt;code>should bubble onSubmit&lt;/code>&lt;br>
+So we can listen an &lt;code>onsubmit&lt;/code> event on a &lt;code>div&lt;/code>. That&amp;rsquo;s crazy right? Most of the time we only listen this event on a &lt;code>form&lt;/code> but in fact any tag can listen to this event if it has a form children.&lt;/li>
+&lt;li>&lt;code>should overwrite props.children with children argument&lt;/code>&lt;br>
+So for example if we have &lt;code>&amp;lt;Component children={'real'}&amp;gt;fake&amp;lt;/Component&amp;gt;&lt;/code>. We will get &lt;code>fake&lt;/code> as result.&lt;/li>
+&lt;li>&lt;code>throws in render() if the update callback is not a function&lt;/code>&lt;br>
+&lt;code>ReactDOM.render&lt;/code> supports an optional &lt;code>callback&lt;/code> parameters to be called after component is mounted into container. I look for &lt;a href="https://github.com/facebook/react/blob/dd8552ae0d82afed66fec649ee5c044c69c65e92/packages/react-dom/src/client/ReactDOMLegacy.js#L198-L204" class="external-link" target="_blank" rel="noopener">actual implementation&lt;/a> and find it callback &lt;code>fiberRoot&lt;/code> instance as &lt;code>this&lt;/code>. So you can &lt;code>console.log(this.nodeName)&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;code>ReactMount&lt;/code>
+&lt;ul>
+&lt;li>&lt;code>should unmount and remount if the key changes&lt;/code>&lt;br>
+I have known this beavior of React key before, but it&amp;rsquo;s interesting to see it actually documented in the test.&lt;/li>
+&lt;li>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item></channel></rss>

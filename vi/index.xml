@@ -1,33 +1,80 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>sytranvn.dev</title>
-    <link>https://sytranvn.dev/vi/</link>
-    <description>Recent content on sytranvn.dev</description>
-    <generator>Hugo</generator>
-    <language>vi</language>
-    <lastBuildDate>Sat, 01 Feb 2025 01:05:27 +0700</lastBuildDate>
-    <atom:link href="https://sytranvn.dev/vi/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Truy Cập Steam Từ Việt Nam</title>
-      <link>https://sytranvn.dev/vi/posts/truy-cap-steam-tu-viet-nam/</link>
-      <pubDate>Sat, 01 Feb 2025 01:05:27 +0700</pubDate>
-      <guid>https://sytranvn.dev/vi/posts/truy-cap-steam-tu-viet-nam/</guid>
-      <description>&lt;p&gt;Đang dịp lễ tết rảnh rỗi tính làm vài cái nhiệm vụ Carven trong dota 2 cho xong&#xA;kiếm ít skin free mà hóa ra bữa giờ steam bị nhà mạng Việt Nam chặn. Lúc đầu có&#xA;lúc chơi bình thường có lúc account lại offline rất ảo mình mới nghi nghi. Đi&#xA;tìm kiếm trên &amp;ldquo;diễn đàn công nghệ hàng đầu Việt Nam&amp;rdquo; thì thấy các cụ chỉ sửa&#xA;DNS server sang của google hay cloudflare để tránh nhưng có vẻ cách này đã cũ.&#xA;Lúc đầu mình đã xài rồi mà không có được. Cố đọc vài bài thì không thấy có cách&#xA;giải quyết &amp;hellip;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Cài đặt Zalo Trên Ubuntu</title>
-      <link>https://sytranvn.dev/vi/posts/zalo-tren-ubuntu/</link>
-      <pubDate>Sun, 27 Aug 2023 17:10:55 +0700</pubDate>
-      <guid>https://sytranvn.dev/vi/posts/zalo-tren-ubuntu/</guid>
-      <description>&lt;p&gt;Sau đây mình sẽ hướng dẫn cách cài đặt Zalo trên Ubuntu và Steam Proton, tại thời điểm hiện tại, mình đang sử dụng bản là 23.8.4&lt;/p&gt;&#xA;&lt;h2 id=&#34;yêu-cầu&#34;&gt;&#xA;  Yêu cầu&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#y%c3%aau-c%e1%ba%a7u&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Bạn có cài đặt sẵn &lt;a href=&#34;https://store.steampowered.com/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Steam&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;tải-file-cài-đặt-zalo&#34;&gt;&#xA;  Tải file cài đặt zalo&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#t%e1%ba%a3i-file-c%c3%a0i-%c4%91%e1%ba%b7t-zalo&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Dành cho cách bạn sử dụng trình duyệt Google Chrome&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Các bạn hãy vào trang chủ &lt;a href=&#34;https://zalo.me&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://zalo.me&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;Click chuột phải ở vị trí bất kỳ và mở công cụ Inspect&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Trong công cụ Inspect, chọn tab Network&lt;/li&gt;&#xA;&lt;li&gt;Click vào biểu tượng 🛜 để tùy chỉnh thông tin gửi đi&lt;/li&gt;&#xA;&lt;li&gt;Trong mục User agent, bỏ chọn trình duyệt mặc định, và chọn 1 trình duyệt của Windows, ví dụ Chrome - Windows&#xA;&lt;img src=&#34;chrome.png&#34; alt=&#34;&#34;&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;Bạn hãy tải lại trang (lưu ý không đóng công cụ Inspect)&lt;/li&gt;&#xA;&lt;li&gt;Nút Tải về sẽ hiện ra để bạn có thể tải về&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;Dành cho các bạn sử dụng trình duyệt Firefox&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Các bạn vào &lt;code&gt;about:config&lt;/code&gt; , nếu có cảnh báo thì chấp nhận rủi ro và tiếp tục&lt;/li&gt;&#xA;&lt;li&gt;Tìm &lt;code&gt;general.useragent.override&lt;/code&gt; và chọn String, thêm giá trị &lt;code&gt;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36&lt;/code&gt; để đổi thành Chrome - Windows&#xA;&lt;img src=&#34;firefox.png&#34; alt=&#34;&#34;&gt;&lt;/li&gt;&#xA;&lt;li&gt;Truy cập &lt;a href=&#34;https://zalo.me&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;https://zalo.me&lt;/a&gt; và tải về&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;Dành cho các bạn sử dụng terminal&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;curl -L &lt;span class=&#34;s1&#34;&gt;&amp;#39;https://zalo.me/download/zalo-pc?utm=90000&amp;#39;&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    -H &lt;span class=&#34;s1&#34;&gt;&amp;#39;User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36&amp;#39;&lt;/span&gt; &lt;span class=&#34;se&#34;&gt;\&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;se&#34;&gt;&lt;/span&gt;    -o ~/Downloads/zalosetup.exe&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h2 id=&#34;cài-đặt-steam-chạy-phần-mềm-windows&#34;&gt;&#xA;  Cài đặt Steam chạy phần mềm Windows&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#c%c3%a0i-%c4%91%e1%ba%b7t-steam-ch%e1%ba%a1y-ph%e1%ba%a7n-m%e1%bb%81m-windows&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Steam cung cấp công cụ Proton, xây dựng trên WineHQ để hỗ trợ chạy các game thiết kế cho Windows có thể chạy trên Linux và Steam Play.&#xA;Chúng ta sẽ tiến hành cài đặt như sau:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>First Trip Aboard</title>
-      <link>https://sytranvn.dev/vi/posts/travels/first-trip-aboard/</link>
-      <pubDate>Tue, 27 Jun 2023 15:53:09 +0700</pubDate>
-      <guid>https://sytranvn.dev/vi/posts/travels/first-trip-aboard/</guid>
-      <description>&lt;p&gt;Viết về chuyến đi đầu tiên ra nước ngoài. Lẽ dĩ nhiên những gì tận mắt tôi được chứng kiến đều khiến tôi bất ngờ,&#xA;vì mọi thứ thật khác với quê hương Việt Nam của tôi. Mặc dù tôi viết rất tệ, nhưng kỷ niệm thật khó quên này, tôi sẽ&#xA;cố gắng để viết một cách đầy đủ nhất về những trải nghiệm của mình.&lt;/p&gt;&#xA;&lt;h2 id=&#34;chuẩn-bị&#34;&gt;&#xA;  Chuẩn bị&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#chu%e1%ba%a9n-b%e1%bb%8b&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Đây là chuyến du lịch của công ty đến Thái Lan và tôi được tài trợ hoàn toàn chi phí, điều duy nhất tôi cần chuẩn bị là&#xA;hộ chiếu công dân và một tâm hồn thật đẹp. Thật may tôi đã làm hộ chiếu từ nhiều năm trước, cuối cùng thì cũng được mang&#xA;nó ra sử dụng một lần. Còn tâm hồn của tôi thì chắc chắn là rất đẹp rồi 😙&#xA;Ngoài nhân viên thì công ty còn hỗ trợ cả người thân của nhân viên một phần chi phí. Vì thỉnh thoảng chúng tôi chỉ đi du lịch trong nước, nên nhân cơ hội này tôi muốn đưa vợ và con cùng đi. Vậy nên khâu&#xA;chuẩn bị có thêm làm hộ chiếu cho con gái tôi. Thông thường mọi người có thể làm hộ chiếu online, nhưng&#xA;với trẻ em thì buộc phải nộp hồ sơ trực tiếp ở nơi thường trú nên chúng tôi phải về quê để nộp hồ sơ.&#xA;Ngoài ra thì chuẩn bị thêm một số quần áo và vật dụng khác là đã đủ. Vì tôi mặc gì cũng đẹp nên không&#xA;phải chuẩn bị gì nhiều về phần này.&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>sytranvn.dev</title><link>https://sytranvn.dev/vi/</link><description>Recent content on sytranvn.dev</description><generator>Hugo</generator><language>vi</language><lastBuildDate>Sat, 01 Feb 2025 01:05:27 +0700</lastBuildDate><atom:link href="https://sytranvn.dev/vi/index.xml" rel="self" type="application/rss+xml"/><item><title>Truy Cập Steam Từ Việt Nam</title><link>https://sytranvn.dev/vi/posts/truy-cap-steam-tu-viet-nam/</link><pubDate>Sat, 01 Feb 2025 01:05:27 +0700</pubDate><guid>https://sytranvn.dev/vi/posts/truy-cap-steam-tu-viet-nam/</guid><description>&lt;p>Đang dịp lễ tết rảnh rỗi tính làm vài cái nhiệm vụ Carven trong dota 2 cho xong
+kiếm ít skin free mà hóa ra bữa giờ steam bị nhà mạng Việt Nam chặn. Lúc đầu có
+lúc chơi bình thường có lúc account lại offline rất ảo mình mới nghi nghi. Đi
+tìm kiếm trên &amp;ldquo;diễn đàn công nghệ hàng đầu Việt Nam&amp;rdquo; thì thấy các cụ chỉ sửa
+DNS server sang của google hay cloudflare để tránh nhưng có vẻ cách này đã cũ.
+Lúc đầu mình đã xài rồi mà không có được. Cố đọc vài bài thì không thấy có cách
+giải quyết &amp;hellip;&lt;/p></description></item><item><title>Cài đặt Zalo Trên Ubuntu</title><link>https://sytranvn.dev/vi/posts/zalo-tren-ubuntu/</link><pubDate>Sun, 27 Aug 2023 17:10:55 +0700</pubDate><guid>https://sytranvn.dev/vi/posts/zalo-tren-ubuntu/</guid><description>&lt;p>Sau đây mình sẽ hướng dẫn cách cài đặt Zalo trên Ubuntu và Steam Proton, tại thời điểm hiện tại, mình đang sử dụng bản là 23.8.4&lt;/p>
+&lt;h2 id="yêu-cầu">
+ Yêu cầu
+ &lt;a class="heading-link" href="#y%c3%aau-c%e1%ba%a7u">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Bạn có cài đặt sẵn &lt;a href="https://store.steampowered.com/" class="external-link" target="_blank" rel="noopener">Steam&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="tải-file-cài-đặt-zalo">
+ Tải file cài đặt zalo
+ &lt;a class="heading-link" href="#t%e1%ba%a3i-file-c%c3%a0i-%c4%91%e1%ba%b7t-zalo">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>Dành cho cách bạn sử dụng trình duyệt Google Chrome
+&lt;ol>
+&lt;li>Các bạn hãy vào trang chủ &lt;a href="https://zalo.me" class="external-link" target="_blank" rel="noopener">https://zalo.me&lt;/a>&lt;/li>
+&lt;li>Click chuột phải ở vị trí bất kỳ và mở công cụ Inspect
+&lt;ol>
+&lt;li>Trong công cụ Inspect, chọn tab Network&lt;/li>
+&lt;li>Click vào biểu tượng 🛜 để tùy chỉnh thông tin gửi đi&lt;/li>
+&lt;li>Trong mục User agent, bỏ chọn trình duyệt mặc định, và chọn 1 trình duyệt của Windows, ví dụ Chrome - Windows
+&lt;img src="chrome.png" alt="">&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>Bạn hãy tải lại trang (lưu ý không đóng công cụ Inspect)&lt;/li>
+&lt;li>Nút Tải về sẽ hiện ra để bạn có thể tải về&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>Dành cho các bạn sử dụng trình duyệt Firefox
+&lt;ol>
+&lt;li>Các bạn vào &lt;code>about:config&lt;/code> , nếu có cảnh báo thì chấp nhận rủi ro và tiếp tục&lt;/li>
+&lt;li>Tìm &lt;code>general.useragent.override&lt;/code> và chọn String, thêm giá trị &lt;code>Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36&lt;/code> để đổi thành Chrome - Windows
+&lt;img src="firefox.png" alt="">&lt;/li>
+&lt;li>Truy cập &lt;a href="https://zalo.me" class="external-link" target="_blank" rel="noopener">https://zalo.me&lt;/a> và tải về&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>Dành cho các bạn sử dụng terminal
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">curl -L &lt;span class="s1">&amp;#39;https://zalo.me/download/zalo-pc?utm=90000&amp;#39;&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> -H &lt;span class="s1">&amp;#39;User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36&amp;#39;&lt;/span> &lt;span class="se">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="se">&lt;/span> -o ~/Downloads/zalosetup.exe
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
+&lt;/ol>
+&lt;h2 id="cài-đặt-steam-chạy-phần-mềm-windows">
+ Cài đặt Steam chạy phần mềm Windows
+ &lt;a class="heading-link" href="#c%c3%a0i-%c4%91%e1%ba%b7t-steam-ch%e1%ba%a1y-ph%e1%ba%a7n-m%e1%bb%81m-windows">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;p>Steam cung cấp công cụ Proton, xây dựng trên WineHQ để hỗ trợ chạy các game thiết kế cho Windows có thể chạy trên Linux và Steam Play.
+Chúng ta sẽ tiến hành cài đặt như sau:&lt;/p></description></item><item><title>First Trip Aboard</title><link>https://sytranvn.dev/vi/posts/travels/first-trip-aboard/</link><pubDate>Tue, 27 Jun 2023 15:53:09 +0700</pubDate><guid>https://sytranvn.dev/vi/posts/travels/first-trip-aboard/</guid><description>&lt;p>Viết về chuyến đi đầu tiên ra nước ngoài. Lẽ dĩ nhiên những gì tận mắt tôi được chứng kiến đều khiến tôi bất ngờ,
+vì mọi thứ thật khác với quê hương Việt Nam của tôi. Mặc dù tôi viết rất tệ, nhưng kỷ niệm thật khó quên này, tôi sẽ
+cố gắng để viết một cách đầy đủ nhất về những trải nghiệm của mình.&lt;/p>
+&lt;h2 id="chuẩn-bị">
+ Chuẩn bị
+ &lt;a class="heading-link" href="#chu%e1%ba%a9n-b%e1%bb%8b">
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
+ &lt;span class="sr-only">Link to heading&lt;/span>
+ &lt;/a>
+&lt;/h2>
+&lt;p>Đây là chuyến du lịch của công ty đến Thái Lan và tôi được tài trợ hoàn toàn chi phí, điều duy nhất tôi cần chuẩn bị là
+hộ chiếu công dân và một tâm hồn thật đẹp. Thật may tôi đã làm hộ chiếu từ nhiều năm trước, cuối cùng thì cũng được mang
+nó ra sử dụng một lần. Còn tâm hồn của tôi thì chắc chắn là rất đẹp rồi 😙
+Ngoài nhân viên thì công ty còn hỗ trợ cả người thân của nhân viên một phần chi phí. Vì thỉnh thoảng chúng tôi chỉ đi du lịch trong nước, nên nhân cơ hội này tôi muốn đưa vợ và con cùng đi. Vậy nên khâu
+chuẩn bị có thêm làm hộ chiếu cho con gái tôi. Thông thường mọi người có thể làm hộ chiếu online, nhưng
+với trẻ em thì buộc phải nộp hồ sơ trực tiếp ở nơi thường trú nên chúng tôi phải về quê để nộp hồ sơ.
+Ngoài ra thì chuẩn bị thêm một số quần áo và vật dụng khác là đã đủ. Vì tôi mặc gì cũng đẹp nên không
+phải chuẩn bị gì nhiều về phần này.&lt;/p></description></item></channel></rss>

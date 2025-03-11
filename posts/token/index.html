@@ -1,19 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <title>
-Token · sytranvn.dev
-</title>
-  <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="light dark">
-
-
-
-
-<meta name="author" content="Sy Tran">
-<meta name="description" content="
+<!doctype html><html lang=en><head><title>Token · sytranvn.dev
+</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=color-scheme content="light dark"><meta name=author content="Sy Tran"><meta name=description content="
 If you don&rsquo;t know how it works, find out. If you&rsquo;re not sure if it will work, try it. If it doesn&rsquo;t make sense, play with it until it does. If it&rsquo;s not broken, break it. If it might not be true, find out.
 Seth Godin
 
@@ -25,444 +11,113 @@ Seth Godin
   
 
 All tokens are defined by a macro TOKEN_LIST. It takes a list of 3 macros M all of which satisfy the same signature M(name, string, precedence), where name is the symbolic token name, string is the corresponding syntactic symbol (or NULL, for literals), and precedence is the precedence (or 0).
-The parameters are invoked for token categories as follows:">
-<meta name="keywords" content="blog,developer,personal">
-
-
-
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Token">
-  <meta name="twitter:description" content="If you don’t know how it works, find out. If you’re not sure if it will work, try it. If it doesn’t make sense, play with it until it does. If it’s not broken, break it. If it might not be true, find out.
+The parameters are invoked for token categories as follows:"><meta name=keywords content="blog,developer,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="Token"><meta name=twitter:description content="If you don’t know how it works, find out. If you’re not sure if it will work, try it. If it doesn’t make sense, play with it until it does. If it’s not broken, break it. If it might not be true, find out.
 Seth Godin
-Token Link to heading All tokens are defined by a macro TOKEN_LIST. It takes a list of 3 macros M all of which satisfy the same signature M(name, string, precedence), where name is the symbolic token name, string is the corresponding syntactic symbol (or NULL, for literals), and precedence is the precedence (or 0). The parameters are invoked for token categories as follows:">
-
-<meta property="og:url" content="https://sytranvn.dev/posts/token/">
-  <meta property="og:site_name" content="sytranvn.dev">
-  <meta property="og:title" content="Token">
-  <meta property="og:description" content="If you don’t know how it works, find out. If you’re not sure if it will work, try it. If it doesn’t make sense, play with it until it does. If it’s not broken, break it. If it might not be true, find out.
+Token Link to heading All tokens are defined by a macro TOKEN_LIST. It takes a list of 3 macros M all of which satisfy the same signature M(name, string, precedence), where name is the symbolic token name, string is the corresponding syntactic symbol (or NULL, for literals), and precedence is the precedence (or 0). The parameters are invoked for token categories as follows:"><meta property="og:url" content="https://sytranvn.dev/posts/token/"><meta property="og:site_name" content="sytranvn.dev"><meta property="og:title" content="Token"><meta property="og:description" content="If you don’t know how it works, find out. If you’re not sure if it will work, try it. If it doesn’t make sense, play with it until it does. If it’s not broken, break it. If it might not be true, find out.
 Seth Godin
-Token Link to heading All tokens are defined by a macro TOKEN_LIST. It takes a list of 3 macros M all of which satisfy the same signature M(name, string, precedence), where name is the symbolic token name, string is the corresponding syntactic symbol (or NULL, for literals), and precedence is the precedence (or 0). The parameters are invoked for token categories as follows:">
-  <meta property="og:locale" content="en">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2021-10-06T00:00:00+00:00">
-    <meta property="article:modified_time" content="2021-10-06T00:00:00+00:00">
-    <meta property="article:tag" content="V8">
-    <meta property="article:tag" content="Cpp">
-      <meta property="og:see_also" content="https://sytranvn.dev/posts/debug-v8-part-2/">
-      <meta property="og:see_also" content="https://sytranvn.dev/posts/debug-v8-part-1/">
-      <meta property="og:see_also" content="https://sytranvn.dev/posts/build-v8-from-source-on-apple-m1/">
-      <meta property="og:see_also" content="https://sytranvn.dev/posts/build-v8-from-source/">
-      <meta property="og:see_also" content="https://sytranvn.dev/posts/v8-adventure/">
-
-
-
-
-<link rel="canonical" href="https://sytranvn.dev/posts/token/">
-
-
-<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
-
-
-  
-  
-  <link rel="stylesheet" href="/css/coder.min.7763f8bc6341ecf82378e867c285e1549abb063a899be313ccd25dbfcd24fa7d.css" integrity="sha256-d2P4vGNB7PgjeOhnwoXhVJq7BjqJm&#43;MTzNJdv80k&#43;n0=" crossorigin="anonymous" media="screen" />
-
-
-
-
-
-
-  
-    
-    
-    <link rel="stylesheet" href="/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css" integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin="anonymous" media="screen" />
-  
-
-
-
- 
-  
-    
-    <link rel="stylesheet" href="/css/custom.min.14b400827539da755b0d46f2e69147089c47acc5e169eaa464caf99e0bc9fd38.css" integrity="sha256-FLQAgnU52nVbDUby5pFHCJxHrMXhaeqkZMr5ngvJ/Tg=" crossorigin="anonymous" media="screen" />
-  
-
-
-
-
-
-<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
-<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
-
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
-
-
-
-
-
-
-
-
-
-</head>
-
-
-
-
-
-
-<body class="preload-transitions colorscheme-auto">
-  
-<div class="float-container">
-    <a id="dark-mode-toggle" class="colorscheme-toggle">
-        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
-    </a>
-</div>
-
-
-  <main class="wrapper">
-    <nav class="navigation">
-  <section class="container">
-    
-    <a class="navigation-title" href="https://sytranvn.dev/">
-      sytranvn.dev
-    </a>
-    
-    
-      <input type="checkbox" id="menu-toggle" />
-      <label class="menu-button float-right" for="menu-toggle">
-        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
-      </label>
-      <ul class="navigation-list">
-        
-          
-            <li class="navigation-item">
-              <a class="navigation-link " href="/now/">Now</a>
-            </li>
-          
-            <li class="navigation-item">
-              <a class="navigation-link " href="/posts/">Blog</a>
-            </li>
-          
-            <li class="navigation-item">
-              <a class="navigation-link " href="/projects/">Projects</a>
-            </li>
-          
-            <li class="navigation-item">
-              <a class="navigation-link " href="/i-heart-oss/">I ❤️ OSS</a>
-            </li>
-          
-            <li class="navigation-item">
-              <a class="navigation-link " href="/accomplishments/">Accomplishments</a>
-            </li>
-          
-            <li class="navigation-item">
-              <a class="navigation-link " href="/resume.pdf">Resume</a>
-            </li>
-          
-        
-        
-          
-          
-          
-            
-          
-            
-              
-                <li class="navigation-item menu-separator">
-                  <span>|</span>
-                </li>
-                
-              
-              <li class="navigation-item">
-                <a href="/vi/"> 🇻🇳</a>
-              </li>
-            
-          
-        
-      </ul>
-    
-  </section>
-</nav>
-
-
-    <div class="content">
-      
-<section class="container post">
-  <article>
-    <header>
-      <div class="post-title">
-        <h1 class="title">
-          <a class="title-link" href="https://sytranvn.dev/posts/token/">
-            Token
-          </a>
-        </h1>
-      </div>
-      <div class="post-meta">
-        <div class="date">
-          <span class="posted-on">
-            <i class="fa-solid fa-calendar" aria-hidden="true"></i>
-            <time datetime=" 2021-10-06T00:00:00Z">
-              October 6, 2021
-            </time>
-          </span>
-          <span class="reading-time">
-            <i class="fa-solid fa-clock" aria-hidden="true"></i>
-            4-minute read
-          </span>
-        </div>
-        
-        <div class="categories">
-  <i class="fa-solid fa-folder" aria-hidden="true"></i>
-    <a href="/categories/v8/">V8</a></div>
-
-        <div class="tags">
-  <i class="fa-solid fa-tag" aria-hidden="true"></i>
-    <span class="tag">
-      <a href="/tags/v8/">V8</a>
-    </span>
-      <span class="separator">•</span>
-    <span class="tag">
-      <a href="/tags/cpp/">Cpp</a>
-    </span></div>
-
-      </div>
-
-      <script id="diffblog-plugin-script" async="false" src="https://diff.blog/static/js/diffblog_plugin_v1.js"></script> 
-      <script>
-              document.getElementById("diffblog-plugin-script").addEventListener("load", function () {
-                  DiffBlog(
-                      "4at5qx7n0j5yhd86rqu6gyotkgn4o17hu8wn6xis54lwd692ez"
-                  );
-              });
-      </script>
-    </header>
-
-    <div class="post-content">
-      
-      
-      <blockquote>
-<p>If you don&rsquo;t know how it works, find out. If you&rsquo;re not sure if it will work, try it. If it doesn&rsquo;t make sense, play with it until it does. If it&rsquo;s not broken, break it. If it might not be true, find out.</p>
-<p>Seth Godin</p>
-</blockquote>
-<h2 id="token">
-  Token
-  <a class="heading-link" href="#token">
-    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h2>
-<p>All tokens are defined by a macro <code>TOKEN_LIST</code>. It takes a list of 3 macros M all of which satisfy the same signature M(name, string, precedence), where name is the symbolic token name, string is the corresponding syntactic symbol (or NULL, for literals), and precedence is the precedence (or 0).
-The parameters are invoked for token categories as follows:</p>
-<ul>
-<li>T: Non-keyword tokens</li>
-<li>K: Keyword tokens</li>
-<li>F: Future (reserved) keyword tokens</li>
-</ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// token.h
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define TOKEN_LIST(T, K, F)                                             \
-</span></span></span><span class="line"><span class="cl"><span class="cp">  </span><span class="cm">/* End of source indicator. */</span><span class="cp">                                        \
-</span></span></span><span class="line"><span class="cl"><span class="cp">  T(EOS, &#34;EOS&#34;, 0)                                                      \
-</span></span></span><span class="line"><span class="cl"><span class="cp">                                                                        \
-</span></span></span><span class="line"><span class="cl"><span class="cp">  </span><span class="cm">/* Punctuators (ECMA-262, section 7.7, page 15). */</span><span class="cp">                   \
-</span></span></span><span class="line"><span class="cl"><span class="cp">  T(LPAREN, &#34;(&#34;, 0)                                                     \
-</span></span></span><span class="line"><span class="cl"><span class="cp">  T(RPAREN, &#34;)&#34;, 0)                                                     \
-</span></span></span><span class="line"><span class="cl"><span class="cp">  T(LBRACK, &#34;[&#34;, 0)                                                     \
-</span></span></span><span class="line"><span class="cl"><span class="cp">  T(RBRACK, &#34;]&#34;, 0)                                                     \
-</span></span></span><span class="line"><span class="cl"><span class="cp">  </span><span class="cm">/* some more tokens, and keywords */</span><span class="cp">                                  \
-</span></span></span><span class="line"><span class="cl"><span class="cp">  K(INSTANCEOF, &#34;instanceof&#34;, 10)                                       \
-</span></span></span><span class="line"><span class="cl"><span class="cp">  K(IN, &#34;in&#34;, 10)                                                       \
-</span></span></span><span class="line"><span class="cl"><span class="cp">  </span><span class="cm">/* and future reserved words */</span><span class="cp">                                       \
-</span></span></span><span class="line"><span class="cl"><span class="cp">  </span><span class="cm">/* Future reserved words (ECMA-262, section 7.5.3, page 14). */</span><span class="cp">       \
-</span></span></span><span class="line"><span class="cl"><span class="cp">  F(ABSTRACT, &#34;abstract&#34;, 0)                                            \
-</span></span></span><span class="line"><span class="cl"><span class="cp">  F(BOOLEAN, &#34;boolean&#34;, 0)
-</span></span></span></code></pre></div><h3 id="token-class">
-  Token class
-  <a class="heading-link" href="#token-class">
-    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h3>
-<p>The <code>Token</code> class provides static values and methods to work with token list.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// token.h
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">class</span> <span class="nc">Token</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl"> <span class="k">public</span><span class="o">:</span>
-</span></span><span class="line"><span class="cl">  <span class="c1">// All token values.
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#define T(name, string, precedence) name,
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>  <span class="k">enum</span> <span class="nc">Value</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="n">TOKEN_LIST</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">IGNORE_TOKEN</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="n">NUM_TOKENS</span>
-</span></span><span class="line"><span class="cl">  <span class="p">};</span>
-</span></span><span class="line"><span class="cl"><span class="cp">#undef T
-</span></span></span></code></pre></div><p>This combines with <code>TOKEN_LIST</code> will give a result of</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Token</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl"> <span class="k">public</span><span class="o">:</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="k">enum</span> <span class="nc">Value</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="n">EOS</span><span class="p">,</span> <span class="n">LPAREN</span><span class="p">,</span> <span class="n">RPAREN</span><span class="p">,</span> <span class="n">LBRACK</span><span class="p">,</span> <span class="n">RBRACK</span><span class="p">,</span> <span class="n">LBRACE</span><span class="p">,</span> <span class="p">...,</span>
-</span></span><span class="line"><span class="cl">    <span class="n">NUM_TOKENS</span>
-</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+Token Link to heading All tokens are defined by a macro TOKEN_LIST. It takes a list of 3 macros M all of which satisfy the same signature M(name, string, precedence), where name is the symbolic token name, string is the corresponding syntactic symbol (or NULL, for literals), and precedence is the precedence (or 0). The parameters are invoked for token categories as follows:"><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2021-10-06T00:00:00+00:00"><meta property="article:modified_time" content="2021-10-06T00:00:00+00:00"><meta property="article:tag" content="V8"><meta property="article:tag" content="Cpp"><meta property="og:see_also" content="https://sytranvn.dev/posts/debug-v8-part-2/"><meta property="og:see_also" content="https://sytranvn.dev/posts/debug-v8-part-1/"><meta property="og:see_also" content="https://sytranvn.dev/posts/build-v8-from-source-on-apple-m1/"><meta property="og:see_also" content="https://sytranvn.dev/posts/build-v8-from-source/"><meta property="og:see_also" content="https://sytranvn.dev/posts/v8-adventure/"><link rel=canonical href=https://sytranvn.dev/posts/token/><link rel=preload href=/fonts/fa-brands-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/fa-regular-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/fa-solid-900.woff2 as=font type=font/woff2 crossorigin><link rel=stylesheet href=/css/coder.min.7763f8bc6341ecf82378e867c285e1549abb063a899be313ccd25dbfcd24fa7d.css integrity="sha256-d2P4vGNB7PgjeOhnwoXhVJq7BjqJm+MTzNJdv80k+n0=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/custom.min.14b400827539da755b0d46f2e69147089c47acc5e169eaa464caf99e0bc9fd38.css integrity="sha256-FLQAgnU52nVbDUby5pFHCJxHrMXhaeqkZMr5ngvJ/Tg=" crossorigin=anonymous media=screen><link rel=icon type=image/svg+xml href=/images/favicon.svg sizes=any><link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16><link rel=apple-touch-icon href=/images/apple-touch-icon.png><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/images/safari-pinned-tab.svg color=#5bbad5></head><body class="preload-transitions colorscheme-auto"><div class=float-container><a id=dark-mode-toggle class=colorscheme-toggle><i class="fa-solid fa-adjust fa-fw" aria-hidden=true></i></a></div><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=https://sytranvn.dev/>sytranvn.dev
+</a><input type=checkbox id=menu-toggle>
+<label class="menu-button float-right" for=menu-toggle><i class="fa-solid fa-bars fa-fw" aria-hidden=true></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=/now/>Now</a></li><li class=navigation-item><a class=navigation-link href=/posts/>Blog</a></li><li class=navigation-item><a class=navigation-link href=/projects/>Projects</a></li><li class=navigation-item><a class=navigation-link href=/i-heart-oss/>I ❤️ OSS</a></li><li class=navigation-item><a class=navigation-link href=/accomplishments/>Accomplishments</a></li><li class=navigation-item><a class=navigation-link href=/resume.pdf>Resume</a></li><li class="navigation-item menu-separator"><span>|</span></li><li class=navigation-item><a href=/vi/>🇻🇳</a></li></ul></section></nav><div class=content><section class="container post"><article><header><div class=post-title><h1 class=title><a class=title-link href=https://sytranvn.dev/posts/token/>Token</a></h1></div><div class=post-meta><div class=date><span class=posted-on><i class="fa-solid fa-calendar" aria-hidden=true></i>
+<time datetime=2021-10-06T00:00:00Z>October 6, 2021
+</time></span><span class=reading-time><i class="fa-solid fa-clock" aria-hidden=true></i>
+4-minute read</span></div><div class=categories><i class="fa-solid fa-folder" aria-hidden=true></i>
+<a href=/categories/v8/>V8</a></div><div class=tags><i class="fa-solid fa-tag" aria-hidden=true></i>
+<span class=tag><a href=/tags/v8/>V8</a>
+</span><span class=separator>•</span>
+<span class=tag><a href=/tags/cpp/>Cpp</a></span></div></div><script id=diffblog-plugin-script async src=https://diff.blog/static/js/diffblog_plugin_v1.js></script><script>document.getElementById("diffblog-plugin-script").addEventListener("load",function(){DiffBlog("4at5qx7n0j5yhd86rqu6gyotkgn4o17hu8wn6xis54lwd692ez")})</script></header><div class=post-content><blockquote><p>If you don&rsquo;t know how it works, find out. If you&rsquo;re not sure if it will work, try it. If it doesn&rsquo;t make sense, play with it until it does. If it&rsquo;s not broken, break it. If it might not be true, find out.</p><p>Seth Godin</p></blockquote><h2 id=token>Token
+<a class=heading-link href=#token><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h2><p>All tokens are defined by a macro <code>TOKEN_LIST</code>. It takes a list of 3 macros M all of which satisfy the same signature M(name, string, precedence), where name is the symbolic token name, string is the corresponding syntactic symbol (or NULL, for literals), and precedence is the precedence (or 0).
+The parameters are invoked for token categories as follows:</p><ul><li>T: Non-keyword tokens</li><li>K: Keyword tokens</li><li>F: Future (reserved) keyword tokens</li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=c1>// token.h
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=cp>#define TOKEN_LIST(T, K, F)                                             \
+</span></span></span><span class=line><span class=cl><span class=cp>  </span><span class=cm>/* End of source indicator. */</span><span class=cp>                                        \
+</span></span></span><span class=line><span class=cl><span class=cp>  T(EOS, &#34;EOS&#34;, 0)                                                      \
+</span></span></span><span class=line><span class=cl><span class=cp>                                                                        \
+</span></span></span><span class=line><span class=cl><span class=cp>  </span><span class=cm>/* Punctuators (ECMA-262, section 7.7, page 15). */</span><span class=cp>                   \
+</span></span></span><span class=line><span class=cl><span class=cp>  T(LPAREN, &#34;(&#34;, 0)                                                     \
+</span></span></span><span class=line><span class=cl><span class=cp>  T(RPAREN, &#34;)&#34;, 0)                                                     \
+</span></span></span><span class=line><span class=cl><span class=cp>  T(LBRACK, &#34;[&#34;, 0)                                                     \
+</span></span></span><span class=line><span class=cl><span class=cp>  T(RBRACK, &#34;]&#34;, 0)                                                     \
+</span></span></span><span class=line><span class=cl><span class=cp>  </span><span class=cm>/* some more tokens, and keywords */</span><span class=cp>                                  \
+</span></span></span><span class=line><span class=cl><span class=cp>  K(INSTANCEOF, &#34;instanceof&#34;, 10)                                       \
+</span></span></span><span class=line><span class=cl><span class=cp>  K(IN, &#34;in&#34;, 10)                                                       \
+</span></span></span><span class=line><span class=cl><span class=cp>  </span><span class=cm>/* and future reserved words */</span><span class=cp>                                       \
+</span></span></span><span class=line><span class=cl><span class=cp>  </span><span class=cm>/* Future reserved words (ECMA-262, section 7.5.3, page 14). */</span><span class=cp>       \
+</span></span></span><span class=line><span class=cl><span class=cp>  F(ABSTRACT, &#34;abstract&#34;, 0)                                            \
+</span></span></span><span class=line><span class=cl><span class=cp>  F(BOOLEAN, &#34;boolean&#34;, 0)
+</span></span></span></code></pre></div><h3 id=token-class>Token class
+<a class=heading-link href=#token-class><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h3><p>The <code>Token</code> class provides static values and methods to work with token list.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=c1>// token.h
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=k>class</span> <span class=nc>Token</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl> <span class=k>public</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>  <span class=c1>// All token values.
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=cp>#define T(name, string, precedence) name,
+</span></span></span><span class=line><span class=cl><span class=cp></span>  <span class=k>enum</span> <span class=nc>Value</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=n>TOKEN_LIST</span><span class=p>(</span><span class=n>T</span><span class=p>,</span> <span class=n>T</span><span class=p>,</span> <span class=n>IGNORE_TOKEN</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=n>NUM_TOKENS</span>
+</span></span><span class=line><span class=cl>  <span class=p>};</span>
+</span></span><span class=line><span class=cl><span class=cp>#undef T
+</span></span></span></code></pre></div><p>This combines with <code>TOKEN_LIST</code> will give a result of</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=k>class</span> <span class=nc>Token</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl> <span class=k>public</span><span class=o>:</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=k>enum</span> <span class=nc>Value</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=n>EOS</span><span class=p>,</span> <span class=n>LPAREN</span><span class=p>,</span> <span class=n>RPAREN</span><span class=p>,</span> <span class=n>LBRACK</span><span class=p>,</span> <span class=n>RBRACK</span><span class=p>,</span> <span class=n>LBRACE</span><span class=p>,</span> <span class=p>...,</span>
+</span></span><span class=line><span class=cl>    <span class=n>NUM_TOKENS</span>
+</span></span><span class=line><span class=cl>  <span class=p>};</span>
 </span></span></code></pre></div><p>Conviniently, <code>NUM_TOKENS</code> &rsquo;s value is exact length of <code>TOKEN_LIST</code>.
-Use <code>gcc src/token.h -E -D DEBUG</code> to see the full source code of <code>Token</code> header generated by the macro. When debug mode is on, this macro will generate extra information to help debugging. <code>Name(tok)</code> will return the string corresponding to the C++ token name (e.g. &ldquo;LT&rdquo; for the token LT).</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="cp">#ifdef DEBUG
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>  <span class="k">static</span> <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="nf">Name</span><span class="p">(</span><span class="n">Value</span> <span class="n">tok</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="n">ASSERT</span><span class="p">(</span><span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">tok</span> <span class="o">&amp;&amp;</span> <span class="n">tok</span> <span class="o">&lt;</span> <span class="n">NUM_TOKENS</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">name_</span><span class="p">[</span><span class="n">tok</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="cp">#endif
-</span></span></span></code></pre></div><p>But we don&rsquo;t see how precedence is managed yet. Let&rsquo;s take a look into <code>src/token.cc</code>.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// token.cc
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&#34;token.h&#34;</span><span class="cp">
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
-</span></span><span class="line"><span class="cl"><span class="cp">#ifdef DEBUG
-</span></span></span><span class="line"><span class="cl"><span class="cp">#define T(name, string, precedence) #name,
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">Token</span><span class="o">::</span><span class="n">name_</span><span class="p">[</span><span class="n">NUM_TOKENS</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="n">TOKEN_LIST</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">IGNORE_TOKEN</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">};</span>
-</span></span><span class="line"><span class="cl"><span class="cp">#undef T
-</span></span></span><span class="line"><span class="cl"><span class="cp">#endif
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
-</span></span><span class="line"><span class="cl"><span class="cp">#define T(name, string, precedence) string,
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">Token</span><span class="o">::</span><span class="n">string_</span><span class="p">[</span><span class="n">NUM_TOKENS</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="n">TOKEN_LIST</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">IGNORE_TOKEN</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">};</span>
-</span></span><span class="line"><span class="cl"><span class="cp">#undef T
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span>
-</span></span><span class="line"><span class="cl"><span class="cp">#define T(name, string, precedence) precedence,
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="kt">int8_t</span> <span class="n">Token</span><span class="o">::</span><span class="n">precedence_</span><span class="p">[</span><span class="n">NUM_TOKENS</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="n">TOKEN_LIST</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">IGNORE_TOKEN</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="p">};</span>
-</span></span><span class="line"><span class="cl"><span class="cp">#undef T
+Use <code>gcc src/token.h -E -D DEBUG</code> to see the full source code of <code>Token</code> header generated by the macro. When debug mode is on, this macro will generate extra information to help debugging. <code>Name(tok)</code> will return the string corresponding to the C++ token name (e.g. &ldquo;LT&rdquo; for the token LT).</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=cp>#ifdef DEBUG
+</span></span></span><span class=line><span class=cl><span class=cp></span>  <span class=k>static</span> <span class=k>const</span> <span class=kt>char</span><span class=o>*</span> <span class=nf>Name</span><span class=p>(</span><span class=n>Value</span> <span class=n>tok</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=n>ASSERT</span><span class=p>(</span><span class=mi>0</span> <span class=o>&lt;=</span> <span class=n>tok</span> <span class=o>&amp;&amp;</span> <span class=n>tok</span> <span class=o>&lt;</span> <span class=n>NUM_TOKENS</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>name_</span><span class=p>[</span><span class=n>tok</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=cp>#endif
+</span></span></span></code></pre></div><p>But we don&rsquo;t see how precedence is managed yet. Let&rsquo;s take a look into <code>src/token.cc</code>.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=c1>// token.cc
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=cp>#include</span> <span class=cpf>&#34;token.h&#34;</span><span class=cp>
+</span></span></span><span class=line><span class=cl><span class=cp></span>
+</span></span><span class=line><span class=cl><span class=cp>#ifdef DEBUG
+</span></span></span><span class=line><span class=cl><span class=cp>#define T(name, string, precedence) #name,
+</span></span></span><span class=line><span class=cl><span class=cp></span><span class=k>const</span> <span class=kt>char</span><span class=o>*</span> <span class=n>Token</span><span class=o>::</span><span class=n>name_</span><span class=p>[</span><span class=n>NUM_TOKENS</span><span class=p>]</span> <span class=o>=</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=n>TOKEN_LIST</span><span class=p>(</span><span class=n>T</span><span class=p>,</span> <span class=n>T</span><span class=p>,</span> <span class=n>IGNORE_TOKEN</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span><span class=line><span class=cl><span class=cp>#undef T
+</span></span></span><span class=line><span class=cl><span class=cp>#endif
+</span></span></span><span class=line><span class=cl><span class=cp></span>
+</span></span><span class=line><span class=cl><span class=cp>#define T(name, string, precedence) string,
+</span></span></span><span class=line><span class=cl><span class=cp></span><span class=k>const</span> <span class=kt>char</span><span class=o>*</span> <span class=n>Token</span><span class=o>::</span><span class=n>string_</span><span class=p>[</span><span class=n>NUM_TOKENS</span><span class=p>]</span> <span class=o>=</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=n>TOKEN_LIST</span><span class=p>(</span><span class=n>T</span><span class=p>,</span> <span class=n>T</span><span class=p>,</span> <span class=n>IGNORE_TOKEN</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span><span class=line><span class=cl><span class=cp>#undef T
+</span></span></span><span class=line><span class=cl><span class=cp></span>
+</span></span><span class=line><span class=cl><span class=cp>#define T(name, string, precedence) precedence,
+</span></span></span><span class=line><span class=cl><span class=cp></span><span class=kt>int8_t</span> <span class=n>Token</span><span class=o>::</span><span class=n>precedence_</span><span class=p>[</span><span class=n>NUM_TOKENS</span><span class=p>]</span> <span class=o>=</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=n>TOKEN_LIST</span><span class=p>(</span><span class=n>T</span><span class=p>,</span> <span class=n>T</span><span class=p>,</span> <span class=n>IGNORE_TOKEN</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>};</span>
+</span></span><span class=line><span class=cl><span class=cp>#undef T
 </span></span></span></code></pre></div><p>Here we can see the <code>Token::name_</code> is assigned with token names, and <code>Token::string_</code> is assigned with actual token string. And <code>Token::name_</code> only requires more memory if we are in debug mode.
-The precedences defined in <code>TOKEN_LIST</code> will be assigned to <code>Token::precedence_</code>.</p>
-<p>Since token value is a number from <code>0</code> to <code>NUM_TOKENS - 1</code>, we need a way to quickly convert a token string to corresponding value, and vice versa.A <code>Map&lt;string, Token::Value&gt;</code> can work. But V8 does it the fast way by making <code>Hash</code> and <code>Lookup</code> helpers. If a given string does not match any value in hash table, it must be an identifier.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-cpp" data-lang="cpp"><span class="line"><span class="cl"><span class="c1">// token.cc
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">static</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="nf">Hash</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">s</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">const</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">L</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">S</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">M</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">  <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">h</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(</span><span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="sc">&#39;\0&#39;</span> <span class="o">&amp;&amp;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">L</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="n">h</span> <span class="o">+=</span> <span class="p">(</span><span class="n">h</span> <span class="o">&lt;&lt;</span> <span class="n">S</span><span class="p">)</span> <span class="o">+</span> <span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span><span class="line"><span class="cl">  <span class="c1">// unsigned int % by a power of 2 (otherwise this will not be a bit mask)
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">return</span> <span class="n">h</span> <span class="o">*</span> <span class="n">M</span> <span class="o">%</span> <span class="n">N</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">Token</span><span class="o">::</span><span class="n">Value</span> <span class="n">Token</span><span class="o">::</span><span class="n">Lookup</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">str</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="n">ASSERT</span><span class="p">(</span><span class="n">IsInitialized</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">  <span class="n">Value</span> <span class="n">k</span> <span class="o">=</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="n">Value</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Hashtable</span><span class="p">[</span><span class="n">Hash</span><span class="p">(</span><span class="n">str</span><span class="p">)]);</span>
-</span></span><span class="line"><span class="cl">  <span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">s</span> <span class="o">=</span> <span class="n">string_</span><span class="p">[</span><span class="n">k</span><span class="p">];</span>
-</span></span><span class="line"><span class="cl">  <span class="n">ASSERT</span><span class="p">(</span><span class="n">s</span> <span class="o">!=</span> <span class="nb">NULL</span> <span class="o">||</span> <span class="n">k</span> <span class="o">==</span> <span class="n">IDENTIFIER</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">  <span class="k">if</span> <span class="p">(</span><span class="n">s</span> <span class="o">==</span> <span class="nb">NULL</span> <span class="o">||</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="n">str</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">k</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="n">IDENTIFIER</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><p><strong>Question:</strong> If javascripts support more keywords such as <code>async, await, private, static</code>, how can we maintain logic of <code>Hash</code> and <code>Lookup</code>?</p>
-<p><strong>Answer:</strong> V8 uses <code>gperf</code> to auto generate a <strong>perfect hash table</strong> code.</p>
-<p><code>Token</code> class must be initialized once, checking for collisions, and verify the result again.</p>
-
-    </div>
-
-    <footer>
-      
-
-<section class="see-also">
-  
-    
-    
-    
-  
-</section>
-
-
-      
-      
-      
-      
-      
-    </footer>
-  </article>
-
-  
-</section>
-
-    </div>
-
-    <footer class="footer">
-  
-  <section class="container">
-    ©
-    
-    2021 -
-    
-    2025
-     Sy Tran 
-    ·
-    
-    Powered by <a href="https://gohugo.io/">Hugo</a> & <a
-      href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
-    
-  </section>
-</footer>
-
-  </main>
-
-  
-
-  
-
-
-  
-  
-  <script src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
-  
-
-  
-
-  
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</body>
-
-</html>
+The precedences defined in <code>TOKEN_LIST</code> will be assigned to <code>Token::precedence_</code>.</p><p>Since token value is a number from <code>0</code> to <code>NUM_TOKENS - 1</code>, we need a way to quickly convert a token string to corresponding value, and vice versa.A <code>Map&lt;string, Token::Value></code> can work. But V8 does it the fast way by making <code>Hash</code> and <code>Lookup</code> helpers. If a given string does not match any value in hash table, it must be an identifier.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-cpp data-lang=cpp><span class=line><span class=cl><span class=c1>// token.cc
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=k>static</span> <span class=kt>unsigned</span> <span class=kt>int</span> <span class=nf>Hash</span><span class=p>(</span><span class=k>const</span> <span class=kt>char</span><span class=o>*</span> <span class=n>s</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>const</span> <span class=kt>unsigned</span> <span class=kt>int</span> <span class=n>L</span> <span class=o>=</span> <span class=mi>5</span><span class=p>,</span> <span class=n>S</span> <span class=o>=</span> <span class=mi>4</span><span class=p>,</span> <span class=n>M</span> <span class=o>=</span> <span class=mi>3</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=kt>unsigned</span> <span class=kt>int</span> <span class=n>h</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=k>for</span> <span class=p>(</span><span class=kt>unsigned</span> <span class=kt>int</span> <span class=n>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=n>s</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>!=</span> <span class=sc>&#39;\0&#39;</span> <span class=o>&amp;&amp;</span> <span class=n>i</span> <span class=o>&lt;</span> <span class=n>L</span><span class=p>;</span> <span class=n>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=n>h</span> <span class=o>+=</span> <span class=p>(</span><span class=n>h</span> <span class=o>&lt;&lt;</span> <span class=n>S</span><span class=p>)</span> <span class=o>+</span> <span class=n>s</span><span class=p>[</span><span class=n>i</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=c1>// unsigned int % by a power of 2 (otherwise this will not be a bit mask)
+</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=k>return</span> <span class=n>h</span> <span class=o>*</span> <span class=n>M</span> <span class=o>%</span> <span class=n>N</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>Token</span><span class=o>::</span><span class=n>Value</span> <span class=n>Token</span><span class=o>::</span><span class=n>Lookup</span><span class=p>(</span><span class=k>const</span> <span class=kt>char</span><span class=o>*</span> <span class=n>str</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=n>ASSERT</span><span class=p>(</span><span class=n>IsInitialized</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=n>Value</span> <span class=n>k</span> <span class=o>=</span> <span class=k>static_cast</span><span class=o>&lt;</span><span class=n>Value</span><span class=o>&gt;</span><span class=p>(</span><span class=n>Hashtable</span><span class=p>[</span><span class=n>Hash</span><span class=p>(</span><span class=n>str</span><span class=p>)]);</span>
+</span></span><span class=line><span class=cl>  <span class=k>const</span> <span class=kt>char</span><span class=o>*</span> <span class=n>s</span> <span class=o>=</span> <span class=n>string_</span><span class=p>[</span><span class=n>k</span><span class=p>];</span>
+</span></span><span class=line><span class=cl>  <span class=n>ASSERT</span><span class=p>(</span><span class=n>s</span> <span class=o>!=</span> <span class=nb>NULL</span> <span class=o>||</span> <span class=n>k</span> <span class=o>==</span> <span class=n>IDENTIFIER</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=k>if</span> <span class=p>(</span><span class=n>s</span> <span class=o>==</span> <span class=nb>NULL</span> <span class=o>||</span> <span class=n>strcmp</span><span class=p>(</span><span class=n>s</span><span class=p>,</span> <span class=n>str</span><span class=p>)</span> <span class=o>==</span> <span class=mi>0</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=n>k</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=n>IDENTIFIER</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p><strong>Question:</strong> If javascripts support more keywords such as <code>async, await, private, static</code>, how can we maintain logic of <code>Hash</code> and <code>Lookup</code>?</p><p><strong>Answer:</strong> V8 uses <code>gperf</code> to auto generate a <strong>perfect hash table</strong> code.</p><p><code>Token</code> class must be initialized once, checking for collisions, and verify the result again.</p></div><footer><section class=see-also></section></footer></article></section></div><footer class=footer><section class=container>©
+2021 -
+2025
+Sy Tran
+·
+Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.</section></footer></main><script src=/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script></body></html>

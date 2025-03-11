@@ -1,19 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <title>
-Build v8 from source on Apple M1 · sytranvn.dev
-</title>
-  <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="light dark">
-
-
-
-
-<meta name="author" content="Sy Tran">
-<meta name="description" content="Follow up Build v8 from source on Ubuntu 20.04. Today we&rsquo;re gonna build v8 source on an Apple M1 chip MacOS.
+<!doctype html><html lang=en><head><title>Build v8 from source on Apple M1 · sytranvn.dev
+</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=color-scheme content="light dark"><meta name=author content="Sy Tran"><meta name=description content="Follow up Build v8 from source on Ubuntu 20.04. Today we&rsquo;re gonna build v8 source on an Apple M1 chip MacOS.
 
   Required
   
@@ -35,382 +21,51 @@ I  set up the V8 source code inside ~/Code/ folder and use it throughout this ar
     Link to heading
   
 
-First we need to get the depot tools bundle from google. It&rsquo;s a package of scripts, to automate tasks to manage repositories http://www.chromium.org/developers/how-tos/install-depot-tools">
-<meta name="keywords" content="blog,developer,personal">
-
-
-
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Build v8 from source on Apple M1">
-  <meta name="twitter:description" content="Follow up Build v8 from source on Ubuntu 20.04. Today we’re gonna build v8 source on an Apple M1 chip MacOS.
+First we need to get the depot tools bundle from google. It&rsquo;s a package of scripts, to automate tasks to manage repositories http://www.chromium.org/developers/how-tos/install-depot-tools"><meta name=keywords content="blog,developer,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="Build v8 from source on Apple M1"><meta name=twitter:description content="Follow up Build v8 from source on Ubuntu 20.04. Today we’re gonna build v8 source on an Apple M1 chip MacOS.
 Required Link to heading bash shell git Xcode python2 I set up the V8 source code inside ~/Code/ folder and use it throughout this article. You can change it to your desired folder.
-Prepare the tools and source code Link to heading First we need to get the depot tools bundle from google. It’s a package of scripts, to automate tasks to manage repositories http://www.chromium.org/developers/how-tos/install-depot-tools">
-
-<meta property="og:url" content="https://sytranvn.dev/posts/build-v8-from-source-on-apple-m1/">
-  <meta property="og:site_name" content="sytranvn.dev">
-  <meta property="og:title" content="Build v8 from source on Apple M1">
-  <meta property="og:description" content="Follow up Build v8 from source on Ubuntu 20.04. Today we’re gonna build v8 source on an Apple M1 chip MacOS.
+Prepare the tools and source code Link to heading First we need to get the depot tools bundle from google. It’s a package of scripts, to automate tasks to manage repositories http://www.chromium.org/developers/how-tos/install-depot-tools"><meta property="og:url" content="https://sytranvn.dev/posts/build-v8-from-source-on-apple-m1/"><meta property="og:site_name" content="sytranvn.dev"><meta property="og:title" content="Build v8 from source on Apple M1"><meta property="og:description" content="Follow up Build v8 from source on Ubuntu 20.04. Today we’re gonna build v8 source on an Apple M1 chip MacOS.
 Required Link to heading bash shell git Xcode python2 I set up the V8 source code inside ~/Code/ folder and use it throughout this article. You can change it to your desired folder.
-Prepare the tools and source code Link to heading First we need to get the depot tools bundle from google. It’s a package of scripts, to automate tasks to manage repositories http://www.chromium.org/developers/how-tos/install-depot-tools">
-  <meta property="og:locale" content="en">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2021-04-19T00:00:00+00:00">
-    <meta property="article:modified_time" content="2021-04-19T00:00:00+00:00">
-      <meta property="og:see_also" content="https://sytranvn.dev/posts/debug-v8-part-2/">
-      <meta property="og:see_also" content="https://sytranvn.dev/posts/debug-v8-part-1/">
-      <meta property="og:see_also" content="https://sytranvn.dev/posts/token/">
-      <meta property="og:see_also" content="https://sytranvn.dev/posts/build-v8-from-source/">
-      <meta property="og:see_also" content="https://sytranvn.dev/posts/v8-adventure/">
-
-
-
-
-<link rel="canonical" href="https://sytranvn.dev/posts/build-v8-from-source-on-apple-m1/">
-
-
-<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
-
-
-  
-  
-  <link rel="stylesheet" href="/css/coder.min.7763f8bc6341ecf82378e867c285e1549abb063a899be313ccd25dbfcd24fa7d.css" integrity="sha256-d2P4vGNB7PgjeOhnwoXhVJq7BjqJm&#43;MTzNJdv80k&#43;n0=" crossorigin="anonymous" media="screen" />
-
-
-
-
-
-
-  
-    
-    
-    <link rel="stylesheet" href="/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css" integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin="anonymous" media="screen" />
-  
-
-
-
- 
-  
-    
-    <link rel="stylesheet" href="/css/custom.min.14b400827539da755b0d46f2e69147089c47acc5e169eaa464caf99e0bc9fd38.css" integrity="sha256-FLQAgnU52nVbDUby5pFHCJxHrMXhaeqkZMr5ngvJ/Tg=" crossorigin="anonymous" media="screen" />
-  
-
-
-
-
-
-<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
-<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
-
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
-
-
-
-
-
-
-
-
-
-</head>
-
-
-
-
-
-
-<body class="preload-transitions colorscheme-auto">
-  
-<div class="float-container">
-    <a id="dark-mode-toggle" class="colorscheme-toggle">
-        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
-    </a>
-</div>
-
-
-  <main class="wrapper">
-    <nav class="navigation">
-  <section class="container">
-    
-    <a class="navigation-title" href="https://sytranvn.dev/">
-      sytranvn.dev
-    </a>
-    
-    
-      <input type="checkbox" id="menu-toggle" />
-      <label class="menu-button float-right" for="menu-toggle">
-        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
-      </label>
-      <ul class="navigation-list">
-        
-          
-            <li class="navigation-item">
-              <a class="navigation-link " href="/now/">Now</a>
-            </li>
-          
-            <li class="navigation-item">
-              <a class="navigation-link " href="/posts/">Blog</a>
-            </li>
-          
-            <li class="navigation-item">
-              <a class="navigation-link " href="/projects/">Projects</a>
-            </li>
-          
-            <li class="navigation-item">
-              <a class="navigation-link " href="/i-heart-oss/">I ❤️ OSS</a>
-            </li>
-          
-            <li class="navigation-item">
-              <a class="navigation-link " href="/accomplishments/">Accomplishments</a>
-            </li>
-          
-            <li class="navigation-item">
-              <a class="navigation-link " href="/resume.pdf">Resume</a>
-            </li>
-          
-        
-        
-          
-          
-          
-            
-          
-            
-              
-                <li class="navigation-item menu-separator">
-                  <span>|</span>
-                </li>
-                
-              
-              <li class="navigation-item">
-                <a href="/vi/"> 🇻🇳</a>
-              </li>
-            
-          
-        
-      </ul>
-    
-  </section>
-</nav>
-
-
-    <div class="content">
-      
-<section class="container post">
-  <article>
-    <header>
-      <div class="post-title">
-        <h1 class="title">
-          <a class="title-link" href="https://sytranvn.dev/posts/build-v8-from-source-on-apple-m1/">
-            Build v8 from source on Apple M1
-          </a>
-        </h1>
-      </div>
-      <div class="post-meta">
-        <div class="date">
-          <span class="posted-on">
-            <i class="fa-solid fa-calendar" aria-hidden="true"></i>
-            <time datetime=" 2021-04-19T00:00:00Z">
-              April 19, 2021
-            </time>
-          </span>
-          <span class="reading-time">
-            <i class="fa-solid fa-clock" aria-hidden="true"></i>
-            2-minute read
-          </span>
-        </div>
-        
-        <div class="categories">
-  <i class="fa-solid fa-folder" aria-hidden="true"></i>
-    <a href="/categories/v8/">V8</a></div>
-
-        
-      </div>
-
-      <script id="diffblog-plugin-script" async="false" src="https://diff.blog/static/js/diffblog_plugin_v1.js"></script> 
-      <script>
-              document.getElementById("diffblog-plugin-script").addEventListener("load", function () {
-                  DiffBlog(
-                      "4at5qx7n0j5yhd86rqu6gyotkgn4o17hu8wn6xis54lwd692ez"
-                  );
-              });
-      </script>
-    </header>
-
-    <div class="post-content">
-      
-      
-      <p>Follow up <a href="/posts/build-v8-from-source/" >Build v8 from source on Ubuntu 20.04</a>. Today we&rsquo;re gonna build v8 source on an Apple M1 chip MacOS.</p>
-<h2 id="required">
-  Required
-  <a class="heading-link" href="#required">
-    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h2>
-<ul>
-<li>bash shell</li>
-<li>git</li>
-<li><a href="https://apps.apple.com/vn/app/xcode/id497799835?mt=12"  class="external-link" target="_blank" rel="noopener">Xcode</a></li>
-<li>python2</li>
-</ul>
-<p>I  set up the V8 source code inside <code>~/Code/</code> folder and use it throughout this article. You can change it to your desired folder.</p>
-<h2 id="prepare-the-tools-and-source-code">
-  Prepare the tools and source code
-  <a class="heading-link" href="#prepare-the-tools-and-source-code">
-    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h2>
-<p>First we need to get the depot tools bundle from google. It&rsquo;s a package of scripts, to automate tasks to manage repositories <a href="http://www.chromium.org/developers/how-tos/install-depot-tools"  class="external-link" target="_blank" rel="noopener">http://www.chromium.org/developers/how-tos/install-depot-tools</a></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PWD</span>/depot_tools:<span class="nv">$PATH</span>
-</span></span><span class="line"><span class="cl">fetch v8
-</span></span></code></pre></div><p>You should see new directories for <code>depot_tools</code> and <code>v8</code> in current working dir.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">tree -L <span class="m">1</span> -h                                                                                     02:34:57
-</span></span><span class="line"><span class="cl">.
-</span></span><span class="line"><span class="cl">├── <span class="o">[</span>7.3K<span class="o">]</span>  depot_tools
-</span></span><span class="line"><span class="cl">└── <span class="o">[</span>2.0K<span class="o">]</span>  v8
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="m">2</span> directories, <span class="m">0</span> files
-</span></span></code></pre></div><h2 id="install-dependencies">
-  Install dependencies
-  <a class="heading-link" href="#install-dependencies">
-    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nb">cd</span> v8
-</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="nv">$PWD</span>/tools/dev:<span class="nv">$PATH</span>
-</span></span></code></pre></div><ul>
-<li>This will help run build commands quicker.</li>
-<li>Try <code>gm.py arm64.release.d8</code> to see if it start building. Note: your python must be version <code>2.x.x</code>. If not, try switch python version using pyenv or any python version management tool. Otherwise you can run <code>python2 tools/dev/gm.py arm64.release.d8</code> instead.</li>
-<li>After a couple minutes, check the <code>out/arm64.release</code> folder to see the result.</li>
-</ul>
-<h2 id="play-with-v8">
-  Play with V8
-  <a class="heading-link" href="#play-with-v8">
-    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
-    <span class="sr-only">Link to heading</span>
-  </a>
-</h2>
-<p>After building the source code, you will be able to use <code>d8</code>. V8&rsquo;s own developer shell.</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">$ ./out/arm64.release/d8 
-</span></span><span class="line"><span class="cl">V8 version 9.0.0 (candidate)
-</span></span></code></pre></div><p>Try writing some Javascripts, eg:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="nx">d8</span><span class="o">&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Hello V8!&#39;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nx">Hello</span> <span class="nx">V8</span><span class="o">!</span>
-</span></span><span class="line"><span class="cl"><span class="kc">undefined</span>
-</span></span><span class="line"><span class="cl"><span class="nx">d8</span><span class="o">&gt;</span> <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="mi">0</span>
-</span></span><span class="line"><span class="cl"><span class="mi">1</span>
-</span></span><span class="line"><span class="cl"><span class="mi">2</span>
-</span></span><span class="line"><span class="cl"><span class="mi">3</span>
-</span></span><span class="line"><span class="cl"><span class="mi">4</span>
-</span></span><span class="line"><span class="cl"><span class="kc">undefined</span>
-</span></span><span class="line"><span class="cl"><span class="nx">d8</span><span class="o">&gt;</span> 
-</span></span></code></pre></div>
-    </div>
-
-    <footer>
-      
-
-<section class="see-also">
-  
-    
-    
-    
-  
-</section>
-
-
-      
-      
-      
-      
-      
-    </footer>
-  </article>
-
-  
-</section>
-
-    </div>
-
-    <footer class="footer">
-  
-  <section class="container">
-    ©
-    
-    2021 -
-    
-    2025
-     Sy Tran 
-    ·
-    
-    Powered by <a href="https://gohugo.io/">Hugo</a> & <a
-      href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
-    
-  </section>
-</footer>
-
-  </main>
-
-  
-
-  
-
-
-  
-  
-  <script src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
-  
-
-  
-
-  
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</body>
-
-</html>
+Prepare the tools and source code Link to heading First we need to get the depot tools bundle from google. It’s a package of scripts, to automate tasks to manage repositories http://www.chromium.org/developers/how-tos/install-depot-tools"><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2021-04-19T00:00:00+00:00"><meta property="article:modified_time" content="2021-04-19T00:00:00+00:00"><meta property="og:see_also" content="https://sytranvn.dev/posts/debug-v8-part-2/"><meta property="og:see_also" content="https://sytranvn.dev/posts/debug-v8-part-1/"><meta property="og:see_also" content="https://sytranvn.dev/posts/token/"><meta property="og:see_also" content="https://sytranvn.dev/posts/build-v8-from-source/"><meta property="og:see_also" content="https://sytranvn.dev/posts/v8-adventure/"><link rel=canonical href=https://sytranvn.dev/posts/build-v8-from-source-on-apple-m1/><link rel=preload href=/fonts/fa-brands-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/fa-regular-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/fa-solid-900.woff2 as=font type=font/woff2 crossorigin><link rel=stylesheet href=/css/coder.min.7763f8bc6341ecf82378e867c285e1549abb063a899be313ccd25dbfcd24fa7d.css integrity="sha256-d2P4vGNB7PgjeOhnwoXhVJq7BjqJm+MTzNJdv80k+n0=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/custom.min.14b400827539da755b0d46f2e69147089c47acc5e169eaa464caf99e0bc9fd38.css integrity="sha256-FLQAgnU52nVbDUby5pFHCJxHrMXhaeqkZMr5ngvJ/Tg=" crossorigin=anonymous media=screen><link rel=icon type=image/svg+xml href=/images/favicon.svg sizes=any><link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16><link rel=apple-touch-icon href=/images/apple-touch-icon.png><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/images/safari-pinned-tab.svg color=#5bbad5></head><body class="preload-transitions colorscheme-auto"><div class=float-container><a id=dark-mode-toggle class=colorscheme-toggle><i class="fa-solid fa-adjust fa-fw" aria-hidden=true></i></a></div><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=https://sytranvn.dev/>sytranvn.dev
+</a><input type=checkbox id=menu-toggle>
+<label class="menu-button float-right" for=menu-toggle><i class="fa-solid fa-bars fa-fw" aria-hidden=true></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=/now/>Now</a></li><li class=navigation-item><a class=navigation-link href=/posts/>Blog</a></li><li class=navigation-item><a class=navigation-link href=/projects/>Projects</a></li><li class=navigation-item><a class=navigation-link href=/i-heart-oss/>I ❤️ OSS</a></li><li class=navigation-item><a class=navigation-link href=/accomplishments/>Accomplishments</a></li><li class=navigation-item><a class=navigation-link href=/resume.pdf>Resume</a></li><li class="navigation-item menu-separator"><span>|</span></li><li class=navigation-item><a href=/vi/>🇻🇳</a></li></ul></section></nav><div class=content><section class="container post"><article><header><div class=post-title><h1 class=title><a class=title-link href=https://sytranvn.dev/posts/build-v8-from-source-on-apple-m1/>Build v8 from source on Apple M1</a></h1></div><div class=post-meta><div class=date><span class=posted-on><i class="fa-solid fa-calendar" aria-hidden=true></i>
+<time datetime=2021-04-19T00:00:00Z>April 19, 2021
+</time></span><span class=reading-time><i class="fa-solid fa-clock" aria-hidden=true></i>
+2-minute read</span></div><div class=categories><i class="fa-solid fa-folder" aria-hidden=true></i>
+<a href=/categories/v8/>V8</a></div></div><script id=diffblog-plugin-script async src=https://diff.blog/static/js/diffblog_plugin_v1.js></script><script>document.getElementById("diffblog-plugin-script").addEventListener("load",function(){DiffBlog("4at5qx7n0j5yhd86rqu6gyotkgn4o17hu8wn6xis54lwd692ez")})</script></header><div class=post-content><p>Follow up <a href=/posts/build-v8-from-source/>Build v8 from source on Ubuntu 20.04</a>. Today we&rsquo;re gonna build v8 source on an Apple M1 chip MacOS.</p><h2 id=required>Required
+<a class=heading-link href=#required><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h2><ul><li>bash shell</li><li>git</li><li><a href="https://apps.apple.com/vn/app/xcode/id497799835?mt=12" class=external-link target=_blank rel=noopener>Xcode</a></li><li>python2</li></ul><p>I set up the V8 source code inside <code>~/Code/</code> folder and use it throughout this article. You can change it to your desired folder.</p><h2 id=prepare-the-tools-and-source-code>Prepare the tools and source code
+<a class=heading-link href=#prepare-the-tools-and-source-code><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h2><p>First we need to get the depot tools bundle from google. It&rsquo;s a package of scripts, to automate tasks to manage repositories <a href=http://www.chromium.org/developers/how-tos/install-depot-tools class=external-link target=_blank rel=noopener>http://www.chromium.org/developers/how-tos/install-depot-tools</a></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>PATH</span><span class=o>=</span><span class=nv>$PWD</span>/depot_tools:<span class=nv>$PATH</span>
+</span></span><span class=line><span class=cl>fetch v8
+</span></span></code></pre></div><p>You should see new directories for <code>depot_tools</code> and <code>v8</code> in current working dir.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>tree -L <span class=m>1</span> -h                                                                                     02:34:57
+</span></span><span class=line><span class=cl>.
+</span></span><span class=line><span class=cl>├── <span class=o>[</span>7.3K<span class=o>]</span>  depot_tools
+</span></span><span class=line><span class=cl>└── <span class=o>[</span>2.0K<span class=o>]</span>  v8
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=m>2</span> directories, <span class=m>0</span> files
+</span></span></code></pre></div><h2 id=install-dependencies>Install dependencies
+<a class=heading-link href=#install-dependencies><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h2><div class=highlight><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl><span class=nb>cd</span> v8
+</span></span><span class=line><span class=cl><span class=nb>export</span> <span class=nv>PATH</span><span class=o>=</span><span class=nv>$PWD</span>/tools/dev:<span class=nv>$PATH</span>
+</span></span></code></pre></div><ul><li>This will help run build commands quicker.</li><li>Try <code>gm.py arm64.release.d8</code> to see if it start building. Note: your python must be version <code>2.x.x</code>. If not, try switch python version using pyenv or any python version management tool. Otherwise you can run <code>python2 tools/dev/gm.py arm64.release.d8</code> instead.</li><li>After a couple minutes, check the <code>out/arm64.release</code> folder to see the result.</li></ul><h2 id=play-with-v8>Play with V8
+<a class=heading-link href=#play-with-v8><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h2><p>After building the source code, you will be able to use <code>d8</code>. V8&rsquo;s own developer shell.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>$ ./out/arm64.release/d8 
+</span></span><span class=line><span class=cl>V8 version 9.0.0 (candidate)
+</span></span></code></pre></div><p>Try writing some Javascripts, eg:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=nx>d8</span><span class=o>&gt;</span> <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=s1>&#39;Hello V8!&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nx>Hello</span> <span class=nx>V8</span><span class=o>!</span>
+</span></span><span class=line><span class=cl><span class=kc>undefined</span>
+</span></span><span class=line><span class=cl><span class=nx>d8</span><span class=o>&gt;</span> <span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;</span> <span class=mi>5</span><span class=p>;</span> <span class=nx>i</span><span class=o>++</span><span class=p>)</span> <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=nx>i</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=mi>0</span>
+</span></span><span class=line><span class=cl><span class=mi>1</span>
+</span></span><span class=line><span class=cl><span class=mi>2</span>
+</span></span><span class=line><span class=cl><span class=mi>3</span>
+</span></span><span class=line><span class=cl><span class=mi>4</span>
+</span></span><span class=line><span class=cl><span class=kc>undefined</span>
+</span></span><span class=line><span class=cl><span class=nx>d8</span><span class=o>&gt;</span> 
+</span></span></code></pre></div></div><footer><section class=see-also></section></footer></article></section></div><footer class=footer><section class=container>©
+2021 -
+2025
+Sy Tran
+·
+Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.</section></footer></main><script src=/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script></body></html>

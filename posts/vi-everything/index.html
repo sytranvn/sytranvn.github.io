@@ -1,381 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <title>
-Vi Everything · sytranvn.dev
-</title>
-  <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="color-scheme" content="light dark">
-
-
-
-
-<meta name="author" content="Sy Tran">
-<meta name="description" content="I&#39;m a vi enjoyer. So I always enable vi anywhere support it.">
-<meta name="keywords" content="blog,developer,personal">
-
-
-
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Vi Everything">
-  <meta name="twitter:description" content="I&#39;m a vi enjoyer. So I always enable vi anywhere support it.">
-
-<meta property="og:url" content="https://sytranvn.dev/posts/vi-everything/">
-  <meta property="og:site_name" content="sytranvn.dev">
-  <meta property="og:title" content="Vi Everything">
-  <meta property="og:description" content="I&#39;m a vi enjoyer. So I always enable vi anywhere support it.">
-  <meta property="og:locale" content="en">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-01-14T11:25:29+07:00">
-    <meta property="article:modified_time" content="2025-01-14T11:25:29+07:00">
-    <meta property="article:tag" content="Vim">
-
-
-
-
-<link rel="canonical" href="https://sytranvn.dev/posts/vi-everything/">
-
-
-<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
-
-
-  
-  
-  <link rel="stylesheet" href="/css/coder.min.7763f8bc6341ecf82378e867c285e1549abb063a899be313ccd25dbfcd24fa7d.css" integrity="sha256-d2P4vGNB7PgjeOhnwoXhVJq7BjqJm&#43;MTzNJdv80k&#43;n0=" crossorigin="anonymous" media="screen" />
-
-
-
-
-
-
-  
-    
-    
-    <link rel="stylesheet" href="/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css" integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin="anonymous" media="screen" />
-  
-
-
-
- 
-  
-    
-    <link rel="stylesheet" href="/css/custom.min.14b400827539da755b0d46f2e69147089c47acc5e169eaa464caf99e0bc9fd38.css" integrity="sha256-FLQAgnU52nVbDUby5pFHCJxHrMXhaeqkZMr5ngvJ/Tg=" crossorigin="anonymous" media="screen" />
-  
-
-
-
-
-
-<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
-<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
-
-<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-
-<link rel="manifest" href="/site.webmanifest">
-<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
-
-
-
-
-
-
-
-
-
-</head>
-
-
-
-
-
-
-<body class="preload-transitions colorscheme-auto">
-  
-<div class="float-container">
-    <a id="dark-mode-toggle" class="colorscheme-toggle">
-        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
-    </a>
-</div>
-
-
-  <main class="wrapper">
-    <nav class="navigation">
-  <section class="container">
-    
-    <a class="navigation-title" href="https://sytranvn.dev/">
-      sytranvn.dev
-    </a>
-    
-    
-      <input type="checkbox" id="menu-toggle" />
-      <label class="menu-button float-right" for="menu-toggle">
-        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
-      </label>
-      <ul class="navigation-list">
-        
-          
-            <li class="navigation-item">
-              <a class="navigation-link " href="/now/">Now</a>
-            </li>
-          
-            <li class="navigation-item">
-              <a class="navigation-link " href="/posts/">Blog</a>
-            </li>
-          
-            <li class="navigation-item">
-              <a class="navigation-link " href="/projects/">Projects</a>
-            </li>
-          
-            <li class="navigation-item">
-              <a class="navigation-link " href="/i-heart-oss/">I ❤️ OSS</a>
-            </li>
-          
-            <li class="navigation-item">
-              <a class="navigation-link " href="/accomplishments/">Accomplishments</a>
-            </li>
-          
-            <li class="navigation-item">
-              <a class="navigation-link " href="/resume.pdf">Resume</a>
-            </li>
-          
-        
-        
-          
-          
-          
-            
-          
-            
-              
-                <li class="navigation-item menu-separator">
-                  <span>|</span>
-                </li>
-                
-              
-              <li class="navigation-item">
-                <a href="/vi/"> 🇻🇳</a>
-              </li>
-            
-          
-        
-      </ul>
-    
-  </section>
-</nav>
-
-
-    <div class="content">
-      
-<section class="container post">
-  <article>
-    <header>
-      <div class="post-title">
-        <h1 class="title">
-          <a class="title-link" href="https://sytranvn.dev/posts/vi-everything/">
-            Vi Everything
-          </a>
-        </h1>
-      </div>
-      <div class="post-meta">
-        <div class="date">
-          <span class="posted-on">
-            <i class="fa-solid fa-calendar" aria-hidden="true"></i>
-            <time datetime=" 2025-01-14T11:25:29&#43;07:00">
-              January 14, 2025
-            </time>
-          </span>
-          <span class="reading-time">
-            <i class="fa-solid fa-clock" aria-hidden="true"></i>
-            3-minute read
-          </span>
-        </div>
-        <div class="authors">
-  <i class="fa-solid fa-user" aria-hidden="true"></i>
-    <a href="/authors/sytranvn/">Sytranvn</a></div>
-
-        <div class="categories">
-  <i class="fa-solid fa-folder" aria-hidden="true"></i>
-    <a href="/categories/editor/">Editor</a></div>
-
-        <div class="tags">
-  <i class="fa-solid fa-tag" aria-hidden="true"></i>
-    <span class="tag">
-      <a href="/tags/vim/">Vim</a>
-    </span></div>
-
-      </div>
-
-      <script id="diffblog-plugin-script" async="false" src="https://diff.blog/static/js/diffblog_plugin_v1.js"></script> 
-      <script>
-              document.getElementById("diffblog-plugin-script").addEventListener("load", function () {
-                  DiffBlog(
-                      "4at5qx7n0j5yhd86rqu6gyotkgn4o17hu8wn6xis54lwd692ez"
-                  );
-              });
-      </script>
-    </header>
-
-    <div class="post-content">
-      
-      I&#39;m a vi enjoyer. So I always enable vi anywhere support it.
-      
-      
-      <p>Here&rsquo;s the list of couple places that I enable <code>vi</code> mode.</p>
-<ol>
-<li>
-<p>Bash shell
+<!doctype html><html lang=en><head><title>Vi Everything · sytranvn.dev
+</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=color-scheme content="light dark"><meta name=author content="Sy Tran"><meta name=description content="I'm a vi enjoyer. So I always enable vi anywhere support it."><meta name=keywords content="blog,developer,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="Vi Everything"><meta name=twitter:description content="I'm a vi enjoyer. So I always enable vi anywhere support it."><meta property="og:url" content="https://sytranvn.dev/posts/vi-everything/"><meta property="og:site_name" content="sytranvn.dev"><meta property="og:title" content="Vi Everything"><meta property="og:description" content="I'm a vi enjoyer. So I always enable vi anywhere support it."><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2025-01-14T11:25:29+07:00"><meta property="article:modified_time" content="2025-01-14T11:25:29+07:00"><meta property="article:tag" content="Vim"><link rel=canonical href=https://sytranvn.dev/posts/vi-everything/><link rel=preload href=/fonts/fa-brands-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/fa-regular-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/fa-solid-900.woff2 as=font type=font/woff2 crossorigin><link rel=stylesheet href=/css/coder.min.7763f8bc6341ecf82378e867c285e1549abb063a899be313ccd25dbfcd24fa7d.css integrity="sha256-d2P4vGNB7PgjeOhnwoXhVJq7BjqJm+MTzNJdv80k+n0=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/custom.min.14b400827539da755b0d46f2e69147089c47acc5e169eaa464caf99e0bc9fd38.css integrity="sha256-FLQAgnU52nVbDUby5pFHCJxHrMXhaeqkZMr5ngvJ/Tg=" crossorigin=anonymous media=screen><link rel=icon type=image/svg+xml href=/images/favicon.svg sizes=any><link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16><link rel=apple-touch-icon href=/images/apple-touch-icon.png><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/images/safari-pinned-tab.svg color=#5bbad5></head><body class="preload-transitions colorscheme-auto"><div class=float-container><a id=dark-mode-toggle class=colorscheme-toggle><i class="fa-solid fa-adjust fa-fw" aria-hidden=true></i></a></div><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=https://sytranvn.dev/>sytranvn.dev
+</a><input type=checkbox id=menu-toggle>
+<label class="menu-button float-right" for=menu-toggle><i class="fa-solid fa-bars fa-fw" aria-hidden=true></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=/now/>Now</a></li><li class=navigation-item><a class=navigation-link href=/posts/>Blog</a></li><li class=navigation-item><a class=navigation-link href=/projects/>Projects</a></li><li class=navigation-item><a class=navigation-link href=/i-heart-oss/>I ❤️ OSS</a></li><li class=navigation-item><a class=navigation-link href=/accomplishments/>Accomplishments</a></li><li class=navigation-item><a class=navigation-link href=/resume.pdf>Resume</a></li><li class="navigation-item menu-separator"><span>|</span></li><li class=navigation-item><a href=/vi/>🇻🇳</a></li></ul></section></nav><div class=content><section class="container post"><article><header><div class=post-title><h1 class=title><a class=title-link href=https://sytranvn.dev/posts/vi-everything/>Vi Everything</a></h1></div><div class=post-meta><div class=date><span class=posted-on><i class="fa-solid fa-calendar" aria-hidden=true></i>
+<time datetime=2025-01-14T11:25:29+07:00>January 14, 2025
+</time></span><span class=reading-time><i class="fa-solid fa-clock" aria-hidden=true></i>
+3-minute read</span></div><div class=authors><i class="fa-solid fa-user" aria-hidden=true></i>
+<a href=/authors/sytranvn/>Sytranvn</a></div><div class=categories><i class="fa-solid fa-folder" aria-hidden=true></i>
+<a href=/categories/editor/>Editor</a></div><div class=tags><i class="fa-solid fa-tag" aria-hidden=true></i>
+<span class=tag><a href=/tags/vim/>Vim</a></span></div></div><script id=diffblog-plugin-script async src=https://diff.blog/static/js/diffblog_plugin_v1.js></script><script>document.getElementById("diffblog-plugin-script").addEventListener("load",function(){DiffBlog("4at5qx7n0j5yhd86rqu6gyotkgn4o17hu8wn6xis54lwd692ez")})</script></header><div class=post-content>I'm a vi enjoyer. So I always enable vi anywhere support it.<p>Here&rsquo;s the list of couple places that I enable <code>vi</code> mode.</p><ol><li><p>Bash shell
 <code>set -o vi</code> I always enable bash movement mode in my <code>.bashrc</code> file.
 With it set, I can switch between normal mode and edit mode by pressing <code>ESC</code>.
 Editing works as any normal shell, but when switching to normal mode, I can
 use <code>vi</code> movement keys like <code>j, k, h, l, w, b, e, $, ^</code>, editing current
 line is also faster by using selectors such as <code>cw, dw, C, D...</code>. One important
-note is that we are using <code>vi</code> mode, not <code>vim</code>, so selectors like <code>ciw, caw, ci(</code> does not work.</p>
-</li>
-<li>
-<p><code>export EDITOR=vim</code> , yes, another <code>.bashrc</code> configuration.
+note is that we are using <code>vi</code> mode, not <code>vim</code>, so selectors like <code>ciw, caw, ci(</code> does not work.</p></li><li><p><code>export EDITOR=vim</code> , yes, another <code>.bashrc</code> configuration.
 This allow me to open up a quick vim buffer with current line. So I can do
 a lot more with <code>vim</code> to make sure my long command is correct. I don&rsquo;t use this
-as often because <code>vi</code> mode is already good enough. But in some cases  like
+as often because <code>vi</code> mode is already good enough. But in some cases like
 editing a long <code>curl</code> command with multiple headers and <code>json</code> payload, using
 vim is much better. While in command line, press <code>^XE</code> (^ is ctrl key) to open
 editor. If you don&rsquo;t set <code>EDITOR</code> environment, default editor such as <code>nano</code>
-will be used.</p>
-</li>
-<li>
-<p>The <code>vim</code> itself.
+will be used.</p></li><li><p>The <code>vim</code> itself.
 I used to enjoy <code>vim</code> but I found writing <code>vimscript</code> is hard.
 And <code>neovim</code> is easier version of <code>vim</code> to use. I&rsquo;m avoiding to say <code>neovim</code> is
 better, because I believe they&rsquo;re both doing their best. I just find <code>neovim</code>
-a bit easier to use (maybe skill issue).</p>
-</li>
-<li>
-<p>Leetcode <code>vim mode</code>.
+a bit easier to use (maybe skill issue).</p></li><li><p>Leetcode <code>vim mode</code>.
 You can change Leetcode editor key binding by opening editor
-settings &gt; Code editor &gt; Key binding &gt; Vim. It work perfectly and you don&rsquo;t have
+settings > Code editor > Key binding > Vim. It work perfectly and you don&rsquo;t have
 to <code>:w</code> to save your code. But if your muscle memory still does so, no problems.
 The down side of <code>vim mode</code> on Leetcode is you cannot copy the code to clipboard.
 Any time I need to copy code to run debug locally, I have to switch back to
 Standard mode to copy then paste to my local <code>vim</code>. 😢 Hope they can change it
-in the future.</p>
-</li>
-<li>
-<p>Terminal emulator.
+in the future.</p></li><li><p>Terminal emulator.
 I use <code>kitty</code> terminal emulator. It uses GPU for rendering, displays images, animations
 in terminal, pdf as well. So I can quickly view many documents without leaving my
 beloved terminal. It is super customizable, so I use <code>vi</code> keys to move between split
-windows. I map custom keys in <code>~/.config/kitty/kitty.conf</code> like so:</p>
-<pre><code> map super+k neighboring_window up
+windows. I map custom keys in <code>~/.config/kitty/kitty.conf</code> like so:</p><pre><code> map super+k neighboring_window up
  map super+j neighboring_window down
  map super+h neighboring_window left
  map super+l neighboring_window right
-</code></pre>
-</li>
-<li>
-<p><code>ipython</code></p>
-<pre><code> ipython --TerminalInteractiveShell.editing_mode=vi
-</code></pre>
-</li>
-<li>
-<p>Browser.
+</code></pre></li><li><p><code>ipython</code></p><pre><code> ipython --TerminalInteractiveShell.editing_mode=vi
+</code></pre></li><li><p>Browser.
 Sadly, no, I don&rsquo;t use any <code>vi</code> or <code>vim</code> key binding plugins in browser. I used to, but
 I found it can break the modern JavaScript frameworks in different ways. Especially
-on input fields.</p>
-</li>
-</ol>
-
-    </div>
-
-    <footer>
-      
-
-
-      
-      
-      
-      
-      
-    </footer>
-  </article>
-
-  
-</section>
-
-    </div>
-
-    <footer class="footer">
-  
-  <section class="container">
-    ©
-    
-    2021 -
-    
-    2025
-     Sy Tran 
-    ·
-    
-    Powered by <a href="https://gohugo.io/">Hugo</a> & <a
-      href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
-    
-  </section>
-</footer>
-
-  </main>
-
-  
-
-  
-
-
-  
-  
-  <script src="/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
-  
-
-  
-
-  
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</body>
-
-</html>
+on input fields.</p></li></ol></div><footer></footer></article></section></div><footer class=footer><section class=container>©
+2021 -
+2025
+Sy Tran
+·
+Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.</section></footer></main><script src=/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script></body></html>
