@@ -1,0 +1,201 @@
+<!doctype html><html lang=en><head><title>Is Even or Is Not Even (part 2) · sytranvn.dev
+</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=color-scheme content="light dark"><meta name=author content="Sy Tran"><meta name=description content="Recently I came acrosss a LinkedIn post where someone said: in order to improve
+isEven(n: number) performance, we can use bitwise operator instead of modulo.
+At a glance I totally agree with that oppinion.
+"><meta name=keywords content="blog,developer,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="Is Even or Is Not Even (part 2)"><meta name=twitter:description content="Recently I came acrosss a LinkedIn post where someone said: in order to improve
+isEven(n: number) performance, we can use bitwise operator instead of modulo.
+At a glance I totally agree with that oppinion."><meta property="og:url" content="https://sytranvn.dev/posts/is-even-or-is-not-even-2/"><meta property="og:site_name" content="sytranvn.dev"><meta property="og:title" content="Is Even or Is Not Even (part 2)"><meta property="og:description" content="Recently I came acrosss a LinkedIn post where someone said: in order to improve
+isEven(n: number) performance, we can use bitwise operator instead of modulo.
+At a glance I totally agree with that oppinion."><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2025-03-11T11:31:49+07:00"><meta property="article:modified_time" content="2025-03-11T11:31:49+07:00"><meta property="article:tag" content="Bitwise"><meta property="article:tag" content="Javascripts"><meta property="article:tag" content="C"><meta property="og:see_also" content="https://sytranvn.dev/posts/is-even-or-is-not-even/"><link rel=canonical href=https://sytranvn.dev/posts/is-even-or-is-not-even-2/><link rel=preload href=/fonts/fa-brands-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/fa-regular-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/fa-solid-900.woff2 as=font type=font/woff2 crossorigin><link rel=stylesheet href=/css/coder.min.7763f8bc6341ecf82378e867c285e1549abb063a899be313ccd25dbfcd24fa7d.css integrity="sha256-d2P4vGNB7PgjeOhnwoXhVJq7BjqJm+MTzNJdv80k+n0=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/custom.min.14b400827539da755b0d46f2e69147089c47acc5e169eaa464caf99e0bc9fd38.css integrity="sha256-FLQAgnU52nVbDUby5pFHCJxHrMXhaeqkZMr5ngvJ/Tg=" crossorigin=anonymous media=screen><link rel=icon type=image/svg+xml href=/images/favicon.svg sizes=any><link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16><link rel=apple-touch-icon href=/images/apple-touch-icon.png><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/images/safari-pinned-tab.svg color=#5bbad5></head><body class="preload-transitions colorscheme-auto"><div class=float-container><a id=dark-mode-toggle class=colorscheme-toggle><i class="fa-solid fa-adjust fa-fw" aria-hidden=true></i></a></div><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=https://sytranvn.dev/>sytranvn.dev
+</a><input type=checkbox id=menu-toggle>
+<label class="menu-button float-right" for=menu-toggle><i class="fa-solid fa-bars fa-fw" aria-hidden=true></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=/now/>Now</a></li><li class=navigation-item><a class=navigation-link href=/posts/>Blog</a></li><li class=navigation-item><a class=navigation-link href=/projects/>Projects</a></li><li class=navigation-item><a class=navigation-link href=/i-heart-oss/>I ❤️ OSS</a></li><li class=navigation-item><a class=navigation-link href=/accomplishments/>Accomplishments</a></li><li class=navigation-item><a class=navigation-link href=/resume.pdf>Resume</a></li><li class="navigation-item menu-separator"><span>|</span></li><li class=navigation-item><a href=/vi/>🇻🇳</a></li></ul></section></nav><div class=content><section class="container post"><article><header><div class=post-title><h1 class=title><a class=title-link href=https://sytranvn.dev/posts/is-even-or-is-not-even-2/>Is Even or Is Not Even (part 2)</a></h1></div><div class=post-meta><div class=date><span class=posted-on><i class="fa-solid fa-calendar" aria-hidden=true></i>
+<time datetime=2025-03-11T11:31:49+07:00>March 11, 2025
+</time></span><span class=reading-time><i class="fa-solid fa-clock" aria-hidden=true></i>
+6-minute read</span></div><div class=tags><i class="fa-solid fa-tag" aria-hidden=true></i>
+<span class=tag><a href=/tags/bitwise/>Bitwise</a>
+</span><span class=separator>•</span>
+<span class=tag><a href=/tags/javascripts/>Javascripts</a>
+</span><span class=separator>•</span>
+<span class=tag><a href=/tags/c/>C</a></span></div></div><script id=diffblog-plugin-script async src=https://diff.blog/static/js/diffblog_plugin_v1.js></script><script>document.getElementById("diffblog-plugin-script").addEventListener("load",function(){DiffBlog("4at5qx7n0j5yhd86rqu6gyotkgn4o17hu8wn6xis54lwd692ez")})</script></header><div class=post-content>Recently I came acrosss a LinkedIn post where someone said: in order to improve
+isEven(n: number) performance, we can use bitwise operator instead of modulo.
+At a glance I totally agree with that oppinion.<p>I was so curious how would JavaScript engine would optimize even check. Would
+it use modulo as normal, which is very slow, or it can be smart enough to use
+bitwise operator 🤔 . Due to its dynamic behavior, variable can be of any type
+and unknown to the compiler until run time.</p><p>First, let&rsquo;s create a simple mod function.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kd>function</span> <span class=nx>my_mod</span><span class=p>(</span><span class=nx>n</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>if</span> <span class=p>(</span><span class=nx>n</span> <span class=o>%</span> <span class=mi>2</span> <span class=o>==</span> <span class=mi>1</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=kc>true</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=kc>false</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=nx>my_mod</span><span class=p>(</span><span class=mi>2</span><span class=p>)</span>
+</span></span></code></pre></div><p>Now we need a way to check how V8 compile our code. Luckily, we can view
+bytecodes generated by V8 through node. We can use</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>node --v8-options
+</span></span></code></pre></div><p>to show V8&rsquo;s options that node allow passing through.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-txt data-lang=txt><span class=line><span class=cl>The following syntax for options is accepted (both &#39;-&#39; and &#39;--&#39; are ok):
+</span></span><span class=line><span class=cl>  --print-bytecode (print bytecode generated by ignition interpreter)
+</span></span><span class=line><span class=cl>        type: bool  default: --no-print-bytecode
+</span></span><span class=line><span class=cl>  --print-bytecode-filter (filter for selecting which functions to print bytecode)
+</span></span><span class=line><span class=cl>        type: string  default: --print-bytecode-filter=&#34;*&#34;
+</span></span></code></pre></div><p>There are <code>--print-bytecode</code> and <code>--print-bytecode-filter</code> option that allow us
+to view generated bytecode without executing our <code>main.js</code> file. The
+<code>--print-bytecode-filter</code> seems promising but I couldn&rsquo;t make it to only print
+our mode function. While <code>--print-bytecode</code> option dump everything, including
+<code>node</code>&rsquo;s runtime.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>node --print-bytecode main.js &gt; main.asmjs
+</span></span></code></pre></div><p>Luckily, our function stay at the bottom of the file. So we
+can quickly remove everything at the top.</p><div class="tabs tabs-code tabs-right"><style>.tabs input#tab-0-0:checked~.tab-content-0-0{display:block}</style><input type=radio class=tab-input name=tab-select-0 id=tab-0-0 checked>
+<label for=tab-0-0 class=tab-label>main.asmjs</label><div class="tab-content tab-content-0-0"><div class=highlight><pre tabindex=0 class=chroma><code class=language-tasm data-lang=tasm><span class=line><span class=cl><span class=err>[</span><span class=nf>generated</span> <span class=kt>byte</span><span class=nv>code</span> <span class=nv>for</span> <span class=nv>function</span><span class=p>:</span> <span class=nv>my_mod</span> <span class=p>(</span><span class=mh>0x00d0bcd5b401</span> <span class=o>&lt;</span><span class=nv>SharedFunctionInfo</span> <span class=nv>my_mod</span><span class=o>&gt;</span><span class=p>)]</span>
+</span></span><span class=line><span class=cl><span class=nf>Bytecode</span> <span class=nv>length</span><span class=p>:</span> <span class=mi>17</span>
+</span></span><span class=line><span class=cl><span class=nf>Parameter</span> <span class=nv>count</span> <span class=mi>2</span>
+</span></span><span class=line><span class=cl><span class=nf>Register</span> <span class=nv>count</span> <span class=mi>1</span>
+</span></span><span class=line><span class=cl><span class=nf>Frame</span> <span class=nb>si</span><span class=nv>ze</span> <span class=mi>8</span>
+</span></span><span class=line><span class=cl>   <span class=err>23</span> <span class=nf>S</span><span class=o>&gt;</span> <span class=mh>0x7087e4cdc80</span> <span class=nv>@</span>    <span class=mi>0</span> <span class=p>:</span> <span class=mb>0b</span> <span class=mi>03</span>             <span class=nv>Ldar</span> <span class=nv>a0</span>
+</span></span><span class=line><span class=cl>   <span class=err>29</span> <span class=nf>E</span><span class=o>&gt;</span> <span class=mh>0x7087e4cdc82</span> <span class=nv>@</span>    <span class=mi>2</span> <span class=p>:</span> <span class=mi>4</span><span class=nv>b</span> <span class=mi>02</span> <span class=mi>00</span>          <span class=nv>ModSmi</span> <span class=p>[</span><span class=mi>2</span><span class=p>],</span> <span class=p>[</span><span class=mi>0</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>         <span class=err>0</span><span class=nf>x7087e4cdc85</span> <span class=nv>@</span>    <span class=mi>5</span> <span class=p>:</span> <span class=nv>c9</span>                <span class=nv>Star0</span>
+</span></span><span class=line><span class=cl>         <span class=err>0</span><span class=nf>x7087e4cdc86</span> <span class=nv>@</span>    <span class=mi>6</span> <span class=p>:</span> <span class=mi>0</span><span class=nv>d</span> <span class=mi>01</span>             <span class=nv>LdaSmi</span> <span class=p>[</span><span class=mi>1</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>   <span class=err>33</span> <span class=nf>E</span><span class=o>&gt;</span> <span class=mh>0x7087e4cdc88</span> <span class=nv>@</span>    <span class=mi>8</span> <span class=p>:</span> <span class=mi>6</span><span class=nv>f</span> <span class=nv>f9</span> <span class=mi>01</span>          <span class=nv>TestEqual</span> <span class=nv>r0</span><span class=p>,</span> <span class=p>[</span><span class=mi>1</span><span class=p>]</span>
+</span></span><span class=line><span class=cl>         <span class=err>0</span><span class=nf>x7087e4cdc8b</span> <span class=nv>@</span>   <span class=mi>11</span> <span class=p>:</span> <span class=mi>9</span><span class=nv>e</span> <span class=mi>04</span>             <span class=nv>JumpIfFalse</span> <span class=p>[</span><span class=mi>4</span><span class=p>]</span> <span class=p>(</span><span class=mh>0x7087e4cdc8f</span> <span class=nv>@</span> <span class=mi>15</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>   <span class=err>45</span> <span class=nf>S</span><span class=o>&gt;</span> <span class=mh>0x7087e4cdc8d</span> <span class=nv>@</span>   <span class=mi>13</span> <span class=p>:</span> <span class=mi>11</span>                <span class=nv>LdaTrue</span>
+</span></span><span class=line><span class=cl>   <span class=err>57</span> <span class=nf>S</span><span class=o>&gt;</span> <span class=mh>0x7087e4cdc8e</span> <span class=nv>@</span>   <span class=mi>14</span> <span class=p>:</span> <span class=nv>ae</span>                <span class=nv>Return</span>
+</span></span><span class=line><span class=cl>   <span class=err>64</span> <span class=nf>S</span><span class=o>&gt;</span> <span class=mh>0x7087e4cdc8f</span> <span class=nv>@</span>   <span class=mi>15</span> <span class=p>:</span> <span class=mi>12</span>                <span class=nv>LdaFalse</span>
+</span></span><span class=line><span class=cl>   <span class=err>77</span> <span class=nf>S</span><span class=o>&gt;</span> <span class=mh>0x7087e4cdc90</span> <span class=nv>@</span>   <span class=mi>16</span> <span class=p>:</span> <span class=nv>ae</span>                <span class=nv>Return</span>
+</span></span><span class=line><span class=cl><span class=nf>Constant</span> <span class=nv>pool</span> <span class=p>(</span><span class=nb>si</span><span class=nv>ze</span> <span class=o>=</span> <span class=mi>0</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=no>Handler</span><span class=kd> Table</span> <span class=p>(</span><span class=nb>si</span><span class=nv>ze</span> <span class=o>=</span> <span class=mi>0</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=nf>Source</span> <span class=nv>Position</span> <span class=nv>Table</span> <span class=p>(</span><span class=nb>si</span><span class=nv>ze</span> <span class=o>=</span> <span class=mi>16</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=err>0</span><span class=nf>x07087e4cdc99</span> <span class=o>&lt;</span><span class=nv>Other</span> <span class=nv>heap</span> <span class=nv>object</span> <span class=p>(</span><span class=nv>TRUSTED_BYTE_ARRAY_TYPE</span><span class=p>)</span><span class=o>&gt;</span>
+</span></span></code></pre></div></div><style>.tabs input#tab-0-1:checked~.tab-content-0-1{display:block}</style><input type=radio class=tab-input name=tab-select-0 id=tab-0-1>
+<label for=tab-0-1 class=tab-label>raw</label><div class="tab-content tab-content-0-1"><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>[generated bytecode for function: my_mod (0x00d0bcd5b401 &lt;SharedFunctionInfo my_mod&gt;)]
+</span></span><span class=line><span class=cl>Bytecode length: 17
+</span></span><span class=line><span class=cl>Parameter count 2
+</span></span><span class=line><span class=cl>Register count 1
+</span></span><span class=line><span class=cl>Frame size 8
+</span></span><span class=line><span class=cl>   23 S&gt; 0x7087e4cdc80 @    0 : 0b 03             Ldar a0
+</span></span><span class=line><span class=cl>   29 E&gt; 0x7087e4cdc82 @    2 : 4b 02 00          ModSmi [2], [0]
+</span></span><span class=line><span class=cl>         0x7087e4cdc85 @    5 : c9                Star0
+</span></span><span class=line><span class=cl>         0x7087e4cdc86 @    6 : 0d 01             LdaSmi [1]
+</span></span><span class=line><span class=cl>   33 E&gt; 0x7087e4cdc88 @    8 : 6f f9 01          TestEqual r0, [1]
+</span></span><span class=line><span class=cl>         0x7087e4cdc8b @   11 : 9e 04             JumpIfFalse [4] (0x7087e4cdc8f @ 15)
+</span></span><span class=line><span class=cl>   45 S&gt; 0x7087e4cdc8d @   13 : 11                LdaTrue
+</span></span><span class=line><span class=cl>   57 S&gt; 0x7087e4cdc8e @   14 : ae                Return
+</span></span><span class=line><span class=cl>   64 S&gt; 0x7087e4cdc8f @   15 : 12                LdaFalse
+</span></span><span class=line><span class=cl>   77 S&gt; 0x7087e4cdc90 @   16 : ae                Return
+</span></span><span class=line><span class=cl>Constant pool (size = 0)
+</span></span><span class=line><span class=cl>Handler Table (size = 0)
+</span></span><span class=line><span class=cl>Source Position Table (size = 16)
+</span></span><span class=line><span class=cl>0x07087e4cdc99 &lt;Other heap object (TRUSTED_BYTE_ARRAY_TYPE)&gt;
+</span></span></code></pre></div></div></div><p>We can see it generate <code>ModSmi [2], [0]</code> and <code>TestEqual r0, [1]</code> bytecode,
+identical to our JavaScript code, calculate modulo then compare with 1.
+As each V8 bytecode later on will be interpreted as C++ functions, I don&rsquo;t
+think we can map it 1:1 to assembly instructions.</p><p>But I don&rsquo;t stop here and make an assumption. I will dive until I hit
+the bottom or I&rsquo;m out of breath. For this, we need the real V8, the only
+one who can give us all information we need.</p><div class="notice info"><div class=notice-title><i class="fa-solid fa-exclamation-circle" aria-hidden=true></i>To my pass self</div><div class=notice-content><p>At this point, I&rsquo;m so grateful to my pass self for writing this blog.</p><p><a href=https://sytranvn.dev/posts/build-v8-from-source/ class=external-link target=_blank rel=noopener>Build V8 from source</a></p></div></div><p>For this, we need a x86_64.debug build. And we also need to update
+our <code>main.js</code> script a little in order to make turbofan optimize
+<code>my_mod</code> function. We either have to make unoptimized calls until
+feedback collection kicks in on its own or, do a trick to force
+turbofan to optimize at our will. I&rsquo;ll show you the trick.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kd>function</span> <span class=nx>my_mod</span><span class=p>(</span><span class=nx>n</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=k>if</span> <span class=p>(</span><span class=nx>n</span> <span class=o>%</span> <span class=mi>2</span> <span class=o>==</span> <span class=mi>1</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=kc>true</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=kc>false</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>my_mod</span><span class=p>(</span><span class=mi>0</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=nx>my_mod</span><span class=p>(</span><span class=mi>1</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=nx>my_mod</span><span class=p>(</span><span class=mi>2</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>%</span><span class=nx>PrepareFunctionForOptimization</span><span class=p>(</span><span class=nx>my_mod</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=o>%</span><span class=nx>OptimizeFunctionOnNextCall</span><span class=p>(</span><span class=nx>my_mod</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>my_mod</span><span class=p>(</span><span class=mi>2</span><span class=p>);</span>
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>./out/x64.debug/d8 --allow-natives-syntax --print-opt-code main-opt.js
+</span></span></code></pre></div><p>We get following output.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-txt data-lang=txt><span class=line><span class=cl>--- Raw source ---
+</span></span><span class=line><span class=cl>(n) {
+</span></span><span class=line><span class=cl> if (n  % 2 == 1)
+</span></span><span class=line><span class=cl>   return true;
+</span></span><span class=line><span class=cl> return false;
+</span></span><span class=line><span class=cl>}
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>--- Optimized code ---
+</span></span><span class=line><span class=cl>optimization_id = 0
+</span></span><span class=line><span class=cl>source_position = 340
+</span></span><span class=line><span class=cl>kind = TURBOFAN_JS
+</span></span><span class=line><span class=cl>name = my_mod
+</span></span><span class=line><span class=cl>compiler = turbofan
+</span></span><span class=line><span class=cl>address = 0x176e001401a1
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Instructions (size = 176)
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-ndisasm data-lang=ndisasm><span class=line><span class=cl><span class=cs>0x55a9e0000040</span>     <span class=cs>0</span>   <span class=nf>push</span> <span class=nb>rbp</span>
+</span></span><span class=line><span class=cl><span class=cs>0x55a9e0000041</span>     <span class=cs>1</span>   <span class=nf>REX.W</span> <span class=nv>movq</span> <span class=nb>rbp</span><span class=p>,</span><span class=nb>rsp</span>
+</span></span><span class=line><span class=cl><span class=cs>0x55a9e0000044</span>     <span class=cs>4</span>   <span class=nf>push</span> <span class=nb>rsi</span>
+</span></span><span class=line><span class=cl><span class=cs>0x55a9e0000045</span>     <span class=cs>5</span>   <span class=nf>push</span> <span class=nb>rdi</span>
+</span></span><span class=line><span class=cl><span class=cs>0x55a9e0000046</span>     <span class=cs>6</span>   <span class=nf>push</span> <span class=nb>rax</span>
+</span></span><span class=line><span class=cl><span class=cs>0x55a9e0000047</span>     <span class=cs>7</span>   <span class=nf>REX.W</span> <span class=nv>subq</span> <span class=nb>rsp</span><span class=p>,</span><span class=mh>0x8</span>
+</span></span><span class=line><span class=cl><span class=cs>0x55a9e000004b</span>     <span class=cs>b</span>   <span class=nf>REX.W</span> <span class=nv>movq</span> <span class=p>[</span><span class=nb>rbp</span><span class=o>-</span><span class=mh>0x20</span><span class=p>],</span><span class=nb>rsi</span>
+</span></span><span class=line><span class=cl><span class=cs>0x55a9e000004f</span>     <span class=cs>f</span>   <span class=nf>REX.W</span> <span class=nv>cmpq</span> <span class=nb>rsp</span><span class=p>,[</span><span class=nv>r13</span><span class=o>-</span><span class=mh>0x60</span><span class=p>]</span> <span class=p>(</span><span class=nv>external</span> <span class=nv>value</span> <span class=p>(</span><span class=nv>StackGuard</span><span class=p>::</span><span class=nv>address_of_jslimit</span><span class=p>()))</span>
+</span></span><span class=line><span class=cl><span class=cs>0x55a9e0000053</span>    <span class=cs>13</span>   <span class=nf>jna</span> <span class=mh>0x55a9e00000b7</span>  <span class=o>&lt;+</span><span class=mh>0x77</span><span class=o>&gt;</span>
+</span></span><span class=line><span class=cl><span class=cs>0x55a9e0000059</span>    <span class=cs>19</span>   <span class=nf>REX.W</span> <span class=nv>movq</span> <span class=nb>rdx</span><span class=p>,[</span><span class=nb>rbp</span><span class=o>+</span><span class=mh>0x18</span><span class=p>]</span>   <span class=c1>;; rdx = n</span>
+</span></span><span class=line><span class=cl><span class=cs>0x55a9e000005d</span>    <span class=cs>1d</span>   <span class=nf>testb</span> <span class=nb>rdx</span><span class=p>,</span><span class=mh>0x1</span>               <span class=c1>;; test bit rdx</span>
+</span></span><span class=line><span class=cl><span class=cs>0x55a9e0000060</span>    <span class=cs>20</span>   <span class=nf>jnz</span> <span class=mh>0x55a9e00000e1</span>  <span class=o>&lt;+</span><span class=mh>0xa1</span><span class=o>&gt;</span> <span class=c1>;; if 1, jump 0x55a9e00000e1</span>
+</span></span><span class=line><span class=cl><span class=err>                                                   ;; so this can jump to return true
+</span></span></span><span class=line><span class=cl><span class=err></span><span class=cs>0x55a9e0000066</span>    <span class=cs>26</span>   <span class=nf>REX.W</span> <span class=nv>movq</span> <span class=nb>rcx</span><span class=p>,</span><span class=nb>rdx</span>          <span class=c1>;; else rcx = rdx</span>
+</span></span><span class=line><span class=cl><span class=cs>0x55a9e0000069</span>    <span class=cs>29</span>   <span class=nf>sarl</span> <span class=nb>rcx</span><span class=p>,</span> <span class=mi>1</span>                 <span class=c1>;; rcx &gt;&gt; 1 why? (keep sign bit)</span>
+</span></span><span class=line><span class=cl><span class=cs>0x55a9e000006b</span>    <span class=cs>2b</span>   <span class=nf>testl</span> <span class=nb>rdx</span><span class=p>,</span><span class=nb>rdx</span>
+</span></span><span class=line><span class=cl><span class=cs>0x55a9e000006d</span>    <span class=cs>2d</span>   <span class=nf>jl</span> <span class=mh>0x55a9e000007b</span>  <span class=o>&lt;+</span><span class=mh>0x3b</span><span class=o>&gt;</span>
+</span></span><span class=line><span class=cl><span class=cs>0x55a9e0000073</span>    <span class=cs>33</span>   <span class=nf>andl</span> <span class=nb>rcx</span><span class=p>,</span><span class=mh>0x1</span>
+</span></span><span class=line><span class=cl><span class=cs>0x55a9e0000076</span>    <span class=cs>36</span>   <span class=nf>jmp</span> <span class=mh>0x55a9e000008a</span>  <span class=o>&lt;+</span><span class=mh>0x4a</span><span class=o>&gt;</span>
+</span></span><span class=line><span class=cl><span class=cs>0x55a9e000007b</span>    <span class=cs>3b</span>   <span class=nf>negl</span> <span class=nb>rcx</span>
+</span></span><span class=line><span class=cl><span class=cs>0x55a9e000007d</span>    <span class=cs>3d</span>   <span class=nf>andl</span> <span class=nb>rcx</span><span class=p>,</span><span class=mh>0x1</span>
+</span></span><span class=line><span class=cl><span class=cs>0x55a9e0000080</span>    <span class=cs>40</span>   <span class=nf>testl</span> <span class=nb>rcx</span><span class=p>,</span><span class=nb>rcx</span>
+</span></span><span class=line><span class=cl><span class=cs>0x55a9e0000082</span>    <span class=cs>42</span>   <span class=nf>jz</span> <span class=mh>0x55a9e00000e5</span>  <span class=o>&lt;+</span><span class=mh>0xa5</span><span class=o>&gt;</span>
+</span></span><span class=line><span class=cl><span class=cs>0x55a9e0000088</span>    <span class=cs>48</span>   <span class=nf>negl</span> <span class=nb>rcx</span>
+</span></span><span class=line><span class=cl><span class=cs>0x55a9e000008a</span>    <span class=cs>4a</span>   <span class=nf>cmpl</span> <span class=nb>rcx</span><span class=p>,</span><span class=mh>0x1</span>
+</span></span><span class=line><span class=cl><span class=cs>0x55a9e000008d</span>    <span class=cs>4d</span>   <span class=nf>jz</span> <span class=mh>0x55a9e00000b1</span>  <span class=o>&lt;+</span><span class=mh>0x71</span><span class=o>&gt;</span>
+</span></span><span class=line><span class=cl><span class=cs>0x55a9e0000093</span>    <span class=cs>53</span>   <span class=nf>REX.W</span> <span class=nv>leaq</span> <span class=nb>rax</span><span class=p>,[</span><span class=nv>r14</span><span class=o>+</span><span class=mh>0x55</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=cs>0x55a9e0000097</span>    <span class=cs>57</span>   <span class=nf>REX.W</span> <span class=nv>movq</span> <span class=nb>rcx</span><span class=p>,[</span><span class=nb>rbp</span><span class=o>-</span><span class=mh>0x18</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=cs>0x55a9e000009b</span>    <span class=cs>5b</span>   <span class=nf>REX.W</span> <span class=nv>movq</span> <span class=nb>rsp</span><span class=p>,</span><span class=nb>rbp</span>
+</span></span><span class=line><span class=cl><span class=cs>0x55a9e000009e</span>    <span class=cs>5e</span>   <span class=nf>pop</span> <span class=nb>rbp</span>
+</span></span><span class=line><span class=cl><span class=cs>0x55a9e000009f</span>    <span class=cs>5f</span>   <span class=nf>REX.W</span> <span class=nv>cmpq</span> <span class=nb>rcx</span><span class=p>,</span><span class=mh>0x2</span>
+</span></span><span class=line><span class=cl><span class=cs>0x55a9e00000a3</span>    <span class=cs>63</span>   <span class=nf>jg</span> <span class=mh>0x55a9e00000a8</span>  <span class=o>&lt;+</span><span class=mh>0x68</span><span class=o>&gt;</span>
+</span></span><span class=line><span class=cl><span class=cs>0x55a9e00000a5</span>    <span class=cs>65</span>   <span class=nf>ret</span> <span class=mh>0x10</span>
+</span></span><span class=line><span class=cl><span class=cs>0x55a9e00000a8</span>    <span class=cs>68</span>   <span class=nf>pop</span> <span class=nv>r10</span>
+</span></span><span class=line><span class=cl><span class=cs>0x55a9e00000aa</span>    <span class=cs>6a</span>   <span class=nf>REX.W</span> <span class=nv>leaq</span> <span class=nb>rsp</span><span class=p>,[</span><span class=nb>rsp</span><span class=o>+</span><span class=nb>rcx</span><span class=o>*</span><span class=mi>8</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=cs>0x55a9e00000ae</span>    <span class=cs>6e</span>   <span class=nf>push</span> <span class=nv>r10</span>
+</span></span><span class=line><span class=cl><span class=cs>0x55a9e00000b0</span>    <span class=cs>70</span>   <span class=nf>retl</span>
+</span></span><span class=line><span class=cl><span class=cs>0x55a9e00000b1</span>    <span class=cs>71</span>   <span class=nf>REX.W</span> <span class=nv>leaq</span> <span class=nb>rax</span><span class=p>,[</span><span class=nv>r14</span><span class=o>+</span><span class=mh>0x71</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=cs>0x55a9e00000b5</span>    <span class=cs>75</span>   <span class=nf>jmp</span> <span class=mh>0x55a9e0000097</span>  <span class=o>&lt;+</span><span class=mh>0x57</span><span class=o>&gt;</span>
+</span></span><span class=line><span class=cl><span class=cs>0x55a9e00000b7</span>    <span class=cs>77</span>   <span class=nf>movl</span> <span class=nb>rdx</span><span class=p>,</span><span class=mh>0x40</span>
+</span></span><span class=line><span class=cl><span class=cs>0x55a9e00000bc</span>    <span class=cs>7c</span>   <span class=nf>push</span> <span class=nb>rdx</span>
+</span></span><span class=line><span class=cl><span class=cs>0x55a9e00000bd</span>    <span class=cs>7d</span>   <span class=nf>REX.W</span> <span class=nv>movq</span> <span class=nb>rbx</span><span class=p>,</span><span class=mh>0x55a9c75f4000</span>
+</span></span><span class=line><span class=cl><span class=cs>0x55a9e00000c7</span>    <span class=cs>87</span>   <span class=nf>movl</span> <span class=nb>rax</span><span class=p>,</span><span class=mh>0x1</span>
+</span></span><span class=line><span class=cl><span class=cs>0x55a9e00000cc</span>    <span class=cs>8c</span>   <span class=nf>REX.W</span> <span class=nv>movq</span> <span class=nb>rsi</span><span class=p>,</span><span class=mh>0x7df500181ae5</span>    <span class=c1>;; object: 0x7df500181ae5 &lt;NativeContext[302]&gt;</span>
+</span></span><span class=line><span class=cl><span class=cs>0x55a9e00000d6</span>    <span class=cs>96</span>   <span class=nf>call</span> <span class=mh>0x55a9c846a300</span>  <span class=p>(</span><span class=nv>CEntry_Return1_ArgvOnStack_NoBuiltinExit</span><span class=p>)</span>    <span class=c1>;; near builtin entry</span>
+</span></span><span class=line><span class=cl><span class=cs>0x55a9e00000db</span>    <span class=cs>9b</span>   <span class=nf>jmp</span> <span class=mh>0x55a9e0000059</span>  <span class=o>&lt;+</span><span class=mh>0x19</span><span class=o>&gt;</span>
+</span></span><span class=line><span class=cl><span class=cs>0x55a9e00000e0</span>    <span class=cs>a0</span>   <span class=nf>nop</span>
+</span></span><span class=line><span class=cl><span class=cs>0x55a9e00000e1</span>    <span class=cs>a1</span>   <span class=nf>call</span> <span class=p>[</span><span class=nv>r13</span><span class=o>-</span><span class=mh>0x28</span><span class=p>]</span>  <span class=c1>;; stack pointer - 0x28</span>
+</span></span><span class=line><span class=cl><span class=cs>0x55a9e00000e5</span>    <span class=cs>a5</span>   <span class=nf>call</span> <span class=p>[</span><span class=nv>r13</span><span class=o>-</span><span class=mh>0x28</span><span class=p>]</span>  <span class=c1>;; stack pointer - 0x28</span>
+</span></span><span class=line><span class=cl><span class=cs>0x55a9e00000e9</span>    <span class=cs>a9</span>   <span class=nf>call</span> <span class=p>[</span><span class=nv>r13</span><span class=o>-</span><span class=mh>0x20</span><span class=p>]</span>  <span class=c1>;; stack pointer - 0x28</span>
+</span></span><span class=line><span class=cl><span class=cs>0x55a9e00000ed</span>    <span class=cs>ad</span>   <span class=nf>nop</span>
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-txt data-lang=txt><span class=line><span class=cl>Inlined functions (count = 0)
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Deoptimization Input Data (deopt points = 3)
+</span></span><span class=line><span class=cl>index  bytecode-offset    pc
+</span></span><span class=line><span class=cl>    0                2    NA
+</span></span><span class=line><span class=cl>    1                2    NA
+</span></span><span class=line><span class=cl>    2               -1    9b
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Safepoints (stack slots = 6, entries = 1, byte size = 16)
+</span></span><span class=line><span class=cl>0x55a9e00000db     9b  slots (sp-&gt;fp): 100000  deopt      2 trampoline:     a9
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>RelocInfo (size = 5)
+</span></span><span class=line><span class=cl>0x55a9e00000ce  full embedded object  (0x7df500181ae5 &lt;NativeContext[12e]&gt;)
+</span></span><span class=line><span class=cl>0x55a9e00000d7  near builtin entry
+</span></span></code></pre></div><p>The code from <code>0x55a9e0000040</code> enter function call, backup stack pointer and
+current registers on stack.</p><p>The code between <code>0x55a9e000004f</code> and <code>0x55a9e00000d6</code> is optimized code of
+our function. Let&rsquo;s see what it has become.</p><p><code>REX.W movq rdx,[rbp+0x18]</code> move data (64-bit) from <code>[rbp+0x18]</code> on stack
+to <code>rdx</code>. This is our <code>n</code> variable.</p><p><code>testb rdx,0x1</code> , check last bit of <code>rdx</code> is set. Which we concerned about.</p></div><footer><section class=see-also><h3 id=see-also-in-is-even-or-is-not-even-check>See also in Is-even-or-is-not-even-check
+<a class=heading-link href=#see-also-in-is-even-or-is-not-even-check><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h3><nav><ul><li><a href=/posts/is-even-or-is-not-even/>Is Even or Is Not Even</a></li></ul></nav></section></footer></article></section></div><footer class=footer><section class=container>©
+2021 -
+2025
+Sy Tran
+·
+Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.</section></footer></main><script src=/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script></body></html>
