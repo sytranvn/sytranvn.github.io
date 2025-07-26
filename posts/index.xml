@@ -83,8 +83,7 @@ the memory consumption become stable or it keep 🚀&lt;/p></description></item>
 192.168.1.1 uses an unsupported protocol.
 ERR_SSL_VERSION_OR_CIPHER_MISMATCH
 &lt;strong>Unsupported protocol&lt;/strong>
-The client and server don&amp;rsquo;t support a common SSL protocol version or cipher suite.&lt;/p>
-&lt;/blockquote>
+The client and server don&amp;rsquo;t support a common SSL protocol version or cipher suite.&lt;/p>&lt;/blockquote>
 &lt;p>The full URL I got redirected to was &lt;code>https://192.168.1.1/cgi-bin/index.asp&lt;/code>. So this modem provides a HTTPS web interface
 but somehow that certificate is not a valid one. Normally, in case a certificate was self signed, we still have an advanced button
 to proceed. This time it wasn&amp;rsquo;t.&lt;/p></description></item><item><title>Modify Element in Zig 2D Array</title><link>https://sytranvn.dev/posts/modify-element-in-zig-array/</link><pubDate>Sat, 23 Mar 2024 11:11:12 +0700</pubDate><guid>https://sytranvn.dev/posts/modify-element-in-zig-array/</guid><description>&lt;p>So I&amp;rsquo;m learning Zig and trying to write a &lt;a href="https://vi.wikipedia.org/wiki/Arkanoid" class="external-link" target="_blank" rel="noopener">Arkanoid game&lt;/a> in Zig.&lt;br>
@@ -374,8 +373,7 @@ So when we need memorry to store something else, we just override data on alloca
 
 There is nothing much to be done in allocation since it just a wrapper to &lt;code>malloc&lt;/code> and &lt;code>free&lt;/code> memorry. But this is the heart of everything. In next posts, we will see how &lt;code>PreallocatedStorage&lt;/code> is used by V8 in specific scenarios.&lt;/p></description></item><item><title>Token</title><link>https://sytranvn.dev/posts/token/</link><pubDate>Wed, 06 Oct 2021 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/token/</guid><description>&lt;blockquote>
 &lt;p>If you don&amp;rsquo;t know how it works, find out. If you&amp;rsquo;re not sure if it will work, try it. If it doesn&amp;rsquo;t make sense, play with it until it does. If it&amp;rsquo;s not broken, break it. If it might not be true, find out.&lt;/p>
-&lt;p>Seth Godin&lt;/p>
-&lt;/blockquote>
+&lt;p>Seth Godin&lt;/p>&lt;/blockquote>
 &lt;h2 id="token">
  Token
  &lt;a class="heading-link" href="#token">
