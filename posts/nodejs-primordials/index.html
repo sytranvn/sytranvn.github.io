@@ -42,7 +42,7 @@ under <code>'use strict'</code> flag, it must be some thing legal to use, right?
 </span></span><span class=line><span class=cl>&gt; primordials
 </span></span><span class=line><span class=cl>Uncaught ReferenceError: primordials is not defined
 </span></span><span class=line><span class=cl>&gt;
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback></code></pre></div><p>MDN doesn&rsquo;t have any documents about <code>primordials</code> as well. So it must be some
+</span></span></code></pre></div><p>MDN doesn&rsquo;t have any documents about <code>primordials</code> as well. So it must be some
 hijacking variable created by NodeJS developers. Luckily someone found it and
 posted <a href=https://stackoverflow.com/questions/59750976/what-are-primordials-in-node-js class=external-link target=_blank rel=noopener>a question on
 stackoverflow</a>
@@ -50,7 +50,7 @@ before. So I follow the link, on the <a href=https://github.com/nodejs/node/blob
 branch</a>.</p><p>As stated in source code document.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// This file subclasses and stores the JS builtins that come from the VM
 </span></span></span><span class=line><span class=cl><span class=c1>// so that Node.js&#39;s builtin modules do not need to later look these up from
 </span></span></span><span class=line><span class=cl><span class=c1>// the global proxy, which can be mutated by users.
-</span></span></span></code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback></code></pre></div><p>So the intention is clear, this helps NodeJS developers quickly access builtins,
+</span></span></span></code></pre></div><p>So the intention is clear, this helps NodeJS developers quickly access builtins,
 and worry about them being mutated by users.</p><p>This is the full source code at commit <a href=https://github.com/nodejs/node/blob/141a6e34eed05577edf43ad085a74f330d0559cb/lib/internal/per_context/primordials.js class=external-link target=_blank rel=noopener>141a6e3</a> in 2019.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=s1>&#39;use strict&#39;</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=cm>/* eslint-disable no-restricted-globals */</span>
@@ -179,7 +179,7 @@ and worry about them being mutated by users.</p><p>This is the full source code 
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=nb>Object</span><span class=p>.</span><span class=nx>setPrototypeOf</span><span class=p>(</span><span class=nx>primordials</span><span class=p>,</span> <span class=kc>null</span><span class=p>);</span>
 </span></span><span class=line><span class=cl><span class=nb>Object</span><span class=p>.</span><span class=nx>freeze</span><span class=p>(</span><span class=nx>primordials</span><span class=p>);</span>
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback></code></pre></div><p>In 2025, the file is about 700 lines of code compare to 128 LOC in 2019. After,
+</span></span></code></pre></div><p>In 2025, the file is about 700 lines of code compare to 128 LOC in 2019. After,
 6 years, the amount of features added to Javascripts is massive.</p><p>Now we know what <code>primordials</code> is and why it was created. The remaining question is
 can we access it from <code>node</code>, if so, how?</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>node --expose-internals 
 </span></span><span class=line><span class=cl>Welcome to Node.js v22.5.1.
@@ -187,7 +187,7 @@ can we access it from <code>node</code>, if so, how?</p><div class=highlight><pr
 </span></span><span class=line><span class=cl>&gt; primodials
 </span></span><span class=line><span class=cl>Uncaught ReferenceError: primodials is not defined
 </span></span><span class=line><span class=cl>&gt;
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback></code></pre></div><p>Enabling <code>expose-internals</code> flag doesn&rsquo;t help us. I will continue this when I find a way.</p></div><footer><section class=see-also></section></footer></article></section></div><footer class=footer><section class=container>©
+</span></span></code></pre></div><p>Enabling <code>expose-internals</code> flag doesn&rsquo;t help us. I will continue this when I find a way.</p></div><footer><section class=see-also></section></footer></article></section></div><footer class=footer><section class=container>©
 2021 -
 2025
 Sy Tran
