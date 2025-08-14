@@ -34,7 +34,7 @@ once. And it was used under 'use strict' flag.<p>This is a part of <code>_http_s
 </span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>net</span> <span class=o>=</span> <span class=nx>require</span><span class=p>(</span><span class=s1>&#39;net&#39;</span><span class=p>);</span>
 </span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>EE</span> <span class=o>=</span> <span class=nx>require</span><span class=p>(</span><span class=s1>&#39;events&#39;</span><span class=p>);</span>
 </span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>assert</span> <span class=o>=</span> <span class=nx>require</span><span class=p>(</span><span class=s1>&#39;internal/assert&#39;</span><span class=p>);</span>
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback></code></pre></div><p>I was panic. How did I miss this global variable for so many years working with
+</span></span></code></pre></div><p>I was panic. How did I miss this global variable for so many years working with
 NodeJS? It contains Javascripts builtin classes like <code>Error</code>, <code>Symbol</code>, &mldr; And
 under <code>'use strict'</code> flag, it must be some thing legal to use, right?</p><p>I immediately open up the <code>node</code> repl to check what it is. But the result was a disappointment.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>$ node
 </span></span><span class=line><span class=cl>Welcome to Node.js v22.5.1.
