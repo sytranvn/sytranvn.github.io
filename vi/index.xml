@@ -31,7 +31,7 @@ giải quyết &amp;hellip;&lt;/p></description></item><item><title>Cài đặt 
 &lt;li>Trong công cụ Inspect, chọn tab Network&lt;/li>
 &lt;li>Click vào biểu tượng 🛜 để tùy chỉnh thông tin gửi đi&lt;/li>
 &lt;li>Trong mục User agent, bỏ chọn trình duyệt mặc định, và chọn 1 trình duyệt của Windows, ví dụ Chrome - Windows
-&lt;img src="chrome.png" alt="">&lt;/li>
+&lt;img src="https://sytranvn.dev/posts/zalo-tren-ubuntu/chrome.png" alt="">&lt;/li>
 &lt;/ol>
 &lt;/li>
 &lt;li>Bạn hãy tải lại trang (lưu ý không đóng công cụ Inspect)&lt;/li>
@@ -42,7 +42,7 @@ giải quyết &amp;hellip;&lt;/p></description></item><item><title>Cài đặt 
 &lt;ol>
 &lt;li>Các bạn vào &lt;code>about:config&lt;/code> , nếu có cảnh báo thì chấp nhận rủi ro và tiếp tục&lt;/li>
 &lt;li>Tìm &lt;code>general.useragent.override&lt;/code> và chọn String, thêm giá trị &lt;code>Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36&lt;/code> để đổi thành Chrome - Windows
-&lt;img src="firefox.png" alt="">&lt;/li>
+&lt;img src="https://sytranvn.dev/posts/zalo-tren-ubuntu/firefox.png" alt="">&lt;/li>
 &lt;li>Truy cập &lt;a href="https://zalo.me" class="external-link" target="_blank" rel="noopener">https://zalo.me&lt;/a> và tải về&lt;/li>
 &lt;/ol>
 &lt;/li>
@@ -77,4 +77,83 @@ Ngoài nhân viên thì công ty còn hỗ trợ cả người thân của nhân
 chuẩn bị có thêm làm hộ chiếu cho con gái tôi. Thông thường mọi người có thể làm hộ chiếu online, nhưng
 với trẻ em thì buộc phải nộp hồ sơ trực tiếp ở nơi thường trú nên chúng tôi phải về quê để nộp hồ sơ.
 Ngoài ra thì chuẩn bị thêm một số quần áo và vật dụng khác là đã đủ. Vì tôi mặc gì cũng đẹp nên không
-phải chuẩn bị gì nhiều về phần này.&lt;/p></description></item></channel></rss>
+phải chuẩn bị gì nhiều về phần này.&lt;/p></description></item><item><title>Thành tích</title><link>https://sytranvn.dev/vi/accomplishments/</link><pubDate>Sun, 22 May 2022 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/vi/accomplishments/</guid><description>&lt;div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="2d7b0753-485b-491e-af79-5707ffbc4874" data-share-badge-host="https://www.credly.com">&lt;/div>&lt;script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js">&lt;/script>
+&lt;div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="0c9bc108-ac27-413c-ab63-fad6d632d7bf" data-share-badge-host="https://www.credly.com">&lt;/div>&lt;script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js">&lt;/script>
+&lt;p>
+
+&lt;object
+ data="jsnad.pdf#view=Fit" width="100%" height="500px"type="application/pdf"
+>
+ &lt;p>Unable to display PDF file. &lt;a href="jsnad.pdf#view=Fit">Download&lt;/a> instead.&lt;/p>
+&lt;/object>
+
+
+
+&lt;object
+ data="LFW211.pdf#view=Fit" width="100%" height="500px"type="application/pdf"
+>
+ &lt;p>Unable to display PDF file. &lt;a href="LFW211.pdf#view=Fit">Download&lt;/a> instead.&lt;/p>
+&lt;/object>
+
+
+
+&lt;object
+ data="Coursera-UQSZ8MU84KBT.pdf#view=Fit" width="100%" height="500px"type="application/pdf"
+>
+ &lt;p>Unable to display PDF file. &lt;a href="Coursera-UQSZ8MU84KBT.pdf#view=Fit">Download&lt;/a> instead.&lt;/p>
+&lt;/object>
+
+
+
+&lt;object
+ data="Coursera-TFXAPL77QJXV.pdf#view=Fit" width="100%" height="500px"type="application/pdf"
+>
+ &lt;p>Unable to display PDF file. &lt;a href="Coursera-TFXAPL77QJXV.pdf#view=Fit">Download&lt;/a> instead.&lt;/p>
+&lt;/object>
+
+
+
+&lt;object
+ data="Coursera-SBT9RC9D6BHM.pdf#view=Fit" width="100%" height="500px"type="application/pdf"
+>
+ &lt;p>Unable to display PDF file. &lt;a href="Coursera-SBT9RC9D6BHM.pdf#view=Fit">Download&lt;/a> instead.&lt;/p>
+&lt;/object>
+
+
+
+&lt;object
+ data="Coursera-RGC2XEE4KH3P.pdf#view=Fit" width="100%" height="500px"type="application/pdf"
+>
+ &lt;p>Unable to display PDF file. &lt;a href="Coursera-RGC2XEE4KH3P.pdf#view=Fit">Download&lt;/a> instead.&lt;/p>
+&lt;/object>
+
+
+
+&lt;object
+ data="Coursera-RCQDNB8NW9X5.pdf#view=Fit" width="100%" height="500px"type="application/pdf"
+>
+ &lt;p>Unable to display PDF file. &lt;a href="Coursera-RCQDNB8NW9X5.pdf#view=Fit">Download&lt;/a> instead.&lt;/p>
+&lt;/object>
+
+
+
+&lt;object
+ data="Coursera-NU2Y53ZUZ8XL.pdf#view=Fit" width="100%" height="500px"type="application/pdf"
+>
+ &lt;p>Unable to display PDF file. &lt;a href="Coursera-NU2Y53ZUZ8XL.pdf#view=Fit">Download&lt;/a> instead.&lt;/p>
+&lt;/object>
+
+
+
+&lt;object
+ data="Coursera-HGYJSNPBD3S7.pdf#view=Fit" width="100%" height="500px"type="application/pdf"
+>
+ &lt;p>Unable to display PDF file. &lt;a href="Coursera-HGYJSNPBD3S7.pdf#view=Fit">Download&lt;/a> instead.&lt;/p>
+&lt;/object>
+
+
+
+&lt;object
+ data="Coursera-53J9PK39ENN8.pdf#view=Fit" width="100%" height="500px"type="application/pdf"
+>
+ &lt;p>Unable to display PDF file. &lt;a href="Coursera-53J9PK39ENN8.pdf#view=Fit">Download&lt;/a> instead.&lt;/p></description></item></channel></rss>

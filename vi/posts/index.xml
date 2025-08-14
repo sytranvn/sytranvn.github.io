@@ -31,7 +31,7 @@ giải quyết &amp;hellip;&lt;/p></description></item><item><title>Cài đặt 
 &lt;li>Trong công cụ Inspect, chọn tab Network&lt;/li>
 &lt;li>Click vào biểu tượng 🛜 để tùy chỉnh thông tin gửi đi&lt;/li>
 &lt;li>Trong mục User agent, bỏ chọn trình duyệt mặc định, và chọn 1 trình duyệt của Windows, ví dụ Chrome - Windows
-&lt;img src="chrome.png" alt="">&lt;/li>
+&lt;img src="https://sytranvn.dev/posts/zalo-tren-ubuntu/chrome.png" alt="">&lt;/li>
 &lt;/ol>
 &lt;/li>
 &lt;li>Bạn hãy tải lại trang (lưu ý không đóng công cụ Inspect)&lt;/li>
@@ -42,7 +42,7 @@ giải quyết &amp;hellip;&lt;/p></description></item><item><title>Cài đặt 
 &lt;ol>
 &lt;li>Các bạn vào &lt;code>about:config&lt;/code> , nếu có cảnh báo thì chấp nhận rủi ro và tiếp tục&lt;/li>
 &lt;li>Tìm &lt;code>general.useragent.override&lt;/code> và chọn String, thêm giá trị &lt;code>Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36&lt;/code> để đổi thành Chrome - Windows
-&lt;img src="firefox.png" alt="">&lt;/li>
+&lt;img src="https://sytranvn.dev/posts/zalo-tren-ubuntu/firefox.png" alt="">&lt;/li>
 &lt;li>Truy cập &lt;a href="https://zalo.me" class="external-link" target="_blank" rel="noopener">https://zalo.me&lt;/a> và tải về&lt;/li>
 &lt;/ol>
 &lt;/li>
