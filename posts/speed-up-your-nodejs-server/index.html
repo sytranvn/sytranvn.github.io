@@ -1,0 +1,337 @@
+<!doctype html><html lang=en><head><title>Speed Up Your Nodejs Server · sytranvn.dev</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=color-scheme content="light dark"><meta name=author content="Sy Tran"><meta name=description content="We will
+leverage Node.js worker threads and cluster modules to
+parallelize CPU-bound tasks, improving application
+performance by utilizing multiple cores efficiently. 
+"><meta name=keywords content="blog,developer,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="Speed Up Your Nodejs Server"><meta name=twitter:description content="We will
+leverage Node.js worker threads and cluster modules to
+parallelize CPU-bound tasks, improving application
+performance by utilizing multiple cores efficiently."><meta property="og:url" content="https://sytranvn.dev/posts/speed-up-your-nodejs-server/"><meta property="og:site_name" content="sytranvn.dev"><meta property="og:title" content="Speed Up Your Nodejs Server"><meta property="og:description" content="We will
+leverage Node.js worker threads and cluster modules to
+parallelize CPU-bound tasks, improving application
+performance by utilizing multiple cores efficiently."><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2025-08-31T10:40:40+07:00"><meta property="article:modified_time" content="2025-08-31T10:40:40+07:00"><meta property="article:tag" content="Nodejs"><link rel=canonical href=https://sytranvn.dev/posts/speed-up-your-nodejs-server/><link rel=preload href=/fonts/fa-brands-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/fa-regular-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/fa-solid-900.woff2 as=font type=font/woff2 crossorigin><link rel=stylesheet href=/css/coder.min.ebdf1a5dca6a69142e979b32668c69f2a95448b145a168104c5808b14d2b75b0.css integrity="sha256-698aXcpqaRQul5syZoxp8qlUSLFFoWgQTFgIsU0rdbA=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/custom.min.14b400827539da755b0d46f2e69147089c47acc5e169eaa464caf99e0bc9fd38.css integrity="sha256-FLQAgnU52nVbDUby5pFHCJxHrMXhaeqkZMr5ngvJ/Tg=" crossorigin=anonymous media=screen><link rel=icon type=image/svg+xml href=/images/favicon.svg sizes=any><link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16><link rel=apple-touch-icon href=/images/apple-touch-icon.png><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/images/safari-pinned-tab.svg color=#5bbad5></head><body class="preload-transitions colorscheme-auto"><div class=float-container><a id=dark-mode-toggle class=colorscheme-toggle><i class="fa-solid fa-adjust fa-fw" aria-hidden=true></i></a></div><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=https://sytranvn.dev/>sytranvn.dev
+</a><input type=checkbox id=menu-toggle>
+<label class="menu-button float-right" for=menu-toggle><i class="fa-solid fa-bars fa-fw" aria-hidden=true></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=/now/>Now</a></li><li class=navigation-item><a class=navigation-link href=/posts/>Blog</a></li><li class=navigation-item><a class=navigation-link href=/projects/>Projects</a></li><li class=navigation-item><a class=navigation-link href=/i-heart-oss/>I ❤️ OSS</a></li><li class=navigation-item><a class=navigation-link href=/accomplishments/>Accomplishments</a></li><li class=navigation-item><a class=navigation-link href=/resume.pdf>Resume</a></li><li class="navigation-item menu-separator"><span>|</span></li><li class=navigation-item><a href=/vi/>🇻🇳</a></li></ul></section></nav><div class=content><section class="container post"><article><header><div class=post-title><h1 class=title><a class=title-link href=https://sytranvn.dev/posts/speed-up-your-nodejs-server/>Speed Up Your Nodejs Server</a></h1></div><div class=post-meta><div class=date><span class=posted-on><i class="fa-solid fa-calendar" aria-hidden=true></i>
+<time datetime=2025-08-31T10:40:40+07:00>August 31, 2025
+</time></span><span class=reading-time><i class="fa-solid fa-clock" aria-hidden=true></i>
+8-minute read</span></div><div class=categories><i class="fa-solid fa-folder" aria-hidden=true></i>
+<a href=/categories/nodejs/>Nodejs</a>
+<span class=separator>•</span>
+<a href=/categories/performance/>Performance</a></div><div class=tags><i class="fa-solid fa-tag" aria-hidden=true></i>
+<span class=tag><a href=/tags/nodejs/>Nodejs</a></span></div></div><script id=diffblog-plugin-script async src=https://diff.blog/static/js/diffblog_plugin_v1.js></script><script>document.getElementById("diffblog-plugin-script").addEventListener("load",function(){DiffBlog("4at5qx7n0j5yhd86rqu6gyotkgn4o17hu8wn6xis54lwd692ez")})</script></header><div class=post-content>We will
+leverage Node.js worker threads and cluster modules to
+parallelize CPU-bound tasks, improving application
+performance by utilizing multiple cores efficiently.<p>First of all, we are trying to improve Node.js servers use
+CPU-intensive JavaScript operations. The Node.js built-in
+asynchronous I/O operations are more efficient than Workers
+or Child Processes can be.</p><p>Now let&rsquo;s determine what kind of parallelization we need
+for our server. Does it need to share memory? Does it need
+to share a port? Or does it do different things in
+isolation? Those questions will help us pick the right
+parallelization module for the task.</p><h2 id=child_process>child_process
+<a class=heading-link href=#child_process><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h2><blockquote><p>The <code>node:child_process</code> module provides the ability to
+spawn subprocesses in a manner that is similar, but not
+identical, to <code>popen(3)</code>. This capability is primarily
+provided by the <code>child_process.spawn()</code> function:</p></blockquote><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>import</span> <span class=p>{</span> <span class=nx>spawn</span> <span class=p>}</span> <span class=nx>from</span> <span class=s1>&#39;node:child_process&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>ls</span> <span class=o>=</span> <span class=nx>spawn</span><span class=p>(</span><span class=s1>&#39;ls&#39;</span><span class=p>,</span> <span class=p>[</span><span class=s1>&#39;-lh&#39;</span><span class=p>,</span> <span class=s1>&#39;/usr&#39;</span><span class=p>]);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>ls</span><span class=p>.</span><span class=nx>stdout</span><span class=p>.</span><span class=nx>on</span><span class=p>(</span><span class=s1>&#39;data&#39;</span><span class=p>,</span> <span class=p>(</span><span class=nx>data</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=sb>`stdout: </span><span class=si>${</span><span class=nx>data</span><span class=si>}</span><span class=sb>`</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>});</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>ls</span><span class=p>.</span><span class=nx>stderr</span><span class=p>.</span><span class=nx>on</span><span class=p>(</span><span class=s1>&#39;data&#39;</span><span class=p>,</span> <span class=p>(</span><span class=nx>data</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nx>console</span><span class=p>.</span><span class=nx>error</span><span class=p>(</span><span class=sb>`stderr: </span><span class=si>${</span><span class=nx>data</span><span class=si>}</span><span class=sb>`</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>});</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=nx>ls</span><span class=p>.</span><span class=nx>on</span><span class=p>(</span><span class=s1>&#39;close&#39;</span><span class=p>,</span> <span class=p>(</span><span class=nx>code</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=sb>`child process exited with code </span><span class=si>${</span><span class=nx>code</span><span class=si>}</span><span class=sb>`</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>});</span>
+</span></span></code></pre></div><p>It allows you to execute external commands or running a
+Node.js script (with <code>fork()</code>).</p><p>Imagine a movie theater sells drinks, popcorn and gifts
+from other vendors.</p><h2 id=cluster>cluster
+<a class=heading-link href=#cluster><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h2><blockquote><p>Clusters of Node.js processes can be used to run multiple
+instances of Node.js that can distribute workloads among
+their application threads. When process isolation is not
+needed, use the <code>worker_threads</code> module instead, which
+allows running multiple application threads within a
+single Node.js instance.</p><p>The cluster module allows easy creation of child
+processes that all share server ports.</p></blockquote><p>The <code>cluster</code> module is built on top of
+<code>child_process.fork()</code>. Its main purpose is to create
+network applications that can utilize all available CPU
+cores on a machine.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>import</span> <span class=nx>cluster</span> <span class=nx>from</span> <span class=s1>&#39;node:cluster&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kr>import</span> <span class=nx>http</span> <span class=nx>from</span> <span class=s1>&#39;node:http&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kr>import</span> <span class=p>{</span> <span class=nx>availableParallelism</span> <span class=p>}</span> <span class=nx>from</span> <span class=s1>&#39;node:os&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kr>import</span> <span class=nx>process</span> <span class=nx>from</span> <span class=s1>&#39;node:process&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>numCPUs</span> <span class=o>=</span> <span class=nx>availableParallelism</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=p>(</span><span class=nx>cluster</span><span class=p>.</span><span class=nx>isPrimary</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=sb>`Primary </span><span class=si>${</span><span class=nx>process</span><span class=p>.</span><span class=nx>pid</span><span class=si>}</span><span class=sb> is running`</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=c1>// Fork workers.
+</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;</span> <span class=nx>numCPUs</span><span class=p>;</span> <span class=nx>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>cluster</span><span class=p>.</span><span class=nx>fork</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=nx>cluster</span><span class=p>.</span><span class=nx>on</span><span class=p>(</span><span class=s1>&#39;exit&#39;</span><span class=p>,</span> <span class=p>(</span><span class=nx>worker</span><span class=p>,</span> <span class=nx>code</span><span class=p>,</span> <span class=nx>signal</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=sb>`worker </span><span class=si>${</span><span class=nx>worker</span><span class=p>.</span><span class=nx>process</span><span class=p>.</span><span class=nx>pid</span><span class=si>}</span><span class=sb> died`</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=p>});</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=c1>// Workers can share any TCP connection
+</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=c1>// In this case it is an HTTP server
+</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=nx>http</span><span class=p>.</span><span class=nx>createServer</span><span class=p>((</span><span class=nx>req</span><span class=p>,</span> <span class=nx>res</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>res</span><span class=p>.</span><span class=nx>writeHead</span><span class=p>(</span><span class=mi>200</span><span class=p>);</span> <span class=nx>res</span><span class=p>.</span><span class=nx>end</span><span class=p>(</span><span class=s1>&#39;hello world\n&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=p>}).</span><span class=nx>listen</span><span class=p>(</span><span class=mi>8000</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=sb>`Worker </span><span class=si>${</span><span class=nx>process</span><span class=p>.</span><span class=nx>pid</span><span class=si>}</span><span class=sb> started`</span><span class=p>);</span> 
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>Running Node.js will now share port 8000 between the
+workers:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>$ node server.js
+</span></span><span class=line><span class=cl>Primary 3596 is running
+</span></span><span class=line><span class=cl>Worker 4324 started
+</span></span><span class=line><span class=cl>Worker 4520 started
+</span></span><span class=line><span class=cl>Worker 6056 started
+</span></span><span class=line><span class=cl>Worker 5644 started
+</span></span></code></pre></div><p>Imagine a theater directing guests to different identical
+room to watch the same movie.</p><p>You can&rsquo;t share memory between primary process and child
+process. But you can still communicate through message
+channel.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>import</span> <span class=nx>cluster</span> <span class=nx>from</span> <span class=s1>&#39;node:cluster&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kr>import</span> <span class=nx>http</span> <span class=nx>from</span> <span class=s1>&#39;node:http&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kr>import</span> <span class=p>{</span> <span class=nx>availableParallelism</span> <span class=p>}</span> <span class=nx>from</span> <span class=s1>&#39;node:os&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=kr>import</span> <span class=nx>process</span> <span class=nx>from</span> <span class=s1>&#39;node:process&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=p>(</span><span class=nx>cluster</span><span class=p>.</span><span class=nx>isPrimary</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=c1>// Keep track of http requests let numReqs = 0;
+</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=nx>setInterval</span><span class=p>(()</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>console</span><span class=p>.</span><span class=nx>log</span><span class=p>(</span><span class=sb>`numReqs = </span><span class=si>${</span><span class=nx>numReqs</span><span class=si>}</span><span class=sb>`</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=p>},</span> <span class=mi>1000</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=c1>// Count requests
+</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=kd>function</span> <span class=nx>messageHandler</span><span class=p>(</span><span class=nx>msg</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=nx>msg</span><span class=p>.</span><span class=nx>cmd</span> <span class=o>&amp;&amp;</span> <span class=nx>msg</span><span class=p>.</span><span class=nx>cmd</span> <span class=o>===</span> <span class=s1>&#39;notifyRequest&#39;</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nx>numReqs</span> <span class=o>+=</span> <span class=mi>1</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=c1>// Start workers and listen for messages containing notifyRequest
+</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=kr>const</span> <span class=nx>numCPUs</span> <span class=o>=</span> <span class=nx>availableParallelism</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>  <span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;</span> <span class=nx>numCPUs</span><span class=p>;</span> <span class=nx>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>cluster</span><span class=p>.</span><span class=nx>fork</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=k>for</span> <span class=p>(</span><span class=kr>const</span> <span class=nx>id</span> <span class=k>in</span> <span class=nx>cluster</span><span class=p>.</span><span class=nx>workers</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>cluster</span><span class=p>.</span><span class=nx>workers</span><span class=p>[</span><span class=nx>id</span><span class=p>].</span><span class=nx>on</span><span class=p>(</span><span class=s1>&#39;message&#39;</span><span class=p>,</span> <span class=nx>messageHandler</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=p>}</span> <span class=k>else</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=c1>// Worker processes have a http
+</span></span></span><span class=line><span class=cl><span class=c1></span>  <span class=nx>server</span><span class=p>.</span> <span class=nx>http</span><span class=p>.</span><span class=nx>Server</span><span class=p>((</span><span class=nx>req</span><span class=p>,</span> <span class=nx>res</span><span class=p>)</span> <span class=p>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>res</span><span class=p>.</span><span class=nx>writeHead</span><span class=p>(</span><span class=mi>200</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>    <span class=nx>res</span><span class=p>.</span><span class=nx>end</span><span class=p>(</span><span class=s1>&#39;hello world\n&#39;</span><span class=p>);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1>// Notify primary about the request
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=nx>process</span><span class=p>.</span><span class=nx>send</span><span class=p>({</span> <span class=nx>cmd</span><span class=o>:</span> <span class=s1>&#39;notifyRequest&#39;</span> <span class=p>});</span>
+</span></span><span class=line><span class=cl>  <span class=p>}).</span><span class=nx>listen</span><span class=p>(</span><span class=mi>8000</span><span class=p>);</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><h2 id=worker_threads>worker_threads
+<a class=heading-link href=#worker_threads><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h2><blockquote><p>The <code>node:worker_threads</code> module enables the use of
+threads that execute JavaScript in parallel. To access
+it:</p></blockquote><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>import</span> <span class=nx>worker</span> <span class=nx>from</span> <span class=s1>&#39;node:worker_threads&#39;</span><span class=p>;</span>
+</span></span></code></pre></div><p>Workers (threads) are useful for performing CPU-intensive
+JavaScript operations. They do not help much with
+I/O-intensive work. The Node.js built-in asynchronous I/O
+operations are more efficient than Workers can be.</p><p>Unlike <code>child_process</code> or <code>cluster</code>, <code>worker_threads</code> can
+share memory. They do so by transferring <code>ArrayBuffer</code>
+instances or sharing <code>SharedArrayBuffer</code> instances.</p><p>Imagine when you buy tickets, some popcorn and drink, the
+accountant will print tickets, while the other employee
+will grab some popcorn, and an other pour drink into a cup,
+then they will give all those things to you.</p><h2 id=poolifier>poolifier
+<a class=heading-link href=#poolifier><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h2><p><code>poolifier</code> is a library that implement worker pool using
+<code>worker_threads</code> and <code>cluster</code>. It allows you to use fixed
+or dynamic worker pool without any complexity.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-ts data-lang=ts><span class=line><span class=cl><span class=c1>// worker.ts
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kr>import</span> <span class=kr>type</span> <span class=p>{</span> <span class=nx>Server</span> <span class=p>}</span> <span class=kr>from</span> <span class=s1>&#39;node:http&#39;</span>
+</span></span><span class=line><span class=cl><span class=kr>import</span> <span class=kr>type</span> <span class=p>{</span> <span class=nx>AddressInfo</span> <span class=p>}</span> <span class=kr>from</span> <span class=s1>&#39;node:net&#39;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>import</span> <span class=nx>express</span><span class=p>,</span> <span class=p>{</span> <span class=kr>type</span> <span class=nx>Express</span><span class=p>,</span> <span class=kr>type</span> <span class=nx>Request</span><span class=p>,</span> <span class=kr>type</span> <span class=nx>Response</span> <span class=p>}</span> <span class=kr>from</span> <span class=s1>&#39;express&#39;</span>
+</span></span><span class=line><span class=cl><span class=kr>import</span> <span class=p>{</span> <span class=nx>ClusterWorker</span> <span class=p>}</span> <span class=kr>from</span> <span class=s1>&#39;poolifier&#39;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>import</span> <span class=kr>type</span> <span class=p>{</span> <span class=nx>WorkerData</span><span class=p>,</span> <span class=nx>WorkerResponse</span> <span class=p>}</span> <span class=kr>from</span> <span class=s1>&#39;./types.js&#39;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>class</span> <span class=nx>ExpressWorker</span> <span class=kr>extends</span> <span class=nx>ClusterWorker</span><span class=p>&lt;</span><span class=nt>WorkerData</span><span class=p>,</span> <span class=na>WorkerResponse</span><span class=p>&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kr>private</span> <span class=kr>static</span> <span class=nx>server</span>: <span class=kt>Server</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=kr>public</span> <span class=kr>constructor</span> <span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=kr>super</span><span class=p>(</span><span class=nx>ExpressWorker</span><span class=p>.</span><span class=nx>startExpress</span><span class=p>,</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nx>killHandler</span><span class=o>:</span> <span class=p>()</span> <span class=o>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nx>ExpressWorker</span><span class=p>.</span><span class=nx>server</span><span class=p>.</span><span class=nx>close</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>      <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=p>})</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=kr>private</span> <span class=kr>static</span> <span class=kr>readonly</span> <span class=nx>factorial</span> <span class=o>=</span> <span class=p>(</span><span class=nx>n</span>: <span class=kt>bigint</span> <span class=o>|</span> <span class=kt>number</span><span class=p>)</span><span class=o>:</span> <span class=kt>bigint</span> <span class=o>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=k>if</span> <span class=p>(</span><span class=nx>n</span> <span class=o>===</span> <span class=mi>0</span> <span class=o>||</span> <span class=nx>n</span> <span class=o>===</span> <span class=mi>1</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=k>return</span> <span class=mi>1</span><span class=nx>n</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=nx>n</span> <span class=o>=</span> <span class=nx>BigInt</span><span class=p>(</span><span class=nx>n</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=kd>let</span> <span class=nx>factorial</span> <span class=o>=</span> <span class=mi>1</span><span class=nx>n</span>
+</span></span><span class=line><span class=cl>    <span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=mi>1</span><span class=nx>n</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;=</span> <span class=nx>n</span><span class=p>;</span> <span class=nx>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nx>factorial</span> <span class=o>*=</span> <span class=nx>i</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=nx>factorial</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>  <span class=kr>private</span> <span class=kr>static</span> <span class=kr>readonly</span> <span class=nx>startExpress</span> <span class=o>=</span> <span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=nx>workerData?</span>: <span class=kt>WorkerData</span>
+</span></span><span class=line><span class=cl>  <span class=p>)</span><span class=o>:</span> <span class=nx>WorkerResponse</span> <span class=o>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=c1>// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=kr>const</span> <span class=p>{</span> <span class=nx>port</span> <span class=p>}</span> <span class=o>=</span> <span class=nx>workerData</span><span class=o>!</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kr>const</span> <span class=nx>application</span>: <span class=kt>Express</span> <span class=o>=</span> <span class=nx>express</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=c1>// Parse only JSON requests body
+</span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=nx>application</span><span class=p>.</span><span class=nx>use</span><span class=p>(</span><span class=nx>express</span><span class=p>.</span><span class=nx>json</span><span class=p>())</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nx>application</span><span class=p>.</span><span class=nx>all</span><span class=p>(</span><span class=s1>&#39;/api/echo&#39;</span><span class=p>,</span> <span class=p>(</span><span class=nx>req</span>: <span class=kt>Request</span><span class=p>,</span> <span class=nx>res</span>: <span class=kt>Response</span><span class=p>)</span> <span class=o>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nx>res</span><span class=p>.</span><span class=nx>send</span><span class=p>(</span><span class=nx>req</span><span class=p>.</span><span class=nx>body</span><span class=p>).</span><span class=nx>end</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=p>})</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nx>application</span><span class=p>.</span><span class=kr>get</span><span class=p>(</span><span class=s1>&#39;/api/factorial/:number&#39;</span><span class=p>,</span> <span class=p>(</span><span class=nx>req</span>: <span class=kt>Request</span><span class=p>,</span> <span class=nx>res</span>: <span class=kt>Response</span><span class=p>)</span> <span class=o>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=kr>const</span> <span class=p>{</span> <span class=kt>number</span> <span class=p>}</span> <span class=o>=</span> <span class=nx>req</span><span class=p>.</span><span class=nx>params</span>
+</span></span><span class=line><span class=cl>      <span class=nx>res</span>
+</span></span><span class=line><span class=cl>        <span class=p>.</span><span class=nx>send</span><span class=p>({</span>
+</span></span><span class=line><span class=cl>          <span class=kt>number</span><span class=o>:</span> <span class=nx>ExpressWorker</span><span class=p>.</span><span class=nx>factorial</span><span class=p>(</span><span class=nb>Number</span><span class=p>.</span><span class=nb>parseInt</span><span class=p>(</span><span class=kt>number</span><span class=p>)).</span><span class=nx>toString</span><span class=p>(),</span>
+</span></span><span class=line><span class=cl>        <span class=p>})</span>
+</span></span><span class=line><span class=cl>        <span class=p>.</span><span class=nx>end</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>    <span class=p>})</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=kd>let</span> <span class=nx>listenerPort</span>: <span class=kt>number</span> <span class=o>|</span> <span class=kc>undefined</span>
+</span></span><span class=line><span class=cl>    <span class=nx>ExpressWorker</span><span class=p>.</span><span class=nx>server</span> <span class=o>=</span> <span class=nx>application</span><span class=p>.</span><span class=nx>listen</span><span class=p>(</span><span class=nx>port</span><span class=p>,</span> <span class=p>()</span> <span class=o>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nx>listenerPort</span> <span class=o>=</span> <span class=p>(</span><span class=nx>ExpressWorker</span><span class=p>.</span><span class=nx>server</span><span class=p>.</span><span class=nx>address</span><span class=p>()</span> <span class=kr>as</span> <span class=nx>AddressInfo</span><span class=p>).</span><span class=nx>port</span>
+</span></span><span class=line><span class=cl>      <span class=nx>console</span><span class=p>.</span><span class=nx>info</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>        <span class=sb>`⚡️[express server]: Express server is started in cluster worker at http://localhost:</span><span class=si>${</span><span class=nx>listenerPort</span><span class=p>.</span><span class=nx>toString</span><span class=p>()</span><span class=si>}</span><span class=sb>/`</span>
+</span></span><span class=line><span class=cl>      <span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>})</span>
+</span></span><span class=line><span class=cl>    <span class=k>return</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nx>port</span>: <span class=kt>listenerPort</span> <span class=o>??</span> <span class=nx>port</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=nx>status</span>: <span class=kt>true</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>export</span> <span class=kr>const</span> <span class=nx>expressWorker</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>ExpressWorker</span><span class=p>()</span>
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-ts data-lang=ts><span class=line><span class=cl><span class=c1>// server.ts
+</span></span></span><span class=line><span class=cl><span class=c1></span><span class=kr>import</span> <span class=p>{</span> <span class=nx>dirname</span><span class=p>,</span> <span class=nx>extname</span><span class=p>,</span> <span class=nx>join</span> <span class=p>}</span> <span class=kr>from</span> <span class=s1>&#39;node:path&#39;</span>
+</span></span><span class=line><span class=cl><span class=kr>import</span> <span class=p>{</span> <span class=nx>fileURLToPath</span> <span class=p>}</span> <span class=kr>from</span> <span class=s1>&#39;node:url&#39;</span>
+</span></span><span class=line><span class=cl><span class=kr>import</span> <span class=p>{</span> <span class=nx>availableParallelism</span><span class=p>,</span> <span class=nx>FixedClusterPool</span> <span class=p>}</span> <span class=kr>from</span> <span class=s1>&#39;poolifier&#39;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>import</span> <span class=kr>type</span> <span class=p>{</span> <span class=nx>WorkerData</span><span class=p>,</span> <span class=nx>WorkerResponse</span> <span class=p>}</span> <span class=kr>from</span> <span class=s1>&#39;./types.js&#39;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>workerFile</span> <span class=o>=</span> <span class=nx>join</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>  <span class=nx>dirname</span><span class=p>(</span><span class=nx>fileURLToPath</span><span class=p>(</span><span class=kr>import</span><span class=p>.</span><span class=nx>meta</span><span class=p>.</span><span class=nx>url</span><span class=p>)),</span>
+</span></span><span class=line><span class=cl>  <span class=sb>`worker</span><span class=si>${</span><span class=nx>extname</span><span class=p>(</span><span class=nx>fileURLToPath</span><span class=p>(</span><span class=kr>import</span><span class=p>.</span><span class=nx>meta</span><span class=p>.</span><span class=nx>url</span><span class=p>))</span><span class=si>}</span><span class=sb>`</span>
+</span></span><span class=line><span class=cl><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>const</span> <span class=nx>pool</span> <span class=o>=</span> <span class=k>new</span> <span class=nx>FixedClusterPool</span><span class=p>&lt;</span><span class=nt>WorkerData</span><span class=p>,</span> <span class=na>WorkerResponse</span><span class=p>&gt;(</span>
+</span></span><span class=line><span class=cl>  <span class=nx>availableParallelism</span><span class=p>(),</span>
+</span></span><span class=line><span class=cl>  <span class=nx>workerFile</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>  <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>enableEvents</span>: <span class=kt>false</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=nx>errorHandler</span><span class=o>:</span> <span class=p>(</span><span class=nx>e</span>: <span class=kt>Error</span><span class=p>)</span> <span class=o>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nx>console</span><span class=p>.</span><span class=nx>error</span><span class=p>(</span><span class=s1>&#39;Cluster worker error:&#39;</span><span class=p>,</span> <span class=nx>e</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=nx>onlineHandler</span><span class=o>:</span> <span class=p>()</span> <span class=o>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nx>pool</span>
+</span></span><span class=line><span class=cl>        <span class=p>.</span><span class=nx>execute</span><span class=p>({</span> <span class=nx>port</span>: <span class=kt>8080</span> <span class=p>})</span>
+</span></span><span class=line><span class=cl>        <span class=p>.</span><span class=nx>then</span><span class=p>(</span><span class=nx>response</span> <span class=o>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>          <span class=k>if</span> <span class=p>(</span><span class=nx>response</span><span class=p>.</span><span class=nx>status</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nx>console</span><span class=p>.</span><span class=nx>info</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>              <span class=sb>`Express is listening in cluster worker on port </span><span class=si>${</span><span class=nx>response</span><span class=p>.</span><span class=nx>port</span><span class=o>?</span><span class=p>.</span><span class=nx>toString</span><span class=p>()</span><span class=si>}</span><span class=sb>`</span>
+</span></span><span class=line><span class=cl>            <span class=p>)</span>
+</span></span><span class=line><span class=cl>          <span class=p>}</span>
+</span></span><span class=line><span class=cl>          <span class=k>return</span> <span class=kc>undefined</span>
+</span></span><span class=line><span class=cl>        <span class=p>})</span>
+</span></span><span class=line><span class=cl>        <span class=p>.</span><span class=k>catch</span><span class=p>((</span><span class=nx>error</span>: <span class=kt>unknown</span><span class=p>)</span> <span class=o>=&gt;</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>          <span class=nx>console</span><span class=p>.</span><span class=nx>error</span><span class=p>(</span><span class=s1>&#39;Express failed to start in cluster worker:&#39;</span><span class=p>,</span> <span class=nx>error</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>        <span class=p>})</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>)</span>
+</span></span></code></pre></div><h2 id=do-believe-me-i-lied>Do believe me, I lied
+<a class=heading-link href=#do-believe-me-i-lied><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h2><p>Even if it sounds convincing, don&rsquo;t take any of my words as truth.
+Instead, do your own research and experiment to find out the result.</p><p>I have made some <a href=./perf/perf.zip>simple performance tests</a> but you can do it by yourself
+quite easily.</p><h3 id=for-simple-hello-world-node-http-server>For simple Hello World! node http server
+<a class=heading-link href=#for-simple-hello-world-node-http-server><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>$ wrk -t 10 -c 100 -d 60 http://localhost:8000  # this is single process server
+</span></span><span class=line><span class=cl>Running 1m test @ http://localhost:8000
+</span></span><span class=line><span class=cl>  10 threads and 100 connections
+</span></span><span class=line><span class=cl>  Thread Stats   Avg      Stdev     Max   +/- Stdev
+</span></span><span class=line><span class=cl>    Latency     1.30ms    1.28ms 110.13ms   99.70%
+</span></span><span class=line><span class=cl>    Req/Sec     7.89k   338.74     8.55k    88.29%
+</span></span><span class=line><span class=cl>  4721090 requests in 1.00m, 688.86MB read
+</span></span><span class=line><span class=cl>Requests/sec:  78551.96
+</span></span><span class=line><span class=cl>Transfer/sec:     11.46MB
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>$ wrk -t 10 -c 100 -d 60 http://localhost:8001  # this is cluster with 8 child_process
+</span></span><span class=line><span class=cl>Running 1m test @ http://localhost:8001
+</span></span><span class=line><span class=cl>  10 threads and 100 connections
+</span></span><span class=line><span class=cl>  Thread Stats   Avg      Stdev     Max   +/- Stdev
+</span></span><span class=line><span class=cl>    Latency     2.38ms    5.62ms 126.62ms   92.84%
+</span></span><span class=line><span class=cl>    Req/Sec    10.05k     1.11k   19.48k    75.45%
+</span></span><span class=line><span class=cl>  6007714 requests in 1.00m, 0.86GB read
+</span></span><span class=line><span class=cl>Requests/sec:  99956.59
+</span></span><span class=line><span class=cl>Transfer/sec:     14.58MB
+</span></span></code></pre></div><p>Looking at the stats, we only gain 1.27x more requests/sec, but 1.8x latency
+with 8 extra CPUs 🤔
+In this test, the server only take the request and response with <code>Hello World!</code>
+text, therefore Node.js built-in asynchronous I/O operations handle this kind
+of work much better than spawning bunch of clusters.
+Of course, in real world, we don&rsquo;t have such simple <code>Hello World!</code> so
+this is not surprising.</p><p>The cluster mode shines when we need to do CPU intensive tasks. So we need to
+simulate one to see the difference.</p><p>Our <code>task</code> function will have to run through 1 million iterations loop.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>async</span> <span class=kd>function</span> <span class=nx>task</span><span class=p>()</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=kd>let</span> <span class=nx>x</span> <span class=o>=</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>random</span><span class=p>();</span>
+</span></span><span class=line><span class=cl>  <span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;</span> <span class=mi>1000_000</span><span class=p>;</span> <span class=nx>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=nx>x</span> <span class=o>=</span> <span class=nx>x</span> <span class=o>+</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>random</span><span class=p>()</span> <span class=o>*</span> <span class=nx>i</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=k>return</span> <span class=nx>x</span><span class=p>;</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>export</span> <span class=k>default</span> <span class=nx>task</span><span class=p>;</span>
+</span></span></code></pre></div><p>And don&rsquo;t get me wrong when I use <code>async</code> for <code>non-async</code> code.
+In reality, we often see <code>async</code> function handle complex logic.
+Those functions have hidden cost if we just look at where
+they are called think we can get away without performance issue.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>wrk -t 10 -c 100 -d 60 --timeout 1s http://127.0.0.1:8000
+</span></span><span class=line><span class=cl>Running 1m test @ http://127.0.0.1:8000
+</span></span><span class=line><span class=cl>  10 threads and 100 connections
+</span></span><span class=line><span class=cl>  Thread Stats   Avg      Stdev     Max   +/- Stdev
+</span></span><span class=line><span class=cl>    Latency   515.43ms  146.44ms 985.61ms   82.31%
+</span></span><span class=line><span class=cl>    Req/Sec    24.89     17.68   130.00     67.89%
+</span></span><span class=line><span class=cl>  9545 requests in 1.00m, 1.58MB read
+</span></span><span class=line><span class=cl>  Socket errors: connect 0, read 0, write 0, timeout 141
+</span></span><span class=line><span class=cl>Requests/sec:    158.81
+</span></span><span class=line><span class=cl>Transfer/sec:     26.93KB
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>wrk -t 10 -c 100 -d 60 --timeout 1s http://127.0.0.1:8001
+</span></span><span class=line><span class=cl>Running 1m test @ http://127.0.0.1:8001
+</span></span><span class=line><span class=cl>  10 threads and 100 connections
+</span></span><span class=line><span class=cl>  Thread Stats   Avg      Stdev     Max   +/- Stdev
+</span></span><span class=line><span class=cl>    Latency   132.52ms   42.04ms 981.30ms   92.05%
+</span></span><span class=line><span class=cl>    Req/Sec    76.52     18.18   343.00     74.20%
+</span></span><span class=line><span class=cl>  45640 requests in 1.00m, 7.56MB read
+</span></span><span class=line><span class=cl>Requests/sec:    759.42
+</span></span><span class=line><span class=cl>Transfer/sec:    128.79KB
+</span></span></code></pre></div><p>In this test, I add a <code>--timeout</code> option to see how many slow requests
+happen. In our single process server, 141 requests got timed out. Avg
+latency is much higher, requests/sec is much lower compare to the
+server with multiple clusters.</p><p>So I hope you can run your experiment and have your own conclusion.</p></div><footer></footer></article></section></div><footer class=footer><section class=container>©
+2021 -
+2025
+Sy Tran
+·
+Powered by <a href=https://gohugo.io/>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.</section></footer></main><script src=/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script></body></html>

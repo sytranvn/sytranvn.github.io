@@ -1,0 +1,21 @@
+{
+  "name": "perf",
+  "version": "1.0.0",
+  "description": "Test",
+  "type": "module",
+  "main": "express.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodejs",
+    "cluster",
+    "child_process",
+    "worker"
+  ],
+  "author": "Sy Tran Dung",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
