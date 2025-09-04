@@ -1,12 +1,9 @@
-<!doctype html><html lang=en><head><title>Speed Up Your Nodejs Server · sytranvn.dev</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=color-scheme content="light dark"><meta name=author content="Sy Tran"><meta name=description content="We will
-leverage Node.js worker threads and cluster modules to
+<!doctype html><html lang=en><head><title>Speed Up Your Nodejs Server · sytranvn.dev</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=color-scheme content="light dark"><meta name=author content="Sy Tran"><meta name=description content="We will leverage Node.js worker threads and cluster modules to
 parallelize CPU-bound tasks, improving application
 performance by utilizing multiple cores efficiently. 
-"><meta name=keywords content="blog,developer,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="Speed Up Your Nodejs Server"><meta name=twitter:description content="We will
-leverage Node.js worker threads and cluster modules to
+"><meta name=keywords content="blog,developer,personal"><meta name=twitter:card content="summary"><meta name=twitter:title content="Speed Up Your Nodejs Server"><meta name=twitter:description content="We will leverage Node.js worker threads and cluster modules to
 parallelize CPU-bound tasks, improving application
-performance by utilizing multiple cores efficiently."><meta property="og:url" content="https://sytranvn.dev/posts/speed-up-your-nodejs-server/"><meta property="og:site_name" content="sytranvn.dev"><meta property="og:title" content="Speed Up Your Nodejs Server"><meta property="og:description" content="We will
-leverage Node.js worker threads and cluster modules to
+performance by utilizing multiple cores efficiently."><meta property="og:url" content="https://sytranvn.dev/posts/speed-up-your-nodejs-server/"><meta property="og:site_name" content="sytranvn.dev"><meta property="og:title" content="Speed Up Your Nodejs Server"><meta property="og:description" content="We will leverage Node.js worker threads and cluster modules to
 parallelize CPU-bound tasks, improving application
 performance by utilizing multiple cores efficiently."><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2025-08-31T10:40:40+07:00"><meta property="article:modified_time" content="2025-08-31T10:40:40+07:00"><meta property="article:tag" content="Nodejs"><link rel=canonical href=https://sytranvn.dev/posts/speed-up-your-nodejs-server/><link rel=preload href=/fonts/fa-brands-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/fa-regular-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/fa-solid-900.woff2 as=font type=font/woff2 crossorigin><link rel=stylesheet href=/css/coder.min.ebdf1a5dca6a69142e979b32668c69f2a95448b145a168104c5808b14d2b75b0.css integrity="sha256-698aXcpqaRQul5syZoxp8qlUSLFFoWgQTFgIsU0rdbA=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/custom.min.14b400827539da755b0d46f2e69147089c47acc5e169eaa464caf99e0bc9fd38.css integrity="sha256-FLQAgnU52nVbDUby5pFHCJxHrMXhaeqkZMr5ngvJ/Tg=" crossorigin=anonymous media=screen><link rel=icon type=image/svg+xml href=/images/favicon.svg sizes=any><link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16><link rel=apple-touch-icon href=/images/apple-touch-icon.png><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/images/safari-pinned-tab.svg color=#5bbad5></head><body class="preload-transitions colorscheme-auto"><div class=float-container><a id=dark-mode-toggle class=colorscheme-toggle><i class="fa-solid fa-adjust fa-fw" aria-hidden=true></i></a></div><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=https://sytranvn.dev/>sytranvn.dev
 </a><input type=checkbox id=menu-toggle>
@@ -17,8 +14,7 @@ performance by utilizing multiple cores efficiently."><meta property="og:locale"
 <a href=/categories/nodejs/>Nodejs</a>
 <span class=separator>•</span>
 <a href=/categories/performance/>Performance</a></div><div class=tags><i class="fa-solid fa-tag" aria-hidden=true></i>
-<span class=tag><a href=/tags/nodejs/>Nodejs</a></span></div></div><script id=diffblog-plugin-script async src=https://diff.blog/static/js/diffblog_plugin_v1.js></script><script>document.getElementById("diffblog-plugin-script").addEventListener("load",function(){DiffBlog("4at5qx7n0j5yhd86rqu6gyotkgn4o17hu8wn6xis54lwd692ez")})</script></header><div class=post-content>We will
-leverage Node.js worker threads and cluster modules to
+<span class=tag><a href=/tags/nodejs/>Nodejs</a></span></div></div><script id=diffblog-plugin-script async src=https://diff.blog/static/js/diffblog_plugin_v1.js></script><script>document.getElementById("diffblog-plugin-script").addEventListener("load",function(){DiffBlog("4at5qx7n0j5yhd86rqu6gyotkgn4o17hu8wn6xis54lwd692ez")})</script></header><div class=post-content>We will leverage Node.js worker threads and cluster modules to
 parallelize CPU-bound tasks, improving application
 performance by utilizing multiple cores efficiently.<p>First of all, we are trying to improve Node.js servers use
 CPU-intensive JavaScript operations. The Node.js built-in
@@ -48,7 +44,8 @@ provided by the <code>child_process.spawn()</code> function:</p></blockquote><di
 </span></span><span class=line><span class=cl><span class=p>});</span>
 </span></span></code></pre></div><p>It allows you to execute external commands or running a
 Node.js script (with <code>fork()</code>).</p><p>Imagine a movie theater sells drinks, popcorn and gifts
-from other vendors.</p><h2 id=cluster>cluster
+from other vendors.</p><div class="notice tip"><div class=notice-title><i class="fa-solid fa-lightbulb" aria-hidden=true></i>Tip</div><div class=notice-content>So <code>child_process</code> will be useful when we need to call external
+process, or a CPU-intensive script from current process.</div></div><h2 id=cluster>cluster
 <a class=heading-link href=#cluster><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
 <span class=sr-only>Link to heading</span></a></h2><blockquote><p>Clusters of Node.js processes can be used to run multiple
 instances of Node.js that can distribute workloads among
@@ -94,7 +91,7 @@ workers:</p><div class=highlight><pre tabindex=0 class=chroma><code class=langua
 </span></span><span class=line><span class=cl>Worker 4520 started
 </span></span><span class=line><span class=cl>Worker 6056 started
 </span></span><span class=line><span class=cl>Worker 5644 started
-</span></span></code></pre></div><p>Imagine a theater directing guests to different identical
+</span></span></code></pre></div><p>Imagine a theater directs guests to different identical
 room to watch the same movie.</p><p>You can&rsquo;t share memory between primary process and child
 process. But you can still communicate through message
 channel.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>import</span> <span class=nx>cluster</span> <span class=nx>from</span> <span class=s1>&#39;node:cluster&#39;</span><span class=p>;</span>
@@ -137,24 +134,25 @@ channel.</p><div class=highlight><pre tabindex=0 class=chroma><code class=langua
 </span></span></span><span class=line><span class=cl><span class=c1></span>    <span class=nx>process</span><span class=p>.</span><span class=nx>send</span><span class=p>({</span> <span class=nx>cmd</span><span class=o>:</span> <span class=s1>&#39;notifyRequest&#39;</span> <span class=p>});</span>
 </span></span><span class=line><span class=cl>  <span class=p>}).</span><span class=nx>listen</span><span class=p>(</span><span class=mi>8000</span><span class=p>);</span>
 </span></span><span class=line><span class=cl><span class=p>}</span>
-</span></span></code></pre></div><h2 id=worker_threads>worker_threads
+</span></span></code></pre></div><div class="notice tip"><div class=notice-title><i class="fa-solid fa-lightbulb" aria-hidden=true></i>Tip</div><div class=notice-content>This is useful when you have some CPU intensive API or service to utilize
+all available cores.</div></div><h2 id=worker_threads>worker_threads
 <a class=heading-link href=#worker_threads><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h2><blockquote><p>The <code>node:worker_threads</code> module enables the use of
-threads that execute JavaScript in parallel. To access
-it:</p></blockquote><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>import</span> <span class=nx>worker</span> <span class=nx>from</span> <span class=s1>&#39;node:worker_threads&#39;</span><span class=p>;</span>
-</span></span></code></pre></div><p>Workers (threads) are useful for performing CPU-intensive
+<span class=sr-only>Link to heading</span></a></h2><div class="notice info"><div class=notice-title><i class="fa-solid fa-exclamation-circle" aria-hidden=true></i>Info</div><div class=notice-content>The <code>node:worker_threads</code> module enables the use of
+threads that execute JavaScript in parallel.</div></div><p>To access it:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>import</span> <span class=nx>worker</span> <span class=nx>from</span> <span class=s1>&#39;node:worker_threads&#39;</span><span class=p>;</span>
+</span></span></code></pre></div><div class="notice note"><div class=notice-title><i class="fa-solid fa-sticky-note" aria-hidden=true></i>Note</div><div class=notice-content>Workers (threads) are useful for performing CPU-intensive
 JavaScript operations. They do not help much with
 I/O-intensive work. The Node.js built-in asynchronous I/O
-operations are more efficient than Workers can be.</p><p>Unlike <code>child_process</code> or <code>cluster</code>, <code>worker_threads</code> can
+operations are more efficient than Workers can be.</div></div><p>Unlike <code>child_process</code> or <code>cluster</code>, <code>worker_threads</code> can
 share memory. They do so by transferring <code>ArrayBuffer</code>
 instances or sharing <code>SharedArrayBuffer</code> instances.</p><p>Imagine when you buy tickets, some popcorn and drink, the
 accountant will print tickets, while the other employee
-will grab some popcorn, and an other pour drink into a cup,
-then they will give all those things to you.</p><h2 id=poolifier>poolifier
+will grab some popcorn, and an other will pour drink into a cup.
+Then they will give all those things to you.</p><div class="notice tip"><div class=notice-title><i class="fa-solid fa-lightbulb" aria-hidden=true></i>Tip</div><div class=notice-content>This is useful when you have some logic inside a specific task need
+parallelization and not I/O bound.</div></div><h2 id=poolifier>poolifier
 <a class=heading-link href=#poolifier><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h2><p><code>poolifier</code> is a library that implement worker pool using
+<span class=sr-only>Link to heading</span></a></h2><blockquote><p><code>poolifier</code> is a library that implement worker pool using
 <code>worker_threads</code> and <code>cluster</code>. It allows you to use fixed
-or dynamic worker pool without any complexity.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-ts data-lang=ts><span class=line><span class=cl><span class=c1>// worker.ts
+or dynamic worker pool without any complexity.</p></blockquote><div class=highlight><pre tabindex=0 class=chroma><code class=language-ts data-lang=ts><span class=line><span class=cl><span class=c1>// worker.ts
 </span></span></span><span class=line><span class=cl><span class=c1></span><span class=kr>import</span> <span class=kr>type</span> <span class=p>{</span> <span class=nx>Server</span> <span class=p>}</span> <span class=kr>from</span> <span class=s1>&#39;node:http&#39;</span>
 </span></span><span class=line><span class=cl><span class=kr>import</span> <span class=kr>type</span> <span class=p>{</span> <span class=nx>AddressInfo</span> <span class=p>}</span> <span class=kr>from</span> <span class=s1>&#39;node:net&#39;</span>
 </span></span><span class=line><span class=cl>
@@ -262,11 +260,11 @@ or dynamic worker pool without any complexity.</p><div class=highlight><pre tabi
 </span></span><span class=line><span class=cl>    <span class=p>},</span>
 </span></span><span class=line><span class=cl>  <span class=p>}</span>
 </span></span><span class=line><span class=cl><span class=p>)</span>
-</span></span></code></pre></div><h2 id=do-believe-me-i-lied>Do believe me, I lied
-<a class=heading-link href=#do-believe-me-i-lied><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h2><p>Even if it sounds convincing, don&rsquo;t take any of my words as truth.
-Instead, do your own research and experiment to find out the result.</p><p>I have made some <a href=./perf/perf.zip>simple performance tests</a> but you can do it by yourself
-quite easily.</p><h3 id=for-simple-hello-world-node-http-server>For simple Hello World! node http server
+</span></span></code></pre></div><h2 id=dont-believe-me>Don&rsquo;t believe me
+<a class=heading-link href=#dont-believe-me><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h2><div class="notice warning"><div class=notice-title><i class="fa-solid fa-exclamation-triangle" aria-hidden=true></i>Warning</div><div class=notice-content><p>I lied</p><p>Even if it sounds convincing, don&rsquo;t take any of my words as truth.
+Instead, do your own research and experiment to find out the result.</p></div></div><p>I have made some <a href=./perf/perf.zip>simple performance tests</a> but you can create your
+own quite easily.</p><h3 id=for-simple-hello-world-node-http-server>For simple Hello World! node http server
 <a class=heading-link href=#for-simple-hello-world-node-http-server><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
 <span class=sr-only>Link to heading</span></a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>$ wrk -t 10 -c 100 -d 60 http://localhost:8000  # this is single process server
 </span></span><span class=line><span class=cl>Running 1m test @ http://localhost:8000
@@ -294,7 +292,9 @@ text, therefore Node.js built-in asynchronous I/O operations handle this kind
 of work much better than spawning bunch of clusters.
 Of course, in real world, we don&rsquo;t have such simple <code>Hello World!</code> so
 this is not surprising.</p><p>The cluster mode shines when we need to do CPU intensive tasks. So we need to
-simulate one to see the difference.</p><p>Our <code>task</code> function will have to run through 1 million iterations loop.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>async</span> <span class=kd>function</span> <span class=nx>task</span><span class=p>()</span> <span class=p>{</span>
+simulate one to see the difference.</p><h3 id=cpu-bound-task>CPU-bound task
+<a class=heading-link href=#cpu-bound-task><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h3><p>Our <code>task</code> function will have to run through 1 million iterations loop.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=kr>async</span> <span class=kd>function</span> <span class=nx>task</span><span class=p>()</span> <span class=p>{</span>
 </span></span><span class=line><span class=cl>  <span class=kd>let</span> <span class=nx>x</span> <span class=o>=</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>random</span><span class=p>();</span>
 </span></span><span class=line><span class=cl>  <span class=k>for</span> <span class=p>(</span><span class=kd>let</span> <span class=nx>i</span> <span class=o>=</span> <span class=mi>0</span><span class=p>;</span> <span class=nx>i</span> <span class=o>&lt;</span> <span class=mi>1000_000</span><span class=p>;</span> <span class=nx>i</span><span class=o>++</span><span class=p>)</span> <span class=p>{</span>
 </span></span><span class=line><span class=cl>    <span class=nx>x</span> <span class=o>=</span> <span class=nx>x</span> <span class=o>+</span> <span class=nb>Math</span><span class=p>.</span><span class=nx>random</span><span class=p>()</span> <span class=o>*</span> <span class=nx>i</span><span class=p>;</span>
@@ -303,10 +303,11 @@ simulate one to see the difference.</p><p>Our <code>task</code> function will ha
 </span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=kr>export</span> <span class=k>default</span> <span class=nx>task</span><span class=p>;</span>
-</span></span></code></pre></div><p>And don&rsquo;t get me wrong when I use <code>async</code> for <code>non-async</code> code.
+</span></span></code></pre></div><blockquote><p>[!TIP]
+<code>node:crypto</code> module often handles CPU-intensive tasks.</p></blockquote><p>And don&rsquo;t get me wrong when I use <code>async</code> for <code>non-async</code> code.
 In reality, we often see <code>async</code> function handle complex logic.
 Those functions have hidden cost if we just look at where
-they are called think we can get away without performance issue.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>wrk -t 10 -c 100 -d 60 --timeout 1s http://127.0.0.1:8000
+they are called thinking we can get away without performance issue.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-fallback data-lang=fallback><span class=line><span class=cl>wrk -t 10 -c 100 -d 60 --timeout 1s http://127.0.0.1:8000
 </span></span><span class=line><span class=cl>Running 1m test @ http://127.0.0.1:8000
 </span></span><span class=line><span class=cl>  10 threads and 100 connections
 </span></span><span class=line><span class=cl>  Thread Stats   Avg      Stdev     Max   +/- Stdev
@@ -326,10 +327,11 @@ they are called think we can get away without performance issue.</p><div class=h
 </span></span><span class=line><span class=cl>  45640 requests in 1.00m, 7.56MB read
 </span></span><span class=line><span class=cl>Requests/sec:    759.42
 </span></span><span class=line><span class=cl>Transfer/sec:    128.79KB
-</span></span></code></pre></div><p>In this test, I add a <code>--timeout</code> option to see how many slow requests
+</span></span></code></pre></div><p>In this test, I add a <code>--timeout 1s</code> option to see how many slow requests
 happen. In our single process server, 141 requests got timed out. Avg
 latency is much higher, requests/sec is much lower compare to the
-server with multiple clusters.</p><p>So I hope you can run your experiment and have your own conclusion.</p></div><footer></footer></article></section></div><footer class=footer><section class=container>©
+server with multiple clusters.</p><p>Again, don&rsquo;t take any numbers in this blog post as your conclusion. I cooked
+them to look nice. I hope you can run your experiment and have your own conclusion.</p></div><footer></footer></article></section></div><footer class=footer><section class=container>©
 2021 -
 2025
 Sy Tran
