@@ -1,4 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>sytranvn.dev</title><link>https://sytranvn.dev/</link><description>Recent content on sytranvn.dev</description><generator>Hugo</generator><language>en</language><lastBuildDate>Sun, 31 Aug 2025 10:40:40 +0700</lastBuildDate><atom:link href="https://sytranvn.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Speed Up Your Nodejs Server</title><link>https://sytranvn.dev/posts/speed-up-your-nodejs-server/</link><pubDate>Sun, 31 Aug 2025 10:40:40 +0700</pubDate><guid>https://sytranvn.dev/posts/speed-up-your-nodejs-server/</guid><description>&lt;p>First of all, we are trying to improve Node.js servers use
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>sytranvn.dev</title><link>https://sytranvn.dev/</link><description>Recent content on sytranvn.dev</description><generator>Hugo</generator><language>en</language><lastBuildDate>Sun, 28 Sep 2025 00:17:34 +0000</lastBuildDate><atom:link href="https://sytranvn.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>This quote is so good I have to keep it here.</title><link>https://sytranvn.dev/posts/ai-quote-so-good-that-i-have-to-keep-it-here/</link><pubDate>Sun, 28 Sep 2025 00:17:34 +0000</pubDate><guid>https://sytranvn.dev/posts/ai-quote-so-good-that-i-have-to-keep-it-here/</guid><description>&lt;blockquote>
+&lt;p>A big issue will become corruption. If you really could just get information
+from anywhere and bring it into your central mind, you could become more and
+more powerful. And it&amp;rsquo;s all digital and they all speak some internal digital
+language. Maybe it&amp;rsquo;ll be easy and possible. But it might not be as easy as you
+imagine because you can lose your mind this way. If you pull in something from
+the outside and build it into your internal thinking, it could take over you,
+it could change you, it could be your destruction rather than your increment in
+knowledge.&lt;/p></description></item><item><title>Speed Up Your Nodejs Server</title><link>https://sytranvn.dev/posts/speed-up-your-nodejs-server/</link><pubDate>Sun, 31 Aug 2025 10:40:40 +0700</pubDate><guid>https://sytranvn.dev/posts/speed-up-your-nodejs-server/</guid><description>&lt;p>First of all, we are trying to improve Node.js servers use
 CPU-intensive JavaScript operations. The Node.js built-in
 asynchronous I/O operations are more efficient than Workers
 or Child Processes can be.&lt;/p>
