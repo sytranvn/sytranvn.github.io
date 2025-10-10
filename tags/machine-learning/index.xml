@@ -1,42 +1,42 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Machine Learning on sytranvn.dev</title><link>https://sytranvn.dev/tags/machine-learning/</link><description>Recent content in Machine Learning on sytranvn.dev</description><generator>Hugo</generator><language>en</language><lastBuildDate>Sat, 18 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://sytranvn.dev/tags/machine-learning/index.xml" rel="self" type="application/rss+xml"/><item><title>Deploy ML model to Javascripts</title><link>https://sytranvn.dev/posts/deploy-ml-model-to-javascripts/</link><pubDate>Sat, 18 Jun 2022 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/deploy-ml-model-to-javascripts/</guid><description>&lt;p>Deploy trained model using Octave or Tensorflow to JS application.&lt;/p>
-&lt;h2 id="the-idea">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Machine Learning on sytranvn.dev</title><link>https://sytranvn.dev/tags/machine-learning/</link><description>Recent content in Machine Learning on sytranvn.dev</description><generator>Hugo</generator><language>en</language><lastBuildDate>Sat, 18 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://sytranvn.dev/tags/machine-learning/index.xml" rel="self" type="application/rss+xml"/><item><title>Deploy ML model to Javascripts</title><link>https://sytranvn.dev/posts/deploy-ml-model-to-javascripts/</link><pubDate>Sat, 18 Jun 2022 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/deploy-ml-model-to-javascripts/</guid><description>&lt;p&gt;Deploy trained model using Octave or Tensorflow to JS application.&lt;/p&gt;
+&lt;h2 id="the-idea"&gt;
  The idea
- &lt;a class="heading-link" href="#the-idea">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h2>
-&lt;p>When we train a model, the outcome is ussually the weights of hidden layers.
-All predictions will be calculated by inputs and the weights.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-gdscript3" data-lang="gdscript3">&lt;span class="line">&lt;span class="cl">&lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">train&lt;/span> &lt;span class="n">model&lt;/span> &lt;span class="n">with&lt;/span> &lt;span class="n">training&lt;/span> &lt;span class="n">set&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="k">export&lt;/span> &lt;span class="n">model&lt;/span>&lt;span class="s1">&amp;#39;s weights&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="nb">load&lt;/span> &lt;span class="n">exported&lt;/span> &lt;span class="n">weights&lt;/span> &lt;span class="n">to&lt;/span> &lt;span class="n">JS&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">normalize&lt;/span> &lt;span class="n">input&lt;/span> &lt;span class="n">data&lt;/span> &lt;span class="ow">and&lt;/span> &lt;span class="n">predict&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="octave-model-to-csv">
+ &lt;a class="heading-link" href="#the-idea"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;When we train a model, the outcome is ussually the weights of hidden layers.
+All predictions will be calculated by inputs and the weights.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-gdscript3" data-lang="gdscript3"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;train&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt; &lt;span class="n"&gt;with&lt;/span&gt; &lt;span class="n"&gt;training&lt;/span&gt; &lt;span class="n"&gt;set&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;export&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;s weights&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;load&lt;/span&gt; &lt;span class="n"&gt;exported&lt;/span&gt; &lt;span class="n"&gt;weights&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;JS&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;normalize&lt;/span&gt; &lt;span class="n"&gt;input&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;predict&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="octave-model-to-csv"&gt;
  Octave model to csv
- &lt;a class="heading-link" href="#octave-model-to-csv">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h2>
-&lt;h2 id="setup-a-model-with-tensorflow">
+ &lt;a class="heading-link" href="#octave-model-to-csv"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;h2 id="setup-a-model-with-tensorflow"&gt;
  Setup a model with tensorflow
- &lt;a class="heading-link" href="#setup-a-model-with-tensorflow">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h2>
-&lt;h2 id="save-weights">
+ &lt;a class="heading-link" href="#setup-a-model-with-tensorflow"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;h2 id="save-weights"&gt;
  Save weights
- &lt;a class="heading-link" href="#save-weights">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h2>
-&lt;h2 id="save-entire-model">
+ &lt;a class="heading-link" href="#save-weights"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;h2 id="save-entire-model"&gt;
  Save entire model
- &lt;a class="heading-link" href="#save-entire-model">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h2></description></item></channel></rss>
+ &lt;a class="heading-link" href="#save-entire-model"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;</description></item></channel></rss>

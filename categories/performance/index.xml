@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Performance on sytranvn.dev</title><link>https://sytranvn.dev/categories/performance/</link><description>Recent content in Performance on sytranvn.dev</description><generator>Hugo</generator><language>en</language><lastBuildDate>Sun, 31 Aug 2025 10:40:40 +0700</lastBuildDate><atom:link href="https://sytranvn.dev/categories/performance/index.xml" rel="self" type="application/rss+xml"/><item><title>Speed Up Your Nodejs Server</title><link>https://sytranvn.dev/posts/speed-up-your-nodejs-server/</link><pubDate>Sun, 31 Aug 2025 10:40:40 +0700</pubDate><guid>https://sytranvn.dev/posts/speed-up-your-nodejs-server/</guid><description>&lt;p>First of all, we are trying to improve Node.js servers use
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Performance on sytranvn.dev</title><link>https://sytranvn.dev/categories/performance/</link><description>Recent content in Performance on sytranvn.dev</description><generator>Hugo</generator><language>en</language><lastBuildDate>Sun, 31 Aug 2025 10:40:40 +0700</lastBuildDate><atom:link href="https://sytranvn.dev/categories/performance/index.xml" rel="self" type="application/rss+xml"/><item><title>Speed Up Your Nodejs Server</title><link>https://sytranvn.dev/posts/speed-up-your-nodejs-server/</link><pubDate>Sun, 31 Aug 2025 10:40:40 +0700</pubDate><guid>https://sytranvn.dev/posts/speed-up-your-nodejs-server/</guid><description>&lt;p&gt;First of all, we are trying to improve Node.js servers use
 CPU-intensive JavaScript operations. The Node.js built-in
 asynchronous I/O operations are more efficient than Workers
-or Child Processes can be.&lt;/p>
-&lt;p>Now let&amp;rsquo;s determine what kind of parallelization we need
+or Child Processes can be.&lt;/p&gt;
+&lt;p&gt;Now let&amp;rsquo;s determine what kind of parallelization we need
 for our server. Does it need to share memory? Does it need
 to share a port? Or does it do different things in
 isolation? Those questions will help us pick the right
-parallelization module for the task.&lt;/p></description></item></channel></rss>
+parallelization module for the task.&lt;/p&gt;</description></item></channel></rss>

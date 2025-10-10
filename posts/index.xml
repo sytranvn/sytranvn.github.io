@@ -1,580 +1,580 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on sytranvn.dev</title><link>https://sytranvn.dev/posts/</link><description>Recent content in Posts on sytranvn.dev</description><generator>Hugo</generator><language>en</language><lastBuildDate>Sun, 28 Sep 2025 00:17:34 +0000</lastBuildDate><atom:link href="https://sytranvn.dev/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>This quote is so good I have to keep it here.</title><link>https://sytranvn.dev/posts/ai-quote-so-good-that-i-have-to-keep-it-here/</link><pubDate>Sun, 28 Sep 2025 00:17:34 +0000</pubDate><guid>https://sytranvn.dev/posts/ai-quote-so-good-that-i-have-to-keep-it-here/</guid><description>&lt;blockquote>
-&lt;p>A big issue will become corruption. If you really could just get information
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on sytranvn.dev</title><link>https://sytranvn.dev/posts/</link><description>Recent content in Posts on sytranvn.dev</description><generator>Hugo</generator><language>en</language><lastBuildDate>Sun, 28 Sep 2025 00:17:34 +0000</lastBuildDate><atom:link href="https://sytranvn.dev/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>This quote is so good I have to keep it here.</title><link>https://sytranvn.dev/posts/ai-quote-so-good-that-i-have-to-keep-it-here/</link><pubDate>Sun, 28 Sep 2025 00:17:34 +0000</pubDate><guid>https://sytranvn.dev/posts/ai-quote-so-good-that-i-have-to-keep-it-here/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;A big issue will become corruption. If you really could just get information
 from anywhere and bring it into your central mind, you could become more and
 more powerful. And it&amp;rsquo;s all digital and they all speak some internal digital
 language. Maybe it&amp;rsquo;ll be easy and possible. But it might not be as easy as you
 imagine because you can lose your mind this way. If you pull in something from
 the outside and build it into your internal thinking, it could take over you,
 it could change you, it could be your destruction rather than your increment in
-knowledge.&lt;/p></description></item><item><title>Speed Up Your Nodejs Server</title><link>https://sytranvn.dev/posts/speed-up-your-nodejs-server/</link><pubDate>Sun, 31 Aug 2025 10:40:40 +0700</pubDate><guid>https://sytranvn.dev/posts/speed-up-your-nodejs-server/</guid><description>&lt;p>First of all, we are trying to improve Node.js servers use
+knowledge.&lt;/p&gt;</description></item><item><title>Speed Up Your Nodejs Server</title><link>https://sytranvn.dev/posts/speed-up-your-nodejs-server/</link><pubDate>Sun, 31 Aug 2025 10:40:40 +0700</pubDate><guid>https://sytranvn.dev/posts/speed-up-your-nodejs-server/</guid><description>&lt;p&gt;First of all, we are trying to improve Node.js servers use
 CPU-intensive JavaScript operations. The Node.js built-in
 asynchronous I/O operations are more efficient than Workers
-or Child Processes can be.&lt;/p>
-&lt;p>Now let&amp;rsquo;s determine what kind of parallelization we need
+or Child Processes can be.&lt;/p&gt;
+&lt;p&gt;Now let&amp;rsquo;s determine what kind of parallelization we need
 for our server. Does it need to share memory? Does it need
 to share a port? Or does it do different things in
 isolation? Those questions will help us pick the right
-parallelization module for the task.&lt;/p></description></item><item><title>Nodejs Primordials</title><link>https://sytranvn.dev/posts/nodejs-primordials/</link><pubDate>Thu, 14 Aug 2025 17:37:48 +0700</pubDate><guid>https://sytranvn.dev/posts/nodejs-primordials/</guid><description>&lt;p>This is a part of &lt;code>_http_server.js&lt;/code> file from NodeJS source.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-js" data-lang="js">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">// node/lib/_http_server.js
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="s1">&amp;#39;use strict&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kr">const&lt;/span> &lt;span class="p">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">ArrayIsArray&lt;/span>&lt;span class="p">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">Error&lt;/span>&lt;span class="p">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">MathMin&lt;/span>&lt;span class="p">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">ObjectKeys&lt;/span>&lt;span class="p">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">ObjectSetPrototypeOf&lt;/span>&lt;span class="p">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">ReflectApply&lt;/span>&lt;span class="p">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">Symbol&lt;/span>&lt;span class="p">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">SymbolAsyncDispose&lt;/span>&lt;span class="p">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nx">SymbolFor&lt;/span>&lt;span class="p">,&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">primordials&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kr">const&lt;/span> &lt;span class="nx">net&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">require&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;net&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kr">const&lt;/span> &lt;span class="nx">EE&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">require&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;events&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kr">const&lt;/span> &lt;span class="nx">assert&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="nx">require&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s1">&amp;#39;internal/assert&amp;#39;&lt;/span>&lt;span class="p">);&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>I was panic. How did I miss this global variable for so many years working with
-NodeJS? It contains Javascripts builtin classes like &lt;code>Error&lt;/code>, &lt;code>Symbol&lt;/code>, &amp;hellip; And
-under &lt;code>'use strict'&lt;/code> flag, it must be some thing legal to use, right?&lt;/p></description></item><item><title>Turn on My Blog Again</title><link>https://sytranvn.dev/posts/turn-on-my-blog-again/</link><pubDate>Wed, 06 Aug 2025 22:44:29 +0700</pubDate><guid>https://sytranvn.dev/posts/turn-on-my-blog-again/</guid><description>&lt;p>I love working in the dark, and I love dark themes. Therefore, I decided to
+parallelization module for the task.&lt;/p&gt;</description></item><item><title>Nodejs Primordials</title><link>https://sytranvn.dev/posts/nodejs-primordials/</link><pubDate>Thu, 14 Aug 2025 17:37:48 +0700</pubDate><guid>https://sytranvn.dev/posts/nodejs-primordials/</guid><description>&lt;p&gt;This is a part of &lt;code&gt;_http_server.js&lt;/code&gt; file from NodeJS source.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-js" data-lang="js"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// node/lib/_http_server.js
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;use strict&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;ArrayIsArray&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nb"&gt;Error&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;MathMin&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;ObjectKeys&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;ObjectSetPrototypeOf&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;ReflectApply&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;Symbol&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;SymbolAsyncDispose&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;SymbolFor&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;primordials&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;net&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;net&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;EE&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;events&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="nx"&gt;assert&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;require&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;internal/assert&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;I was panic. How did I miss this global variable for so many years working with
+NodeJS? It contains Javascripts builtin classes like &lt;code&gt;Error&lt;/code&gt;, &lt;code&gt;Symbol&lt;/code&gt;, &amp;hellip; And
+under &lt;code&gt;'use strict'&lt;/code&gt; flag, it must be some thing legal to use, right?&lt;/p&gt;</description></item><item><title>Turn on My Blog Again</title><link>https://sytranvn.dev/posts/turn-on-my-blog-again/</link><pubDate>Wed, 06 Aug 2025 22:44:29 +0700</pubDate><guid>https://sytranvn.dev/posts/turn-on-my-blog-again/</guid><description>&lt;p&gt;I love working in the dark, and I love dark themes. Therefore, I decided to
 make dark mode is the only theme of my blog. I kept it that way for years. But
 recently, when I came across someone&amp;rsquo;s blog. I realized my personal taste is
 not good for everyone. For people who have vision disability, reading content
 on dark mode is an awful experience. Hence, I turned my blog back on. It now
-use system theme by default. Peace!&lt;/p></description></item><item><title>Is Even or Is Not Even (part 2)</title><link>https://sytranvn.dev/posts/is-even-or-is-not-even-2/</link><pubDate>Tue, 11 Mar 2025 11:31:49 +0700</pubDate><guid>https://sytranvn.dev/posts/is-even-or-is-not-even-2/</guid><description>&lt;p>I was so curious how would JavaScript engine would optimize even check. Would
+use system theme by default. Peace!&lt;/p&gt;</description></item><item><title>Is Even or Is Not Even (part 2)</title><link>https://sytranvn.dev/posts/is-even-or-is-not-even-2/</link><pubDate>Tue, 11 Mar 2025 11:31:49 +0700</pubDate><guid>https://sytranvn.dev/posts/is-even-or-is-not-even-2/</guid><description>&lt;p&gt;I was so curious how would JavaScript engine would optimize even check. Would
 it use modulo as normal, which is very slow, or it can be smart enough to use
 bitwise operator 🤔 . Due to its dynamic behavior, variable can be of any type
-and unknown to the compiler until run time.&lt;/p>
-&lt;p>First, let&amp;rsquo;s create a simple mod function.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-js" data-lang="js">&lt;span class="line">&lt;span class="cl">&lt;span class="kd">function&lt;/span> &lt;span class="nx">my_mod&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">n&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nx">n&lt;/span> &lt;span class="o">%&lt;/span> &lt;span class="mi">2&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">my_mod&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="mi">2&lt;/span>&lt;span class="p">)&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
-&lt;p>Now we need a way to check how V8 compile our code. Luckily, we can view
-bytecodes generated by V8 through node. We can use&lt;/p></description></item><item><title>I try to draw a K8s Diagram</title><link>https://sytranvn.dev/posts/k8s-diagram/</link><pubDate>Thu, 06 Mar 2025 17:01:48 +0700</pubDate><guid>https://sytranvn.dev/posts/k8s-diagram/</guid><description>&lt;p>I found it overwhelming when start working with K8s. Event
+and unknown to the compiler until run time.&lt;/p&gt;
+&lt;p&gt;First, let&amp;rsquo;s create a simple mod function.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-js" data-lang="js"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;my_mod&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;n&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;n&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="kc"&gt;false&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;my_mod&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now we need a way to check how V8 compile our code. Luckily, we can view
+bytecodes generated by V8 through node. We can use&lt;/p&gt;</description></item><item><title>I try to draw a K8s Diagram</title><link>https://sytranvn.dev/posts/k8s-diagram/</link><pubDate>Thu, 06 Mar 2025 17:01:48 +0700</pubDate><guid>https://sytranvn.dev/posts/k8s-diagram/</guid><description>&lt;p&gt;I found it overwhelming when start working with K8s. Event
 when I have used Docker for years. K8s has bunch of object types
 and many many configuration to know and remember but you just
 can&amp;rsquo;t learn them by heart. Therefore I decided to organize
 my understanding of K8s into something, anything. Only
 by trying to visualize it, my brain can start linking all
-the documents I have read so far into a bigger picture.&lt;br>
-And here&amp;rsquo;s the result.&lt;/p></description></item><item><title>Is Even or Is Not Even</title><link>https://sytranvn.dev/posts/is-even-or-is-not-even/</link><pubDate>Fri, 21 Feb 2025 22:29:37 +0700</pubDate><guid>https://sytranvn.dev/posts/is-even-or-is-not-even/</guid><description>&lt;p>However, when I look closely to the code, I realized something wasn&amp;rsquo;t right. I
+the documents I have read so far into a bigger picture.&lt;br&gt;
+And here&amp;rsquo;s the result.&lt;/p&gt;</description></item><item><title>Is Even or Is Not Even</title><link>https://sytranvn.dev/posts/is-even-or-is-not-even/</link><pubDate>Fri, 21 Feb 2025 22:29:37 +0700</pubDate><guid>https://sytranvn.dev/posts/is-even-or-is-not-even/</guid><description>&lt;p&gt;However, when I look closely to the code, I realized something wasn&amp;rsquo;t right. I
 can&amp;rsquo;t find the original post, so this is what I remember. The function is short
-so I believe I won&amp;rsquo;t mess anything up.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-ts" data-lang="ts">&lt;span class="line">&lt;span class="cl">&lt;span class="kd">function&lt;/span> &lt;span class="nx">isEven&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="nx">n&lt;/span>: &lt;span class="kt">number&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nx">n&lt;/span> &lt;span class="o">^&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="o">===&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="nx">n&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">);&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>In Javascripts, a number can be an &lt;code>integer&lt;/code>, &lt;code>decimal&lt;/code>, or &lt;code>NaN&lt;/code>, or &lt;code>Inf&lt;/code> or
-event &lt;code>BigInt&lt;/code>. But let&amp;rsquo;s assume we only use this for &lt;code>integer&lt;/code>.&lt;/p>
-&lt;p>This piece of code is wrong. If we plug a very &amp;ldquo;small&amp;rdquo; negative number in, for
-example, &lt;code>-9007199249885170&lt;/code> which is greater than &lt;code>Number.MIN_SAFE_INTEGER = -(2^53-1)&lt;/code> is a safe integer. We get&lt;/p></description></item><item><title>Accessing Steam from Vietnam</title><link>https://sytranvn.dev/posts/truy-cap-steam-tu-viet-nam/</link><pubDate>Sat, 01 Feb 2025 01:05:27 +0700</pubDate><guid>https://sytranvn.dev/posts/truy-cap-steam-tu-viet-nam/</guid><description>&lt;p>This is the script record, to read full content of this blog, please
-read &lt;a href="https://sytranvn.dev/vi/posts/truy-cap-steam-tu-viet-nam/" >Vietnamese version&lt;/a>.&lt;/p>
-&lt;script src="https://asciinema.org/a/700913.js" id="asciicast-700913" async="true">&lt;/script></description></item><item><title>Setting Up Your Ton Site Is Easier Than You Think</title><link>https://sytranvn.dev/posts/setting-up-your-ton-site-is-easier-than-you-think/</link><pubDate>Mon, 20 Jan 2025 15:58:00 +0700</pubDate><guid>https://sytranvn.dev/posts/setting-up-your-ton-site-is-easier-than-you-think/</guid><description>&lt;p>Stay tune!&lt;/p></description></item><item><title>Vi Everything</title><link>https://sytranvn.dev/posts/vi-everything/</link><pubDate>Tue, 14 Jan 2025 11:25:29 +0700</pubDate><guid>https://sytranvn.dev/posts/vi-everything/</guid><description>&lt;p>Here&amp;rsquo;s the list of couple places that I enable &lt;code>vi&lt;/code> mode.&lt;/p>
-&lt;ol>
-&lt;li>
-&lt;p>Bash shell
-&lt;code>set -o vi&lt;/code> I always enable bash movement mode in my &lt;code>.bashrc&lt;/code> file.
-With it set, I can switch between normal mode and edit mode by pressing &lt;code>ESC&lt;/code>.
+so I believe I won&amp;rsquo;t mess anything up.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-ts" data-lang="ts"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;isEven&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;n&lt;/span&gt;: &lt;span class="kt"&gt;number&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;n&lt;/span&gt; &lt;span class="o"&gt;^&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;===&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;n&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;In Javascripts, a number can be an &lt;code&gt;integer&lt;/code&gt;, &lt;code&gt;decimal&lt;/code&gt;, or &lt;code&gt;NaN&lt;/code&gt;, or &lt;code&gt;Inf&lt;/code&gt; or
+event &lt;code&gt;BigInt&lt;/code&gt;. But let&amp;rsquo;s assume we only use this for &lt;code&gt;integer&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;This piece of code is wrong. If we plug a very &amp;ldquo;small&amp;rdquo; negative number in, for
+example, &lt;code&gt;-9007199249885170&lt;/code&gt; which is greater than &lt;code&gt;Number.MIN_SAFE_INTEGER = -(2^53-1)&lt;/code&gt; is a safe integer. We get&lt;/p&gt;</description></item><item><title>Accessing Steam from Vietnam</title><link>https://sytranvn.dev/posts/truy-cap-steam-tu-viet-nam/</link><pubDate>Sat, 01 Feb 2025 01:05:27 +0700</pubDate><guid>https://sytranvn.dev/posts/truy-cap-steam-tu-viet-nam/</guid><description>&lt;p&gt;This is the script record, to read full content of this blog, please
+read &lt;a href="https://sytranvn.dev/vi/posts/truy-cap-steam-tu-viet-nam/" &gt;Vietnamese version&lt;/a&gt;.&lt;/p&gt;
+&lt;script src="https://asciinema.org/a/700913.js" id="asciicast-700913" async="true"&gt;&lt;/script&gt;</description></item><item><title>Setting Up Your Ton Site Is Easier Than You Think</title><link>https://sytranvn.dev/posts/setting-up-your-ton-site-is-easier-than-you-think/</link><pubDate>Mon, 20 Jan 2025 15:58:00 +0700</pubDate><guid>https://sytranvn.dev/posts/setting-up-your-ton-site-is-easier-than-you-think/</guid><description>&lt;p&gt;Stay tune!&lt;/p&gt;</description></item><item><title>Vi Everything</title><link>https://sytranvn.dev/posts/vi-everything/</link><pubDate>Tue, 14 Jan 2025 11:25:29 +0700</pubDate><guid>https://sytranvn.dev/posts/vi-everything/</guid><description>&lt;p&gt;Here&amp;rsquo;s the list of couple places that I enable &lt;code&gt;vi&lt;/code&gt; mode.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Bash shell
+&lt;code&gt;set -o vi&lt;/code&gt; I always enable bash movement mode in my &lt;code&gt;.bashrc&lt;/code&gt; file.
+With it set, I can switch between normal mode and edit mode by pressing &lt;code&gt;ESC&lt;/code&gt;.
 Editing works as any normal shell, but when switching to normal mode, I can
-use &lt;code>vi&lt;/code> movement keys like &lt;code>j, k, h, l, w, b, e, $, ^&lt;/code>, editing current
-line is also faster by using selectors such as &lt;code>cw, dw, C, D...&lt;/code>. One important
-note is that we are using &lt;code>vi&lt;/code> mode, not &lt;code>vim&lt;/code>, so selectors like &lt;code>ciw, caw, ci(&lt;/code> does not work.&lt;/p></description></item><item><title>Setup Desktop Environment on a Remote Server</title><link>https://sytranvn.dev/posts/setup-desktop-environment-on-a-remote-server/</link><pubDate>Sat, 13 Jul 2024 15:49:47 +0700</pubDate><guid>https://sytranvn.dev/posts/setup-desktop-environment-on-a-remote-server/</guid><description>&lt;p>&lt;img src="https://sytranvn.dev/posts/setup-desktop-environment-on-a-remote-server/remote-cloud.png" alt="server desktop">&lt;/p>
-&lt;p>Most of the time when we work on a remote server, we only use &lt;code>ssh&lt;/code> to get
+use &lt;code&gt;vi&lt;/code&gt; movement keys like &lt;code&gt;j, k, h, l, w, b, e, $, ^&lt;/code&gt;, editing current
+line is also faster by using selectors such as &lt;code&gt;cw, dw, C, D...&lt;/code&gt;. One important
+note is that we are using &lt;code&gt;vi&lt;/code&gt; mode, not &lt;code&gt;vim&lt;/code&gt;, so selectors like &lt;code&gt;ciw, caw, ci(&lt;/code&gt; does not work.&lt;/p&gt;</description></item><item><title>Setup Desktop Environment on a Remote Server</title><link>https://sytranvn.dev/posts/setup-desktop-environment-on-a-remote-server/</link><pubDate>Sat, 13 Jul 2024 15:49:47 +0700</pubDate><guid>https://sytranvn.dev/posts/setup-desktop-environment-on-a-remote-server/</guid><description>&lt;p&gt;&lt;img src="https://sytranvn.dev/posts/setup-desktop-environment-on-a-remote-server/remote-cloud.png" alt="server desktop"&gt;&lt;/p&gt;
+&lt;p&gt;Most of the time when we work on a remote server, we only use &lt;code&gt;ssh&lt;/code&gt; to get
 access to the command line interface of remote host. And from there, we execute
-commands to various tasks.&lt;br>
+commands to various tasks.&lt;br&gt;
 However, this remote server won&amp;rsquo;t be accessible to non-technical person like
 us. What if we want to share some resources on this server to someone else on
 team that doesn&amp;rsquo;t know much about command line? I believe the best solution is
-to find a better team member 😉&lt;/p></description></item><item><title>Nvim External Commands</title><link>https://sytranvn.dev/posts/nvim-external-commands/</link><pubDate>Fri, 12 Jul 2024 11:07:52 +0700</pubDate><guid>https://sytranvn.dev/posts/nvim-external-commands/</guid><description>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">:!{cmd}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Execute &lt;code>cmd&lt;/code>, display output&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">:r !{cmd}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Execute &lt;code>cmd&lt;/code>, insert output to current current cursor position&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">:w !{cmd}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Pipe current buffer to &lt;code>cmd&lt;/code>&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">:.!{cmd}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Execute &lt;code>cmd&lt;/code>, replace current line with output&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">:%!{cmd}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Execute &lt;code>cmd&lt;/code>, replace entire buffer with output&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">:&amp;lt;&amp;#39;,&amp;#39;&amp;gt;!{cmd}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Execute &lt;code>cmd&lt;/code>, replace current selection output&lt;/p></description></item><item><title>Add Self Signed Certificate to Trusted List</title><link>https://sytranvn.dev/posts/add-self-signed-certificate-to-trusted-list/</link><pubDate>Fri, 12 Jul 2024 09:17:34 +0700</pubDate><guid>https://sytranvn.dev/posts/add-self-signed-certificate-to-trusted-list/</guid><description>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">certutil -d sql:$HOME/.pki/nssdb -A -t C -n &amp;lt;cert-name&amp;gt; -i &amp;lt;certificate.pem&amp;gt;
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> -d sql:$HOME/.pki/nssdb specify database location
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> -A Add a certificate to the database. -D to delete
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> -t C Set the certificate trust attributes. C means trusted CA to issue server certs
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> -n &amp;lt;cert-name&amp;gt; Name of certificate to be used later with -D
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> -i &amp;lt;certificate.pem&amp;gt; Certificate file location
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Tea and Coffe Pick Two</title><link>https://sytranvn.dev/posts/tea-and-coffee/</link><pubDate>Thu, 09 May 2024 15:22:00 +0700</pubDate><guid>https://sytranvn.dev/posts/tea-and-coffee/</guid><description>&lt;p>Coffee. It&amp;rsquo;s the lifeblood of many mornings, the fuel for late-night work
+to find a better team member 😉&lt;/p&gt;</description></item><item><title>Nvim External Commands</title><link>https://sytranvn.dev/posts/nvim-external-commands/</link><pubDate>Fri, 12 Jul 2024 11:07:52 +0700</pubDate><guid>https://sytranvn.dev/posts/nvim-external-commands/</guid><description>&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;:!{cmd}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Execute &lt;code&gt;cmd&lt;/code&gt;, display output&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;:r !{cmd}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Execute &lt;code&gt;cmd&lt;/code&gt;, insert output to current current cursor position&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;:w !{cmd}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Pipe current buffer to &lt;code&gt;cmd&lt;/code&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;:.!{cmd}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Execute &lt;code&gt;cmd&lt;/code&gt;, replace current line with output&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;:%!{cmd}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Execute &lt;code&gt;cmd&lt;/code&gt;, replace entire buffer with output&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;:&amp;lt;&amp;#39;,&amp;#39;&amp;gt;!{cmd}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Execute &lt;code&gt;cmd&lt;/code&gt;, replace current selection output&lt;/p&gt;</description></item><item><title>Add Self Signed Certificate to Trusted List</title><link>https://sytranvn.dev/posts/add-self-signed-certificate-to-trusted-list/</link><pubDate>Fri, 12 Jul 2024 09:17:34 +0700</pubDate><guid>https://sytranvn.dev/posts/add-self-signed-certificate-to-trusted-list/</guid><description>&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;certutil -d sql:$HOME/.pki/nssdb -A -t C -n &amp;lt;cert-name&amp;gt; -i &amp;lt;certificate.pem&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; -d sql:$HOME/.pki/nssdb specify database location
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; -A Add a certificate to the database. -D to delete
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; -t C Set the certificate trust attributes. C means trusted CA to issue server certs
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; -n &amp;lt;cert-name&amp;gt; Name of certificate to be used later with -D
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; -i &amp;lt;certificate.pem&amp;gt; Certificate file location
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>Tea and Coffe Pick Two</title><link>https://sytranvn.dev/posts/tea-and-coffee/</link><pubDate>Thu, 09 May 2024 15:22:00 +0700</pubDate><guid>https://sytranvn.dev/posts/tea-and-coffee/</guid><description>&lt;p&gt;Coffee. It&amp;rsquo;s the lifeblood of many mornings, the fuel for late-night work
 sessions, and the warm hug in a mug that many of us crave. But for me, the love
 affair with coffee turned into a rollercoaster ride of energy crashes and
-sleepless nights.&lt;/p>
-&lt;p>Let me tell you, downing a strong cup in the morning might&amp;rsquo;ve jumpstarted my
+sleepless nights.&lt;/p&gt;
+&lt;p&gt;Let me tell you, downing a strong cup in the morning might&amp;rsquo;ve jumpstarted my
 day, but it left me wired and jittery well past lunchtime. That midday slump
 was inevitable, forcing me to reach for another cup, perpetuating the cycle. By
 nightfall, my brain would still be buzzing, making restful sleep a distant
-dream.&lt;/p></description></item><item><title>Node and Memory Leak</title><link>https://sytranvn.dev/posts/node-and-memory-leak/</link><pubDate>Tue, 02 Apr 2024 21:01:05 +0700</pubDate><guid>https://sytranvn.dev/posts/node-and-memory-leak/</guid><description>&lt;p>Unlike other languages, a Node server keep running forever. If it happens to
+dream.&lt;/p&gt;</description></item><item><title>Node and Memory Leak</title><link>https://sytranvn.dev/posts/node-and-memory-leak/</link><pubDate>Tue, 02 Apr 2024 21:01:05 +0700</pubDate><guid>https://sytranvn.dev/posts/node-and-memory-leak/</guid><description>&lt;p&gt;Unlike other languages, a Node server keep running forever. If it happens to
 have memory leak in your app, it will get worse until it blows up.
 This is how my server memory looks like after releasing new feature for a week.
-The memory keep going up and up.&lt;/p>
-&lt;p>&lt;img src="https://sytranvn.dev/posts/node-and-memory-leak/leak.png" alt="leak">&lt;/p>
-&lt;p>It wasn&amp;rsquo;t obvious immediately because requests come in, the server needs to do
+The memory keep going up and up.&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://sytranvn.dev/posts/node-and-memory-leak/leak.png" alt="leak"&gt;&lt;/p&gt;
+&lt;p&gt;It wasn&amp;rsquo;t obvious immediately because requests come in, the server needs to do
 its job, and need to allocate memory. We need to give it some time to see if
-the memory consumption become stable or it keep 🚀&lt;/p></description></item><item><title>How to access VNPT iGate Modem</title><link>https://sytranvn.dev/posts/vnpt-igate-modem/</link><pubDate>Thu, 28 Mar 2024 21:35:21 +0700</pubDate><guid>https://sytranvn.dev/posts/vnpt-igate-modem/</guid><description>&lt;p>When I try to access my gateway IP using Chrome, this error shows.&lt;/p>
-&lt;blockquote>
-&lt;p>&lt;strong>This site can’t provide a secure connection&lt;/strong>
+the memory consumption become stable or it keep 🚀&lt;/p&gt;</description></item><item><title>How to access VNPT iGate Modem</title><link>https://sytranvn.dev/posts/vnpt-igate-modem/</link><pubDate>Thu, 28 Mar 2024 21:35:21 +0700</pubDate><guid>https://sytranvn.dev/posts/vnpt-igate-modem/</guid><description>&lt;p&gt;When I try to access my gateway IP using Chrome, this error shows.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;This site can’t provide a secure connection&lt;/strong&gt;
 192.168.1.1 uses an unsupported protocol.
 ERR_SSL_VERSION_OR_CIPHER_MISMATCH
-&lt;strong>Unsupported protocol&lt;/strong>
-The client and server don&amp;rsquo;t support a common SSL protocol version or cipher suite.&lt;/p>&lt;/blockquote>
-&lt;p>The full URL I got redirected to was &lt;code>https://192.168.1.1/cgi-bin/index.asp&lt;/code>. So this modem provides a HTTPS web interface
+&lt;strong&gt;Unsupported protocol&lt;/strong&gt;
+The client and server don&amp;rsquo;t support a common SSL protocol version or cipher suite.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;The full URL I got redirected to was &lt;code&gt;https://192.168.1.1/cgi-bin/index.asp&lt;/code&gt;. So this modem provides a HTTPS web interface
 but somehow that certificate is not a valid one. Normally, in case a certificate was self signed, we still have an advanced button
-to proceed. This time it wasn&amp;rsquo;t.&lt;/p></description></item><item><title>Modify Element in Zig 2D Array</title><link>https://sytranvn.dev/posts/modify-element-in-zig-array/</link><pubDate>Sat, 23 Mar 2024 11:11:12 +0700</pubDate><guid>https://sytranvn.dev/posts/modify-element-in-zig-array/</guid><description>&lt;p>So I&amp;rsquo;m learning Zig and trying to write a &lt;a href="https://vi.wikipedia.org/wiki/Arkanoid" class="external-link" target="_blank" rel="noopener">Arkanoid game&lt;/a> in Zig.&lt;br>
+to proceed. This time it wasn&amp;rsquo;t.&lt;/p&gt;</description></item><item><title>Modify Element in Zig 2D Array</title><link>https://sytranvn.dev/posts/modify-element-in-zig-array/</link><pubDate>Sat, 23 Mar 2024 11:11:12 +0700</pubDate><guid>https://sytranvn.dev/posts/modify-element-in-zig-array/</guid><description>&lt;p&gt;So I&amp;rsquo;m learning Zig and trying to write a &lt;a href="https://vi.wikipedia.org/wiki/Arkanoid" class="external-link" target="_blank" rel="noopener"&gt;Arkanoid game&lt;/a&gt; in Zig.&lt;br&gt;
 I have to iterate through 2D array of bricks, check collision and update each brick status.
-This is easy to do with high level languages. With C++ vector, we can use range-based for loop like this.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-cpp" data-lang="cpp">&lt;span class="line">&lt;span class="cl">&lt;span class="n">vector&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="n">vector&lt;/span>&lt;span class="o">&amp;lt;&lt;/span>&lt;span class="kt">int&lt;/span>&lt;span class="o">&amp;gt;&amp;gt;&lt;/span> &lt;span class="n">items&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">for&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="k">auto&lt;/span> &lt;span class="o">&amp;amp;&lt;/span> &lt;span class="nl">row&lt;/span> &lt;span class="p">:&lt;/span> &lt;span class="n">items&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">for&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="k">auto&lt;/span> &lt;span class="o">&amp;amp;&lt;/span>&lt;span class="nl">item&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="n">row&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">item&lt;/span> &lt;span class="o">+=&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>With C, we have to do this old fashion way by accessing each brick by &lt;code>i&lt;/code> and &lt;code>j&lt;/code> indexes.&lt;/p></description></item><item><title>Stop Writing Bash for Loop</title><link>https://sytranvn.dev/posts/stop-writing-bash-for-loop/</link><pubDate>Wed, 24 Jan 2024 15:39:19 +0700</pubDate><guid>https://sytranvn.dev/posts/stop-writing-bash-for-loop/</guid><description>&lt;p>If you love CLI and run a lot of commands, write a lot of bash scripts, you
+This is easy to do with high level languages. With C++ vector, we can use range-based for loop like this.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cpp" data-lang="cpp"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;vector&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;vector&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;items&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;auto&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&lt;/span&gt; &lt;span class="nl"&gt;row&lt;/span&gt; &lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;items&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;auto&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="nl"&gt;item&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;row&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;item&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;With C, we have to do this old fashion way by accessing each brick by &lt;code&gt;i&lt;/code&gt; and &lt;code&gt;j&lt;/code&gt; indexes.&lt;/p&gt;</description></item><item><title>Stop Writing Bash for Loop</title><link>https://sytranvn.dev/posts/stop-writing-bash-for-loop/</link><pubDate>Wed, 24 Jan 2024 15:39:19 +0700</pubDate><guid>https://sytranvn.dev/posts/stop-writing-bash-for-loop/</guid><description>&lt;p&gt;If you love CLI and run a lot of commands, write a lot of bash scripts, you
 probably know bash for loop. For example to count from 1 to 10, we can write
-&lt;code>for i in {1..10}; do echo $i; done&lt;/code> . Or if we have an array of items, and
-want to iterate over it, we can write&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">&lt;span class="nv">items&lt;/span>&lt;span class="o">=(&lt;/span>&lt;span class="m">1&lt;/span> &lt;span class="m">2&lt;/span> &lt;span class="m">3&lt;/span> &lt;span class="m">4&lt;/span> 5&lt;span class="o">)&lt;/span> 
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">for&lt;/span> item in &lt;span class="si">${&lt;/span>&lt;span class="nv">items&lt;/span>&lt;span class="p">[@]&lt;/span>&lt;span class="si">}&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="k">do&lt;/span> 
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nb">echo&lt;/span> &lt;span class="nv">$item&lt;/span>&lt;span class="p">;&lt;/span> 
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">done&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Easy-breezy.&lt;/p>
-&lt;p>Even though it takes a little bit time to write down, it still helps reducing
-amount of time repeating the same command.&lt;br>
+&lt;code&gt;for i in {1..10}; do echo $i; done&lt;/code&gt; . Or if we have an array of items, and
+want to iterate over it, we can write&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nv"&gt;items&lt;/span&gt;&lt;span class="o"&gt;=(&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt; &lt;span class="m"&gt;3&lt;/span&gt; &lt;span class="m"&gt;4&lt;/span&gt; 5&lt;span class="o"&gt;)&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;for&lt;/span&gt; item in &lt;span class="si"&gt;${&lt;/span&gt;&lt;span class="nv"&gt;items&lt;/span&gt;&lt;span class="p"&gt;[@]&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$item&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;done&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Easy-breezy.&lt;/p&gt;
+&lt;p&gt;Even though it takes a little bit time to write down, it still helps reducing
+amount of time repeating the same command.&lt;br&gt;
 But normally our command or commands does not finish immediately. Sometimes, they
 can take several minutes to complete, but one does not depend on the other. So we
-want to make them run in parallel or concurrently.&lt;/p></description></item><item><title>8 Terminal Movement Shortcuts You Should Know</title><link>https://sytranvn.dev/posts/8-terminal-movement-key-strokes-you-should-know/</link><pubDate>Fri, 27 Oct 2023 17:29:33 +0700</pubDate><guid>https://sytranvn.dev/posts/8-terminal-movement-key-strokes-you-should-know/</guid><description>&lt;h2 id="1-move-to-end">
+want to make them run in parallel or concurrently.&lt;/p&gt;</description></item><item><title>8 Terminal Movement Shortcuts You Should Know</title><link>https://sytranvn.dev/posts/8-terminal-movement-key-strokes-you-should-know/</link><pubDate>Fri, 27 Oct 2023 17:29:33 +0700</pubDate><guid>https://sytranvn.dev/posts/8-terminal-movement-key-strokes-you-should-know/</guid><description>&lt;h2 id="1-move-to-end"&gt;
  1. Move to end
- &lt;a class="heading-link" href="#1-move-to-end">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">^e
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Example: From current cursor position move to end of line&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">▌echo hello world
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">^e
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">echo&lt;/span> hello world▌
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="2-move-to-beginning">
+ &lt;a class="heading-link" href="#1-move-to-end"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;^e
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Example: From current cursor position move to end of line&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;▌echo hello world
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;^e
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; hello world▌
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="2-move-to-beginning"&gt;
  2. Move to beginning
- &lt;a class="heading-link" href="#2-move-to-beginning">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">^a
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Example: From last position move to beginning&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">^a
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">▌echo hello world
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="3-move-to-next-word">
+ &lt;a class="heading-link" href="#2-move-to-beginning"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;^a
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Example: From last position move to beginning&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;^a
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;▌echo hello world
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="3-move-to-next-word"&gt;
  3. Move to next word
- &lt;a class="heading-link" href="#3-move-to-next-word">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">alt-f
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Example: From last position move cursor to after &lt;code>hello&lt;/code> position&lt;/p></description></item><item><title>First Time Make Pho</title><link>https://sytranvn.dev/posts/first-time-make-pho/</link><pubDate>Fri, 29 Sep 2023 19:27:02 +0700</pubDate><guid>https://sytranvn.dev/posts/first-time-make-pho/</guid><description>&lt;p>I really like cooking but unfortunately I am not a good cook. The only dishes I really know is Vietnamese
+ &lt;a class="heading-link" href="#3-move-to-next-word"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;alt-f
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Example: From last position move cursor to after &lt;code&gt;hello&lt;/code&gt; position&lt;/p&gt;</description></item><item><title>First Time Make Pho</title><link>https://sytranvn.dev/posts/first-time-make-pho/</link><pubDate>Fri, 29 Sep 2023 19:27:02 +0700</pubDate><guid>https://sytranvn.dev/posts/first-time-make-pho/</guid><description>&lt;p&gt;I really like cooking but unfortunately I am not a good cook. The only dishes I really know is Vietnamese
 omelette egg with spring onion and boiled pork dip in fish sauce. I tried some other recipes before such as
 Dong vermicelli, or meat poached but I can&amp;rsquo;t recall their recipes. Maybe it&amp;rsquo;s because I don&amp;rsquo;t practice enough or the
-recipes are so complex.&lt;/p>
-&lt;p>Today I want to make Pho for my wife and daughter. They went visiting my parents in law 3 weeks ago. And
+recipes are so complex.&lt;/p&gt;
+&lt;p&gt;Today I want to make Pho for my wife and daughter. They went visiting my parents in law 3 weeks ago. And
 they will fly tomorrow. My plan is making the broth first and keep it in fridge and boiling it again later.
-This is the video I watched to learn to make Pho.&lt;/p></description></item><item><title>ESM for Production</title><link>https://sytranvn.dev/posts/esm-for-production/</link><pubDate>Fri, 01 Sep 2023 10:01:30 +0700</pubDate><guid>https://sytranvn.dev/posts/esm-for-production/</guid><description>&lt;p>The JavaScript ecosystem is quickly moving toward publishing ECMAScript (ES) modules (ESM) instead of CommonJS modules. To keep up with new JS changes, I often learn and play with the new ones in my side projects. But the real question is are they ready for production yet?&lt;/p>
-&lt;h2 id="about-my-last-big-production-ready-application">
+This is the video I watched to learn to make Pho.&lt;/p&gt;</description></item><item><title>ESM for Production</title><link>https://sytranvn.dev/posts/esm-for-production/</link><pubDate>Fri, 01 Sep 2023 10:01:30 +0700</pubDate><guid>https://sytranvn.dev/posts/esm-for-production/</guid><description>&lt;p&gt;The JavaScript ecosystem is quickly moving toward publishing ECMAScript (ES) modules (ESM) instead of CommonJS modules. To keep up with new JS changes, I often learn and play with the new ones in my side projects. But the real question is are they ready for production yet?&lt;/p&gt;
+&lt;h2 id="about-my-last-big-production-ready-application"&gt;
  About my last big production ready application
- &lt;a class="heading-link" href="#about-my-last-big-production-ready-application">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h2>
-&lt;p>In my former company, I developed an application using NodeJS + GraphQL as backend for frontent (BFF) and use React
-for rendering UI. They are all written in Typescript. We built it from beginning but on top of a template which is defined awhile back by the org. It started as smooth as we hoped it to but the more we developed, the worse DX became.&lt;/p></description></item><item><title>Setup Zalo on Ubuntu</title><link>https://sytranvn.dev/posts/zalo-tren-ubuntu/</link><pubDate>Sun, 27 Aug 2023 17:10:55 +0700</pubDate><guid>https://sytranvn.dev/posts/zalo-tren-ubuntu/</guid><description>&lt;p>Please view &lt;a href="https://sytranvn.dev/vi/posts/zalo-tren-ubuntu/" >Vietnamese version&lt;/a> for details.&lt;/p></description></item><item><title>The Way I Math With Hugo</title><link>https://sytranvn.dev/posts/the-way-i-math-with-hugo/</link><pubDate>Sat, 19 Aug 2023 12:49:01 +0700</pubDate><guid>https://sytranvn.dev/posts/the-way-i-math-with-hugo/</guid><description>&lt;p>Recently I have joined a course to relearn some linear algebra. What I didn&amp;rsquo;t have any intuition during college.
+ &lt;a class="heading-link" href="#about-my-last-big-production-ready-application"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;In my former company, I developed an application using NodeJS + GraphQL as backend for frontent (BFF) and use React
+for rendering UI. They are all written in Typescript. We built it from beginning but on top of a template which is defined awhile back by the org. It started as smooth as we hoped it to but the more we developed, the worse DX became.&lt;/p&gt;</description></item><item><title>Setup Zalo on Ubuntu</title><link>https://sytranvn.dev/posts/zalo-tren-ubuntu/</link><pubDate>Sun, 27 Aug 2023 17:10:55 +0700</pubDate><guid>https://sytranvn.dev/posts/zalo-tren-ubuntu/</guid><description>&lt;p&gt;Please view &lt;a href="https://sytranvn.dev/vi/posts/zalo-tren-ubuntu/" &gt;Vietnamese version&lt;/a&gt; for details.&lt;/p&gt;</description></item><item><title>The Way I Math With Hugo</title><link>https://sytranvn.dev/posts/the-way-i-math-with-hugo/</link><pubDate>Sat, 19 Aug 2023 12:49:01 +0700</pubDate><guid>https://sytranvn.dev/posts/the-way-i-math-with-hugo/</guid><description>&lt;p&gt;Recently I have joined a course to relearn some linear algebra. What I didn&amp;rsquo;t have any intuition during college.
 I want to do exercises and also add them to this site for content 😄
 I am using hugo-coder theme and it comes with katex support. When never I need to write some math, I just need to
-enable &lt;code>math&lt;/code> front matter in that post.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">+++
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">math = true
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">+++
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Hugo will include katex &lt;code>script&lt;/code> tag to the page so any texts between &lt;code>$ ... $&lt;/code> or paragraphs inside &lt;code>$$ ... $$&lt;/code> will be parsed and
+enable &lt;code&gt;math&lt;/code&gt; front matter in that post.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;+++
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;math = true
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;+++
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Hugo will include katex &lt;code&gt;script&lt;/code&gt; tag to the page so any texts between &lt;code&gt;$ ... $&lt;/code&gt; or paragraphs inside &lt;code&gt;$$ ... $$&lt;/code&gt; will be parsed and
 rerendered by Katex.
-Sounds simple right? But it ain&amp;rsquo;t that easy.&lt;br>
-All Katex functions begin with a &lt;code>\&lt;/code> for example &lt;code>\frac{1}{2}&lt;/code> for $\frac{1}{2}$, &lt;code>\\&lt;/code> for line break. But because I was writing
-posts in markdown files, &lt;code>\\&lt;/code> is converted to &lt;code>\&lt;/code> when displayed on page.
-For example this is valid katex code, but is not rendered correctly.&lt;/p></description></item><item><title>Fixing Ubuntu 22.04 LTS Bluetooth Headphone Issue</title><link>https://sytranvn.dev/posts/fixing-ubuntu-22-04-bluetooth-headphone-issue/</link><pubDate>Mon, 17 Jul 2023 23:03:55 +0700</pubDate><guid>https://sytranvn.dev/posts/fixing-ubuntu-22-04-bluetooth-headphone-issue/</guid><description>&lt;p>Recently, I setup Ubuntu 22.04 on my new laptop. Everything work, except my bluetooth headphone.
-I have struggled to play any sound on my Sony WF1000XM3 for weeks even though my other bluetooth speaker works just fine 😞&lt;/p>
-&lt;p>&lt;img src="https://sytranvn.dev/posts/fixing-ubuntu-22-04-bluetooth-headphone-issue/connected.png" alt="connected">&lt;/p>
-&lt;p>Anytime I try to connect to my headphone, it appears to be connected, but I cannot hear the notification from my headphone.
-And in Sound settings, output devices or Pavulcontrol, my headphone didn&amp;rsquo;t show up either.&lt;/p></description></item><item><title>First Trip Aboard</title><link>https://sytranvn.dev/posts/travels/first-trip-aboard/</link><pubDate>Tue, 27 Jun 2023 15:53:09 +0700</pubDate><guid>https://sytranvn.dev/posts/travels/first-trip-aboard/</guid><description>&lt;p>This blog is written in Vietnamese only.
-If you are interested, &lt;a href="https://sytranvn.dev/vi/posts/travels/first-trip-aboard/" >check it out&lt;/a>.&lt;/p></description></item><item><title>Configure kitty terminal on both Linux and MacOS</title><link>https://sytranvn.dev/posts/configure-kitty-terminal-cross-operating-systems/</link><pubDate>Sat, 03 Jun 2023 18:26:51 +0700</pubDate><guid>https://sytranvn.dev/posts/configure-kitty-terminal-cross-operating-systems/</guid><description>&lt;p>Kitty is cross platform and I use it on both Linux home PC and company Macbook. Sharing
+Sounds simple right? But it ain&amp;rsquo;t that easy.&lt;br&gt;
+All Katex functions begin with a &lt;code&gt;\&lt;/code&gt; for example &lt;code&gt;\frac{1}{2}&lt;/code&gt; for $\frac{1}{2}$, &lt;code&gt;\\&lt;/code&gt; for line break. But because I was writing
+posts in markdown files, &lt;code&gt;\\&lt;/code&gt; is converted to &lt;code&gt;\&lt;/code&gt; when displayed on page.
+For example this is valid katex code, but is not rendered correctly.&lt;/p&gt;</description></item><item><title>Fixing Ubuntu 22.04 LTS Bluetooth Headphone Issue</title><link>https://sytranvn.dev/posts/fixing-ubuntu-22-04-bluetooth-headphone-issue/</link><pubDate>Mon, 17 Jul 2023 23:03:55 +0700</pubDate><guid>https://sytranvn.dev/posts/fixing-ubuntu-22-04-bluetooth-headphone-issue/</guid><description>&lt;p&gt;Recently, I setup Ubuntu 22.04 on my new laptop. Everything work, except my bluetooth headphone.
+I have struggled to play any sound on my Sony WF1000XM3 for weeks even though my other bluetooth speaker works just fine 😞&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://sytranvn.dev/posts/fixing-ubuntu-22-04-bluetooth-headphone-issue/connected.png" alt="connected"&gt;&lt;/p&gt;
+&lt;p&gt;Anytime I try to connect to my headphone, it appears to be connected, but I cannot hear the notification from my headphone.
+And in Sound settings, output devices or Pavulcontrol, my headphone didn&amp;rsquo;t show up either.&lt;/p&gt;</description></item><item><title>First Trip Aboard</title><link>https://sytranvn.dev/posts/travels/first-trip-aboard/</link><pubDate>Tue, 27 Jun 2023 15:53:09 +0700</pubDate><guid>https://sytranvn.dev/posts/travels/first-trip-aboard/</guid><description>&lt;p&gt;This blog is written in Vietnamese only.
+If you are interested, &lt;a href="https://sytranvn.dev/vi/posts/travels/first-trip-aboard/" &gt;check it out&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>Configure kitty terminal on both Linux and MacOS</title><link>https://sytranvn.dev/posts/configure-kitty-terminal-cross-operating-systems/</link><pubDate>Sat, 03 Jun 2023 18:26:51 +0700</pubDate><guid>https://sytranvn.dev/posts/configure-kitty-terminal-cross-operating-systems/</guid><description>&lt;p&gt;Kitty is cross platform and I use it on both Linux home PC and company Macbook. Sharing
 the configuration and reuse it is crutial because Kitty is highly scriptable. And changing
-the configuration once should affect on both of my computers.&lt;/p>
-&lt;h2 id="sharing-the-configuration">
+the configuration once should affect on both of my computers.&lt;/p&gt;
+&lt;h2 id="sharing-the-configuration"&gt;
  Sharing the configuration
- &lt;a class="heading-link" href="#sharing-the-configuration">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h2>
-&lt;p>For this task, I use git to manage the &lt;code>~/.config&lt;/code> directory. Where most of tools configurations
-live. For example &lt;code>kitty&lt;/code>, &lt;code>neovim&lt;/code>, &lt;code>direnv&lt;/code>. The problem is &lt;code>~/.config&lt;/code> directory is also used
+ &lt;a class="heading-link" href="#sharing-the-configuration"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;For this task, I use git to manage the &lt;code&gt;~/.config&lt;/code&gt; directory. Where most of tools configurations
+live. For example &lt;code&gt;kitty&lt;/code&gt;, &lt;code&gt;neovim&lt;/code&gt;, &lt;code&gt;direnv&lt;/code&gt;. The problem is &lt;code&gt;~/.config&lt;/code&gt; directory is also used
 by other applications. But I don&amp;rsquo;t want git to track everything. So I need to tell git to ignore
-everything but the ones I need.&lt;/p></description></item><item><title>Fix npm cannot install packages</title><link>https://sytranvn.dev/posts/fix-npm-cannot-install-packages/</link><pubDate>Mon, 29 May 2023 19:53:52 +0700</pubDate><guid>https://sytranvn.dev/posts/fix-npm-cannot-install-packages/</guid><description>&lt;p>Recently I experienced an issue with NPM, I couldn&amp;rsquo;t install any packages. I found some
-suggestions on google to upgrade &lt;code>npm&lt;/code> but &lt;code>npm install -g npm&lt;/code> didn&amp;rsquo;t work either. After some
-debugging and searching on npm repo issues, I finally found a temporary solution.&lt;/p>
-&lt;p>If you need the solution, you can go straight to &lt;a href="#solution" >Solution&lt;/a> and come back to read my findings later while npm doing what
-it needs to do.&lt;/p></description></item><item><title>Debug flask app with Neovim</title><link>https://sytranvn.dev/posts/debug-flask-app-with-neovim/</link><pubDate>Fri, 14 Apr 2023 23:46:03 +0700</pubDate><guid>https://sytranvn.dev/posts/debug-flask-app-with-neovim/</guid><description>&lt;p>After installing Neovim and some plugins. Now I want to try debugging Python project.
+everything but the ones I need.&lt;/p&gt;</description></item><item><title>Fix npm cannot install packages</title><link>https://sytranvn.dev/posts/fix-npm-cannot-install-packages/</link><pubDate>Mon, 29 May 2023 19:53:52 +0700</pubDate><guid>https://sytranvn.dev/posts/fix-npm-cannot-install-packages/</guid><description>&lt;p&gt;Recently I experienced an issue with NPM, I couldn&amp;rsquo;t install any packages. I found some
+suggestions on google to upgrade &lt;code&gt;npm&lt;/code&gt; but &lt;code&gt;npm install -g npm&lt;/code&gt; didn&amp;rsquo;t work either. After some
+debugging and searching on npm repo issues, I finally found a temporary solution.&lt;/p&gt;
+&lt;p&gt;If you need the solution, you can go straight to &lt;a href="#solution" &gt;Solution&lt;/a&gt; and come back to read my findings later while npm doing what
+it needs to do.&lt;/p&gt;</description></item><item><title>Debug flask app with Neovim</title><link>https://sytranvn.dev/posts/debug-flask-app-with-neovim/</link><pubDate>Fri, 14 Apr 2023 23:46:03 +0700</pubDate><guid>https://sytranvn.dev/posts/debug-flask-app-with-neovim/</guid><description>&lt;p&gt;After installing Neovim and some plugins. Now I want to try debugging Python project.
 I created a small Flask app from template with a few apis.
-And here&amp;rsquo;s the result. Amazing!&lt;/p>
-&lt;img src="debug.png" style="filter: unset;" />
-&lt;h1 id="heres-how-to">
+And here&amp;rsquo;s the result. Amazing!&lt;/p&gt;
+&lt;img src="debug.png" style="filter: unset;" /&gt;
+&lt;h1 id="heres-how-to"&gt;
  Here&amp;rsquo;s how to
- &lt;a class="heading-link" href="#heres-how-to">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h1>
-&lt;h2 id="prepare-a-flask-app">
+ &lt;a class="heading-link" href="#heres-how-to"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;h2 id="prepare-a-flask-app"&gt;
  Prepare a Flask app
- &lt;a class="heading-link" href="#prepare-a-flask-app">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h2>
-&lt;p>I use &lt;a href="https://github.com/jainamoswal/Flask-Example" class="external-link" target="_blank" rel="noopener">this template&lt;/a> to generate a Flask app repo.&lt;/p>
-&lt;p>Then I clone my new repo and install the requirements.&lt;/p></description></item><item><title>Start using Neovim</title><link>https://sytranvn.dev/posts/start-using-neovim/</link><pubDate>Thu, 13 Apr 2023 23:29:48 +0700</pubDate><guid>https://sytranvn.dev/posts/start-using-neovim/</guid><description>&lt;h1 id="tldr">
+ &lt;a class="heading-link" href="#prepare-a-flask-app"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;I use &lt;a href="https://github.com/jainamoswal/Flask-Example" class="external-link" target="_blank" rel="noopener"&gt;this template&lt;/a&gt; to generate a Flask app repo.&lt;/p&gt;
+&lt;p&gt;Then I clone my new repo and install the requirements.&lt;/p&gt;</description></item><item><title>Start using Neovim</title><link>https://sytranvn.dev/posts/start-using-neovim/</link><pubDate>Thu, 13 Apr 2023 23:29:48 +0700</pubDate><guid>https://sytranvn.dev/posts/start-using-neovim/</guid><description>&lt;h1 id="tldr"&gt;
  TLDR
- &lt;a class="heading-link" href="#tldr">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h1>
-&lt;p>I get bored of using VS Code and want to try Neovim and I love it.&lt;/p>
-&lt;h1 id="installing-neovim">
+ &lt;a class="heading-link" href="#tldr"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;p&gt;I get bored of using VS Code and want to try Neovim and I love it.&lt;/p&gt;
+&lt;h1 id="installing-neovim"&gt;
  Installing Neovim
- &lt;a class="heading-link" href="#installing-neovim">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h1>
-&lt;p>I have tried to use Neovim but it was not working well with my vim configurations. And now I try it again with no configs.&lt;/p>
-&lt;p>First of all, even though I like using vim, but during development I still use VSCode more as main IDE. Setting up debuggers
-with VSCode is much easier and I need it to work for my daily job so I keep sticking with it.&lt;/p></description></item><item><title>Why you should use Javascripts for scripting</title><link>https://sytranvn.dev/posts/why-you-should-use-mjs-file-for-scripting/</link><pubDate>Fri, 10 Feb 2023 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/why-you-should-use-mjs-file-for-scripting/</guid><description>&lt;p>I like to write small scripts, but used to suggle when I want to use Javascript
+ &lt;a class="heading-link" href="#installing-neovim"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;p&gt;I have tried to use Neovim but it was not working well with my vim configurations. And now I try it again with no configs.&lt;/p&gt;
+&lt;p&gt;First of all, even though I like using vim, but during development I still use VSCode more as main IDE. Setting up debuggers
+with VSCode is much easier and I need it to work for my daily job so I keep sticking with it.&lt;/p&gt;</description></item><item><title>Why you should use Javascripts for scripting</title><link>https://sytranvn.dev/posts/why-you-should-use-mjs-file-for-scripting/</link><pubDate>Fri, 10 Feb 2023 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/why-you-should-use-mjs-file-for-scripting/</guid><description>&lt;p&gt;I like to write small scripts, but used to suggle when I want to use Javascript
 to fetch API data, or use some helper packages. Then I go with Python instead.
-But things have changed. With the supports of ES module and &lt;code>fetch&lt;/code> and
-&lt;code>node:module&lt;/code> API. It is much easier now since I feel more comfortable using JS.&lt;/p>
-&lt;p>Unlike normal &lt;code>js&lt;/code> files, node treats &lt;code>mjs&lt;/code> files as ECMAScript modules. So
+But things have changed. With the supports of ES module and &lt;code&gt;fetch&lt;/code&gt; and
+&lt;code&gt;node:module&lt;/code&gt; API. It is much easier now since I feel more comfortable using JS.&lt;/p&gt;
+&lt;p&gt;Unlike normal &lt;code&gt;js&lt;/code&gt; files, node treats &lt;code&gt;mjs&lt;/code&gt; files as ECMAScript modules. So
 it means you can use any supported ES-next features w/o a transpiler like Babel.
 In the past, to be able to use ES features, we had to set up build and compilation
-tools like Webpack and Babel (due to conflicts between common JS &lt;code>require&lt;/code> is
-synchronous but &lt;code>import&lt;/code> is asynchronous, NodeJS didn&amp;rsquo;t support import/export
+tools like Webpack and Babel (due to conflicts between common JS &lt;code&gt;require&lt;/code&gt; is
+synchronous but &lt;code&gt;import&lt;/code&gt; is asynchronous, NodeJS didn&amp;rsquo;t support import/export
 natively until node 13). Webpack and Babel are not ment to do the jobs of Node.
 anymore. We should use them now when we need code bundling and compile some
 other language to JS such as JSX or new ES proposals still in staging. And even
 worse, sometimes they can even hold you back from using new features added to
 Javascripts if you don&amp;rsquo;t configurate it at latest version. I have suffered so
-many times that I can&amp;rsquo;t use &lt;code>...&lt;/code>, or &lt;code>Array.at&lt;/code> in my code just because my
+many times that I can&amp;rsquo;t use &lt;code&gt;...&lt;/code&gt;, or &lt;code&gt;Array.at&lt;/code&gt; in my code just because my
 project configuration is so outdated, not to mention the over advertised
 Typescripts, migrating those tools just to use a natively supported feature is
-pain in the a&amp;hellip;&lt;/p></description></item><item><title>Deploy ML model to Javascripts</title><link>https://sytranvn.dev/posts/deploy-ml-model-to-javascripts/</link><pubDate>Sat, 18 Jun 2022 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/deploy-ml-model-to-javascripts/</guid><description>&lt;p>Deploy trained model using Octave or Tensorflow to JS application.&lt;/p>
-&lt;h2 id="the-idea">
+pain in the a&amp;hellip;&lt;/p&gt;</description></item><item><title>Deploy ML model to Javascripts</title><link>https://sytranvn.dev/posts/deploy-ml-model-to-javascripts/</link><pubDate>Sat, 18 Jun 2022 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/deploy-ml-model-to-javascripts/</guid><description>&lt;p&gt;Deploy trained model using Octave or Tensorflow to JS application.&lt;/p&gt;
+&lt;h2 id="the-idea"&gt;
  The idea
- &lt;a class="heading-link" href="#the-idea">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h2>
-&lt;p>When we train a model, the outcome is ussually the weights of hidden layers.
-All predictions will be calculated by inputs and the weights.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-gdscript3" data-lang="gdscript3">&lt;span class="line">&lt;span class="cl">&lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">train&lt;/span> &lt;span class="n">model&lt;/span> &lt;span class="n">with&lt;/span> &lt;span class="n">training&lt;/span> &lt;span class="n">set&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="k">export&lt;/span> &lt;span class="n">model&lt;/span>&lt;span class="s1">&amp;#39;s weights&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="nb">load&lt;/span> &lt;span class="n">exported&lt;/span> &lt;span class="n">weights&lt;/span> &lt;span class="n">to&lt;/span> &lt;span class="n">JS&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">-&amp;gt;&lt;/span> &lt;span class="n">normalize&lt;/span> &lt;span class="n">input&lt;/span> &lt;span class="n">data&lt;/span> &lt;span class="ow">and&lt;/span> &lt;span class="n">predict&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="octave-model-to-csv">
+ &lt;a class="heading-link" href="#the-idea"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;When we train a model, the outcome is ussually the weights of hidden layers.
+All predictions will be calculated by inputs and the weights.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-gdscript3" data-lang="gdscript3"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;train&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt; &lt;span class="n"&gt;with&lt;/span&gt; &lt;span class="n"&gt;training&lt;/span&gt; &lt;span class="n"&gt;set&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="k"&gt;export&lt;/span&gt; &lt;span class="n"&gt;model&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;s weights&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;load&lt;/span&gt; &lt;span class="n"&gt;exported&lt;/span&gt; &lt;span class="n"&gt;weights&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;JS&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;normalize&lt;/span&gt; &lt;span class="n"&gt;input&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;predict&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="octave-model-to-csv"&gt;
  Octave model to csv
- &lt;a class="heading-link" href="#octave-model-to-csv">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h2>
-&lt;h2 id="setup-a-model-with-tensorflow">
+ &lt;a class="heading-link" href="#octave-model-to-csv"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;h2 id="setup-a-model-with-tensorflow"&gt;
  Setup a model with tensorflow
- &lt;a class="heading-link" href="#setup-a-model-with-tensorflow">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h2>
-&lt;h2 id="save-weights">
+ &lt;a class="heading-link" href="#setup-a-model-with-tensorflow"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;h2 id="save-weights"&gt;
  Save weights
- &lt;a class="heading-link" href="#save-weights">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h2>
-&lt;h2 id="save-entire-model">
+ &lt;a class="heading-link" href="#save-weights"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;h2 id="save-entire-model"&gt;
  Save entire model
- &lt;a class="heading-link" href="#save-entire-model">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h2></description></item><item><title>Turbo fan part 1</title><link>https://sytranvn.dev/posts/turbo-fan-1/</link><pubDate>Mon, 11 Apr 2022 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/turbo-fan-1/</guid><description>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-js" data-lang="js">&lt;/code>&lt;/pre>&lt;/div>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">d8 --trace-opt --trace-deopt opt.js -- &lt;span class="m">50000&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-txt" data-lang="txt">&lt;/code>&lt;/pre>&lt;/div>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">d8 --print-code --code-comments opt.js -- &lt;span class="m">4000&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-txt" data-lang="txt">&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Debug V8 part 2</title><link>https://sytranvn.dev/posts/debug-v8-part-2/</link><pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/debug-v8-part-2/</guid><description>&lt;p>In previous part, we have learnt how to debug &lt;code>d8&lt;/code> with &lt;code>lldb&lt;/code>. In this part
-we still use our &lt;code>debug.js&lt;/code> script. But we&amp;rsquo;ll add an other parameter to &lt;code>d8&lt;/code>
-before running process.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">lldb -- d8 --parse-only debug.js
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>With &lt;code>parse-only&lt;/code> flag, we will forcus on how &lt;code>d8&lt;/code> parse source content and
-turn into lexical input elements.&lt;/p>
-&lt;p>Let&amp;rsquo;s add a breakpoint in &lt;code>v8::Shell::RunMain&lt;/code> function and jump to it.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-shell" data-lang="shell">&lt;span class="line">&lt;span class="cl">&lt;span class="o">(&lt;/span>lldb&lt;span class="o">)&lt;/span> b v8::Shell::RunMain
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">(&lt;/span>lldb&lt;span class="o">)&lt;/span> run
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">frame &lt;span class="c1">#0: 0x000000010004ba68 d8`v8::Shell::RunMain(isolate=0x0000000118110000, last_run=true) at d8.cc:4578:12&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 4575	&lt;span class="o">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="m">4576&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 4577	int Shell::RunMain&lt;span class="o">(&lt;/span>Isolate* isolate, bool last_run&lt;span class="o">)&lt;/span> &lt;span class="o">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line hl">&lt;span class="cl">-&amp;gt; 4578	 &lt;span class="k">for&lt;/span> &lt;span class="o">(&lt;/span>int &lt;span class="nv">i&lt;/span> &lt;span class="o">=&lt;/span> 1&lt;span class="p">;&lt;/span> i &amp;lt; options.num_isolates&lt;span class="p">;&lt;/span> ++i&lt;span class="o">)&lt;/span> &lt;span class="o">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 4579	 options.isolate_sources&lt;span class="o">[&lt;/span>i&lt;span class="o">]&lt;/span>.StartExecuteInThread&lt;span class="o">()&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 4580	 &lt;span class="o">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 4581	 bool &lt;span class="nv">success&lt;/span> &lt;span class="o">=&lt;/span> true&lt;span class="p">;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>At line 4578, we will loop through different isolate sources and execute them
-in threads. But as our &lt;code>options.num_isolates = 1&lt;/code>, we don&amp;rsquo;t need to worry about
-multi-threads at this point.&lt;/p></description></item><item><title>Debug V8 part 1</title><link>https://sytranvn.dev/posts/debug-v8-part-1/</link><pubDate>Sun, 06 Feb 2022 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/debug-v8-part-1/</guid><description>&lt;h2 id="3-things-to-do-before-debugging-v8">
+ &lt;a class="heading-link" href="#save-entire-model"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;</description></item><item><title>Turbo fan part 1</title><link>https://sytranvn.dev/posts/turbo-fan-1/</link><pubDate>Mon, 11 Apr 2022 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/turbo-fan-1/</guid><description>&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-js" data-lang="js"&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;d8 --trace-opt --trace-deopt opt.js -- &lt;span class="m"&gt;50000&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-txt" data-lang="txt"&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;d8 --print-code --code-comments opt.js -- &lt;span class="m"&gt;4000&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-txt" data-lang="txt"&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>Debug V8 part 2</title><link>https://sytranvn.dev/posts/debug-v8-part-2/</link><pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/debug-v8-part-2/</guid><description>&lt;p&gt;In previous part, we have learnt how to debug &lt;code&gt;d8&lt;/code&gt; with &lt;code&gt;lldb&lt;/code&gt;. In this part
+we still use our &lt;code&gt;debug.js&lt;/code&gt; script. But we&amp;rsquo;ll add an other parameter to &lt;code&gt;d8&lt;/code&gt;
+before running process.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;lldb -- d8 --parse-only debug.js
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;With &lt;code&gt;parse-only&lt;/code&gt; flag, we will forcus on how &lt;code&gt;d8&lt;/code&gt; parse source content and
+turn into lexical input elements.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s add a breakpoint in &lt;code&gt;v8::Shell::RunMain&lt;/code&gt; function and jump to it.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;(&lt;/span&gt;lldb&lt;span class="o"&gt;)&lt;/span&gt; b v8::Shell::RunMain
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="o"&gt;(&lt;/span&gt;lldb&lt;span class="o"&gt;)&lt;/span&gt; run
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;frame &lt;span class="c1"&gt;#0: 0x000000010004ba68 d8`v8::Shell::RunMain(isolate=0x0000000118110000, last_run=true) at d8.cc:4578:12&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; 4575	&lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="m"&gt;4576&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; 4577	int Shell::RunMain&lt;span class="o"&gt;(&lt;/span&gt;Isolate* isolate, bool last_run&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line hl"&gt;&lt;span class="cl"&gt;-&amp;gt; 4578	 &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;int &lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; 1&lt;span class="p"&gt;;&lt;/span&gt; i &amp;lt; options.num_isolates&lt;span class="p"&gt;;&lt;/span&gt; ++i&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; 4579	 options.isolate_sources&lt;span class="o"&gt;[&lt;/span&gt;i&lt;span class="o"&gt;]&lt;/span&gt;.StartExecuteInThread&lt;span class="o"&gt;()&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; 4580	 &lt;span class="o"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; 4581	 bool &lt;span class="nv"&gt;success&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; true&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;At line 4578, we will loop through different isolate sources and execute them
+in threads. But as our &lt;code&gt;options.num_isolates = 1&lt;/code&gt;, we don&amp;rsquo;t need to worry about
+multi-threads at this point.&lt;/p&gt;</description></item><item><title>Debug V8 part 1</title><link>https://sytranvn.dev/posts/debug-v8-part-1/</link><pubDate>Sun, 06 Feb 2022 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/debug-v8-part-1/</guid><description>&lt;h2 id="3-things-to-do-before-debugging-v8"&gt;
  3 things to do before debugging V8
- &lt;a class="heading-link" href="#3-things-to-do-before-debugging-v8">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h2>
-&lt;ol>
-&lt;li>&lt;a href="#build-d8-with-debug-flags-from-v8-source" >Build d8 with debug flags from V8 source&lt;/a>&lt;/li>
-&lt;li>&lt;a href="#install-lldb" >Install lldb&lt;/a>&lt;/li>
-&lt;li>&lt;a href="#create-a-js-file" >A javascript file&lt;/a>&lt;/li>
-&lt;/ol>
-&lt;h3 id="build-d8-with-debug-flags-from-v8-source">
+ &lt;a class="heading-link" href="#3-things-to-do-before-debugging-v8"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href="#build-d8-with-debug-flags-from-v8-source" &gt;Build d8 with debug flags from V8 source&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#install-lldb" &gt;Install lldb&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#create-a-js-file" &gt;A javascript file&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id="build-d8-with-debug-flags-from-v8-source"&gt;
  Build d8 with debug flags from V8 source
- &lt;a class="heading-link" href="#build-d8-with-debug-flags-from-v8-source">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h3>
-&lt;p>If you haven&amp;rsquo;t tried building V8 before, take a look at my other blog on how to
-build V8 from source on &lt;a href="https://sytranvn.dev/posts/build-v8-from-source/" >Ubuntu&lt;/a> and
-&lt;a href="https://sytranvn.dev/posts/build-v8-from-source-on-apple-m1/" >Mac M1&lt;/a>. Now we just need to make sure the d8
-binary is built with &lt;code>debug&lt;/code> flag instead of &lt;code>release&lt;/code>.
-You can run this command &lt;code>gm.py arm64.debug.d8&lt;/code>. Or incase you have built a
+ &lt;a class="heading-link" href="#build-d8-with-debug-flags-from-v8-source"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;
+&lt;p&gt;If you haven&amp;rsquo;t tried building V8 before, take a look at my other blog on how to
+build V8 from source on &lt;a href="https://sytranvn.dev/posts/build-v8-from-source/" &gt;Ubuntu&lt;/a&gt; and
+&lt;a href="https://sytranvn.dev/posts/build-v8-from-source-on-apple-m1/" &gt;Mac M1&lt;/a&gt;. Now we just need to make sure the d8
+binary is built with &lt;code&gt;debug&lt;/code&gt; flag instead of &lt;code&gt;release&lt;/code&gt;.
+You can run this command &lt;code&gt;gm.py arm64.debug.d8&lt;/code&gt;. Or incase you have built a
 release version and don&amp;rsquo;t want to rebuild everything. Open
-&lt;code>out/release/args.gn&lt;/code> file and update following options.&lt;/p></description></item><item><title>Allocation</title><link>https://sytranvn.dev/posts/allocation/</link><pubDate>Thu, 14 Oct 2021 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/allocation/</guid><description>&lt;h3 id="allocation-in-v8">
+&lt;code&gt;out/release/args.gn&lt;/code&gt; file and update following options.&lt;/p&gt;</description></item><item><title>Allocation</title><link>https://sytranvn.dev/posts/allocation/</link><pubDate>Thu, 14 Oct 2021 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/allocation/</guid><description>&lt;h3 id="allocation-in-v8"&gt;
  Allocation in V8
- &lt;a class="heading-link" href="#allocation-in-v8">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h3>
-&lt;p>V8 allocate C free store using malloc and free.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-cpp" data-lang="cpp">&lt;span class="line">&lt;span class="cl">&lt;span class="kt">void&lt;/span>&lt;span class="o">*&lt;/span> &lt;span class="n">Malloced&lt;/span>&lt;span class="o">::&lt;/span>&lt;span class="n">New&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">size_t&lt;/span> &lt;span class="n">size&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">ASSERT&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">NativeAllocationChecker&lt;/span>&lt;span class="o">::&lt;/span>&lt;span class="n">allocation_allowed&lt;/span>&lt;span class="p">());&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kt">void&lt;/span>&lt;span class="o">*&lt;/span> &lt;span class="n">result&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">malloc&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">size&lt;/span>&lt;span class="p">);&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">if&lt;/span> &lt;span class="p">(&lt;/span>&lt;span class="n">result&lt;/span> &lt;span class="o">==&lt;/span> &lt;span class="nb">NULL&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="n">V8&lt;/span>&lt;span class="o">::&lt;/span>&lt;span class="n">FatalProcessOutOfMemory&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="s">&amp;#34;Malloced operator new&amp;#34;&lt;/span>&lt;span class="p">);&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="n">result&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kt">void&lt;/span> &lt;span class="n">Malloced&lt;/span>&lt;span class="o">::&lt;/span>&lt;span class="n">Delete&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="kt">void&lt;/span>&lt;span class="o">*&lt;/span> &lt;span class="n">p&lt;/span>&lt;span class="p">)&lt;/span> &lt;span class="p">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">free&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">p&lt;/span>&lt;span class="p">);&lt;/span>
-&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Besides of that, V8 defined a &lt;code>PreallocatedStorage&lt;/code> (double linked list) to manage allocated memorry.
-&lt;figure>&lt;img src="https://sytranvn.dev/posts/allocation/PreallocatedStorage-LinkTo.png">&lt;figcaption>
- &lt;h4>link chunks&lt;/h4>
- &lt;/figcaption>
-&lt;/figure>
-&lt;/p>
-&lt;figure>&lt;img src="https://sytranvn.dev/posts/allocation/PreallocatedStorage-Unlink.png">&lt;figcaption>
- &lt;h4>unlink chunks&lt;/h4>
- &lt;/figcaption>
-&lt;/figure>
+ &lt;a class="heading-link" href="#allocation-in-v8"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;
+&lt;p&gt;V8 allocate C free store using malloc and free.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cpp" data-lang="cpp"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kt"&gt;void&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;Malloced&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;New&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;size_t&lt;/span&gt; &lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;ASSERT&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;NativeAllocationChecker&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;allocation_allowed&lt;/span&gt;&lt;span class="p"&gt;());&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="kt"&gt;void&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;malloc&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nb"&gt;NULL&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;V8&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;FatalProcessOutOfMemory&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;Malloced operator new&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="n"&gt;Malloced&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;Delete&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="n"&gt;free&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Besides of that, V8 defined a &lt;code&gt;PreallocatedStorage&lt;/code&gt; (double linked list) to manage allocated memorry.
+&lt;figure&gt;&lt;img src="https://sytranvn.dev/posts/allocation/PreallocatedStorage-LinkTo.png"&gt;&lt;figcaption&gt;
+ &lt;h4&gt;link chunks&lt;/h4&gt;
+ &lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;/p&gt;
+&lt;figure&gt;&lt;img src="https://sytranvn.dev/posts/allocation/PreallocatedStorage-Unlink.png"&gt;&lt;figcaption&gt;
+ &lt;h4&gt;unlink chunks&lt;/h4&gt;
+ &lt;/figcaption&gt;
+&lt;/figure&gt;
 
-&lt;p>When we need to allocate some memorry, first V8 will find available memorry chunk in &lt;code>free_list_&lt;/code> that fit before call &lt;code>Malloced::New()&lt;/code> to allocate new memorry. And when V8 done using a memorry chunk, it does not &lt;code>free&lt;/code> instantly. Instead, V8 just removes the chunk from &lt;code>in_use_list_&lt;/code> and move it to &lt;code>free_list_&lt;/code>.
-&lt;figure>&lt;img src="https://sytranvn.dev/posts/allocation/PreallocatedStorage-New-1.png">&lt;figcaption>
- &lt;h4>find fit memorry chunk&lt;/h4>
- &lt;/figcaption>
-&lt;/figure>
+&lt;p&gt;When we need to allocate some memorry, first V8 will find available memorry chunk in &lt;code&gt;free_list_&lt;/code&gt; that fit before call &lt;code&gt;Malloced::New()&lt;/code&gt; to allocate new memorry. And when V8 done using a memorry chunk, it does not &lt;code&gt;free&lt;/code&gt; instantly. Instead, V8 just removes the chunk from &lt;code&gt;in_use_list_&lt;/code&gt; and move it to &lt;code&gt;free_list_&lt;/code&gt;.
+&lt;figure&gt;&lt;img src="https://sytranvn.dev/posts/allocation/PreallocatedStorage-New-1.png"&gt;&lt;figcaption&gt;
+ &lt;h4&gt;find fit memorry chunk&lt;/h4&gt;
+ &lt;/figcaption&gt;
+&lt;/figure&gt;
 
 So when we need memorry to store something else, we just override data on allocated memory, it save us one free operation.
-&lt;figure>&lt;img src="https://sytranvn.dev/posts/allocation/PreallocatedStorage-New-2.png">&lt;figcaption>
- &lt;h4>add free chunk to in used&lt;/h4>
- &lt;/figcaption>
-&lt;/figure>
+&lt;figure&gt;&lt;img src="https://sytranvn.dev/posts/allocation/PreallocatedStorage-New-2.png"&gt;&lt;figcaption&gt;
+ &lt;h4&gt;add free chunk to in used&lt;/h4&gt;
+ &lt;/figcaption&gt;
+&lt;/figure&gt;
 
-There is nothing much to be done in allocation since it just a wrapper to &lt;code>malloc&lt;/code> and &lt;code>free&lt;/code> memorry. But this is the heart of everything. In next posts, we will see how &lt;code>PreallocatedStorage&lt;/code> is used by V8 in specific scenarios.&lt;/p></description></item><item><title>Token</title><link>https://sytranvn.dev/posts/token/</link><pubDate>Wed, 06 Oct 2021 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/token/</guid><description>&lt;blockquote>
-&lt;p>If you don&amp;rsquo;t know how it works, find out. If you&amp;rsquo;re not sure if it will work, try it. If it doesn&amp;rsquo;t make sense, play with it until it does. If it&amp;rsquo;s not broken, break it. If it might not be true, find out.&lt;/p>
-&lt;p>Seth Godin&lt;/p>&lt;/blockquote>
-&lt;h2 id="token">
+There is nothing much to be done in allocation since it just a wrapper to &lt;code&gt;malloc&lt;/code&gt; and &lt;code&gt;free&lt;/code&gt; memorry. But this is the heart of everything. In next posts, we will see how &lt;code&gt;PreallocatedStorage&lt;/code&gt; is used by V8 in specific scenarios.&lt;/p&gt;</description></item><item><title>Token</title><link>https://sytranvn.dev/posts/token/</link><pubDate>Wed, 06 Oct 2021 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/token/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;If you don&amp;rsquo;t know how it works, find out. If you&amp;rsquo;re not sure if it will work, try it. If it doesn&amp;rsquo;t make sense, play with it until it does. If it&amp;rsquo;s not broken, break it. If it might not be true, find out.&lt;/p&gt;
+&lt;p&gt;Seth Godin&lt;/p&gt;&lt;/blockquote&gt;
+&lt;h2 id="token"&gt;
  Token
- &lt;a class="heading-link" href="#token">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h2>
-&lt;p>All tokens are defined by a macro &lt;code>TOKEN_LIST&lt;/code>. It takes a list of 3 macros M all of which satisfy the same signature M(name, string, precedence), where name is the symbolic token name, string is the corresponding syntactic symbol (or NULL, for literals), and precedence is the precedence (or 0).
-The parameters are invoked for token categories as follows:&lt;/p></description></item><item><title>Build v8 from source on Apple M1</title><link>https://sytranvn.dev/posts/build-v8-from-source-on-apple-m1/</link><pubDate>Mon, 19 Apr 2021 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/build-v8-from-source-on-apple-m1/</guid><description>&lt;p>Follow up &lt;a href="https://sytranvn.dev/posts/build-v8-from-source/" >Build v8 from source on Ubuntu 20.04&lt;/a>. Today we&amp;rsquo;re gonna build v8 source on an Apple M1 chip MacOS.&lt;/p>
-&lt;h2 id="required">
+ &lt;a class="heading-link" href="#token"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;All tokens are defined by a macro &lt;code&gt;TOKEN_LIST&lt;/code&gt;. It takes a list of 3 macros M all of which satisfy the same signature M(name, string, precedence), where name is the symbolic token name, string is the corresponding syntactic symbol (or NULL, for literals), and precedence is the precedence (or 0).
+The parameters are invoked for token categories as follows:&lt;/p&gt;</description></item><item><title>Build v8 from source on Apple M1</title><link>https://sytranvn.dev/posts/build-v8-from-source-on-apple-m1/</link><pubDate>Mon, 19 Apr 2021 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/build-v8-from-source-on-apple-m1/</guid><description>&lt;p&gt;Follow up &lt;a href="https://sytranvn.dev/posts/build-v8-from-source/" &gt;Build v8 from source on Ubuntu 20.04&lt;/a&gt;. Today we&amp;rsquo;re gonna build v8 source on an Apple M1 chip MacOS.&lt;/p&gt;
+&lt;h2 id="required"&gt;
  Required
- &lt;a class="heading-link" href="#required">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h2>
-&lt;ul>
-&lt;li>bash shell&lt;/li>
-&lt;li>git&lt;/li>
-&lt;li>&lt;a href="https://apps.apple.com/vn/app/xcode/id497799835?mt=12" class="external-link" target="_blank" rel="noopener">Xcode&lt;/a>&lt;/li>
-&lt;li>python2&lt;/li>
-&lt;/ul>
-&lt;p>I set up the V8 source code inside &lt;code>~/Code/&lt;/code> folder and use it throughout this article. You can change it to your desired folder.&lt;/p>
-&lt;h2 id="prepare-the-tools-and-source-code">
+ &lt;a class="heading-link" href="#required"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;bash shell&lt;/li&gt;
+&lt;li&gt;git&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://apps.apple.com/vn/app/xcode/id497799835?mt=12" class="external-link" target="_blank" rel="noopener"&gt;Xcode&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;python2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I set up the V8 source code inside &lt;code&gt;~/Code/&lt;/code&gt; folder and use it throughout this article. You can change it to your desired folder.&lt;/p&gt;
+&lt;h2 id="prepare-the-tools-and-source-code"&gt;
  Prepare the tools and source code
- &lt;a class="heading-link" href="#prepare-the-tools-and-source-code">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h2>
-&lt;p>First we need to get the depot tools bundle from google. It&amp;rsquo;s a package of scripts, to automate tasks to manage repositories &lt;a href="http://www.chromium.org/developers/how-tos/install-depot-tools" class="external-link" target="_blank" rel="noopener">http://www.chromium.org/developers/how-tos/install-depot-tools&lt;/a>&lt;/p></description></item><item><title>What I learned from reading reactjs tests</title><link>https://sytranvn.dev/posts/what-i-learned-from-reading-reactjs-tests/</link><pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/what-i-learned-from-reading-reactjs-tests/</guid><description>&lt;p>First of all, I think React DOM is one of the most interesting part in React code base. I&amp;rsquo;m not sure if it is correct but whatever, stop thinking and start diving.&lt;/p>
-&lt;p>This is the &lt;a href="https://github.com/facebook/react/blob/9d48779b362ef773da50fef95af6998b560c75c0/packages/react-dom/src/__tests__/ReactDOM-test.js" class="external-link" target="_blank" rel="noopener">React-DOM test file&lt;/a> at the time I&amp;rsquo;m writing this post. If you find latest version is different from what mentioned in this post please feel free to make a PR.&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>ReactDOM&lt;/code>
-&lt;ul>
-&lt;li>&lt;code>should bubble onSubmit&lt;/code>&lt;br>
-So we can listen an &lt;code>onsubmit&lt;/code> event on a &lt;code>div&lt;/code>. That&amp;rsquo;s crazy right? Most of the time we only listen this event on a &lt;code>form&lt;/code> but in fact any tag can listen to this event if it has a form children.&lt;/li>
-&lt;li>&lt;code>should overwrite props.children with children argument&lt;/code>&lt;br>
-So for example if we have &lt;code>&amp;lt;Component children={'real'}&amp;gt;fake&amp;lt;/Component&amp;gt;&lt;/code>. We will get &lt;code>fake&lt;/code> as result.&lt;/li>
-&lt;li>&lt;code>throws in render() if the update callback is not a function&lt;/code>&lt;br>
-&lt;code>ReactDOM.render&lt;/code> supports an optional &lt;code>callback&lt;/code> parameters to be called after component is mounted into container. I look for &lt;a href="https://github.com/facebook/react/blob/dd8552ae0d82afed66fec649ee5c044c69c65e92/packages/react-dom/src/client/ReactDOMLegacy.js#L198-L204" class="external-link" target="_blank" rel="noopener">actual implementation&lt;/a> and find it callback &lt;code>fiberRoot&lt;/code> instance as &lt;code>this&lt;/code>. So you can &lt;code>console.log(this.nodeName)&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>&lt;code>ReactMount&lt;/code>
-&lt;ul>
-&lt;li>&lt;code>should unmount and remount if the key changes&lt;/code>&lt;br>
-I have known this beavior of React key before, but it&amp;rsquo;s interesting to see it actually documented in the test.&lt;/li>
-&lt;li>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul></description></item><item><title>Build v8 from source on Ubuntu 20.04</title><link>https://sytranvn.dev/posts/build-v8-from-source/</link><pubDate>Sat, 20 Feb 2021 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/build-v8-from-source/</guid><description>&lt;p>Have you ever asked what does V8 do? Here&amp;rsquo;s how to build a V8 of your own from source code. See what it can do and even have fun with it.&lt;/p>
-&lt;h2 id="required">
+ &lt;a class="heading-link" href="#prepare-the-tools-and-source-code"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;First we need to get the depot tools bundle from google. It&amp;rsquo;s a package of scripts, to automate tasks to manage repositories &lt;a href="http://www.chromium.org/developers/how-tos/install-depot-tools" class="external-link" target="_blank" rel="noopener"&gt;http://www.chromium.org/developers/how-tos/install-depot-tools&lt;/a&gt;&lt;/p&gt;</description></item><item><title>What I learned from reading reactjs tests</title><link>https://sytranvn.dev/posts/what-i-learned-from-reading-reactjs-tests/</link><pubDate>Mon, 12 Apr 2021 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/what-i-learned-from-reading-reactjs-tests/</guid><description>&lt;p&gt;First of all, I think React DOM is one of the most interesting part in React code base. I&amp;rsquo;m not sure if it is correct but whatever, stop thinking and start diving.&lt;/p&gt;
+&lt;p&gt;This is the &lt;a href="https://github.com/facebook/react/blob/9d48779b362ef773da50fef95af6998b560c75c0/packages/react-dom/src/__tests__/ReactDOM-test.js" class="external-link" target="_blank" rel="noopener"&gt;React-DOM test file&lt;/a&gt; at the time I&amp;rsquo;m writing this post. If you find latest version is different from what mentioned in this post please feel free to make a PR.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ReactDOM&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;should bubble onSubmit&lt;/code&gt;&lt;br&gt;
+So we can listen an &lt;code&gt;onsubmit&lt;/code&gt; event on a &lt;code&gt;div&lt;/code&gt;. That&amp;rsquo;s crazy right? Most of the time we only listen this event on a &lt;code&gt;form&lt;/code&gt; but in fact any tag can listen to this event if it has a form children.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;should overwrite props.children with children argument&lt;/code&gt;&lt;br&gt;
+So for example if we have &lt;code&gt;&amp;lt;Component children={'real'}&amp;gt;fake&amp;lt;/Component&amp;gt;&lt;/code&gt;. We will get &lt;code&gt;fake&lt;/code&gt; as result.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;throws in render() if the update callback is not a function&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;ReactDOM.render&lt;/code&gt; supports an optional &lt;code&gt;callback&lt;/code&gt; parameters to be called after component is mounted into container. I look for &lt;a href="https://github.com/facebook/react/blob/dd8552ae0d82afed66fec649ee5c044c69c65e92/packages/react-dom/src/client/ReactDOMLegacy.js#L198-L204" class="external-link" target="_blank" rel="noopener"&gt;actual implementation&lt;/a&gt; and find it callback &lt;code&gt;fiberRoot&lt;/code&gt; instance as &lt;code&gt;this&lt;/code&gt;. So you can &lt;code&gt;console.log(this.nodeName)&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ReactMount&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;should unmount and remount if the key changes&lt;/code&gt;&lt;br&gt;
+I have known this beavior of React key before, but it&amp;rsquo;s interesting to see it actually documented in the test.&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Build v8 from source on Ubuntu 20.04</title><link>https://sytranvn.dev/posts/build-v8-from-source/</link><pubDate>Sat, 20 Feb 2021 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/build-v8-from-source/</guid><description>&lt;p&gt;Have you ever asked what does V8 do? Here&amp;rsquo;s how to build a V8 of your own from source code. See what it can do and even have fun with it.&lt;/p&gt;
+&lt;h2 id="required"&gt;
  Required
- &lt;a class="heading-link" href="#required">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h2>
-&lt;ul>
-&lt;li>bash shell&lt;/li>
-&lt;li>git&lt;/li>
-&lt;/ul>
-&lt;p>I set up the V8 source code inside &lt;code>~/Code/&lt;/code> folder and use it throughout this article. You can change it to your desired folder.&lt;/p>
-&lt;h2 id="prepare-the-tools-and-source-code">
+ &lt;a class="heading-link" href="#required"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;bash shell&lt;/li&gt;
+&lt;li&gt;git&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I set up the V8 source code inside &lt;code&gt;~/Code/&lt;/code&gt; folder and use it throughout this article. You can change it to your desired folder.&lt;/p&gt;
+&lt;h2 id="prepare-the-tools-and-source-code"&gt;
  Prepare the tools and source code
- &lt;a class="heading-link" href="#prepare-the-tools-and-source-code">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h2>
-&lt;p>We need to get the depot tools bundle from google. It&amp;rsquo;s a package of scripts, to automate tasks to manage repositories &lt;a href="http://www.chromium.org/developers/how-tos/install-depot-tools" class="external-link" target="_blank" rel="noopener">http://www.chromium.org/developers/how-tos/install-depot-tools&lt;/a>&lt;/p></description></item><item><title>Misc</title><link>https://sytranvn.dev/posts/misc/</link><pubDate>Thu, 28 Jan 2021 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/misc/</guid><description>&lt;p>Some tricks I found when dealing with V8 giant code base&lt;/p>
-&lt;h2 id="macros-macros-every-where">
+ &lt;a class="heading-link" href="#prepare-the-tools-and-source-code"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;We need to get the depot tools bundle from google. It&amp;rsquo;s a package of scripts, to automate tasks to manage repositories &lt;a href="http://www.chromium.org/developers/how-tos/install-depot-tools" class="external-link" target="_blank" rel="noopener"&gt;http://www.chromium.org/developers/how-tos/install-depot-tools&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Misc</title><link>https://sytranvn.dev/posts/misc/</link><pubDate>Thu, 28 Jan 2021 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/misc/</guid><description>&lt;p&gt;Some tricks I found when dealing with V8 giant code base&lt;/p&gt;
+&lt;h2 id="macros-macros-every-where"&gt;
  Macros, macros every where
- &lt;a class="heading-link" href="#macros-macros-every-where">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h2>
-&lt;ul>
-&lt;li>Having problem understanding v8 macros?
-&lt;ul>
-&lt;li>Add this where ever you want
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-cpp" data-lang="cpp">&lt;span class="line">&lt;span class="cl">&lt;span class="k">static&lt;/span> &lt;span class="k">const&lt;/span> &lt;span class="kt">int&lt;/span> &lt;span class="n">IAmHere&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="mi">1&lt;/span>&lt;span class="p">;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;li>And run
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-sh" data-lang="sh">&lt;span class="line">&lt;span class="cl">g++ -g -Wall -I. -Iinclude -I... header.h -E -D DEBUG &amp;gt; header.h.o
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;/li>
-&lt;li>Search for &lt;code>IAmHere&lt;/code> in &lt;code>header.h.o file&lt;/code> generated&lt;/li>
-&lt;li>Have fun&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>To be continued&lt;/li>
-&lt;/ul>
-&lt;h2 id="the-do-while-false-macro">
- The &lt;code>do while (false)&lt;/code> macro
- &lt;a class="heading-link" href="#the-do-while-false-macro">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h2>
-&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-cpp" data-lang="cpp">&lt;span class="line">&lt;span class="cl">&lt;span class="cp">#define ASSEMBLE_BINOP(asm_instr) \
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp"> do { \
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp"> if (HasAddressingMode(instr)) { \
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp"> size_t index = 1; \
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp"> Operand right = i.MemoryOperand(&amp;amp;index); \
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp"> __ asm_instr(i.InputRegister(0), right); \
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp"> } else { \
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp"> if (HasImmediateInput(instr, 1)) { \
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp"> if (HasRegisterInput(instr, 0)) { \
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp"> __ asm_instr(i.InputRegister(0), i.InputImmediate(1)); \
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp"> } else { \
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp"> __ asm_instr(i.InputOperand(0), i.InputImmediate(1)); \
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp"> } \
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp"> } else { \
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp"> if (HasRegisterInput(instr, 1)) { \
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp"> __ asm_instr(i.InputRegister(0), i.InputRegister(1)); \
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp"> } else { \
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp"> __ asm_instr(i.InputRegister(0), i.InputOperand(1)); \
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp"> } \
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp"> } \
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp"> } \
-&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="cp"> } while (false)
-&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Why &lt;code>do why (false)&lt;/code> ?
-Because if we define:&lt;/p></description></item><item><title>V8 adventure</title><link>https://sytranvn.dev/posts/v8-adventure/</link><pubDate>Thu, 01 Oct 2020 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/v8-adventure/</guid><description>&lt;p>Study the v8 source code from the beginning and more.&lt;/p>
-&lt;h2 id="why-v8-and-why-from-the-beginning">
+ &lt;a class="heading-link" href="#macros-macros-every-where"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Having problem understanding v8 macros?
+&lt;ul&gt;
+&lt;li&gt;Add this where ever you want
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cpp" data-lang="cpp"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;static&lt;/span&gt; &lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;IAmHere&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;And run
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;g++ -g -Wall -I. -Iinclude -I... header.h -E -D DEBUG &amp;gt; header.h.o
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;Search for &lt;code&gt;IAmHere&lt;/code&gt; in &lt;code&gt;header.h.o file&lt;/code&gt; generated&lt;/li&gt;
+&lt;li&gt;Have fun&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;To be continued&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="the-do-while-false-macro"&gt;
+ The &lt;code&gt;do while (false)&lt;/code&gt; macro
+ &lt;a class="heading-link" href="#the-do-while-false-macro"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-cpp" data-lang="cpp"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt;#define ASSEMBLE_BINOP(asm_instr) \
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt; do { \
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt; if (HasAddressingMode(instr)) { \
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt; size_t index = 1; \
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt; Operand right = i.MemoryOperand(&amp;amp;index); \
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt; __ asm_instr(i.InputRegister(0), right); \
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt; } else { \
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt; if (HasImmediateInput(instr, 1)) { \
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt; if (HasRegisterInput(instr, 0)) { \
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt; __ asm_instr(i.InputRegister(0), i.InputImmediate(1)); \
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt; } else { \
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt; __ asm_instr(i.InputOperand(0), i.InputImmediate(1)); \
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt; } \
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt; } else { \
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt; if (HasRegisterInput(instr, 1)) { \
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt; __ asm_instr(i.InputRegister(0), i.InputRegister(1)); \
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt; } else { \
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt; __ asm_instr(i.InputRegister(0), i.InputOperand(1)); \
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt; } \
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt; } \
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt; } \
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="cp"&gt; } while (false)
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Why &lt;code&gt;do why (false)&lt;/code&gt; ?
+Because if we define:&lt;/p&gt;</description></item><item><title>V8 adventure</title><link>https://sytranvn.dev/posts/v8-adventure/</link><pubDate>Thu, 01 Oct 2020 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/v8-adventure/</guid><description>&lt;p&gt;Study the v8 source code from the beginning and more.&lt;/p&gt;
+&lt;h2 id="why-v8-and-why-from-the-beginning"&gt;
  Why V8 and why from the beginning?
- &lt;a class="heading-link" href="#why-v8-and-why-from-the-beginning">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h2>
-&lt;ul>
-&lt;li>I&amp;rsquo;m working mostly as Javascript developer, but I&amp;rsquo;m also interested in C++ source code.
-V8 is perfect land for me to explorer interesting C++ concepts and to understand Javascript better.&lt;/li>
-&lt;li>Current code base of V8 is huge, I cannot jump right into it and learn everything.
+ &lt;a class="heading-link" href="#why-v8-and-why-from-the-beginning"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;I&amp;rsquo;m working mostly as Javascript developer, but I&amp;rsquo;m also interested in C++ source code.
+V8 is perfect land for me to explorer interesting C++ concepts and to understand Javascript better.&lt;/li&gt;
+&lt;li&gt;Current code base of V8 is huge, I cannot jump right into it and learn everything.
 So I decide to go back in time to see V8 in its initial shape. Less toolings, hacks, optimizations&amp;hellip; that I
-can not digest right now.&lt;/li>
-&lt;/ul>
-&lt;h2 id="what-do-ive-known-before-start-studying-v8-and-you-should-too">
+can not digest right now.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="what-do-ive-known-before-start-studying-v8-and-you-should-too"&gt;
  What do I&amp;rsquo;ve known before start studying V8 and you should too
- &lt;a class="heading-link" href="#what-do-ive-known-before-start-studying-v8-and-you-should-too">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h2>
-&lt;ul>
-&lt;li>C++, of course (my level is about basic to low intermediate)&lt;/li>
-&lt;li>Algorithms and Data structure (important)&lt;/li>
-&lt;li>I read a book about &lt;a href="https://craftinginterpreters.com/" class="external-link" target="_blank" rel="noopener">implementing scripting language&lt;/a>&lt;/li>
-&lt;li>Love reading people&amp;rsquo;s code &amp;#x1f4af;&lt;/li>
-&lt;/ul>
-&lt;h2 id="if-you-are-still-reading">
+ &lt;a class="heading-link" href="#what-do-ive-known-before-start-studying-v8-and-you-should-too"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;C++, of course (my level is about basic to low intermediate)&lt;/li&gt;
+&lt;li&gt;Algorithms and Data structure (important)&lt;/li&gt;
+&lt;li&gt;I read a book about &lt;a href="https://craftinginterpreters.com/" class="external-link" target="_blank" rel="noopener"&gt;implementing scripting language&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Love reading people&amp;rsquo;s code &amp;#x1f4af;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="if-you-are-still-reading"&gt;
  If you are still reading
- &lt;a class="heading-link" href="#if-you-are-still-reading">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h2>
-&lt;p>Good luck to us. I don&amp;rsquo;t know where this will lead us to. I hope we can take some thing out of the ancient V8 that still valid in most recent versions.&lt;/p></description></item></channel></rss>
+ &lt;a class="heading-link" href="#if-you-are-still-reading"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Good luck to us. I don&amp;rsquo;t know where this will lead us to. I hope we can take some thing out of the ancient V8 that still valid in most recent versions.&lt;/p&gt;</description></item></channel></rss>

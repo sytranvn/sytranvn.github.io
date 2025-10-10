@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Limits on sytranvn.dev</title><link>https://sytranvn.dev/tags/limits/</link><description>Recent content in Limits on sytranvn.dev</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 05 Jun 2023 18:19:06 +0700</lastBuildDate><atom:link href="https://sytranvn.dev/tags/limits/index.xml" rel="self" type="application/rss+xml"/><item><title>Some More Limits</title><link>https://sytranvn.dev/math/some-more-limits/</link><pubDate>Mon, 05 Jun 2023 18:19:06 +0700</pubDate><guid>https://sytranvn.dev/math/some-more-limits/</guid><description>&lt;ol>
-&lt;li>&lt;/li>
-&lt;/ol>
-&lt;p>$$
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Limits on sytranvn.dev</title><link>https://sytranvn.dev/tags/limits/</link><description>Recent content in Limits on sytranvn.dev</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 05 Jun 2023 18:19:06 +0700</lastBuildDate><atom:link href="https://sytranvn.dev/tags/limits/index.xml" rel="self" type="application/rss+xml"/><item><title>Some More Limits</title><link>https://sytranvn.dev/math/some-more-limits/</link><pubDate>Mon, 05 Jun 2023 18:19:06 +0700</pubDate><guid>https://sytranvn.dev/math/some-more-limits/</guid><description>&lt;ol&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
 \lim_{x \to 0} \frac{ \sqrt{x + 1} - 1 }{ \sqrt[3]{x} - 1 } \\
 = \lim_{x \to 0} \frac{ ( \sqrt{x + 1} - 1 )( \sqrt{x + 1} + 1 ) }{ ( \sqrt[3]{x} - 1 ) ( \sqrt{x + 1} + 1 )} \\
 = \lim_{x \to 0} \frac{ ( \sqrt{x + 1} )^2 - 1^2 }{ ( \sqrt[3]{x} - 1 ) ( \sqrt{x + 1} + 1 )} \\
@@ -10,7 +10,7 @@
 = \lim_{x \to 0} \frac{ 0 }{ ( \sqrt[3]{0} - 1 ) ( \sqrt{0 + 1} + 1 )} \\
 = \lim_{x \to 0} \frac{ 0 }{ -2 } \\
 = 0^-
-$$&lt;/p></description></item><item><title>Limits</title><link>https://sytranvn.dev/math/limits/</link><pubDate>Fri, 16 Dec 2022 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/math/limits/</guid><description>&lt;p>$$
+$$&lt;/p&gt;</description></item><item><title>Limits</title><link>https://sytranvn.dev/math/limits/</link><pubDate>Fri, 16 Dec 2022 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/math/limits/</guid><description>&lt;p&gt;$$
 \begin{aligned}
 \text{Tính: }&amp;amp; L = \lim_{x \to +\infty}\bigg(\frac{x+1}{x+3}\bigg)^{x}\\
 \text{Giải: } &amp;amp; \\
@@ -32,4 +32,4 @@ L &amp;amp;= \lim_{x \to +\infty}\bigg(1 + \frac{-2}{x+3}\bigg)^x \\
 &amp;amp;= e^{-2} \\
 &amp;amp;\text{Vậy } L = e^{-2} \square
 \end{aligned}
-$$&lt;/p></description></item></channel></rss>
+$$&lt;/p&gt;</description></item></channel></rss>

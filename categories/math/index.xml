@@ -1,31 +1,31 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Math on sytranvn.dev</title><link>https://sytranvn.dev/categories/math/</link><description>Recent content in Math on sytranvn.dev</description><generator>Hugo</generator><language>en</language><lastBuildDate>Sat, 22 Jul 2023 19:49:45 +0700</lastBuildDate><atom:link href="https://sytranvn.dev/categories/math/index.xml" rel="self" type="application/rss+xml"/><item><title>Discrete Mathematics</title><link>https://sytranvn.dev/math/discrete-math/logic/</link><pubDate>Sat, 22 Jul 2023 19:49:45 +0700</pubDate><guid>https://sytranvn.dev/math/discrete-math/logic/</guid><description>&lt;ol>
-&lt;li>Xét các phát biểu sau&lt;br>
-i) p = “An học bài”,&lt;br>
-ii) q = “An xem tivi”,&lt;br>
-iii) r =“An có ở nhà không”,&lt;br>
-iv) s = “An ở nhà”,&lt;br>
-v) t = “trời mưa”,&lt;br>
-vi) u = “trời mưa buồn biết mấy”,&lt;br>
-phát biểu nào là mệnh đề ?&lt;br>
-p, q, s, t&lt;/li>
-&lt;li>Viết các mệnh đề phức hợp sau dưới dạng hình thức bằng cách dùng các mệnh đề trong bài tập 1 liên kết
-với các phép toán mệnh đề,&lt;br>
-i) “An học bài và không xem tivi”,&lt;br>
-ii) “An ở nhà nhưng không học bài, cũng không xem tivi”,&lt;br>
-iii) “nếu trời mưa thì An ở nhà”,&lt;br>
-iv) “nếu An ở nhà thì An học bài hay xem tivi”.&lt;br>
-$p\land q$, $s \land\lnot(p \lor q)$, $t \rarr s$, $s \rarr (p \lor q)$&lt;/li>
-&lt;li>Xét các mệnh đề&lt;br>
-p = “ABCD là một hình bình hành”,&lt;br>
-q = “ABCD là một hình chữ nhật”,&lt;br>
-r = “ABCD là một hình thoi”,&lt;br>
-s = “ABCD là một hình vuông”.&lt;br>
-Viết các mệnh đề sau bằng ngôn ngữ thông thường, cho biết chân trị của nó và giải thích.&lt;br>
-i) $q \rarr p$: nếu ABCD là một hình chữ nhật thì ABCD là một hình bình hành, chân trị Đúng&lt;br>
-ii) $\overline{r} \rarr \overline{p}$: nếu ABCD không là một hình thoi thì ABCD không là một hình bình hành, chân trị Đúng,&lt;br>
-iii) $ s \lrarr (q \land r )$: nếu ABCD là một hình vuông thì ABCD vừa là một hình chữ nhật và ABCD vừa là một hình thoi, chân trị Đúng,&lt;br>
-iv) $\overline{s} \rarr \overline{r} $: nếu ABCD không là một hình vuông thì ABCD không là một hình thoi, chân trị Sai.&lt;/li>
-&lt;li> 
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Math on sytranvn.dev</title><link>https://sytranvn.dev/categories/math/</link><description>Recent content in Math on sytranvn.dev</description><generator>Hugo</generator><language>en</language><lastBuildDate>Sat, 22 Jul 2023 19:49:45 +0700</lastBuildDate><atom:link href="https://sytranvn.dev/categories/math/index.xml" rel="self" type="application/rss+xml"/><item><title>Discrete Mathematics</title><link>https://sytranvn.dev/math/discrete-math/logic/</link><pubDate>Sat, 22 Jul 2023 19:49:45 +0700</pubDate><guid>https://sytranvn.dev/math/discrete-math/logic/</guid><description>&lt;ol&gt;
+&lt;li&gt;Xét các phát biểu sau&lt;br&gt;
+i) p = “An học bài”,&lt;br&gt;
+ii) q = “An xem tivi”,&lt;br&gt;
+iii) r =“An có ở nhà không”,&lt;br&gt;
+iv) s = “An ở nhà”,&lt;br&gt;
+v) t = “trời mưa”,&lt;br&gt;
+vi) u = “trời mưa buồn biết mấy”,&lt;br&gt;
+phát biểu nào là mệnh đề ?&lt;br&gt;
+p, q, s, t&lt;/li&gt;
+&lt;li&gt;Viết các mệnh đề phức hợp sau dưới dạng hình thức bằng cách dùng các mệnh đề trong bài tập 1 liên kết
+với các phép toán mệnh đề,&lt;br&gt;
+i) “An học bài và không xem tivi”,&lt;br&gt;
+ii) “An ở nhà nhưng không học bài, cũng không xem tivi”,&lt;br&gt;
+iii) “nếu trời mưa thì An ở nhà”,&lt;br&gt;
+iv) “nếu An ở nhà thì An học bài hay xem tivi”.&lt;br&gt;
+$p\land q$, $s \land\lnot(p \lor q)$, $t \rarr s$, $s \rarr (p \lor q)$&lt;/li&gt;
+&lt;li&gt;Xét các mệnh đề&lt;br&gt;
+p = “ABCD là một hình bình hành”,&lt;br&gt;
+q = “ABCD là một hình chữ nhật”,&lt;br&gt;
+r = “ABCD là một hình thoi”,&lt;br&gt;
+s = “ABCD là một hình vuông”.&lt;br&gt;
+Viết các mệnh đề sau bằng ngôn ngữ thông thường, cho biết chân trị của nó và giải thích.&lt;br&gt;
+i) $q \rarr p$: nếu ABCD là một hình chữ nhật thì ABCD là một hình bình hành, chân trị Đúng&lt;br&gt;
+ii) $\overline{r} \rarr \overline{p}$: nếu ABCD không là một hình thoi thì ABCD không là một hình bình hành, chân trị Đúng,&lt;br&gt;
+iii) $ s \lrarr (q \land r )$: nếu ABCD là một hình vuông thì ABCD vừa là một hình chữ nhật và ABCD vừa là một hình thoi, chân trị Đúng,&lt;br&gt;
+iv) $\overline{s} \rarr \overline{r} $: nếu ABCD không là một hình vuông thì ABCD không là một hình thoi, chân trị Sai.&lt;/li&gt;
+&lt;li&gt; 
 $$
 
  \begin{aligned}
@@ -59,8 +59,8 @@ $$
  \end{aligned}
  
 
-$$&lt;/li>
-&lt;li> 
+$$&lt;/li&gt;
+&lt;li&gt; 
 $$
 
  \begin{aligned}
@@ -155,12 +155,12 @@ $$
  \end{aligned}
  
 
-$$&lt;/li>
-&lt;li>&lt;/li>
-&lt;/ol></description></item><item><title>Linear algebra excersises - Basic matrix</title><link>https://sytranvn.dev/math/linear-algebra/matrix/</link><pubDate>Sat, 22 Jul 2023 19:49:45 +0711</pubDate><guid>https://sytranvn.dev/math/linear-algebra/matrix/</guid><description>&lt;p>Online resources
-&lt;a href="https://math.vanderbilt.edu/sapirmv/msapir/jan10.shtml" class="external-link" target="_blank" rel="noopener">https://math.vanderbilt.edu/sapirmv/msapir/jan10.shtml&lt;/a>&lt;/p>
-&lt;ol>
-&lt;li> 
+$$&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ol&gt;</description></item><item><title>Linear algebra excersises - Basic matrix</title><link>https://sytranvn.dev/math/linear-algebra/matrix/</link><pubDate>Sat, 22 Jul 2023 19:49:45 +0711</pubDate><guid>https://sytranvn.dev/math/linear-algebra/matrix/</guid><description>&lt;p&gt;Online resources
+&lt;a href="https://math.vanderbilt.edu/sapirmv/msapir/jan10.shtml" class="external-link" target="_blank" rel="noopener"&gt;https://math.vanderbilt.edu/sapirmv/msapir/jan10.shtml&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt; 
 $$
 
  \begin{aligned}
@@ -208,8 +208,8 @@ $$
  \end{aligned}
  
 
-$$&lt;/li>
-&lt;li> 
+$$&lt;/li&gt;
+&lt;li&gt; 
 $$
 
  \begin{aligned}
@@ -262,8 +262,8 @@ $$
  \end{aligned}
  
 
-$$&lt;/li>
-&lt;li> 
+$$&lt;/li&gt;
+&lt;li&gt; 
 $$
 
  \begin{aligned}
@@ -313,8 +313,8 @@ $$
  \end{aligned}
  
 
-$$&lt;/li>
-&lt;li> 
+$$&lt;/li&gt;
+&lt;li&gt; 
 $$
 
  \begin{aligned}
@@ -373,8 +373,8 @@ $$
  \end{aligned}
  
 
-$$&lt;/li>
-&lt;li> 
+$$&lt;/li&gt;
+&lt;li&gt; 
 $$
 
  \begin{aligned}
@@ -441,8 +441,8 @@ $$
  \end{aligned}
  
 
-$$&lt;/li>
-&lt;li> 
+$$&lt;/li&gt;
+&lt;li&gt; 
 $$
 
  \begin{aligned}
@@ -508,8 +508,8 @@ $$
  \end{aligned}
  
 
-$$&lt;/li>
-&lt;li> 
+$$&lt;/li&gt;
+&lt;li&gt; 
 $$
 
  \begin{aligned}
@@ -610,8 +610,8 @@ $$
  \end{aligned}
  
 
-$$&lt;/li>
-&lt;li> 
+$$&lt;/li&gt;
+&lt;li&gt; 
 $$
 
  \begin{aligned}
@@ -728,8 +728,8 @@ $$
  \end{aligned}
  
 
-$$&lt;/li>
-&lt;li> 
+$$&lt;/li&gt;
+&lt;li&gt; 
 $$
 
  \begin{aligned}
@@ -789,8 +789,8 @@ $$
  \end{aligned}
  
 
-$$&lt;/li>
-&lt;li> 
+$$&lt;/li&gt;
+&lt;li&gt; 
 $$
 
  \begin{aligned}
@@ -830,8 +830,8 @@ $$
  \end{aligned}
  
 
-$$&lt;/li>
-&lt;li> 
+$$&lt;/li&gt;
+&lt;li&gt; 
 $$
 
  \begin{aligned}
@@ -846,8 +846,8 @@ $$
  \end{aligned}
  
 
-$$&lt;/li>
-&lt;li> 
+$$&lt;/li&gt;
+&lt;li&gt; 
 $$
 
  \begin{aligned}
@@ -865,8 +865,8 @@ $$
  \end{aligned}
  
 
-$$&lt;/li>
-&lt;li> 
+$$&lt;/li&gt;
+&lt;li&gt; 
 $$
 
  \begin{aligned}
@@ -1032,10 +1032,10 @@ $$
  \end{aligned}
  
 
-$$&lt;/li>
-&lt;li>  Include some proofs &lt;a href="https://math.vanderbilt.edu/sapirmv/msapir/proofdet1.html" class="external-link" target="_blank" rel="noopener">https://math.vanderbilt.edu/sapirmv/msapir/proofdet1.html&lt;/a>
-&lt;ol>
-&lt;li> 
+$$&lt;/li&gt;
+&lt;li&gt;  Include some proofs &lt;a href="https://math.vanderbilt.edu/sapirmv/msapir/proofdet1.html" class="external-link" target="_blank" rel="noopener"&gt;https://math.vanderbilt.edu/sapirmv/msapir/proofdet1.html&lt;/a&gt;
+&lt;ol&gt;
+&lt;li&gt; 
 $$
 
  \begin{aligned}
@@ -1058,8 +1058,8 @@ $$
  \end{aligned}
  
 
-$$&lt;/li>
-&lt;li> 
+$$&lt;/li&gt;
+&lt;li&gt; 
 $$
 
  \begin{aligned}
@@ -1119,8 +1119,8 @@ $$
  \end{aligned} 
  
 
-$$&lt;/li>
-&lt;li> 
+$$&lt;/li&gt;
+&lt;li&gt; 
 $$
 
  \begin{aligned}
@@ -1174,8 +1174,8 @@ $$
  \end{aligned} \\
  
 
-$$&lt;/li>
-&lt;li> 
+$$&lt;/li&gt;
+&lt;li&gt; 
 $$
 
  \begin{aligned}
@@ -1214,10 +1214,10 @@ $$
  \end{aligned} \\
  
 
-$$&lt;/li>
-&lt;/ol>
-&lt;/li>
-&lt;li> 
+$$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt; 
 $$
 
  \begin{aligned}
@@ -1293,10 +1293,10 @@ $$
  \end{aligned}
  
 
-$$&lt;/li>
-&lt;li>Find inverse matrix if exist
-&lt;ol>
-&lt;li> &lt;br>
+$$&lt;/li&gt;
+&lt;li&gt;Find inverse matrix if exist
+&lt;ol&gt;
+&lt;li&gt; &lt;br&gt;
 $$
 
  \begin{aligned}
@@ -1330,8 +1330,8 @@ $$
  \end{aligned}
  
 
-$$&lt;/li>
-&lt;li> &lt;br>
+$$&lt;/li&gt;
+&lt;li&gt; &lt;br&gt;
 $$
 
  
@@ -1363,8 +1363,8 @@ $$
  \end{aligned}
  
 
-$$&lt;/li>
-&lt;li> &lt;br>
+$$&lt;/li&gt;
+&lt;li&gt; &lt;br&gt;
 $$
 
  \begin{aligned}
@@ -1397,8 +1397,8 @@ $$
  \end{aligned}
  
 
-$$&lt;/li>
-&lt;li>&lt;em>Note: Inverse of triangle matrix is triangle matrix, is there a way to quickly canculate values?&lt;/em> We can skip upper upper half because they are all zeroes.
+$$&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Note: Inverse of triangle matrix is triangle matrix, is there a way to quickly canculate values?&lt;/em&gt; We can skip upper upper half because they are all zeroes.
 $$
 
  \begin{aligned}
@@ -1428,8 +1428,8 @@ $$
  \end{aligned}
  
 
-$$&lt;/li>
-&lt;li> &lt;br>
+$$&lt;/li&gt;
+&lt;li&gt; &lt;br&gt;
 $$
 
  \begin{aligned}
@@ -1483,8 +1483,8 @@ $$
  \end{aligned}
  
 
-$$&lt;/li>
-&lt;li> &lt;br>
+$$&lt;/li&gt;
+&lt;li&gt; &lt;br&gt;
 $$
 
  \begin{aligned}
@@ -1507,8 +1507,8 @@ $$
  \end{aligned}
  
 
-$$&lt;/li>
-&lt;li> &lt;br>
+$$&lt;/li&gt;
+&lt;li&gt; &lt;br&gt;
 $$
 
  \begin{aligned}
@@ -1537,8 +1537,8 @@ $$
  \end{aligned}
  
 
-$$&lt;/li>
-&lt;li> &lt;br>
+$$&lt;/li&gt;
+&lt;li&gt; &lt;br&gt;
 $$
 
  \begin{aligned}
@@ -1572,8 +1572,8 @@ $$
  \end{aligned}
  
 
-$$&lt;/li>
-&lt;li> &lt;br>
+$$&lt;/li&gt;
+&lt;li&gt; &lt;br&gt;
 $$
 
  \begin{bmatrix}
@@ -1584,8 +1584,8 @@ $$
  
  
 
-$$&lt;/li>
-&lt;li> &lt;br>
+$$&lt;/li&gt;
+&lt;li&gt; &lt;br&gt;
 $$
 
  \begin{bmatrix}
@@ -1595,13 +1595,13 @@ $$
  \end{bmatrix}
  
 
-$$&lt;/li>
-&lt;/ol>
-&lt;/li>
-&lt;/ol></description></item><item><title>Some More Limits</title><link>https://sytranvn.dev/math/some-more-limits/</link><pubDate>Mon, 05 Jun 2023 18:19:06 +0700</pubDate><guid>https://sytranvn.dev/math/some-more-limits/</guid><description>&lt;ol>
-&lt;li>&lt;/li>
-&lt;/ol>
-&lt;p>$$
+$$&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</description></item><item><title>Some More Limits</title><link>https://sytranvn.dev/math/some-more-limits/</link><pubDate>Mon, 05 Jun 2023 18:19:06 +0700</pubDate><guid>https://sytranvn.dev/math/some-more-limits/</guid><description>&lt;ol&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$$
 \lim_{x \to 0} \frac{ \sqrt{x + 1} - 1 }{ \sqrt[3]{x} - 1 } \\
 = \lim_{x \to 0} \frac{ ( \sqrt{x + 1} - 1 )( \sqrt{x + 1} + 1 ) }{ ( \sqrt[3]{x} - 1 ) ( \sqrt{x + 1} + 1 )} \\
 = \lim_{x \to 0} \frac{ ( \sqrt{x + 1} )^2 - 1^2 }{ ( \sqrt[3]{x} - 1 ) ( \sqrt{x + 1} + 1 )} \\
@@ -1610,14 +1610,14 @@ $$&lt;/li>
 = \lim_{x \to 0} \frac{ 0 }{ ( \sqrt[3]{0} - 1 ) ( \sqrt{0 + 1} + 1 )} \\
 = \lim_{x \to 0} \frac{ 0 }{ -2 } \\
 = 0^-
-$$&lt;/p></description></item><item><title>Latex cheat sheets</title><link>https://sytranvn.dev/math/intro_to_latex/</link><pubDate>Fri, 16 Dec 2022 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/math/intro_to_latex/</guid><description>&lt;h1 id="introduction-to-latex">
+$$&lt;/p&gt;</description></item><item><title>Latex cheat sheets</title><link>https://sytranvn.dev/math/intro_to_latex/</link><pubDate>Fri, 16 Dec 2022 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/math/intro_to_latex/</guid><description>&lt;h1 id="introduction-to-latex"&gt;
  Introduction to LaTeX
- &lt;a class="heading-link" href="#introduction-to-latex">
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading">&lt;/i>
- &lt;span class="sr-only">Link to heading&lt;/span>
- &lt;/a>
-&lt;/h1>
-&lt;p>In this tutorial, you will learn some of the basics on how to use $\LaTeX$ to display equations in Jupyter notebooks. For looking up symbols you may need, you can use any of the many &lt;a href="http://users.dickinson.edu/~richesod/latex/latexcheatsheet.pdf" class="external-link" target="_blank" rel="noopener">cheat sheets&lt;/a> you can find by asking Google. I have provided a few that will come up often in this course at the &lt;a href="#Useful-LaTeX-symbols-for-BE/Bi-103" >end of this lesson&lt;/a>.&lt;/p></description></item><item><title>Limits</title><link>https://sytranvn.dev/math/limits/</link><pubDate>Fri, 16 Dec 2022 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/math/limits/</guid><description>&lt;p>$$
+ &lt;a class="heading-link" href="#introduction-to-latex"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
+&lt;p&gt;In this tutorial, you will learn some of the basics on how to use $\LaTeX$ to display equations in Jupyter notebooks. For looking up symbols you may need, you can use any of the many &lt;a href="http://users.dickinson.edu/~richesod/latex/latexcheatsheet.pdf" class="external-link" target="_blank" rel="noopener"&gt;cheat sheets&lt;/a&gt; you can find by asking Google. I have provided a few that will come up often in this course at the &lt;a href="#Useful-LaTeX-symbols-for-BE/Bi-103" &gt;end of this lesson&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>Limits</title><link>https://sytranvn.dev/math/limits/</link><pubDate>Fri, 16 Dec 2022 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/math/limits/</guid><description>&lt;p&gt;$$
 \begin{aligned}
 \text{Tính: }&amp;amp; L = \lim_{x \to +\infty}\bigg(\frac{x+1}{x+3}\bigg)^{x}\\
 \text{Giải: } &amp;amp; \\
@@ -1639,4 +1639,4 @@ L &amp;amp;= \lim_{x \to +\infty}\bigg(1 + \frac{-2}{x+3}\bigg)^x \\
 &amp;amp;= e^{-2} \\
 &amp;amp;\text{Vậy } L = e^{-2} \square
 \end{aligned}
-$$&lt;/p></description></item></channel></rss>
+$$&lt;/p&gt;</description></item></channel></rss>
