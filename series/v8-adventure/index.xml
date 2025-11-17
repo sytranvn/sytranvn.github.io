@@ -44,7 +44,8 @@ You can run this command &lt;code&gt;gm.py arm64.debug.d8&lt;/code&gt;. Or incas
 release version and don&amp;rsquo;t want to rebuild everything. Open
 &lt;code&gt;out/release/args.gn&lt;/code&gt; file and update following options.&lt;/p&gt;</description></item><item><title>Token</title><link>https://sytranvn.dev/posts/token/</link><pubDate>Wed, 06 Oct 2021 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/token/</guid><description>&lt;blockquote&gt;
 &lt;p&gt;If you don&amp;rsquo;t know how it works, find out. If you&amp;rsquo;re not sure if it will work, try it. If it doesn&amp;rsquo;t make sense, play with it until it does. If it&amp;rsquo;s not broken, break it. If it might not be true, find out.&lt;/p&gt;
-&lt;p&gt;Seth Godin&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Seth Godin&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h2 id="token"&gt;
  Token
  &lt;a class="heading-link" href="#token"&gt;
