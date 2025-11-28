@@ -1,4 +1,31 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on sytranvn.dev</title><link>https://sytranvn.dev/posts/</link><description>Recent content in Posts on sytranvn.dev</description><generator>Hugo</generator><language>en</language><lastBuildDate>Thu, 27 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://sytranvn.dev/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>I ruined my Arch and brought it back</title><link>https://sytranvn.dev/posts/i-ruined-my-arch-and-brought-it-back/</link><pubDate>Thu, 27 Nov 2025 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/i-ruined-my-arch-and-brought-it-back/</guid><description>&lt;p&gt;last night i had a heart attack. i ruined my arch distro setup and couldnt boot it. it all started when i saw that the plasma-meta package had a lot of games and i was running low on hard drive so i wanted to clean up what i thought was unnecessary. i opened the kde start menu and started with the software groups in there.&lt;br&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on sytranvn.dev</title><link>https://sytranvn.dev/posts/</link><description>Recent content in Posts on sytranvn.dev</description><generator>Hugo</generator><language>en</language><lastBuildDate>Fri, 28 Nov 2025 09:43:50 +0700</lastBuildDate><atom:link href="https://sytranvn.dev/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Practice With K8s Outside Minikube</title><link>https://sytranvn.dev/posts/practice-with-k8s-outside-minikube/</link><pubDate>Fri, 28 Nov 2025 09:43:50 +0700</pubDate><guid>https://sytranvn.dev/posts/practice-with-k8s-outside-minikube/</guid><description>&lt;h2 id="getting-private-images-from-aws-ecr"&gt;
+ Getting private images from AWS ECR
+ &lt;a class="heading-link" href="#getting-private-images-from-aws-ecr"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Authenticate docker with private registry&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;aws ecr get-login-password &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; --profile PROFILE &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; --region ap-southeast-1 &lt;span class="p"&gt;|&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;docker login --username AWS &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; --password-stdin AWS_ACCOUNT_ID.dkr.ecr.REGION.amazonaws.com
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Where:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;PROFILE&lt;/code&gt; is credentials profile can access to AWS.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;AWS_ACCOUNT_ID&lt;/code&gt; can be &lt;code&gt;123123123&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;REGION&lt;/code&gt; can be &lt;code&gt;ap-southeast-1&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;Then verify the image digest&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;docker manifest inspect 123123.dkr.ecr.ap-southeast-1.amazonaws.com/release/image:tag -v
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol&gt;
+&lt;li&gt;Then pull the image if needed&lt;/li&gt;
+&lt;/ol&gt;</description></item><item><title>I ruined my Arch and brought it back</title><link>https://sytranvn.dev/posts/i-ruined-my-arch-and-brought-it-back/</link><pubDate>Thu, 27 Nov 2025 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/i-ruined-my-arch-and-brought-it-back/</guid><description>&lt;p&gt;last night i had a heart attack. i ruined my arch distro setup and couldnt boot it. it all started when i saw that the plasma-meta package had a lot of games and i was running low on hard drive so i wanted to clean up what i thought was unnecessary. i opened the kde start menu and started with the software groups in there.&lt;br&gt;
 i dont remember the exact command i used, but it seemed to be pacman -Rnc and something else i am not sure, and finally the package i wanted to remove. i started from the games group and everything was fine. then went to support tools, then office tools,&amp;hellip; everything seemed fine. but unfortunately things were not as i expected. some widgets on the desktop stopped working. i decided to shut down the computer and go home. after dinner i sat at the table and turned on the computer. but oh no, things were clearly not working at all.&lt;br&gt;
 i couldn&amp;rsquo;t get to the login screen, maybe the kernel had finished loading and was loading more system services but it stopped for a long time. i switched to tty2 with ctrl alt f2 and i could still log in to my account. at that time i didn&amp;rsquo;t know what i did wrong, i just knew the next day i had important work to do and i needed this machine to work. i could use the terminal only for coding but not for chatting with colleagues.&lt;br&gt;
 by my guesswork i changed sddm config and tried between wayland and x11 but no go. worse i made it ugly. i lost access to tty2. now i cant edit from inside.&lt;br&gt;
