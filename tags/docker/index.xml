@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Docker on sytranvn.dev</title><link>https://sytranvn.dev/tags/docker/</link><description>Recent content in Docker on sytranvn.dev</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 08 Dec 2025 16:10:44 +0700</lastBuildDate><atom:link href="https://sytranvn.dev/tags/docker/index.xml" rel="self" type="application/rss+xml"/><item><title>Shrinking Your AI Deployments: Optimizing PyTorch/CUDA Docker Images with uv</title><link>https://sytranvn.dev/posts/optimizing-pytorch-cuda-docker-image-with-uv/</link><pubDate>Mon, 08 Dec 2025 16:10:44 +0700</pubDate><guid>https://sytranvn.dev/posts/optimizing-pytorch-cuda-docker-image-with-uv/</guid><description>&lt;h2 id="shrinking-your-ai-deployments-optimizing-pytorchcuda-docker-images-with-uv"&gt;
+ Shrinking Your AI Deployments: Optimizing PyTorch/CUDA Docker Images with &lt;code&gt;uv&lt;/code&gt;
+ &lt;a class="heading-link" href="#shrinking-your-ai-deployments-optimizing-pytorchcuda-docker-images-with-uv"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Deploying AI models in production often means packaging them into Docker
+containers. While convenient, these images can quickly grow to colossal sizes,
+especially when dealing with deep learning frameworks like PyTorch and their
+CUDA dependencies. Large images lead to slower deployments, increased storage
+costs, and longer CI/CD cycles.&lt;/p&gt;
+&lt;h3 id="the-problem-with-large-images"&gt;
+ The Problem with Large Images
+ &lt;a class="heading-link" href="#the-problem-with-large-images"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;
+&lt;p&gt;Many developers build their Docker images from generic base images (like
+&lt;code&gt;ubuntu&lt;/code&gt; or &lt;code&gt;python&lt;/code&gt;) and then manually install PyTorch, CUDA, and other
+libraries. This often results in:&lt;/p&gt;</description></item></channel></rss>
