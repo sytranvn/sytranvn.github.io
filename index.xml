@@ -1,4 +1,10 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>sytranvn.dev</title><link>https://sytranvn.dev/</link><description>Recent content on sytranvn.dev</description><generator>Hugo</generator><language>en</language><lastBuildDate>Mon, 08 Dec 2025 16:10:44 +0700</lastBuildDate><atom:link href="https://sytranvn.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Shrinking Your AI Deployments: Optimizing PyTorch/CUDA Docker Images with uv</title><link>https://sytranvn.dev/posts/optimizing-pytorch-cuda-docker-image-with-uv/</link><pubDate>Mon, 08 Dec 2025 16:10:44 +0700</pubDate><guid>https://sytranvn.dev/posts/optimizing-pytorch-cuda-docker-image-with-uv/</guid><description>&lt;h2 id="shrinking-your-ai-deployments-optimizing-pytorchcuda-docker-images-with-uv"&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>sytranvn.dev</title><link>https://sytranvn.dev/</link><description>Recent content on sytranvn.dev</description><generator>Hugo</generator><language>en</language><lastBuildDate>Thu, 08 Jan 2026 23:41:09 +0700</lastBuildDate><atom:link href="https://sytranvn.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Hosting a Home Media Server</title><link>https://sytranvn.dev/posts/hosting-a-home-media-server/</link><pubDate>Thu, 08 Jan 2026 23:41:09 +0700</pubDate><guid>https://sytranvn.dev/posts/hosting-a-home-media-server/</guid><description>&lt;p&gt;2025 was a busy year for my family. My daughter and my wife traveled the whole
+country to contest chess championships. And I also traveled alone a couple of
+times. We bought a DJI Pocket 3 so my wife can take as many moments of our
+daughter as possible. We planed to also make vlogs out of it. But the plan was
+just a plan. We didn&amp;rsquo;t have so much time to edit all those videos. And the
+amount of videos just piped up as our daughter keeps contesting more and more
+tournaments.&lt;/p&gt;</description></item><item><title>Shrinking Your AI Deployments: Optimizing PyTorch/CUDA Docker Images with uv</title><link>https://sytranvn.dev/posts/optimizing-pytorch-cuda-docker-image-with-uv/</link><pubDate>Mon, 08 Dec 2025 16:10:44 +0700</pubDate><guid>https://sytranvn.dev/posts/optimizing-pytorch-cuda-docker-image-with-uv/</guid><description>&lt;h2 id="shrinking-your-ai-deployments-optimizing-pytorchcuda-docker-images-with-uv"&gt;
  Shrinking Your AI Deployments: Optimizing PyTorch/CUDA Docker Images with &lt;code&gt;uv&lt;/code&gt;
  &lt;a class="heading-link" href="#shrinking-your-ai-deployments-optimizing-pytorchcuda-docker-images-with-uv"&gt;
  &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
@@ -30,10 +36,10 @@ libraries. This often results in:&lt;/p&gt;</description></item><item><title>Pra
 &lt;li&gt;Authenticate docker with private registry&lt;/li&gt;
 &lt;/ol&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;aws ecr get-login-password &lt;span class="se"&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; --profile PROFILE &lt;span class="se"&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; --region ap-southeast-1 &lt;span class="p"&gt;|&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; --profile PROFILE &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; --region ap-southeast-1 &lt;span class="p"&gt;|&lt;/span&gt; 
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;docker login --username AWS &lt;span class="se"&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="se"&gt;&lt;/span&gt; --password-stdin AWS_ACCOUNT_ID.dkr.ecr.REGION.amazonaws.com
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; --password-stdin AWS_ACCOUNT_ID.dkr.ecr.REGION.amazonaws.com
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Where:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;PROFILE&lt;/code&gt; is credentials profile can access to AWS.&lt;/li&gt;
@@ -71,7 +77,7 @@ to share a port? Or does it do different things in
 isolation? Those questions will help us pick the right
 parallelization module for the task.&lt;/p&gt;</description></item><item><title>Nodejs Primordials</title><link>https://sytranvn.dev/posts/nodejs-primordials/</link><pubDate>Thu, 14 Aug 2025 17:37:48 +0700</pubDate><guid>https://sytranvn.dev/posts/nodejs-primordials/</guid><description>&lt;p&gt;This is a part of &lt;code&gt;_http_server.js&lt;/code&gt; file from NodeJS source.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-js" data-lang="js"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// node/lib/_http_server.js
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;use strict&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="s1"&gt;&amp;#39;use strict&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;ArrayIsArray&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
@@ -267,7 +273,7 @@ for rendering UI. They are all written in Typescript. We built it from beginning
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;			&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;_r&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;_c&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;-1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;^&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;_r&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="nv"&gt;_c&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;det&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;_m&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;		&lt;/span&gt;&lt;span class="n"&gt;end&lt;/span&gt;&lt;span class="w"&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;	&lt;/span&gt;&lt;span class="n"&gt;end&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="n"&gt;end&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;end&lt;/span&gt;&lt;span class="w"&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>The Way I Math With Hugo</title><link>https://sytranvn.dev/posts/the-way-i-math-with-hugo/</link><pubDate>Sat, 19 Aug 2023 12:49:01 +0700</pubDate><guid>https://sytranvn.dev/posts/the-way-i-math-with-hugo/</guid><description>&lt;p&gt;Recently I have joined a course to relearn some linear algebra. What I didn&amp;rsquo;t have any intuition during college.
 I want to do exercises and also add them to this site for content 😄
 I am using hugo-coder theme and it comes with katex support. When never I need to write some math, I just need to

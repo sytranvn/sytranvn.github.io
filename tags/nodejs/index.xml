@@ -8,7 +8,7 @@ to share a port? Or does it do different things in
 isolation? Those questions will help us pick the right
 parallelization module for the task.&lt;/p&gt;</description></item><item><title>Nodejs Primordials</title><link>https://sytranvn.dev/posts/nodejs-primordials/</link><pubDate>Thu, 14 Aug 2025 17:37:48 +0700</pubDate><guid>https://sytranvn.dev/posts/nodejs-primordials/</guid><description>&lt;p&gt;This is a part of &lt;code&gt;_http_server.js&lt;/code&gt; file from NodeJS source.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-js" data-lang="js"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// node/lib/_http_server.js
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;use strict&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="s1"&gt;&amp;#39;use strict&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kr"&gt;const&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; &lt;span class="nx"&gt;ArrayIsArray&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
