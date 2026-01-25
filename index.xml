@@ -75,7 +75,22 @@ or Child Processes can be.&lt;/p&gt;
 for our server. Does it need to share memory? Does it need
 to share a port? Or does it do different things in
 isolation? Those questions will help us pick the right
-parallelization module for the task.&lt;/p&gt;</description></item><item><title>Nodejs Primordials</title><link>https://sytranvn.dev/posts/nodejs-primordials/</link><pubDate>Thu, 14 Aug 2025 17:37:48 +0700</pubDate><guid>https://sytranvn.dev/posts/nodejs-primordials/</guid><description>&lt;p&gt;This is a part of &lt;code&gt;_http_server.js&lt;/code&gt; file from NodeJS source.&lt;/p&gt;
+parallelization module for the task.&lt;/p&gt;</description></item><item><title>How to Fail With AI</title><link>https://sytranvn.dev/posts/how-to-fail-with-ai/</link><pubDate>Fri, 15 Aug 2025 15:12:21 +0700</pubDate><guid>https://sytranvn.dev/posts/how-to-fail-with-ai/</guid><description>&lt;p&gt;We can see people on internet posting their amazing products generated with
+help by AI. While I don&amp;rsquo;t deny their achievement. As a developer currently
+using AI in daily job, I want to share how I failed several times with it.&lt;/p&gt;
+&lt;h2 id="move-very-fast-break-everything"&gt;
+ Move very fast, break everything
+ &lt;a class="heading-link" href="#move-very-fast-break-everything"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;I had a new idea and I wanted to immediately make a prototype. So I run my
+gemini cli and start prompting my requirements. So far so good, it did almost
+everything right from setting up a NodeJS project and start coding a simple
+layout for me. It helped me run all commands to install packages, start the
+code and check for any errors returned. If anything bad happened, it will help
+me fix that as well.&lt;/p&gt;</description></item><item><title>Nodejs Primordials</title><link>https://sytranvn.dev/posts/nodejs-primordials/</link><pubDate>Thu, 14 Aug 2025 17:37:48 +0700</pubDate><guid>https://sytranvn.dev/posts/nodejs-primordials/</guid><description>&lt;p&gt;This is a part of &lt;code&gt;_http_server.js&lt;/code&gt; file from NodeJS source.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-js" data-lang="js"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;// node/lib/_http_server.js
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="s1"&gt;&amp;#39;use strict&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
