@@ -5,4 +5,11 @@
  &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
  &lt;/a&gt;
 &lt;/h1&gt;
+&lt;p&gt;In this tutorial, you will learn some of the basics on how to use $\LaTeX$ to display equations in Jupyter notebooks. For looking up symbols you may need, you can use any of the many &lt;a href="http://users.dickinson.edu/~richesod/latex/latexcheatsheet.pdf" class="external-link" target="_blank" rel="noopener"&gt;cheat sheets&lt;/a&gt; you can find by asking Google. I have provided a few that will come up often in this course at the &lt;a href="#Useful-LaTeX-symbols-for-BE/Bi-103" &gt;end of this lesson&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>Latex cheat sheets</title><link>https://sytranvn.dev/posts/math/intro_to_latex/</link><pubDate>Fri, 16 Dec 2022 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/math/intro_to_latex/</guid><description>&lt;h1 id="introduction-to-latex"&gt;
+ Introduction to LaTeX
+ &lt;a class="heading-link" href="#introduction-to-latex"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h1&gt;
 &lt;p&gt;In this tutorial, you will learn some of the basics on how to use $\LaTeX$ to display equations in Jupyter notebooks. For looking up symbols you may need, you can use any of the many &lt;a href="http://users.dickinson.edu/~richesod/latex/latexcheatsheet.pdf" class="external-link" target="_blank" rel="noopener"&gt;cheat sheets&lt;/a&gt; you can find by asking Google. I have provided a few that will come up often in this course at the &lt;a href="#Useful-LaTeX-symbols-for-BE/Bi-103" &gt;end of this lesson&lt;/a&gt;.&lt;/p&gt;</description></item></channel></rss>

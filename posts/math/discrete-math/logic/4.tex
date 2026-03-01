@@ -1,0 +1,29 @@
+\begin{aligned}
+&p \oplus q \equiv (p \land \overline{q}) \lor (\overline{p} \land q) \\
+\\
+&\begin{array}{| c | c | c | c | c | c | c |}
+p & q & \overline{p} & \overline{q} & p \land \overline{q} & \overline{p} \land q &
+ p \oplus q \\
+\hline
+T & T & F & F & F & F & F \\
+T & F & F & T & T & F & T \\
+F & T & T & F & F & T & T \\
+F & F & T & T & F & F & F \\
+\end{array} \\
+\\
+&[p \oplus ( q \oplus r)] \lrArr [(p \oplus q) \oplus r] \\
+\\
+&\begin{array}{|c | c | c | c | c | c | c |}
+p & q & r & q \oplus r & p \oplus ( q \oplus r) & p \oplus q & (p \oplus q) \oplus r \\
+\hline
+1 & 1 & 1 & 0 & 1 & 0 & 1 \\
+1 & 1 & 0 & 1 & 0 & 0 & 0 \\
+1 & 0 & 1 & 1 & 0 & 1 & 0 \\
+1 & 0 & 0 & 0 & 1 & 1 & 1 \\
+0 & 1 & 1 & 0 & 0 & 1 & 0 \\
+0 & 1 & 0 & 1 & 1 & 1 & 1 \\
+0 & 0 & 1 & 1 & 1 & 0 & 1 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+\end{array} \\
+&p \oplus ( q \oplus r) \text{và } (p \oplus q) \oplus r \text{ có cùng bảng chân trị} \\
+\end{aligned}

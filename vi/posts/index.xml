@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on sytranvn.dev</title><link>https://sytranvn.dev/vi/posts/</link><description>Recent content in Posts on sytranvn.dev</description><generator>Hugo</generator><language>vi</language><lastBuildDate>Mon, 17 Nov 2025 21:27:32 +0700</lastBuildDate><atom:link href="https://sytranvn.dev/vi/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Viết gì trong thời đại của AI?</title><link>https://sytranvn.dev/vi/posts/viet-gi-trong-thoi-dai-ai/</link><pubDate>Mon, 17 Nov 2025 21:27:32 +0700</pubDate><guid>https://sytranvn.dev/vi/posts/viet-gi-trong-thoi-dai-ai/</guid><description>&lt;p&gt;Ngày còn học cấp 2, tôi cũng học văn kha khá. Lên cấp 3 thì tệ hẳn. Vì tôi
+thích kiểu văn kể chuyện sáng tạo. Mơ mộng về những câu chuyện cổ tích ly kỳ.
+Không thích kiểu ngồi phân tích ông tác giả này nghĩ gì? Ông nhà thơ kia có ý
+đồ chi? Vì đơn giản với tôi, người ta đã cố gắng diễn đạt tâm ý người ta vào
+câu thơ đến thế rồi còn gì mà phải phân với tích. Đọc câu nào rõ ràng ý tứ câu
+đấy rồi còn gì nữa. Có chăng ông nhà văn thì suy nghĩ tiếp tình tiết đằng sau.
+Còn ông nhà thơ thì nghĩ sao cho gieo vần đúng âm luật mà không phải đổi ý thơ
+đi thôi. Thế là cứ bài tập làm văn nào ở cấp 3 của tôi cũng như một điều gượng
+ép. Viết cái gì cho kín 2 - 3 mặt giấy trong khi chép hết bài thơ cũng chỉ có
+một mặt mà thôi.&lt;/p&gt;</description></item><item><title>Truy Cập Steam Từ Việt Nam</title><link>https://sytranvn.dev/vi/posts/truy-cap-steam-tu-viet-nam/</link><pubDate>Sat, 01 Feb 2025 01:05:27 +0700</pubDate><guid>https://sytranvn.dev/vi/posts/truy-cap-steam-tu-viet-nam/</guid><description>&lt;p&gt;Đang dịp lễ tết rảnh rỗi tính làm vài cái nhiệm vụ Carven trong dota 2 cho xong
+kiếm ít skin free mà hóa ra bữa giờ steam bị nhà mạng Việt Nam chặn. Lúc đầu có
+lúc chơi bình thường có lúc account lại offline rất ảo mình mới nghi nghi. Đi
+tìm kiếm trên &amp;ldquo;diễn đàn công nghệ hàng đầu Việt Nam&amp;rdquo; thì thấy các cụ chỉ sửa
+DNS server sang của google hay cloudflare để tránh nhưng có vẻ cách này đã cũ.
+Lúc đầu mình đã xài rồi mà không có được. Cố đọc vài bài thì không thấy có cách
+giải quyết &amp;hellip;&lt;/p&gt;</description></item><item><title>Cài đặt Zalo Trên Ubuntu</title><link>https://sytranvn.dev/vi/posts/zalo-tren-ubuntu/</link><pubDate>Sun, 27 Aug 2023 17:10:55 +0700</pubDate><guid>https://sytranvn.dev/vi/posts/zalo-tren-ubuntu/</guid><description>&lt;p&gt;Sau đây mình sẽ hướng dẫn cách cài đặt Zalo trên Ubuntu và Steam Proton, tại thời điểm hiện tại, mình đang sử dụng bản là 23.8.4&lt;/p&gt;
+&lt;h2 id="yêu-cầu"&gt;
+ Yêu cầu
+ &lt;a class="heading-link" href="#y%c3%aau-c%e1%ba%a7u"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Bạn có cài đặt sẵn &lt;a href="https://store.steampowered.com/" class="external-link" target="_blank" rel="noopener"&gt;Steam&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="tải-file-cài-đặt-zalo"&gt;
+ Tải file cài đặt zalo
+ &lt;a class="heading-link" href="#t%e1%ba%a3i-file-c%c3%a0i-%c4%91%e1%ba%b7t-zalo"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Dành cho cách bạn sử dụng trình duyệt Google Chrome
+&lt;ol&gt;
+&lt;li&gt;Các bạn hãy vào trang chủ &lt;a href="https://zalo.me" class="external-link" target="_blank" rel="noopener"&gt;https://zalo.me&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Click chuột phải ở vị trí bất kỳ và mở công cụ Inspect
+&lt;ol&gt;
+&lt;li&gt;Trong công cụ Inspect, chọn tab Network&lt;/li&gt;
+&lt;li&gt;Click vào biểu tượng 🛜 để tùy chỉnh thông tin gửi đi&lt;/li&gt;
+&lt;li&gt;Trong mục User agent, bỏ chọn trình duyệt mặc định, và chọn 1 trình duyệt của Windows, ví dụ Chrome - Windows
+&lt;img src="https://sytranvn.dev/posts/zalo-tren-ubuntu/chrome.png" alt=""&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;Bạn hãy tải lại trang (lưu ý không đóng công cụ Inspect)&lt;/li&gt;
+&lt;li&gt;Nút Tải về sẽ hiện ra để bạn có thể tải về&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;Dành cho các bạn sử dụng trình duyệt Firefox
+&lt;ol&gt;
+&lt;li&gt;Các bạn vào &lt;code&gt;about:config&lt;/code&gt; , nếu có cảnh báo thì chấp nhận rủi ro và tiếp tục&lt;/li&gt;
+&lt;li&gt;Tìm &lt;code&gt;general.useragent.override&lt;/code&gt; và chọn String, thêm giá trị &lt;code&gt;Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36&lt;/code&gt; để đổi thành Chrome - Windows
+&lt;img src="https://sytranvn.dev/posts/zalo-tren-ubuntu/firefox.png" alt=""&gt;&lt;/li&gt;
+&lt;li&gt;Truy cập &lt;a href="https://zalo.me" class="external-link" target="_blank" rel="noopener"&gt;https://zalo.me&lt;/a&gt; và tải về&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;Dành cho các bạn sử dụng terminal
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;curl -L &lt;span class="s1"&gt;&amp;#39;https://zalo.me/download/zalo-pc?utm=90000&amp;#39;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; -H &lt;span class="s1"&gt;&amp;#39;User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36&amp;#39;&lt;/span&gt; &lt;span class="se"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; -o ~/Downloads/zalosetup.exe
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id="cài-đặt-steam-chạy-phần-mềm-windows"&gt;
+ Cài đặt Steam chạy phần mềm Windows
+ &lt;a class="heading-link" href="#c%c3%a0i-%c4%91%e1%ba%b7t-steam-ch%e1%ba%a1y-ph%e1%ba%a7n-m%e1%bb%81m-windows"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Steam cung cấp công cụ Proton, xây dựng trên WineHQ để hỗ trợ chạy các game thiết kế cho Windows có thể chạy trên Linux và Steam Play.
+Chúng ta sẽ tiến hành cài đặt như sau:&lt;/p&gt;</description></item><item><title>First Trip Aboard</title><link>https://sytranvn.dev/vi/posts/travels/first-trip-aboard/</link><pubDate>Tue, 27 Jun 2023 15:53:09 +0700</pubDate><guid>https://sytranvn.dev/vi/posts/travels/first-trip-aboard/</guid><description>&lt;p&gt;Viết về chuyến đi đầu tiên ra nước ngoài. Lẽ dĩ nhiên những gì tận mắt tôi được chứng kiến đều khiến tôi bất ngờ,
+vì mọi thứ thật khác với quê hương Việt Nam của tôi. Mặc dù tôi viết rất tệ, nhưng kỷ niệm thật khó quên này, tôi sẽ
+cố gắng để viết một cách đầy đủ nhất về những trải nghiệm của mình.&lt;/p&gt;
+&lt;h2 id="chuẩn-bị"&gt;
+ Chuẩn bị
+ &lt;a class="heading-link" href="#chu%e1%ba%a9n-b%e1%bb%8b"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Đây là chuyến du lịch của công ty đến Thái Lan và tôi được tài trợ hoàn toàn chi phí, điều duy nhất tôi cần chuẩn bị là
+hộ chiếu công dân và một tâm hồn thật đẹp. Thật may tôi đã làm hộ chiếu từ nhiều năm trước, cuối cùng thì cũng được mang
+nó ra sử dụng một lần. Còn tâm hồn của tôi thì chắc chắn là rất đẹp rồi 😙
+Ngoài nhân viên thì công ty còn hỗ trợ cả người thân của nhân viên một phần chi phí. Vì thỉnh thoảng chúng tôi chỉ đi du lịch trong nước, nên nhân cơ hội này tôi muốn đưa vợ và con cùng đi. Vậy nên khâu
+chuẩn bị có thêm làm hộ chiếu cho con gái tôi. Thông thường mọi người có thể làm hộ chiếu online, nhưng
+với trẻ em thì buộc phải nộp hồ sơ trực tiếp ở nơi thường trú nên chúng tôi phải về quê để nộp hồ sơ.
+Ngoài ra thì chuẩn bị thêm một số quần áo và vật dụng khác là đã đủ. Vì tôi mặc gì cũng đẹp nên không
+phải chuẩn bị gì nhiều về phần này.&lt;/p&gt;</description></item></channel></rss>

@@ -51,7 +51,10 @@ branch</a>.</p><p>As stated in source code document.</p><div class=highlight><pr
 </span></span></span><span class=line><span class=cl><span class=c1>// so that Node.js&#39;s builtin modules do not need to later look these up from
 </span></span></span><span class=line><span class=cl><span class=c1>// the global proxy, which can be mutated by users.
 </span></span></span></code></pre></div><p>So the intention is clear, this helps NodeJS developers quickly access builtins,
-and worry about them being mutated by users.</p><p>This is the full source code at commit <a href=https://github.com/nodejs/node/blob/141a6e34eed05577edf43ad085a74f330d0559cb/lib/internal/per_context/primordials.js class=external-link target=_blank rel=noopener>141a6e3</a> in 2019.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=s1>&#39;use strict&#39;</span><span class=p>;</span>
+and worry about them being mutated by users.</p><p>This is the full source code at commit
+<a href=https://github.com/nodejs/node/blob/141a6e34eed05577edf43ad085a74f330d0559cb/lib/internal/per_context/primordials.js class=external-link target=_blank rel=noopener>141a6e3</a>
+in 2019.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-js data-lang=js><span class=line><span class=cl><span class=c1>// https://raw.githubusercontent.com/nodejs/node/141a6e34/lib/internal/per_context/primordials.js
+</span></span></span><span class=line><span class=cl><span class=s1>&#39;use strict&#39;</span><span class=p>;</span>
 </span></span><span class=line><span class=cl>
 </span></span><span class=line><span class=cl><span class=cm>/* eslint-disable no-restricted-globals */</span>
 </span></span><span class=line><span class=cl>
