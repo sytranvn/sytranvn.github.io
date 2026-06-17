@@ -98,25 +98,25 @@ release version and don&amp;rsquo;t want to rebuild everything. Open
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Besides of that, V8 defined a &lt;code&gt;PreallocatedStorage&lt;/code&gt; (double linked list) to manage allocated memorry.
 &lt;figure&gt;&lt;img src="https://sytranvn.dev/posts/allocation/PreallocatedStorage-LinkTo.png"&gt;&lt;figcaption&gt;
- &lt;h4&gt;link chunks&lt;/h4&gt;
- &lt;/figcaption&gt;
+			&lt;h4&gt;link chunks&lt;/h4&gt;
+		&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/p&gt;
 &lt;figure&gt;&lt;img src="https://sytranvn.dev/posts/allocation/PreallocatedStorage-Unlink.png"&gt;&lt;figcaption&gt;
- &lt;h4&gt;unlink chunks&lt;/h4&gt;
- &lt;/figcaption&gt;
+			&lt;h4&gt;unlink chunks&lt;/h4&gt;
+		&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;When we need to allocate some memorry, first V8 will find available memorry chunk in &lt;code&gt;free_list_&lt;/code&gt; that fit before call &lt;code&gt;Malloced::New()&lt;/code&gt; to allocate new memorry. And when V8 done using a memorry chunk, it does not &lt;code&gt;free&lt;/code&gt; instantly. Instead, V8 just removes the chunk from &lt;code&gt;in_use_list_&lt;/code&gt; and move it to &lt;code&gt;free_list_&lt;/code&gt;.
 &lt;figure&gt;&lt;img src="https://sytranvn.dev/posts/allocation/PreallocatedStorage-New-1.png"&gt;&lt;figcaption&gt;
- &lt;h4&gt;find fit memorry chunk&lt;/h4&gt;
- &lt;/figcaption&gt;
+			&lt;h4&gt;find fit memorry chunk&lt;/h4&gt;
+		&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 So when we need memorry to store something else, we just override data on allocated memory, it save us one free operation.
 &lt;figure&gt;&lt;img src="https://sytranvn.dev/posts/allocation/PreallocatedStorage-New-2.png"&gt;&lt;figcaption&gt;
- &lt;h4&gt;add free chunk to in used&lt;/h4&gt;
- &lt;/figcaption&gt;
+			&lt;h4&gt;add free chunk to in used&lt;/h4&gt;
+		&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 There is nothing much to be done in allocation since it just a wrapper to &lt;code&gt;malloc&lt;/code&gt; and &lt;code&gt;free&lt;/code&gt; memorry. But this is the heart of everything. In next posts, we will see how &lt;code&gt;PreallocatedStorage&lt;/code&gt; is used by V8 in specific scenarios.&lt;/p&gt;</description></item><item><title>Token</title><link>https://sytranvn.dev/posts/token/</link><pubDate>Wed, 06 Oct 2021 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/token/</guid><description>&lt;blockquote&gt;

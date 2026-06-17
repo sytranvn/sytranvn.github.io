@@ -1,4 +1,7 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>sytranvn.dev</title><link>https://sytranvn.dev/posts/</link><description>Recent content on sytranvn.dev</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Tue, 07 Apr 2026 16:29:36 +0700</lastBuildDate><atom:link href="https://sytranvn.dev/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>I Learn Java</title><link>https://sytranvn.dev/posts/i-learn-java/</link><pubDate>Tue, 07 Apr 2026 16:29:36 +0700</pubDate><guid>https://sytranvn.dev/posts/i-learn-java/</guid><description>&lt;p&gt;My first impression about it was that to run a &lt;code&gt;Hello world&lt;/code&gt;, you need to write
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>sytranvn.dev</title><link>https://sytranvn.dev/posts/</link><description>Recent content on sytranvn.dev</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 17 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://sytranvn.dev/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Vibe coders vs Programmers</title><link>https://sytranvn.dev/posts/vibe-coders-vs-programmers/</link><pubDate>Wed, 17 Jun 2026 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/vibe-coders-vs-programmers/</guid><description>&lt;p&gt;Vibe coders are people spend days building
+impractical applications.
+Meanwhile, programmers spend hours solving
+Leetocde puzzles.&lt;/p&gt;</description></item><item><title>I Learn Java</title><link>https://sytranvn.dev/posts/i-learn-java/</link><pubDate>Tue, 07 Apr 2026 16:29:36 +0700</pubDate><guid>https://sytranvn.dev/posts/i-learn-java/</guid><description>&lt;p&gt;My first impression about it was that to run a &lt;code&gt;Hello world&lt;/code&gt;, you need to write
 a lot of code. Even other OOP languages like C++ don&amp;rsquo;t require that much.&lt;/p&gt;
 &lt;p&gt;At the time, I was thinking: Yo, these people are really into OOP. But why not
 just OOP everything and keep the &lt;code&gt;main()&lt;/code&gt; function alone?
@@ -2171,25 +2174,25 @@ release version and don&amp;rsquo;t want to rebuild everything. Open
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Besides of that, V8 defined a &lt;code&gt;PreallocatedStorage&lt;/code&gt; (double linked list) to manage allocated memorry.
 &lt;figure&gt;&lt;img src="https://sytranvn.dev/posts/allocation/PreallocatedStorage-LinkTo.png"&gt;&lt;figcaption&gt;
- &lt;h4&gt;link chunks&lt;/h4&gt;
- &lt;/figcaption&gt;
+			&lt;h4&gt;link chunks&lt;/h4&gt;
+		&lt;/figcaption&gt;
 &lt;/figure&gt;
 &lt;/p&gt;
 &lt;figure&gt;&lt;img src="https://sytranvn.dev/posts/allocation/PreallocatedStorage-Unlink.png"&gt;&lt;figcaption&gt;
- &lt;h4&gt;unlink chunks&lt;/h4&gt;
- &lt;/figcaption&gt;
+			&lt;h4&gt;unlink chunks&lt;/h4&gt;
+		&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;When we need to allocate some memorry, first V8 will find available memorry chunk in &lt;code&gt;free_list_&lt;/code&gt; that fit before call &lt;code&gt;Malloced::New()&lt;/code&gt; to allocate new memorry. And when V8 done using a memorry chunk, it does not &lt;code&gt;free&lt;/code&gt; instantly. Instead, V8 just removes the chunk from &lt;code&gt;in_use_list_&lt;/code&gt; and move it to &lt;code&gt;free_list_&lt;/code&gt;.
 &lt;figure&gt;&lt;img src="https://sytranvn.dev/posts/allocation/PreallocatedStorage-New-1.png"&gt;&lt;figcaption&gt;
- &lt;h4&gt;find fit memorry chunk&lt;/h4&gt;
- &lt;/figcaption&gt;
+			&lt;h4&gt;find fit memorry chunk&lt;/h4&gt;
+		&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 So when we need memorry to store something else, we just override data on allocated memory, it save us one free operation.
 &lt;figure&gt;&lt;img src="https://sytranvn.dev/posts/allocation/PreallocatedStorage-New-2.png"&gt;&lt;figcaption&gt;
- &lt;h4&gt;add free chunk to in used&lt;/h4&gt;
- &lt;/figcaption&gt;
+			&lt;h4&gt;add free chunk to in used&lt;/h4&gt;
+		&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 There is nothing much to be done in allocation since it just a wrapper to &lt;code&gt;malloc&lt;/code&gt; and &lt;code&gt;free&lt;/code&gt; memorry. But this is the heart of everything. In next posts, we will see how &lt;code&gt;PreallocatedStorage&lt;/code&gt; is used by V8 in specific scenarios.&lt;/p&gt;</description></item><item><title>Token</title><link>https://sytranvn.dev/posts/token/</link><pubDate>Wed, 06 Oct 2021 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/token/</guid><description>&lt;blockquote&gt;
