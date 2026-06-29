@@ -1,4 +1,13 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>sytranvn.dev</title><link>https://sytranvn.dev/posts/</link><description>Recent content on sytranvn.dev</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 17 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://sytranvn.dev/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Vibe coders vs Programmers</title><link>https://sytranvn.dev/posts/vibe-coders-vs-programmers/</link><pubDate>Wed, 17 Jun 2026 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/vibe-coders-vs-programmers/</guid><description>&lt;p&gt;Vibe coders are people spend days building
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>sytranvn.dev</title><link>https://sytranvn.dev/posts/</link><description>Recent content on sytranvn.dev</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sat, 27 Jun 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://sytranvn.dev/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Trust issue with AI</title><link>https://sytranvn.dev/posts/trust-issue-with-ai/</link><pubDate>Sat, 27 Jun 2026 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/trust-issue-with-ai/</guid><description>&lt;p&gt;Nowadays, writing code has become much
+&amp;ldquo;cheaper&amp;rdquo; in terms of time thanks to AI.
+However, this creates another major problem:
+project cognitive debt. When every line of
+code is written in minutes, the human brain
+seems unable to keep up and assess its correctness.
+Although this has happened in the past,
+resulting in bugs, with the rapid development
+of AI, the probability of us detecting and
+fixing bugs in time has decreased significantly.&lt;/p&gt;</description></item><item><title>Vibe coders vs Programmers</title><link>https://sytranvn.dev/posts/vibe-coders-vs-programmers/</link><pubDate>Wed, 17 Jun 2026 00:00:00 +0000</pubDate><guid>https://sytranvn.dev/posts/vibe-coders-vs-programmers/</guid><description>&lt;p&gt;Vibe coders are people spend days building
 impractical applications.
 Meanwhile, programmers spend hours solving
 Leetocde puzzles.&lt;/p&gt;</description></item><item><title>I Learn Java</title><link>https://sytranvn.dev/posts/i-learn-java/</link><pubDate>Tue, 07 Apr 2026 16:29:36 +0700</pubDate><guid>https://sytranvn.dev/posts/i-learn-java/</guid><description>&lt;p&gt;My first impression about it was that to run a &lt;code&gt;Hello world&lt;/code&gt;, you need to write
